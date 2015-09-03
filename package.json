@@ -1,0 +1,23 @@
+{
+  "name": "tricks",
+  "version": "1.0.0",
+  "description": "ES6 modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrSwitch/tricks.git"
+  },
+  "keywords": [
+    "Es6",
+    "modules"
+  ],
+  "author": "Andrew Dodson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSwitch/tricks/issues"
+  },
+  "homepage": "https://github.com/MrSwitch/tricks"
+}
