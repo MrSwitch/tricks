@@ -1,12 +1,13 @@
-// Iterate on all items until a condition has been met
-
 import each from './each';
 
-export default function until(matches, callback) {
-	var b = false;
-	each(matches, (item) => {
-		if( b )
-			return;
-		b = callback.call(item, item);
+export default function(elements, callback) {
+	var bool;
+
+	each(elements, (el) => {
+		if (!bool) {
+			bool = callback(el);
+		}
 	});
-};
+
+	return bool;
+}

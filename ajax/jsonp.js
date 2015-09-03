@@ -5,10 +5,10 @@
 // JSONP COUNTER
 let counter = 0;
 
-export default function jsonp(url, callback){
+export default function jsonp(url, callback) {
 	// JSONP
 	// Make the anonymous function. not anonymous
-	let callback_name = `jsonp_document_${counter++}`;
+	let callback_name = `_tricks_jsonp_${counter++}`;
 
 	window[callback_name] = callback;
 	// find a place to insert the script tag
@@ -20,4 +20,4 @@ export default function jsonp(url, callback){
 	script.async = true;
 	// Append
 	sibling.parentNode.insertBefore(script,sibling);
-};
+}

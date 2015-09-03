@@ -1,3 +1,4 @@
+// Return the relative url for a path
 export default function rURL(path, relative) {
 	if (!path) {
 		return '';
@@ -10,4 +11,4 @@ export default function rURL(path, relative) {
 	catch (e) {
 		return path;
 	}
-};
+}

@@ -1,3 +1,7 @@
-import addClass from '../dom/addClass';
+import CSSSupports from './CSSSupports';
 
-addClass( document.documentElement, (' ' + ( "ontouchstart" in window ? '' : 'no-') + 'touch') );
+const result = ("ontouchstart" in window);
+
+CSSSupports('touch', result);
+
+export default result;

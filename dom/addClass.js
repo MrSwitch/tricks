@@ -1,7 +1,11 @@
+// addClass
+import each from './each';
+import hasClass from './hasClass';
 
-export default function addClass(elm, className) {
-	let reg = new RegExp("(^|\\s)"+className+"($|\\s)", 'i');
-	if( !elm.className.match( reg ) ){
-		elm.className += ' '+className;
-	}
+export default function(elements, className) {
+	return each(elements, (el) => {
+		if (!hasClass(el, className)) {
+			el.className += " " + className;
+		}
+	});
 }
