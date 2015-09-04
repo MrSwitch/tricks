@@ -5,66 +5,65 @@
 import on from './on';
 import each from '../dom/each';
 
-//
+
 // Touch
 // @param callback function - Every touch event fired
 // @param complete function- Once all touch event ends
-//
-export default function touch(elements, callback, start, complete) {
+export default function touch(elements, onmove, onstart, onend) {
 
-	// loop through and add events
-	each(elements, (element) => {
+	// Store callbacks, and previous pointer position
+	var cb = {}, mv = {}, fin = {};
 
-		// Store callbacks, and previous pointer position
-		var cb = {}, mv = {}, fin = {};
+	on(document, 'mousemove MSPointerMove touchmove', (e) => {
 
-		on(document, 'mousemove MSPointerMove touchmove', (e) => {
+		// Fix Android not firing multiple moves
+		// if (e.type.match(/touch/i)) {
+		// // e.preventDefault();
+		// }
 
-			// Fix Android not firing multiple moves
-			if (e.type.match(/touch/i)) {
-//				e.preventDefault();
-			}
+		// Mousebutton down?
+		if (e.type.match(/mouse/i) && e.which !== 1) {
+			// The mouse buttons isn't pressed, kill this
+			return;
+		}
 
-			// Mousebutton down?
-			if (e.type.match(/mouse/i) && e.which !== 1) {
-				// The mouse buttons isn't pressed, kill this
-				return;
-			}
+		// trigger the call
+		var i = e.pointerId || 0;
+		var handler = cb[i];
 
-			// trigger the call
-			var i = e.pointerId || 0,
-				func = cb[i],
-				o = mv[i];
+		if (handler && typeof(handler) === 'function') {
+
+			var o = mv[i];
 
 			// Extend the Event Object with 'gestures'
 			gesture(e, o);
 
 			// Trigger callback
-			if (func && typeof(func) === 'function') {
-				func.call(this, e, o);
-			}
+			handler(e, o);
+		}
 
-			mv[i] = e;
-		});
+		mv[i] = e;
+	});
 
-		on(document, 'mouseup MSPointerUp touchend touchcancel', (e) => {
+	on(document, 'mouseup MSPointerUp touchend touchcancel', (e) => {
 
-//			e.preventDefault();
+		var i = e.pointerId || 0;
+		cb[i] = null;
 
-			var i = e.pointerId || 0;
-			cb[i] = null;
+		if (e.type === "touchend" || e.type === "touchcancel") {
+			e = mv[i];
+		}
 
-			if (e.type === "touchend" || e.type === "touchcancel") {
-				e = mv[i];
-			}
+		let handler = fin[i];
+		if (handler) {
+			handler(e);
+		}
 
-			let func = fin[i];
-			if (func) {
-				func.call(this,e);
-			}
+		fin[i] = null;
+	});
 
-			fin[i] = null;
-		});
+	// loop through and add events
+	each(elements, (element) => {
 
 		// bind events
 		on(element, 'touchend', (e) => {
@@ -76,16 +75,13 @@ export default function touch(elements, callback, start, complete) {
 
 		on(element, 'mousedown MSPointerDown touchstart', (e) => {
 
-			// prevent default
-			//e.preventDefault();
-
 			// Cancel the mousemove if the msMousePointer is enabled
 			if(e.type === 'mousemove' && "msPointerEnabled" in window.navigator) {
 				return;
 			}
 
 			// default pointer ID
-			var i = e.pointerId = (e.pointerId || 0);
+			var i = e.pointerId || 0;
 
 			// If touch, choose the first element.
 			// For multiple we may need to pass in a flag to this function
@@ -104,26 +100,27 @@ export default function touch(elements, callback, start, complete) {
 				gesture(_e, e);
 
 				// fire callback
-				callback.call(element, _e, o, e);
+				onmove.call(element, _e, o, e);
 			};
-			fin[i] = function(_e) {
 
-				if (complete) {
+			if (onend) {
+				fin[i] = function(_e) {
+
 					// Add Gestures to event Object
 					gesture(_e, e);
 
 					// fire complete callback
-					complete.call(element, _e, e);
-				}
-			};
+					onend.call(element, _e, e);
+				};
+			}
 
 			// trigger start
-			if (start) {
-				start.call(element, e);
+			if (onstart) {
+				onstart.call(element, e);
 			}
 		});
 	});
-};
+}
 
 
 function gesture(e, o) {
