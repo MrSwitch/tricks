@@ -1,7 +1,7 @@
 // transform
 // Assign CSS transform operation
 import css from './css';
-import supportsTransform3d from '../detect/transform3d';
+import supportsTransform3d from '../support/transform3d';
 
 export default function transform(element, prop, value) {
 	var x = prop + "(" + value + ")";
