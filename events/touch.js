@@ -5,6 +5,11 @@
 import on from './on';
 import each from '../dom/each';
 
+// Does this support pointer events?
+const pointerEnabled = window.navigator.pointerEnabled;
+const eventMoveTypes = pointerEnabled ? 'MSPointerMove pointerMove' : 'mousemove touchmove';
+const eventStartTypes = pointerEnabled ? 'MSPointerDown pointerDown' : 'mousedown touchdown';
+const eventEndTypes = pointerEnabled ? 'MSPointerUp pointerUp' : 'mouseup touchend touchcancel';
 
 // Touch
 // @param callback function - Every touch event fired
@@ -14,38 +19,38 @@ export default function touch(elements, onmove, onstart, onend) {
 	// Store callbacks, and previous pointer position
 	var cb = {}, mv = {}, fin = {};
 
-	on(document, 'mousemove MSPointerMove touchmove', (e) => {
+	on(document, eventMoveTypes, (moveEvent) => {
 
 		// Fix Android not firing multiple moves
 		// if (e.type.match(/touch/i)) {
 		// // e.preventDefault();
 		// }
 
-		// Mousebutton down?
-		if (e.type.match(/mouse/i) && e.which !== 1) {
+		// Pointer/Mouse down?
+		if (voidEvent(moveEvent)) {
 			// The mouse buttons isn't pressed, kill this
 			return;
 		}
 
 		// trigger the call
-		var i = e.pointerId || 0;
+		var i = moveEvent.pointerId || 0;
 		var handler = cb[i];
 
 		if (handler && typeof(handler) === 'function') {
 
-			var o = mv[i];
+			var prevEvent = mv[i];
 
 			// Extend the Event Object with 'gestures'
-			gesture(e, o);
+			gesture(moveEvent, prevEvent);
 
 			// Trigger callback
-			handler(e, o);
+			handler(moveEvent, prevEvent);
 		}
 
-		mv[i] = e;
+		mv[i] = moveEvent;
 	});
 
-	on(document, 'mouseup MSPointerUp touchend touchcancel', (e) => {
+	on(document, eventEndTypes, (e) => {
 
 		var i = e.pointerId || 0;
 		cb[i] = null;
@@ -66,99 +71,96 @@ export default function touch(elements, onmove, onstart, onend) {
 	each(elements, (element) => {
 
 		// bind events
-		on(element, 'touchend', (e) => {
-			console.log("el:touchend");
-			console.log(e);
-		});
+		// on(element, 'touchend', (e) => {
+		// 	console.log("el:touchend");
+		// 	console.log(e);
+		// });
 
 		on(element, "selectstart", (e) => {return false;} );
 
-		on(element, 'mousedown MSPointerDown touchstart', (e) => {
-
-			// Cancel the mousemove if the msMousePointer is enabled
-			if(e.type === 'mousemove' && "msPointerEnabled" in window.navigator) {
-				return;
-			}
+		on(element, eventStartTypes, (startEvent) => {
 
 			// default pointer ID
-			var i = e.pointerId || 0;
+			var i = startEvent.pointerId || 0;
 
 			// If touch, choose the first element.
 			// For multiple we may need to pass in a flag to this function
-			if (e.touches && e.touches.length) {
-				var ts = e.timeStamp;
-				e = e.touches[0];
-				e.timeStamp = ts;
+			if (startEvent.touches && startEvent.touches.length) {
+				var ts = startEvent.timeStamp;
+				startEvent = startEvent.touches[0];
+				startEvent.timeStamp = ts;
 			}
 
 			// Add Gestures to event Object
-			gesture(e);
+			gesture(startEvent);
 
-			mv[i] = e;
-			cb[i] = function(_e, o) {
-				// Add Gestures to event Object
-				gesture(_e, e);
-
-				// fire callback
-				onmove.call(element, _e, o, e);
+			mv[i] = startEvent;
+			cb[i] = (moveEvent, prevMoveEvent) => {
+				onmove.call(element, moveEvent, prevMoveEvent, startEvent);
 			};
 
 			if (onend) {
-				fin[i] = function(_e) {
+				fin[i] = (endEvent) => {
 
 					// Add Gestures to event Object
-					gesture(_e, e);
+					gesture(endEvent, startEvent);
 
 					// fire complete callback
-					onend.call(element, _e, e);
+					onend.call(element, endEvent, startEvent);
 				};
 			}
 
 			// trigger start
 			if (onstart) {
-				onstart.call(element, e);
+				onstart.call(element, startEvent);
 			}
 		});
 	});
 }
 
-
-function gesture(e, o) {
+export function gesture(currEvent, prevEvent) {
 
 	// Response Object
-	e.gesture = {};
+	currEvent.gesture = {};
 
-	if (e && e.touches && e.touches.length > 0) {
-		e.gesture.touches = e.touches;
+	if (currEvent && currEvent.touches && currEvent.touches.length > 0) {
+		currEvent.gesture.touches = currEvent.touches;
 	}
 	else {
-		e.gesture.touches = [e];
+		currEvent.gesture.touches = [currEvent];
 	}
 
-	e.gesture.screenX = e.gesture.touches[0].screenX;
-	e.gesture.screenY = e.gesture.touches[0].screenY;
+	currEvent.gesture.screenX = currEvent.gesture.touches[0].screenX;
+	currEvent.gesture.screenY = currEvent.gesture.touches[0].screenY;
 
 
 	// If the second parameter isn't defined then we're unable to define getures
 	// But if it is then whoop, lets go.
-	if (o) {
-		e.gesture.deltaTime = (e.timeStamp - o.timeStamp);
+	if (prevEvent) {
 
-		var dx = e.gesture.deltaX = e.gesture.screenX - o.gesture.screenX;
-		var dy = e.gesture.deltaY = e.gesture.screenY - o.gesture.screenY;
+		currEvent.gesture.deltaTime = (currEvent.timeStamp - prevEvent.timeStamp);
+
+		var dx = currEvent.gesture.deltaX = currEvent.gesture.screenX - prevEvent.gesture.screenX;
+		var dy = currEvent.gesture.deltaY = currEvent.gesture.screenY - prevEvent.gesture.screenY;
 
 		// Which is the best direction for the gesture?
 		if (Math.abs(dy) > Math.abs(dx)) {
-			e.gesture.direction = (dy > 0 ? 'up' : 'down');
+			currEvent.gesture.direction = (dy > 0 ? 'up' : 'down');
 		}
 		else {
-			e.gesture.direction = (dx > 0 ? 'right' : 'left');
+			currEvent.gesture.direction = (dx > 0 ? 'right' : 'left');
 		}
 
 		// Distance
-		e.gesture.distance = Math.sqrt((dx * dx) + (dy * dy));
+		currEvent.gesture.distance = Math.sqrt((dx * dx) + (dy * dy));
 
 		// Velocity
-		e.gesture.velocity = e.gesture.distance / e.gesture.deltaTime;
+		currEvent.gesture.velocity = currEvent.gesture.distance / currEvent.gesture.deltaTime;
 	}
+}
+
+
+function voidEvent(event) {
+	var type = event.pointerType || event.type;
+	return (type.match(/mouse/i) && (event.which || event.buttons) !== 1)
 }

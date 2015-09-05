@@ -1,11 +1,13 @@
 // swipe
 // Checks for a swipe to the left or to the right
 
-import touch from './touch';
+import touch, {gesture} from './touch';
 
 export default function swipe(elements, callback) {
 
 	return touch(elements, function(e, o, s) {
+
+		gesture(e,s);
 
 		e.gesture.type = "drag" + e.gesture.direction;
 
@@ -13,7 +15,7 @@ export default function swipe(elements, callback) {
 
 	}, function(e){
 
-	}, function(e,s){
+	}, function(e, s) {
 		// How long did this operation take?
 		if (e.gesture.deltaTime < 200 && e.gesture.distance > 20 && e.gesture.velocity > 0.3) {
 			e.gesture.type = "swipe" + e.gesture.direction;
