@@ -8,7 +8,7 @@ import each from '../dom/each';
 // Does this support pointer events?
 const pointerEnabled = window.navigator.pointerEnabled;
 const eventMoveTypes = pointerEnabled ? 'MSPointerMove pointerMove' : 'mousemove touchmove';
-const eventStartTypes = pointerEnabled ? 'MSPointerDown pointerDown' : 'mousedown touchdown';
+const eventStartTypes = pointerEnabled ? 'MSPointerDown pointerDown' : 'mousedown touchstart';
 const eventEndTypes = pointerEnabled ? 'MSPointerUp pointerUp' : 'mouseup touchend touchcancel';
 
 // Touch
@@ -133,6 +133,12 @@ export function gesture(currEvent, prevEvent) {
 	currEvent.gesture.screenX = currEvent.gesture.touches[0].screenX;
 	currEvent.gesture.screenY = currEvent.gesture.touches[0].screenY;
 
+	if (!currEvent.screenX) {
+		currEvent.screenX = currEvent.gesture.screenX;
+	}
+	if (!currEvent.screenY) {
+		currEvent.screenY = currEvent.gesture.screenY;
+	}
 
 	// If the second parameter isn't defined then we're unable to define getures
 	// But if it is then whoop, lets go.
@@ -162,5 +168,5 @@ export function gesture(currEvent, prevEvent) {
 
 function voidEvent(event) {
 	var type = event.pointerType || event.type;
-	return (type.match(/mouse/i) && (event.which || event.buttons) !== 1)
+	return (type.match(/mouse/i) && (event.which || event.buttons) !== 1);
 }
