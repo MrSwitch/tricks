@@ -1,6 +1,6 @@
 import toBlob from 'object/toBlob.js';
 
-describe('toBlob', function() {
+describe('object/toBlob', function() {
 
 	var test = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
 

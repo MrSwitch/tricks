@@ -1,8 +1,7 @@
+import attr from './attr.js';
 
-import extend from '../object/extend.js';
-
-export default (tagName, prop) => {
+export default (tagName, attrs) => {
 	let elm = document.createElement(tagName);
-	extend(elm, prop);
+	attr(elm, attrs);
 	return elm;
 };

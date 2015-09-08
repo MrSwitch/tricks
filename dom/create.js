@@ -5,12 +5,12 @@ export default (node, attr) => {
 
 	var n = typeof(node)==='string' ? document.createElement(node) : node;
 
-	if(typeof(attr)==='object' ){
-		if( "tagName" in attr ){
+	if (typeof(attr) === 'object') {
+		if ("tagName" in attr) {
 			target = attr;
 		}
 		else{
-			for(var x in attr){if(attr.hasOwnProperty(x)){
+			for (var x in attr){if (attr.hasOwnProperty(x)) {
 
 				if(x === 'text'){
 					n.appendChild(document.createTextNode(attr[x]));
