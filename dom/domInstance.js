@@ -1,3 +1,5 @@
+import instanceOf from '../object/instanceOf.js';
+
 export default (type, data) => {
 	var test = 'HTML' + (type || '').replace(
 		/^[a-z]/,
@@ -21,7 +23,3 @@ export default (type, data) => {
 		return (!(instanceOf(data, Object) || instanceOf(data, Array) || instanceOf(data, String) || instanceOf(data, Number)) && data.tagName && data.tagName.toLowerCase() === type);
 	}
 };
-
-function instanceOf(data, root) {
-	return root && data instanceof root;
-}

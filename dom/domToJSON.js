@@ -1,4 +1,5 @@
 import domInstance from './domInstance.js';
+import instanceOf from '../object/instanceOf.js';
 
 export default (node) => {
 
@@ -52,10 +53,6 @@ export default (node) => {
 
 	return data;
 };
-
-function instanceOf(data, root) {
-	return root && data instanceof root;
-}
 
 // NodeListToJSON
 // Given a list of elements extrapolate their values and return as a json object
