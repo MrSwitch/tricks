@@ -1,4 +1,4 @@
-import insertBefore from '../dom/insertBefore';
+import insertBefore from '../dom/insertBefore.js';
 
 export default function (tracking) {
 	window._gaq = window._gaq || [];

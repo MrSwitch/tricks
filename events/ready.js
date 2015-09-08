@@ -1,10 +1,10 @@
-import on from './on';
+import on from './on.js';
 
-export default function ready(callback) {
+export default (callback) => {
 	if (document.readyState !== "loading" && document.body) {
 		callback();
 	}
 	else {
 		on(document, 'DOMContentLoaded', callback);
 	}
-}
+};

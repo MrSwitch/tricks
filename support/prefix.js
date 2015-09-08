@@ -1,6 +1,6 @@
 // Test properties with prefix
 
-export default function prefix(prop) {
+export default (prop) => {
 
 	var s = (document.createElement('div')).style;
 
@@ -8,7 +8,7 @@ export default function prefix(prop) {
 			s["Moz"+prop] !== undefined ||
 			s["Webkit"+prop] !== undefined ||
 			s["ms"+prop] !== undefined ||
-			s[prop.replace(/^./, function(m) {
+			s[prop.replace(/^./, (m) => {
 				return m.toUpperCase();
 			})] !== undefined;
-}
+};

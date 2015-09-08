@@ -5,7 +5,7 @@
 // JSONP COUNTER
 let counter = 0;
 
-export default function jsonp(url, callback) {
+export default (url, callback) => {
 	// JSONP
 	// Make the anonymous function. not anonymous
 	let callback_name = `_tricks_jsonp_${counter++}`;
@@ -19,5 +19,5 @@ export default function jsonp(url, callback) {
 	script.src = `${url}&callback=${callback_name}`;
 	script.async = true;
 	// Append
-	sibling.parentNode.insertBefore(script,sibling);
-}
+	sibling.parentNode.insertBefore(script, sibling);
+};

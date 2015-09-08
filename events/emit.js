@@ -1,7 +1,7 @@
 // on.js
 // Listen to events, this is a wrapper for addEventListener
 
-import each from '../dom/each';
+import each from '../dom/each.js';
 
 // IE does not support `new Event()`
 // See https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events for details
@@ -19,8 +19,9 @@ catch(e) {
 }
 
 // Return
-export default function emit(elements, eventname) {
+export default (elements, eventname) => {
 	return each(elements, (el) => {
 		el.dispatchEvent(createEvent(eventname));
 	});
-}
+};
+

@@ -1,18 +1,18 @@
 // popup
 // Easy options as a hash
-import querystringify from '../string/querystringify';
+import param from '../string/param.js';
 
 var documentElement = document.documentElement;
 var dimensions = [['Top','Height'], ['Left', 'Width']];
 
-export default function popup(url, target, options = {}) {
+export default (url, target, options = {}) => {
 
 	// centers the popup correctly to the current display of a multi-screen display.
 	dimensions.forEach(generatePosition.bind(options));
 
 	// Open
-	return window.open(url, target, querystringify(options, ','));
-}
+	return window.open(url, target, param(options, ','));
+};
 
 function generatePosition ([Position, Dimension]) {
 	let position = Position.toLowerCase();

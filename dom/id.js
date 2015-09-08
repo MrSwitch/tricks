@@ -1,5 +1,5 @@
 // Auto Set/Get the ID of a tag element based
-export default function id(tag) {
+export default (tag) => {
 	if (tag.id) {
 		return tag.id;
 	}
@@ -9,4 +9,4 @@ export default function id(tag) {
 	tag.id = ref;
 
 	return ref;
-}
+};

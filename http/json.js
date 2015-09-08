@@ -1,7 +1,7 @@
 // JSON
-export default function json(url, callback) {
+export default (url, callback) => {
 	let x = new XMLHttpRequest();
-	x.onload = function() {
+	x.onload = () => {
 		var v;
 		try {
 			v = JSON.parse(x.response);
@@ -14,4 +14,4 @@ export default function json(url, callback) {
 	x.onerror = callback;
 	x.open("GET", url);
 	x.send();
-}
+};

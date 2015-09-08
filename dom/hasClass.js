@@ -1,8 +1,8 @@
-import until from './until';
+import until from './until.js';
 
-export default function(elements, className) {
+export default (elements, className) => {
 	var reg = new RegExp("(^|\\s)"+className+"($|\\s)", 'i');
 	return until(elements, (el) => {
 		return el.className && el.className.match(reg);
 	});
-}
+};

@@ -1,5 +1,5 @@
-import insertBefore from '../dom/insertBefore';
-import create from '../dom/create';
+import insertBefore from '../dom/insertBefore.js';
+import create from '../dom/create.js';
 
 // Insert Meta Tag
 insertBefore( create('meta', {

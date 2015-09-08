@@ -1,10 +1,7 @@
-//
 // Create and Append new Dom elements
 // @param node string
 // @param attr object literal
-// @param dom/stringx
-//
-export default function create(node,attr) {
+export default (node, attr) => {
 
 	var n = typeof(node)==='string' ? document.createElement(node) : node;
 

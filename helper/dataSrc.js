@@ -4,18 +4,18 @@
 // The data-src attribute is read and defines a path to the image
 // load an image once the image fits a visible area. or if the image exists
 
-import each from '../dom/each';
-import css from '../dom/css';
-import on from '../events/on';
+import each from '../dom/each.js';
+import css from '../dom/css.js';
+import on from '../events/on.js';
 
 
 var images = [];
-export default function (elements){
+export default (elements) => {
 
 	// Find all the elements in the page with data-src className
 	// Bind listeners to the page to determine whether this content is changing.
 
-	return each(elements, function(el) {
+	return each(elements, (el) => {
 
 		// Listen to the scroll event on this item
 		on(el, 'scroll', () => check(el));

@@ -1,6 +1,6 @@
 // Browser Sniffing
 
-import addClass from '../dom/addClass';
+import addClass from '../dom/addClass.js';
 
 let map = {
 	seamonkey: [/Seamonkey\/\d+/],
@@ -30,3 +30,5 @@ for (let x in map) {
 if (name) {
 	addClass(document.documentElement, name);
 }
+
+export default name;

@@ -1,9 +1,9 @@
-import each from './each';
-import addClass from './addClass';
-import removeClass from './removeClass';
-import hasClass from './hasClass';
+import each from './each.js';
+import addClass from './addClass.js';
+import removeClass from './removeClass.js';
+import hasClass from './hasClass.js';
 
-export default function(elements, className, condition) {
+export default (elements, className, condition) => {
 
 	if (typeof(condition) !== 'function') {
 		condition = function(el) {
@@ -19,4 +19,4 @@ export default function(elements, className, condition) {
 			removeClass(el, className);
 		}
 	});
-}
+};

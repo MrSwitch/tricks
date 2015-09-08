@@ -1,10 +1,10 @@
-import until from './until';
-import matches from './matches';
+import until from './until.js';
+import matches from './matches.js';
 
-export default function(elements, match) {
+export default (elements, match) => {
 	return until(elements, (el) => {
 		if (matches(el, match)) {
 			return el;
 		}
 	});
-}
+};

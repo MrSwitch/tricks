@@ -1,7 +1,7 @@
-import each from './each';
-import matches from './matches';
+import each from './each.js';
+import matches from './matches.js';
 
-export default function(elements, match) {
+export default (elements, match) => {
 	let a = [];
 
 	each(elements, (el) => {
@@ -11,4 +11,4 @@ export default function(elements, match) {
 	});
 
 	return a;
-}
+};

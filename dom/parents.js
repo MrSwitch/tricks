@@ -1,10 +1,10 @@
 // Find parents of an element which match a pattern
 
-import each from './each';
-import matches from './matches';
-import documentElement from './documentElement';
+import each from './each.js';
+import matches from './matches.js';
+import documentElement from './documentElement.js';
 
-export default function(elements, match) {
+export default (elements, match) => {
 	var m = [];
 	each(elements, (el) => {
 		while(el && el.parentNode) {
@@ -24,4 +24,4 @@ export default function(elements, match) {
 		}
 	});
 	return m;
-}
+};

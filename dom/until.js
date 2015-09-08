@@ -1,6 +1,6 @@
-import each from './each';
+import each from './each.js';
 
-export default function(elements, callback) {
+export default (elements, callback) => {
 	var bool;
 
 	each(elements, (el) => {
@@ -10,4 +10,4 @@ export default function(elements, callback) {
 	});
 
 	return bool;
-}
+};

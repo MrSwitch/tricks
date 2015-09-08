@@ -1,9 +1,9 @@
 // swipe
 // Checks for a swipe to the left or to the right
 
-import touch, {gesture} from './touch';
+import touch, {gesture} from './touch.js';
 
-export default function swipe(elements, callback) {
+export default (elements, callback) => {
 
 	return touch(elements, function(e, o, s) {
 

@@ -1,11 +1,11 @@
 // Select Class
-import each from './each';
-import addClass from './addClass';
-import removeClass from './removeClass';
+import each from './each.js';
+import addClass from './addClass.js';
+import removeClass from './removeClass.js';
 
-export default function (elements, className = 'selected') {
+export default (elements, className = 'selected') => {
 	return each(elements, (el) => {
 		removeClass(el.parentNode.children, className);
 		addClass(el, className);
 	});
-}
+};

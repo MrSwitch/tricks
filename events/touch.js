@@ -2,8 +2,8 @@
 // Calculate the difference from the starting position and the end position.
 // Returns a gesture object given
 
-import on from './on';
-import each from '../dom/each';
+import on from './on.js';
+import each from '../dom/each.js';
 
 // Does this support pointer events?
 const pointerEnabled = window.navigator.pointerEnabled;
@@ -14,7 +14,7 @@ const eventEndTypes = pointerEnabled ? 'MSPointerUp pointerUp' : 'mouseup touche
 // Touch
 // @param callback function - Every touch event fired
 // @param complete function- Once all touch event ends
-export default function touch(elements, onmove, onstart, onend) {
+export default (elements, onmove, onstart, onend) => {
 
 	// Store callbacks, and previous pointer position
 	var cb = {}, mv = {}, fin = {};
@@ -116,7 +116,7 @@ export default function touch(elements, onmove, onstart, onend) {
 			}
 		});
 	});
-}
+};
 
 export function gesture(currEvent, prevEvent) {
 

@@ -1,7 +1,5 @@
 // Create a Query string
-export default function(hash, delimiter = '&', seperator = '=') {
-	return Object.keys(hash).map(function(name) {
-		var value = hash[name];
-		return name + (value !== null ? seperator + value : '');
-	}).join(delimiter);
-}
+import param from './param.js';
+export default (o, formatFunction = (value) => {return (value === '?' ? '?' : encodeURIComponent(value));}) => {
+	return param(o, '&', '=', formatFunction);
+};

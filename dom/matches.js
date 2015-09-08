@@ -1,6 +1,6 @@
-import until from './until';
+import until from './until.js';
 
-export default function(elements, query) {
+export default (elements, query) => {
 
 	let handler = query;
 
@@ -12,4 +12,4 @@ export default function(elements, query) {
 	}
 
 	return until(elements, handler);
-}
+};

@@ -1,4 +1,4 @@
-import CSSSupports from './CSSSupports';
+import CSSSupports from './CSSSupports.js';
 
 const result = ("ontouchstart" in window);
 

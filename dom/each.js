@@ -1,4 +1,4 @@
-export default function each(matches, callback = function(){}) {
+export default (matches, callback = function(){}) => {
 
 	if (matches instanceof Element || matches instanceof HTMLDocument || matches instanceof Window) {
 		callback(matches);
@@ -17,4 +17,4 @@ export default function each(matches, callback = function(){}) {
 	}
 
 	return matches || [];
-}
+};
