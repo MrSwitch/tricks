@@ -1,6 +1,8 @@
+import isDom from './isDom.js';
+
 export default (matches, callback = function(){}) => {
 
-	if (matches instanceof Element || matches instanceof HTMLDocument || matches instanceof Window) {
+	if (isDom(matches)) {
 		callback(matches);
 		return [matches];
 	}

@@ -1,0 +1,27 @@
+import hasBinary from 'object/hasBinary.js';
+
+describe('object/hasBinary', function() {
+
+	if (window.Blob) {
+		it('should return true if the content of the arguments contain binary data', () => {
+
+			var b = hasBinary({
+				key: 'valueB',
+				bin: new Blob()
+			});
+
+			// Check a is like b
+			expect(b).to.be.ok();
+		});
+	}
+
+	it('should return false if the content of the arguments does not contain binary data', () => {
+
+		var b = hasBinary({
+			key: 'valueB'
+		});
+
+		// Check a is like b
+		expect(b).to.not.be.ok();
+	});
+});
