@@ -15,6 +15,7 @@ import './helper/popup.js';
 import './helper/store.js';
 
 import './http/xhr.js';
+import './http/jsonp.js';
 
 import './object/args.js';
 import './object/clone.js';
@@ -24,6 +25,7 @@ import './object/hasBinary.js';
 import './object/instanceOf.js';
 import './object/merge.js';
 import './object/pubsub.js';
+import './object/then.js';
 import './object/toBlob.js';
 import './object/unique.js';
 import './object/url.js';
@@ -31,3 +33,4 @@ import './object/url.js';
 import './string/createUrl.js';
 import './string/param.js';
 import './string/extract.js';
+import './string/queryparse.js';
