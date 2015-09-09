@@ -34,3 +34,4 @@ import './string/createUrl.js';
 import './string/param.js';
 import './string/extract.js';
 import './string/queryparse.js';
+import './string/random.js';

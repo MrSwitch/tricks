@@ -1,33 +1,18 @@
 // Global Events
 // Attach the callback to the window object
 // Return its unique reference
-export const namespace = 'tricks';
+import random from '../string/random.js';
+
+export const prefix = '_tricks_';
 
 export default (callback, guid) => {
 
 	// If the guid has not been supplied then create a new one.
-	guid = guid || namespace + parseInt(Math.random() * 1e12, 10).toString(36);
+	guid = guid || prefix + random();
 
 	// Define the callback function
-	window[guid] = function() {
-
-		var bool;
-
-		// Trigger the callback
-		try {
-			bool = callback.apply(this, arguments);
-		}
-		catch (e) {
-			console.error(e);
-		}
-
-		if (bool) {
-			// Remove this handler reference
-			try {
-				delete window[guid];
-			}
-			catch (e) {}
-		}
+	window[guid] = (...args) => {
+		callback.apply(this, args) && delete window[guid];
 	};
 
 	return guid;
