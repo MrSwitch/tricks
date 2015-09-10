@@ -7,6 +7,7 @@
 import each from '../dom/each.js';
 import css from '../dom/css.js';
 import on from '../events/on.js';
+import toArray from '../object/toArray.js';
 
 
 var images = [];
@@ -33,20 +34,18 @@ function check(el) {
 		t = el.scrollTop;
 
 	// [data-src]
-	let a = Array.prototype.slice.call(el.querySelectorAll('img[data-src]'));
-
+	toArray(el.querySelectorAll('img[data-src]'))
 	// Is it shown?
-	a = a.filter((img) => {
+	.filter((img) => {
 		// Where is this positioned?
 		var _t = img.offsetTop,
 			_h = img.offsetHeight;
 
 		// does it fix in the bounding box?
 		return ( ( _t + _h ) >= t && _t <= ( t + h ) );
-	});
-
-	//
-	a.forEach((img) => {
+	})
+	// Process the element
+	.forEach((img) => {
 
 		// SRC
 		img.src = img.getAttribute('data-src');
