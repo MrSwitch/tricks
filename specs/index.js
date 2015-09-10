@@ -26,6 +26,7 @@ import './object/instanceOf.js';
 import './object/merge.js';
 import './object/pubsub.js';
 import './object/then.js';
+import './object/toArray.js';
 import './object/toBlob.js';
 import './object/unique.js';
 import './object/url.js';
