@@ -5,11 +5,11 @@ describe('helper/popup', () => {
 	var _open = window.open;
 	var url = 'https://doma.in/oauth/auth';
 
-	after(function() {
+	after(() => {
 		window.open = _open;
 	});
 
-	it('should call window.open with url', function() {
+	it('should call window.open with url', () => {
 
 		var spy = sinon.spy((_url, name, options) => {
 			expect(url).to.eql(_url);
@@ -22,7 +22,7 @@ describe('helper/popup', () => {
 		expect(spy.calledOnce).to.be.ok();
 	});
 
-	it('should set top and left when width and height are provided', function() {
+	it('should set top and left when width and height are provided', () => {
 
 		var spy = sinon.spy((_url, name, options) => {
 			expect(options).to.contain('top=');

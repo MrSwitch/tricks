@@ -1,6 +1,6 @@
 import extend from 'object/extend.js';
 
-describe('object/extend', function() {
+describe('object/extend', () => {
 
 	it('should overide the properties in the first object with those within the second', () => {
 

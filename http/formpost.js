@@ -9,6 +9,7 @@ import attr from '../dom/attr.js';
 import domInstance from '../dom/domInstance.js';
 import createElement from '../dom/createElement.js';
 import globalCallback from '../events/globalCallback.js';
+import instanceOf from '../dom/instanceOf.js';
 
 export default (url, data, options, callback, callbackID, timeout = 60000) => {
 
@@ -59,7 +60,7 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 	// Override callback mechanism. Triggger a response onload/onerror
 	if (options && options.callbackonload) {
 		// Onload is being fired twice
-		frame.onload = function() {
+		frame.onload = () => {
 			cb({
 				response: 'posted',
 				message: 'Content was posted'
@@ -75,9 +76,7 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 	/////////////////////
 
 	if (timeout) {
-		timer = setTimeout(function() {
-			cb(new Error('timeout'));
-		}, timeout);
+		timer = setTimeout(cb.bind(null, new Error('timeout')), timeout);
 	}
 
 
@@ -148,7 +147,7 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 				var inputs = form.elements[x];
 				if (input) {
 					// Remove it.
-					if (!(inputs instanceof NodeList)) {
+					if (!instanceOf(inputs, window.NodeList)) {
 						inputs = [inputs];
 					}
 
@@ -214,32 +213,27 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 
 	// Submit the form
 	// Some reason this needs to be offset from the current window execution
-	setTimeout(function() {
+	setTimeout(() => {
 		form.submit();
 
-		setTimeout(function() {
-			try {
-				// Remove the iframe from the page.
-				//frame.parentNode.removeChild(win);
-				// Remove the form
-				if (newform) {
+		setTimeout(() => {
+			// Remove the iframe from the page.
+			//frame.parentNode.removeChild(win);
+			// Remove the form
+			if (newform) {
+				try {
 					newform.parentNode.removeChild(newform);
 				}
-			}
-			catch (e) {
-				try {
-					console.error('HelloJS: could not remove iframe');
-				}
-				catch (ee) {}
+				catch (e) {}
 			}
 
 			// Reenable the disabled form
-			for (var i = 0; i < reenableAfterSubmit.length; i++) {
-				if (reenableAfterSubmit[i]) {
-					reenableAfterSubmit[i].setAttribute('disabled', false);
-					reenableAfterSubmit[i].disabled = false;
+			reenableAfterSubmit.forEach((input) => {
+				if (input) {
+					input.setAttribute('disabled', false);
+					input.disabled = false;
 				}
-			}
+			});
 		}, 0);
 	}, 100);
 };

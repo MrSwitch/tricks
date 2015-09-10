@@ -51,8 +51,8 @@ export default (url, callback, callback_name, timeout = 60000) => {
 		async: true,
 		onload: cb,
 		onerror: cb,
-		onreadystatechange: function() {
-			if (/loaded|complete/i.test(this.readyState)) {
+		onreadystatechange: () => {
+			if (/loaded|complete/i.test(script.readyState)) {
 				cb();
 			}
 		}

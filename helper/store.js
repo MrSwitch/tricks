@@ -26,20 +26,20 @@ if (!localStorage) {
 	var cache = null;
 
 	localStorage = {
-		getItem: function(prop) {
-			prop = prop + '=';
+		getItem: (prop) => {
+			prop += '=';
 			var m = document.cookie.split(';');
-			for (var i = 0; i < m.length; i++) {
-				var _m = m[i].replace(/(^\s+|\s+$)/, '');
-				if (_m && _m.indexOf(prop) === 0) {
-					return _m.substr(prop.length);
+			m.forEach((item) => {
+				item = item.replace(/(^\s+|\s+$)/, '');
+				if (item && item.indexOf(prop) === 0) {
+					return item.substr(prop.length);
 				}
-			}
+			});
 
 			return cache;
 		},
 
-		setItem: function(prop, value) {
+		setItem: (prop, value) => {
 			cache = value;
 			document.cookie = prop + '=' + value;
 		}

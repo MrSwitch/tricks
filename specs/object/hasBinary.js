@@ -1,6 +1,6 @@
 import hasBinary from 'object/hasBinary.js';
 
-describe('object/hasBinary', function() {
+describe('object/hasBinary', () => {
 
 	if (window.Blob) {
 		it('should return true if the content of the arguments contain binary data', () => {

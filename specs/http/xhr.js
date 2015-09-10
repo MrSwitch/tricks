@@ -15,8 +15,7 @@ describe('http/xhr', () => {
 		var json = [{ "id": 12, "comment": "Hey there" }];
 
 		server.respondWith("GET", "/some/article/comments.json",
-            [200, { "Content-Type": "application/json" },
-             JSON.stringify(json)]);
+			[200, { "Content-Type": "application/json" }, JSON.stringify(json)]);
 
 		xhr('get', "/some/article/comments.json", {}, {}, (r) => {
 			expect(r).to.be.eql(json);

@@ -1,8 +1,8 @@
 import diff from 'object/diff.js';
 
-describe('object/diff', function() {
+describe('object/diff', () => {
 
-	it('should return the values which are in the second array but not the first', function() {
+	it('should return the values which are in the second array but not the first', () => {
 
 		var value = diff([1, 3], [1, 2, 3]);
 		expect(value).to.eql([2]);

@@ -1,5 +1,8 @@
 // XHR: uses CORS to make requests
 import instanceOf from '../object/instanceOf.js';
+import extract from '../string/extract.js';
+
+const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
 
 export default (method, url, headers, data, callback) => {
 
@@ -18,11 +21,11 @@ export default (method, url, headers, data, callback) => {
 	r.onload = (e) => {
 		var json = r.response;
 		try {
-			json = JSON.parse(r.responseText);
+			json = JSON.parse(r.responseText || r.response);
 		}
 		catch (_e) {}
 
-		var headers = headersToJSON(r.getAllResponseHeaders());
+		var headers = extract(r.getAllResponseHeaders(), match_headers);
 		headers.statusCode = r.status;
 
 		callback(json, headers);
@@ -68,25 +71,12 @@ export default (method, url, headers, data, callback) => {
 };
 
 
-// Headers are returned as a string
-function headersToJSON(s) {
-	var r = {};
-	var reg = /([a-z\-]+):\s?(.*);?/gi;
-	var m;
-	while ((m = reg.exec(s))) {
-		r[m[1]] = m[2];
-	}
-
-	return r;
-}
-
-
 function toFormData(data) {
 	var f = new FormData();
 	for (var x in data) {
 		if (data.hasOwnProperty(x)) {
-			if (instanceOf(data[x], window.HTMLInputElement)) {
-				if ('files' in data[x] && data[x].files.length > 0) {
+			if (instanceOf(data[x], window.HTMLInputElement) && 'files' in data[x]) {
+				if (data[x].files.length > 0) {
 					f.append(x, data[x].files[0]);
 				}
 			}

@@ -1,6 +1,6 @@
 import store from 'helper/store.js';
 
-describe('helper/store', function() {
+describe('helper/store', () =>{
 
 	var data = {
 		key: 'value',
@@ -9,17 +9,17 @@ describe('helper/store', function() {
 	var label = 'test';
 
 	// Store data for retrieval
-	beforeEach(function() {
+	beforeEach(() =>{
 		store(label, data);
 	});
 
-	it('should return the data placed into the store', function() {
+	it('should return the data placed into the store', () => {
 
 		expect(store(label)).to.eql(data);
 
 	});
 
-	it('should update data placed into the store', function() {
+	it('should update data placed into the store', () => {
 
 		var update = {
 			updated: 'update'
@@ -31,7 +31,7 @@ describe('helper/store', function() {
 
 	});
 
-	it('should delete data placed into the store', function() {
+	it('should delete data placed into the store', () => {
 
 		store(label, null);
 
@@ -39,7 +39,7 @@ describe('helper/store', function() {
 
 	});
 
-	it('should return undefined if data not found', function() {
+	it('should return undefined if data not found', () => {
 
 		expect(store('notfound')).to.equal(null);
 
