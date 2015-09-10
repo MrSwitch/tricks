@@ -1,9 +1,9 @@
 // Supports Flex
 import prefix from './prefix.js';
-import CSSSupports from './CSSSupports.js';
+import CSSsupports from './CSSsupports.js';
 
 const result = prefix("FlexWrap");
 
-CSSSupports('flex', result);
+CSSsupports('flex', result);
 
 export default result;
