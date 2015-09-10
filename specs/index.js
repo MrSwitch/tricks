@@ -2,6 +2,7 @@
 
 import './dom/attr.js';
 import './dom/append.js';
+import './dom/createElement.js';
 import './dom/each.js';
 import './dom/domInstance.js';
 import './dom/domToJSON.js';
