@@ -4,6 +4,9 @@ describe('object/url', () => {
 
 	var testLocationRoot = window.location.origin;
 	var testProtocol = window.location.protocol;
+	if (testProtocol==='file:') {
+		testProtocol += '//';
+	}
 	var testLocationDir = window.location.pathname.replace(/\/[^\/]+$/, '/');
 	var testLocationFilename = 'redirect.html';
 
