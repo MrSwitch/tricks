@@ -1,7 +1,6 @@
 // JSONP
 import globalCallback from '../events/globalCallback.js';
-import create from '../dom/create.js';
-import extend from '../object/extend.js';
+import append from '../dom/append.js';
 
 export default (url, callback, callback_name, timeout = 60000) => {
 
@@ -43,8 +42,7 @@ export default (url, callback, callback_name, timeout = 60000) => {
 	url = url.replace(new RegExp('=\\?(&|$)'), '=' + callback_name + '$1');
 
 	// Build script tag
-	script = create('script');
-	extend(script, {
+	script = append('script', {
 		id: callback_name,
 		name: callback_name,
 		src: url,
@@ -56,7 +54,6 @@ export default (url, callback, callback_name, timeout = 60000) => {
 				cb();
 			}
 		}
-	});
-	head.appendChild(script);
+	}, head );
 
 };
