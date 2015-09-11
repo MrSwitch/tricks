@@ -3,7 +3,7 @@ sudo: false
 node_js:
 - "0.12"
 before_script:
-- npm install -g gulp
+- npm install gulp
 - npm install -g bower
 - bower install
 script: gulp
