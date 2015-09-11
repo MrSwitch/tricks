@@ -14,6 +14,6 @@ System.config({
 });
 
 // loads /app/main.js
-System.import('specs/index.js').then(function(){
+System['import']('specs/index.js').then(function(){
 	mocha.run();
 });

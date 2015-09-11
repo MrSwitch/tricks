@@ -26,7 +26,7 @@ describe('object/args', () => {
 
 	it('should interpret the order of arguments, so some can be ommited', () => {
 
-		var value = args({str: 's', obj: 'o', func: 'f'}, [function() {}]);
+		var value = args({str: 's', obj: 'o', func: 'f'}, [() => {}]);
 
 		expect(value)
 
