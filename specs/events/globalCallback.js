@@ -1,4 +1,4 @@
-import globalCallback from 'events/globalCallback.js';
+import globalCallback, {prefix as globalCallbackPrefix} from 'events/globalCallback.js';
 
 describe('events/globalCallback', () => {
 
@@ -62,6 +62,17 @@ describe('events/globalCallback', () => {
 		expect(spy.calledOnce).to.be.ok();
 		expect(window[id]).to.be.a('function');
 
+	});
+
+	it('should change the prefix to the random id', () => {
+
+		globalCallbackPrefix('test_');
+		var id = globalCallback(() => {});
+
+		expect(id).to.match(/^test_/);
+
+		// clean up
+		delete window[id];
 	});
 
 });

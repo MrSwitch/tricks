@@ -3,7 +3,11 @@
 // Return its unique reference
 import random from '../string/random.js';
 
-export const prefix = '_tricks_';
+var prefix = '_tricks_';
+
+export function prefix(str) {
+	prefix = str;
+};
 
 export default (callback, guid) => {
 
@@ -11,9 +15,11 @@ export default (callback, guid) => {
 	guid = guid || prefix + random();
 
 	// Define the callback function
-	window[guid] = (...args) => {
-		callback.apply(this, args) && delete window[guid];
-	};
+	window[guid] = handle.bind(null, guid, callback);
 
 	return guid;
 };
+
+function handle(guid, callback, ...args) {
+	callback.apply(null, args) && delete window[guid];
+}
