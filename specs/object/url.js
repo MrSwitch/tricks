@@ -29,7 +29,7 @@ describe('object/url', () => {
 	it('should return a full URL, if a protocol-less URL is given', () => {
 		var _url = '//test/' + testLocationFilename;
 		var path = url(_url).href;
-		expect(path).to.equal(testProtocol + _url);
+		expect(path).to.equal((testProtocol + _url).replace('////','///'));
 	});
 
 	it('should return a full URL, if a base-path is given', () => {
