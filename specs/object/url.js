@@ -2,7 +2,11 @@ import url from 'object/url.js';
 
 describe('object/url', () => {
 
-	var testLocationRoot = window.location.protocol + '//' + window.location.hostname;
+	var host = window.location.hostname;
+	if (host){
+		host = "//"+host;
+	}
+	var testLocationRoot = window.location.protocol + host;
 	var testLocationDir = window.location.pathname.replace(/\/[^\/]+$/, '/');
 	var testLocationFilename = 'redirect.html';
 
