@@ -25,6 +25,7 @@
     "mocha": "~2.3.1",
     "expect.js": "~0.3.1",
     "sinon": "~1.16.1",
-    "Blob.js": "https://github.com/eligrey/Blob.js.git"
+    "Blob.js": "https://github.com/eligrey/Blob.js.git",
+    "sinonjs": "~1.14.1"
   }
 }
