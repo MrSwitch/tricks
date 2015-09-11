@@ -11,3 +11,5 @@ gulp.task('test', function () {
 gulp.task('watch', function () {
 	gulp.watch(['**/*.js','!node_modules/','!specs/components/'], ['test']);
 });
+
+gulp.task('default', ['test']);
