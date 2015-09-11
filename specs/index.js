@@ -39,3 +39,5 @@ import './string/param.js';
 import './string/extract.js';
 import './string/queryparse.js';
 import './string/random.js';
+
+import './support/requestAnimationFrame.js';
