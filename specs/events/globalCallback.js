@@ -13,7 +13,7 @@ describe('events/globalCallback', () => {
 		expect(window[id]).to.be.a('function');
 
 		window[id].call(null);
-
+		expect(window[id]).to.be.a('function');
 	});
 
 	it('should set unique callback names', () => {
@@ -32,6 +32,36 @@ describe('events/globalCallback', () => {
 
 		// Expect there to be a function on the window object which can be triggered
 		expect(id).to.be.eql(id2);
+	});
+
+	it('should remove window[callback] reference if it returns truthy', () => {
+
+		var spy = sinon.spy(() => {
+			return true;
+		});
+
+		var id = globalCallback(spy);
+		window[id].call(null);
+
+		// Should be removed
+		expect(spy.calledOnce).to.be.ok();
+		expect(window[id]).to.be(undefined);
+
+	});
+
+	it('should keep the window[callback] reference if it returns falsy', () => {
+
+		var spy = sinon.spy(() => {
+			return 0;
+		});
+
+		var id = globalCallback(spy);
+		window[id].call(null);
+
+		// Should be removed
+		expect(spy.calledOnce).to.be.ok();
+		expect(window[id]).to.be.a('function');
+
 	});
 
 });

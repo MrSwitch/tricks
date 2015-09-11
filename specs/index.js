@@ -10,7 +10,9 @@ import './dom/hiddenFrame.js';
 import './dom/isDom.js';
 import './dom/until.js';
 
+import './events/emit.js';
 import './events/globalCallback.js';
+import './events/on.js';
 
 import './helper/popup.js';
 import './helper/store.js';
