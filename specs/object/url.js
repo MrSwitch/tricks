@@ -7,7 +7,7 @@ describe('object/url', () => {
 	var testLocationDir = window.location.pathname.replace(/\/[^\/]+$/, '/');
 	var testLocationFilename = 'redirect.html';
 
-	if (testLocationRoot === testLocationProtocol + '//'){
+	if (testLocationRoot === testLocationProtocol + '//' && testLocationProtocol !== "file:") {
 		// Fix windows issue where origin does not include file:///d:/
 		// "origin":"d://"
 		// "href":"d:/Projects/tricks/specs/index.html",
