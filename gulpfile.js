@@ -4,7 +4,8 @@ var path = require('path');
 
 
 var port = 8080;
-require('localhost')('./').listen(port);
+var localhost = require('localhost')('./');
+localhost.listen(port);
 console.log('Listening on port ' + port);
 
 
@@ -19,4 +20,8 @@ gulp.task('watch', function () {
 	gulp.watch(['**/*.js','!node_modules/','!specs/components/'], ['test']);
 });
 
-gulp.task('default', ['test']);
+gulp.task('close', ['test'], function () {
+	localhost.close();
+});
+
+gulp.task('default', ['test', 'close']);

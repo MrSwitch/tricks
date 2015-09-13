@@ -15,5 +15,6 @@ System.config({
 
 // loads /app/main.js
 System['import']('specs/index.js').then(function(){
-	mocha.run();
+	if (window.mochaPhantomJS) mochaPhantomJS.run();
+	else mocha.run();
 });
