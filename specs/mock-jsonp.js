@@ -3,7 +3,7 @@
 
 var scripts = Array.prototype.slice.apply(document.querySelectorAll("script"));
 var match = /([^=\/\&]+)=([^\&]+)/g;
-var match_path = /jsonp-mock.js\?(.*)/;
+var match_path = /mock-jsonp.js\?(.*)/;
 
 scripts.forEach(function(script) {
 	var src = script.src;
