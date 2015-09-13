@@ -9,19 +9,15 @@ import attr from '../dom/attr.js';
 import domInstance from '../dom/domInstance.js';
 import createElement from '../dom/createElement.js';
 import globalCallback from '../events/globalCallback.js';
-import instanceOf from '../dom/instanceOf.js';
+import toArray from '../object/toArray.js';
+import instanceOf from '../object/instanceOf.js';
+import on from '../events/on.js';
 
-export default (url, data, options, callback, callbackID, timeout = 60000) => {
+export default (url, data, options, callback, callback_name, timeout = 60000) => {
 
-	// This hack needs a form
-	var form = null;
-	var reenableAfterSubmit = [];
-	var newform;
 	var timer;
-	var i = 0;
-	var x = null;
 	var bool = 0;
-	var cb = function(r) {
+	var cb = (r) => {
 		if (!(bool++)) {
 			if (timer) {
 				clearTimeout(timer);
@@ -33,42 +29,23 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 
 	// What is the name of the callback to contain
 	// We'll also use this to name the iframe
-	globalCallback(cb, callbackID);
-
-
+	callback_name = globalCallback(cb, callback_name);
 
 	/////////////////////
 	// Create the FRAME
 	/////////////////////
 
-	var frame;
-	try {
-		// IE7 hack, only lets us define the name here, not later.
-		frame = createElement('<iframe name="' + callbackID + '">');
-	}
-	catch (e) {
-		frame = createElement('iframe');
-	}
-
-	// Attach the frame with the following attributes to the document body.
-	append(frame, {
-		name: callbackID,
-		id: callbackID,
-		style: "display:none;"
-	});
+	var frame = createFrame(callback_name);
 
 	// Override callback mechanism. Triggger a response onload/onerror
 	if (options && options.callbackonload) {
+
 		// Onload is being fired twice
-		frame.onload = () => {
-			cb({
-				response: 'posted',
-				message: 'Content was posted'
-			});
-		};
+		frame.onload = cb.bind(null, {
+			response: 'posted',
+			message: 'Content was posted'
+		});
 	}
-
-
 
 
 	/////////////////////
@@ -84,17 +61,75 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 	// Create a form
 	/////////////////////
 
+	var form = createFormFromData(data);
+
+	// The URL is a function for some cases and as such
+	// Determine its value with a callback containing the new parameters of this function.
+	url = url.replace(new RegExp('=\\?(&|$)'), '=' + callback_name + '$1');
+
+	// Set the target of the form
+	attr(form, {
+		'method': 'POST',
+		'target': callback_name,
+		'action': url
+	});
+
+	form.target = callback_name;
+
+	// Submit the form
+	// Some reason this needs to be offset from the current window execution
+	setTimeout(() => {
+		form.submit();
+	}, 100);
+};
+
+
+
+function createFrame(callback_name) {
+	var frame;
+
+	try {
+		// IE7 hack, only lets us define the name here, not later.
+		frame = createElement('<iframe name="' + callback_name + '">');
+	}
+	catch (e) {
+		frame = createElement('iframe');
+	}
+
+	// Attach the frame with the following attributes to the document body.
+	attr(frame, {
+		name: callback_name,
+		id: callback_name,
+		style: "display:none;"
+	});
+
+	document.body.appendChild(frame);
+
+	return frame;
+}
+
+
+
+function createFormFromData(data) {
+
+	// This hack needs a form
+	var form = null;
+	var reenableAfterSubmit = [];
+	var i = 0;
+	var x = null;
+
+
 	// If we are just posting a single item
-	if (domInstance('form', data)) {
+	if (domInstance('input', data)) {
 		// Get the parent form
 		form = data.form;
 
 		// Loop through and disable all of its siblings
-		for (i = 0; i < form.elements.length; i++) {
-			if (form.elements[i] !== data) {
-				form.elements[i].setAttribute('disabled', true);
+		toArray(form.elements).forEach((input) => {
+			if (input !== data) {
+				input.setAttribute('disabled', true);
 			}
-		}
+		});
 
 		// Move the focus to the form
 		data = form;
@@ -106,12 +141,12 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 		form = data;
 
 		// Does this form need to be a multipart form?
-		for (i = 0; i < form.elements.length; i++) {
-			if (!form.elements[i].disabled && form.elements[i].type === 'file') {
+		toArray(form.elements).forEach((input) => {
+			if (!input.disabled && input.type === 'file') {
 				form.encoding = form.enctype = 'multipart/form-data';
-				form.elements[i].setAttribute('name', 'file');
+				input.setAttribute('name', 'file');
 			}
-		}
+		});
 	}
 	else {
 		// Its not a form element,
@@ -129,7 +164,26 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 		if (!form) {
 			// Build form
 			form = append('form');
-			newform = form;
+
+			// Bind the removal of the form
+			on(form, 'submit', () => {
+				setTimeout(() => {
+					form.parentNode.removeChild(form);
+				},0);
+			});
+		}
+		else {
+			// Bind the clean up of the existing form.
+			on(form, 'submit', () => {
+				setTimeout(() => {
+					reenableAfterSubmit.forEach((input) => {
+						if (input) {
+							input.setAttribute('disabled', false);
+							input.disabled = false;
+						}
+					});
+				},0);
+			});
 		}
 
 		var input;
@@ -158,7 +212,10 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 				}
 
 				// Create an input element
-				input = createElement('input');
+				input = append('input', {
+					'type': 'hidden',
+					'name': x
+				}, form);
 
 				// Does it have a value attribute?
 				if (el) {
@@ -171,10 +228,6 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 					input.value = data[x];
 				}
 
-				append(input, {
-					'type': 'hidden',
-					'name': x
-				}, form);
 			}
 
 			// It is an element, which exists within the form, but the name is wrong
@@ -185,9 +238,7 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 		}
 
 		// Disable elements from within the form if they weren't specified
-		for (i = 0; i < form.elements.length; i++) {
-
-			input = form.elements[i];
+		toArray(form.elements).forEach((input) => {
 
 			// Does the same name and value exist in the parent
 			if (!(input.name in data) && input.getAttribute('disabled') !== true) {
@@ -197,43 +248,8 @@ export default (url, data, options, callback, callbackID, timeout = 60000) => {
 				// Add re-enable to callback
 				reenableAfterSubmit.push(input);
 			}
-		}
+		});
 	}
 
-	// Set the target of the form
-	attr(form, {
-		'method': 'POST',
-		'target': callbackID,
-		'action': url
-	});
-
-	form.target = callbackID;
-
-	// Update the form URL
-
-	// Submit the form
-	// Some reason this needs to be offset from the current window execution
-	setTimeout(() => {
-		form.submit();
-
-		setTimeout(() => {
-			// Remove the iframe from the page.
-			//frame.parentNode.removeChild(win);
-			// Remove the form
-			if (newform) {
-				try {
-					newform.parentNode.removeChild(newform);
-				}
-				catch (e) {}
-			}
-
-			// Reenable the disabled form
-			reenableAfterSubmit.forEach((input) => {
-				if (input) {
-					input.setAttribute('disabled', false);
-					input.disabled = false;
-				}
-			});
-		}, 0);
-	}, 100);
-};
+	return form;
+}

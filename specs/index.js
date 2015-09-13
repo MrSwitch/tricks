@@ -19,6 +19,7 @@ import './helper/store.js';
 
 import './http/xhr.js';
 import './http/jsonp.js';
+import './http/formpost.js';
 
 import './object/args.js';
 import './object/clone.js';
