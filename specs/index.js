@@ -8,6 +8,7 @@ import './dom/domInstance.js';
 import './dom/domToJSON.js';
 import './dom/hiddenFrame.js';
 import './dom/isDom.js';
+import './dom/matches.js';
 import './dom/until.js';
 
 import './events/emit.js';
