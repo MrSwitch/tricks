@@ -12,6 +12,7 @@ import globalCallback from '../events/globalCallback.js';
 import toArray from '../object/toArray.js';
 import instanceOf from '../object/instanceOf.js';
 import on from '../events/on.js';
+import emit from '../events/emit.js';
 
 export default (url, data, options, callback, callback_name, timeout = 60000) => {
 
@@ -24,7 +25,16 @@ export default (url, data, options, callback, callback_name, timeout = 60000) =>
 				timer = null;
 			}
 			callback(r);
+
+			// Trigger onsubmit on the form.
+			// Typically this isn't activated until afterwards
+			emit(form, 'submit');
+
+			// Delete the iframe
+			frame.parentNode.removeChild(frame);
 		}
+
+		return true;
 	};
 
 	// What is the name of the callback to contain
@@ -182,6 +192,9 @@ function createFormFromData(data) {
 							input.disabled = false;
 						}
 					});
+
+					// Reset, incase this is called again.
+					reenableAfterSubmit.length = 0;
 				},0);
 			});
 		}
