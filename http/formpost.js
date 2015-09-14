@@ -30,8 +30,8 @@ export default (url, data, options, callback, callback_name, timeout = 60000) =>
 			// Typically this isn't activated until afterwards
 			emit(form, 'submit');
 
-			// Delete the iframe
-			frame.parentNode.removeChild(frame);
+			// The setTimeout fixes the test runner in phantomjs
+			setTimeout(() => frame.parentNode.removeChild(frame), 0);
 		}
 
 		return true;
