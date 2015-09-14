@@ -8,4 +8,8 @@ describe('dom/each', () => {
 	it('should match elements in the dom', () => {
 		expect(each('#mocha')).to.have.property(0);
 	});
+
+	it('should return an instance of an array', () => {
+		expect(each('div')).to.be.an('array');
+	});
 });

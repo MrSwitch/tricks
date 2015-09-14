@@ -1,22 +1,23 @@
 import isDom from './isDom.js';
+import instanceOf from '../object/instanceOf.js';
+import toArray from '../object/toArray.js';
 
 export default (matches, callback = function(){}) => {
 
 	if (isDom(matches)) {
-		callback(matches);
-		return [matches];
+		matches = [matches];
 	}
-
-	if (typeof(matches) === 'string') {
+	else if (typeof(matches) === 'string') {
 		matches = document.querySelectorAll(matches);
 	}
 
-	if (callback) {
-
-		for (let i = 0; i < matches.length; i++) {
-			callback.call(matches[i], matches[i], i );
-		}
+	if (!instanceOf(matches, Array)) {
+		matches = toArray(matches);
 	}
 
-	return matches || [];
+	if (callback) {
+		matches.forEach(callback);
+	}
+
+	return matches;
 };
