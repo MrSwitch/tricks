@@ -7,6 +7,7 @@ import './dom/each.js';
 import './dom/domInstance.js';
 import './dom/domToJSON.js';
 import './dom/hiddenFrame.js';
+import './dom/inviewport.js';
 import './dom/isDom.js';
 import './dom/matches.js';
 import './dom/until.js';
@@ -14,6 +15,7 @@ import './dom/until.js';
 import './events/emit.js';
 import './events/globalCallback.js';
 import './events/on.js';
+import './events/visible.js';
 
 import './helper/popup.js';
 import './helper/store.js';
