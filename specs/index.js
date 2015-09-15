@@ -22,6 +22,7 @@ import './events/visible.js';
 import './helper/popup.js';
 import './helper/store.js';
 
+import './http/getScript.js';
 import './http/xhr.js';
 import './http/jsonp.js';
 import './http/formpost.js';

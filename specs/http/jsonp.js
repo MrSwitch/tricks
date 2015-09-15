@@ -23,7 +23,7 @@ describe('http/jsonp', () => {
 
 	it('should clearup the script tag reference', (done) => {
 		let url = `${jsonpMockUrl}?callback=?`;
-		jsonp(url, (response) => {
+		let script = jsonp(url, (response) => {
 			setTimeout(() => {
 				expect(script.parentNode).to.not.be.ok();
 				done();
@@ -31,7 +31,6 @@ describe('http/jsonp', () => {
 		});
 
 		// Find the script tag
-		let script = document.querySelector('script[src*="'+jsonpMockUrl+'"]:last-of-type');
 		expect(script.parentNode).to.be.ok();
 	});
 });
