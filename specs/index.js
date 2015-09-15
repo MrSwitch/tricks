@@ -13,6 +13,7 @@ import './dom/isDom.js';
 import './dom/matches.js';
 import './dom/until.js';
 
+import './events/createEvent.js';
 import './events/emit.js';
 import './events/globalCallback.js';
 import './events/on.js';
