@@ -17,7 +17,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['**/*.js','!node_modules/**/*','!specs/components/**/*'], ['test']);
+	gulp.watch(['**/*.js','!node_modules/**/*','!specs/components/**/*'], {interval: 500}, ['test']);
 });
 
 gulp.task('close', ['test'], function () {
