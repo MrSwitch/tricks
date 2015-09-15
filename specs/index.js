@@ -1,4 +1,5 @@
 // Load in the specs
+import './animation/timing.js';
 
 import './dom/attr.js';
 import './dom/append.js';
