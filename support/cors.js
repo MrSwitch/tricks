@@ -1,1 +1,1 @@
-export default const b = 'withCredentials' in new XMLHttpRequest();
+export default ('withCredentials' in new XMLHttpRequest());

@@ -1,5 +1,5 @@
 import CSSsupport from './CSSsupports.js';
-var bool = null;
+var bool = false;
 
 // Test to see if the HTML5 player supports AUTOPLAY
 var v = document.createElement('video');
