@@ -51,5 +51,7 @@ import './string/toXML.js';
 import './string/trim.js';
 
 import './support/requestAnimationFrame.js';
+import './support/svg.js';
+import './support/smil.js';
 import './support/video.autoplay.js';
 import './support/video.js';
