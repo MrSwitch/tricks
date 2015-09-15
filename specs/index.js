@@ -44,6 +44,7 @@ import './string/param.js';
 import './string/extract.js';
 import './string/queryparse.js';
 import './string/random.js';
+import './string/toXML.js';
 import './string/trim.js';
 
 import './support/requestAnimationFrame.js';
