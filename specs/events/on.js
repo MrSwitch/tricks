@@ -13,4 +13,14 @@ describe('events/on', () => {
 
 	});
 
+	it('should bind multiple event handlers to DOM nodes', () => {
+
+		var spy = sinon.spy();
+		var el = document.createElement('a');
+		on(el, 'click, touchstart, word', spy);
+		emit(el, 'click');
+		expect(spy.calledOnce).to.be.ok();
+
+	});
+
 });
