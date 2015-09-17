@@ -11,6 +11,7 @@ import './dom/hiddenFrame.js';
 import './dom/inviewport.js';
 import './dom/isDom.js';
 import './dom/matches.js';
+import './dom/objectfit.js';
 import './dom/until.js';
 
 import './events/createEvent.js';
