@@ -37,3 +37,27 @@ for (name in obj) {
 
 	});
 }
+
+
+import requestAnimationFrame from 'support/requestAnimationFrame.js';
+import canvasToBlob from 'support/canvasToBlob.js';
+import getUserMedia from 'support/getUserMedia.js';
+
+var fns = {
+	'requestAnimationFrame': requestAnimationFrame,
+	'canvasToBlob': canvasToBlob,
+	'getUserMedia': getUserMedia
+};
+
+for (name in fns) {
+
+	let fn = fns[name];
+
+	describe('support/' + name, () => {
+
+		it('should return a Function', () => {
+			expect(fn).to.be.a('function');
+		});
+
+	});
+}
