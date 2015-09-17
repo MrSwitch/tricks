@@ -53,6 +53,7 @@ import './string/toXML.js';
 import './string/trim.js';
 
 import './support/browser.js';
+import './support/canvasToBlob.js';
 import './support/requestAnimationFrame.js';
 import './support/index.js';
 
