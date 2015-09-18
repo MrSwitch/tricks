@@ -6,6 +6,11 @@ describe('events/emit', () => {
 	var el;
 	beforeEach(() => {
 		el = document.createElement('a');
+		document.body.appendChild(el);
+	});
+	afterEach(() => {
+		// Clean up
+		document.body.removeChild(el);
 	});
 
 	it('should trigger an event on an element', (done) => {

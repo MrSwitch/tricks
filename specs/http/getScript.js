@@ -23,7 +23,12 @@ describe('http/getScript', () => {
 	it('should return a response even if the endpoint returned an error', (done) => {
 		let url = '404.js';
 		getScript(url, (e) => {
-			expect(e).to.have.property('type', 'error');
+			// IE9 triggers a loaded event
+			// Its best to determine whether its loaded by the presence of the API it's exposing.
+			if (e.type !== 'load') {
+				// However in all other browsers this should trigger the onerror handler
+				expect(e).to.have.property('type', 'error');
+			}
 			done();
 		});
 	});
