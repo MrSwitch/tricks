@@ -26,6 +26,7 @@ import './http/xhr.js';
 import './object/args.js';
 import './object/clone.js';
 import './object/diff.js';
+import './object/diffKey.js';
 import './object/extend.js';
 import './object/hasBinary.js';
 import './object/instanceOf.js';
