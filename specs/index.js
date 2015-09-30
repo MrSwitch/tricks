@@ -22,6 +22,7 @@ import './helper/store.js';
 import './http/formpost.js';
 import './http/getScript.js';
 import './http/jsonp.js';
+import './http/request.js';
 import './http/xhr.js';
 import './object/args.js';
 import './object/clone.js';

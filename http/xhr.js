@@ -1,10 +1,13 @@
 // XHR: uses CORS to make requests
 import instanceOf from '../object/instanceOf.js';
 import extract from '../string/extract.js';
+import rewire from '../object/rewire.js';
 
 const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
 
-export default (method, url, headers, data, callback) => {
+export default rewire(xhr);
+
+function xhr(method, url, headers, data, callback) {
 
 	var r = new XMLHttpRequest();
 
@@ -68,7 +71,7 @@ export default (method, url, headers, data, callback) => {
 	r.send(data);
 
 	return r;
-};
+}
 
 
 function toFormData(data) {
