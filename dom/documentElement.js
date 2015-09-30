@@ -1,1 +1,1 @@
-export default document.documentElement;
+export default document.documentElement || document.body.parentNode;

@@ -2,6 +2,8 @@
 import globalCallback from '../events/globalCallback.js';
 import getScript from './getScript.js';
 
+const MATCH_CALLBACK_PLACEHOLDER = /=\?(&|$)/;
+
 export default (url, callback, callback_name, timeout = 60000) => {
 
 	// Change the name of the callback
@@ -15,7 +17,7 @@ export default (url, callback, callback_name, timeout = 60000) => {
 
 	// The URL is a function for some cases and as such
 	// Determine its value with a callback containing the new parameters of this function.
-	url = url.replace(new RegExp('=\\?(&|$)'), '=' + callback_name + '$1');
+	url = url.replace(MATCH_CALLBACK_PLACEHOLDER, '=' + callback_name + '$1');
 
 	var script = getScript(url, () => {
 		callback(result);

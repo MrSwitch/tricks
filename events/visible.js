@@ -21,7 +21,7 @@ function scan() {
 }
 
 function scanElement(el) {
-	let _visible = !document.hidden && inViewport(el);
+	let _visible = el.parentNode && !document.hidden && inViewport(el);
 	if (el.visible !== _visible) {
 		el.visible = _visible;
 		emit(el, 'visibilitychange');
