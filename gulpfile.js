@@ -3,10 +3,20 @@ var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var fs = require('fs');
 var path = require('path');
 
+var browserify = require('browserify');
+var babelify= require('babelify');
+var buffer = require('vinyl-buffer');
+var source = require('vinyl-source-stream');
+var sourcemaps = require('gulp-sourcemaps');
+var copy = require('gulp-copy');
+
 var port = 8080;
 var localhost = require('localhost')('./');
-localhost.listen(port);
-console.log('Listening on port ' + port);
+
+gulp.task('localhost', function() {
+	localhost.listen(port);
+	console.log('Listening on port ' + port);
+});
 
 
 gulp.task('test', function () {
@@ -32,12 +42,30 @@ gulp.task('test_index', function () {
 	});
 });
 
-gulp.task('watch', function () {
-	gulp.watch(['**/*.js','!node_modules/**/*','!specs/components/**/*'], {interval: 500}, ['test_index', 'test']);
+gulp.task('watch', ['localhost'], function () {
+	return gulp.watch(['**/*.js','!node_modules/**/*','!specs/components/**/*'], {interval: 500}, ['test_index', 'test']);
 });
 
 gulp.task('close', ['test'], function () {
 	localhost.close();
 });
 
-gulp.task('default', ['test', 'close']);
+gulp.task('build', ['test_index'], function() {
+
+	// Package up the specs directory into a single file called config.js
+	return browserify('./specs/index.js', {debug: true, paths:'./'})
+	.transform(babelify)
+	.bundle()
+	.on('error', console.log.bind(console, 'Browserify Error'))
+	.pipe(source('./bundle.js'))
+	.pipe(buffer())
+	.pipe(sourcemaps.init({loadMaps: true}))
+	.pipe(sourcemaps.write('./'))
+	.pipe(gulp.dest('./specs/'));
+});
+
+gulp.task('watch_build', function () {
+	return gulp.watch(['**/*.js','!node_modules/**/*','!specs/components/**/*','!specs/bundle.js'], {interval: 500}, ['build']);
+});
+
+gulp.task('default', ['localhost', 'test', 'close', 'build']);

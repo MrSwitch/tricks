@@ -14,7 +14,9 @@ describe('http/formpost', () => {
 		});
 	});
 
-	it('should clear up the iframe and any created form at the end', (done) => {
+	it('should clear up the iframe and any created form at the end', function(done) {
+
+		this.timeout(5000);
 
 		let callback_name = "test_iframe";
 		let url = `${mockUrl}?callback=?`;
