@@ -4,7 +4,7 @@
 	"description": "ES6 modules",
 	"main": "index.js",
 	"scripts": {
-		"test": "gulp test && node_modules/.bin/browserstack-runner"
+		"test": "gulp test"
 	},
 	"repository": {
 		"type": "git",
