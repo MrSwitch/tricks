@@ -64,7 +64,7 @@ export default (p, callback) => {
 		// Add some additional query parameters to the URL
 		// We're pretty stuffed if the endpoint doesn't like these
 		p.query.redirect_uri = p.redirect_uri;
-		p.query.state = JSON.stringify({callback:p.callbackID});
+		p.query.state = JSON.stringify({callback: p.callbackID});
 		delete p.query.callback;
 
 		var opts;

@@ -14,9 +14,9 @@ describe('object/instanceOf', () => {
 
 		expect(instanceOf(undefined, Array)).to.not.ok();
 
-		expect(instanceOf("", undefined)).to.not.ok();
+		expect(instanceOf('', undefined)).to.not.ok();
 
-		expect(instanceOf("", Object)).to.not.ok();
+		expect(instanceOf('', Object)).to.not.ok();
 
 		expect(instanceOf(0, String)).to.not.ok();
 

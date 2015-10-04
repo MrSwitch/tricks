@@ -23,7 +23,7 @@ export default (node) => {
 		instanceOf(node, window.FileList)) {
 		data = {file: node};
 	}
-	else{
+	else {
 		data = node;
 	}
 

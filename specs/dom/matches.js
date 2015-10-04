@@ -3,7 +3,7 @@ import matches from 'dom/matches.js';
 describe('dom/matches', () => {
 
 	var el = document.createElement('div');
-	el.className = "test";
+	el.className = 'test';
 
 	it('should return true if an element matches a given selector', () => {
 

@@ -42,7 +42,7 @@ function check(el) {
 			_h = img.offsetHeight;
 
 		// does it fix in the bounding box?
-		return ( ( _t + _h ) >= t && _t <= ( t + h ) );
+		return ((_t + _h) >= t && _t <= (t + h));
 	})
 	// Process the element
 	.forEach((img) => {
@@ -74,5 +74,5 @@ function check(el) {
 }
 
 function show(el) {
-	css(el, {opacity:1});
+	css(el, {opacity: 1});
 }

@@ -1,8 +1,8 @@
 // SVG Capable
 var bool = false;
-try{
+try {
 	bool = !!document.createElementNS && /SVGAnimate/.test(toString.call(document.createElementNS('http://www.w3.org/2000/svg', 'animate')));
 }
-catch(e){}
+catch (e) {}
 
 export default bool;

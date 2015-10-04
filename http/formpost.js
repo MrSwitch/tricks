@@ -110,7 +110,7 @@ function createFrame(callback_name) {
 	attr(frame, {
 		name: callback_name,
 		id: callback_name,
-		style: "display:none;"
+		style: 'display:none;'
 	});
 
 	document.body.appendChild(frame);
@@ -179,7 +179,7 @@ function createFormFromData(data) {
 			on(form, 'submit', () => {
 				setTimeout(() => {
 					form.parentNode.removeChild(form);
-				},0);
+				}, 0);
 			});
 		}
 		else {
@@ -195,7 +195,7 @@ function createFormFromData(data) {
 
 					// Reset, incase this is called again.
 					reenableAfterSubmit.length = 0;
-				},0);
+				}, 0);
 			});
 		}
 

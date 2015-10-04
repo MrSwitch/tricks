@@ -21,7 +21,7 @@ function xhr(method, url, headers, data, callback) {
 	method = method.toUpperCase();
 
 	// Xhr.responseType 'json' is not supported in any of the vendors yet.
-	r.onload = (e) => {
+	r.onload = () => {
 		var json = r.response;
 		try {
 			json = JSON.parse(r.responseText || r.response);

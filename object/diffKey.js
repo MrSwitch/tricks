@@ -10,5 +10,5 @@ export default (a, b) => {
 		}
 		return r;
 	}
-	return a;	
+	return a;
 };

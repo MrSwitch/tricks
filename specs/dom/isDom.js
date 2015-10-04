@@ -16,7 +16,7 @@ describe('dom/isDom', () => {
 	it('should return true if object is not part of the DOM, i.e. pure javascript', () => {
 
 		expect(isDom({})).to.not.be.ok();
-		expect(isDom("hello")).to.not.be.ok();
+		expect(isDom('hello')).to.not.be.ok();
 		expect(isDom(undefined)).to.not.be.ok();
 		expect(isDom(1)).to.not.be.ok();
 		expect(isDom([])).to.not.be.ok();

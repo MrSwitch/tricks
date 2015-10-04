@@ -9,7 +9,7 @@ describe('object/pubsub', () => {
 	beforeEach(() => {
 
 		// Pass an arbitary piece of data around
-		arbitaryData = {boom:true};
+		arbitaryData = {boom: true};
 
 		eventName = 'custom';
 
@@ -36,7 +36,7 @@ describe('object/pubsub', () => {
 		expect(spy.called).to.be.ok();
 	});
 
-	it('should listen to any event by using a "*"', () => {
+	it('should listen to any event by using a *', () => {
 
 		// Make request
 		var spy = sinon.spy((data, type) => {
@@ -131,7 +131,7 @@ describe('object/pubsub', () => {
 		testObj.on(eventName, spy2);
 
 		// Trigger
-		testObj.emit(eventName);
+		child.emit(eventName);
 
 		// Test spies
 		expect(spy.called).to.be.ok();

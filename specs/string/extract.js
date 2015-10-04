@@ -17,7 +17,7 @@ describe('string/extract', () => {
 		});
 
 		expect(test).to.eql({
-			test: "value",
+			test: 'value',
 			test2: 2
 		});
 	});

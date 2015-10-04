@@ -7,7 +7,7 @@ var prefix = '_tricks_';
 
 export function prefix(str) {
 	prefix = str;
-};
+}
 
 export default (callback, guid) => {
 

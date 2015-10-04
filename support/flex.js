@@ -2,7 +2,7 @@
 import prefix from './prefix.js';
 import CSSsupports from './CSSsupports.js';
 
-const result = prefix("FlexWrap");
+const result = prefix('FlexWrap');
 
 CSSsupports('flex', result);
 

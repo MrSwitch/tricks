@@ -7,7 +7,7 @@ export default (elements, props) => {
 			if (typeof prop === 'function') {
 				element[x] = prop;
 			}
-			else{
+			else {
 				element.setAttribute(x, prop);
 			}
 		}

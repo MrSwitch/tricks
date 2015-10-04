@@ -1,3 +1,4 @@
+/*eslint no-loop-func: 0*/
 import cors from 'support/cors.js';
 import flex from 'support/flex.js';
 import legacyflex from 'support/legacyflex.js';
@@ -25,7 +26,7 @@ var obj = {
 	'video.autoplay': videoAutoplay
 };
 
-for (name in obj) {
+for (let name in obj) {
 
 	let bool = obj[name];
 
@@ -49,7 +50,7 @@ var fns = {
 	'getUserMedia': getUserMedia
 };
 
-for (name in fns) {
+for (let name in fns) {
 
 	let fn = fns[name];
 

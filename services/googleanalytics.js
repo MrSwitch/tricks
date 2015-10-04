@@ -1,3 +1,4 @@
+/* global _gaq */
 import getScript from '../http/getScript.js';
 
 export default (tracking) => {

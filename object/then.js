@@ -9,9 +9,9 @@
  */
 
 /*  promise states [Promises/A+ 2.1]  */
-var STATE_PENDING   = 0;                                         /*  [Promises/A+ 2.1.1]  */
-var STATE_FULFILLED = 1;                                         /*  [Promises/A+ 2.1.2]  */
-var STATE_REJECTED  = 2;                                         /*  [Promises/A+ 2.1.3]  */
+var STATE_PENDING = 0;                                         /*  [Promises/A+ 2.1.1]  */
+var STATE_FULFILLED = 1;                                       /*  [Promises/A+ 2.1.2]  */
+var STATE_REJECTED = 2;                                        /*  [Promises/A+ 2.1.3]  */
 
 /*  promise object constructor  */
 export default function api(executor) {
@@ -20,12 +20,12 @@ export default function api(executor) {
 		return new api(executor);
 
 	/*  initialize object  */
-	this.id           = "Thenable/1.0.6";
-	this.state        = STATE_PENDING; /*  initial state  */
+	this.id = 'Thenable/1.0.6';
+	this.state = STATE_PENDING; /*  initial state  */
 	this.fulfillValue = undefined;     /*  initial value  */     /*  [Promises/A+ 1.3, 2.1.2.2]  */
 	this.rejectReason = undefined;     /*  initial reason */     /*  [Promises/A+ 1.5, 2.1.3.2]  */
-	this.onFulfilled  = [];            /*  initial handlers  */
-	this.onRejected   = [];            /*  initial handlers  */
+	this.onFulfilled = [];            /*  initial handlers  */
+	this.onRejected = [];            /*  initial handlers  */
 
 	/*  provide optional information-hiding proxy  */
 	this.proxy = {
@@ -33,24 +33,24 @@ export default function api(executor) {
 	};
 
 	/*  support optional executor function  */
-	if (typeof executor === "function")
+	if (typeof executor === 'function')
 		executor.call(this, this.fulfill.bind(this), this.reject.bind(this));
-};
+}
 
 /*  promise API methods  */
 api.prototype = {
 	/*  promise resolving methods  */
-	fulfill: function (value) { return deliver(this, STATE_FULFILLED, "fulfillValue", value); },
-	reject:  function (value) { return deliver(this, STATE_REJECTED,  "rejectReason", value); },
+	fulfill: function (value) { return deliver(this, STATE_FULFILLED, 'fulfillValue', value); },
+	reject: function (value) { return deliver(this, STATE_REJECTED, 'rejectReason', value); },
 
-	/*  "The then Method" [Promises/A+ 1.1, 1.2, 2.2]  */
+	/*  'The then Method' [Promises/A+ 1.1, 1.2, 2.2]  */
 	then: function (onFulfilled, onRejected) {
 		var curr = this;
 		var next = new api();                                    /*  [Promises/A+ 2.2.7]  */
 		curr.onFulfilled.push(
-			resolver(onFulfilled, next, "fulfill"));             /*  [Promises/A+ 2.2.2/2.2.6]  */
+			resolver(onFulfilled, next, 'fulfill'));             /*  [Promises/A+ 2.2.2/2.2.6]  */
 		curr.onRejected.push(
-			resolver(onRejected,  next, "reject" ));             /*  [Promises/A+ 2.2.3/2.2.6]  */
+			resolver(onRejected, next, 'reject'));               /*  [Promises/A+ 2.2.3/2.2.6]  */
 		execute(curr);
 		return next.proxy;                                       /*  [Promises/A+ 2.2.7, 3.3]  */
 	}
@@ -69,9 +69,9 @@ var deliver = function (curr, state, name, value) {
 /*  execute all handlers  */
 var execute = function (curr) {
 	if (curr.state === STATE_FULFILLED)
-		execute_handlers(curr, "onFulfilled", curr.fulfillValue);
+		execute_handlers(curr, 'onFulfilled', curr.fulfillValue);
 	else if (curr.state === STATE_REJECTED)
-		execute_handlers(curr, "onRejected",  curr.rejectReason);
+		execute_handlers(curr, 'onRejected', curr.rejectReason);
 };
 
 /*  execute particular set of handlers  */
@@ -93,9 +93,9 @@ var execute_handlers = function (curr, name, value) {
 	};
 
 	/*  execute procedure asynchronously  */                     /*  [Promises/A+ 2.2.4, 3.1]  */
-	if (typeof process === "object" && typeof process.nextTick === "function")
+	if (typeof process === 'object' && typeof process.nextTick === 'function')
 		process.nextTick(func);
-	else if (typeof setImmediate === "function")
+	else if (typeof setImmediate === 'function')
 		setImmediate(func);
 	else
 		setTimeout(func, 0);
@@ -104,7 +104,7 @@ var execute_handlers = function (curr, name, value) {
 /*  generate a resolver function  */
 var resolver = function (cb, next, method) {
 	return function (value) {
-		if (typeof cb !== "function")                            /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
+		if (typeof cb !== 'function')                            /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
 			next[method].call(next, value);                      /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
 		else {
 			var result;
@@ -118,18 +118,18 @@ var resolver = function (cb, next, method) {
 	};
 };
 
-/*  "Promise Resolution Procedure"  */                           /*  [Promises/A+ 2.3]  */
+/*  'Promise Resolution Procedure'  */                           /*  [Promises/A+ 2.3]  */
 var resolve = function (promise, x) {
 	/*  sanity check arguments  */                               /*  [Promises/A+ 2.3.1]  */
 	if (promise === x || promise.proxy === x) {
-		promise.reject(new TypeError("cannot resolve promise with itself"));
+		promise.reject(new TypeError('cannot resolve promise with itself'));
 		return;
 	}
 
-	/*  surgically check for a "then" method
-		(mainly to just call the "getter" of "then" only once)  */
+	/*  surgically check for a 'then' method
+		(mainly to just call the 'getter' of 'then' only once)  */
 	var then;
-	if ((typeof x === "object" && x !== null) || typeof x === "function") {
+	if ((typeof x === 'object' && x !== null) || typeof x === 'function') {
 		try { then = x.then; }                                   /*  [Promises/A+ 2.3.3.1, 3.5]  */
 		catch (e) {
 			promise.reject(e);                                   /*  [Promises/A+ 2.3.3.2]  */
@@ -138,17 +138,17 @@ var resolve = function (promise, x) {
 	}
 
 	/*  handle own Thenables    [Promises/A+ 2.3.2]
-		and similar "thenables" [Promises/A+ 2.3.3]  */
-	if (typeof then === "function") {
+		and similar 'thenables' [Promises/A+ 2.3.3]  */
+	if (typeof then === 'function') {
 		var resolved = false;
 		try {
-			/*  call retrieved "then" method */                  /*  [Promises/A+ 2.3.3.3]  */
+			/*  call retrieved 'then' method */                  /*  [Promises/A+ 2.3.3.3]  */
 			then.call(x,
 				/*  resolvePromise  */                           /*  [Promises/A+ 2.3.3.3.1]  */
 				function (y) {
 					if (resolved) return; resolved = true;       /*  [Promises/A+ 2.3.3.3.3]  */
 					if (y === x)                                 /*  [Promises/A+ 3.6]  */
-						promise.reject(new TypeError("circular thenable chain"));
+						promise.reject(new TypeError('circular thenable chain'));
 					else
 						resolve(promise, y);
 				},

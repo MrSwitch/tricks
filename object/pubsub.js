@@ -104,13 +104,15 @@ function findEvents(evt, callback) {
 
 		if (a.indexOf(name) > -1) {
 
-			this.events[name].forEach((handler, i) => {
-				// Does the event handler exist?
-				if (handler) {
-					// Emit on the local instance of this
-					callback.call(this, name, i);
-				}
-			});
+			this.events[name].forEach(triggerCallback.bind(this, name, callback));
 		}
 	}}
+}
+
+function triggerCallback(name, callback, handler, i) {
+	// Does the event handler exist?
+	if (handler) {
+		// Emit on the local instance of this
+		callback.call(this, name, i);
+	}
 }

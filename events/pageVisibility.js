@@ -21,7 +21,7 @@ until([
 	['webkitHidden', 'webkit' + VISIBILITYCHANGE]
 ], (item) => {
 	let [flag, handler] = item;
-	if (typeof document[flag] !== "undefined") {
+	if (typeof document[flag] !== 'undefined') {
 		_hidden = flag;
 		_visibilitychange = handler;
 		return true;
@@ -42,7 +42,7 @@ if (_hidden) {
 else {
 
 	// listen to events which change the focus of the page
-	on(window, 'focus, resize, scroll, mouseenter', (e) => {
+	on(window, 'focus, resize, scroll, mouseenter', () => {
 
 		// Is document hidden?
 		if (document.hidden) {
@@ -56,7 +56,7 @@ else {
 	});
 
 	// listen to events which change the focus of the page
-	on(window, 'blur, mouseleave', (e) => {
+	on(window, 'blur, mouseleave', () => {
 
 		// If document not already hidden
 		if (!document.hidden) {

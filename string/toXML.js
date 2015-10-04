@@ -1,7 +1,7 @@
 export default function xml(obj) {
 
 	if (typeof(obj) !== 'object') {
-		return (obj) ? obj.toString() : "";
+		return (obj) ? obj.toString() : '';
 	}
 
 	var r = '';

@@ -1,6 +1,6 @@
 import CSSsupports from './CSSsupports.js';
 
-const result = ("ontouchstart" in window);
+const result = ('ontouchstart' in window);
 
 CSSsupports('touch', result);
 
