@@ -12,6 +12,8 @@ var util = require('gulp-util');
 var port = 8080;
 var localhost = require('localhost')('./');
 
+var scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!specs/components/**/*', '!specs/bundle.js', '!specs/index.js'];
+
 gulp.task('localhost', function() {
 	localhost.listen(port);
 	util.log('Listening on port', util.colors.cyan(port));
@@ -42,7 +44,7 @@ gulp.task('build_test_index', function () {
 });
 
 gulp.task('watch', ['localhost'], function () {
-	return gulp.watch(['**/*.js', '!node_modules/**/*', '!specs/components/**/*'], {interval: 500}, ['build_test_index', 'test']);
+	return gulp.watch(scripts_to_watch, {interval: 500}, ['build_test_index', 'test']);
 });
 
 gulp.task('close', ['test'], function () {
@@ -64,7 +66,7 @@ gulp.task('build', ['build_test_index'], function() {
 });
 
 gulp.task('watch_build', function () {
-	return gulp.watch(['**/*.js', '!node_modules/**/*', '!specs/components/**/*', '!specs/bundle.js'], {interval: 500}, ['build']);
+	return gulp.watch(scripts_to_watch, {interval: 500}, ['build']);
 });
 
 gulp.task('default', ['localhost', 'test', 'close', 'build']);
