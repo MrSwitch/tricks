@@ -1,5 +1,6 @@
 // Pubsub extension
 // A contructor superclass for adding event menthods, on, off, emit.
+import setImmediate from '../time/setImmediate.js';
 
 const separator = /[\s\,]+/;
 
@@ -89,9 +90,9 @@ function emit(evt, ...args) {
 function emitAfter() {
 	var _this = this;
 	var args = arguments;
-	setTimeout(function() {
+	setImmediate(function() {
 		_this.emit.apply(_this, args);
-	}, 0);
+	});
 
 	return this;
 }

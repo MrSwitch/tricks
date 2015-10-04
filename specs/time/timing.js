@@ -1,6 +1,6 @@
-import timing from 'animation/timing.js';
+import timing from 'time/timing.js';
 
-describe('animation/timing', () => {
+describe('time/timing', () => {
 
 	it('should trigger numerous callbacks between a period of time', (done) => {
 

@@ -1,4 +1,3 @@
-import './animation/timing.js';
 import './dom/append.js';
 import './dom/attr.js';
 import './dom/createElement.js';
@@ -50,3 +49,8 @@ import './support/browser.js';
 import './support/canvasToBlob.js';
 import './support/index.js';
 import './support/requestAnimationFrame.js';
+import './time/age.js';
+import './time/now.js';
+import './time/setImmediate.js';
+import './time/timing.js';
+import './time/toDate.js';

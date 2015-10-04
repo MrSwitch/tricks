@@ -13,6 +13,7 @@ import toArray from '../object/toArray.js';
 import instanceOf from '../object/instanceOf.js';
 import on from '../events/on.js';
 import emit from '../events/emit.js';
+import setImmediate from '../time/setImmediate.js';
 
 export default (url, data, options, callback, callback_name, timeout = 60000) => {
 
@@ -30,8 +31,8 @@ export default (url, data, options, callback, callback_name, timeout = 60000) =>
 			// Typically this isn't activated until afterwards
 			emit(form, 'submit');
 
-			// The setTimeout fixes the test runner in phantomjs
-			setTimeout(() => frame.parentNode.removeChild(frame), 0);
+			// The setImmediate fixes the test runner in phantomjs
+			setImmediate(() => frame.parentNode.removeChild(frame));
 		}
 
 		return true;
@@ -177,15 +178,15 @@ function createFormFromData(data) {
 
 			// Bind the removal of the form
 			on(form, 'submit', () => {
-				setTimeout(() => {
+				setImmediate(() => {
 					form.parentNode.removeChild(form);
-				}, 0);
+				});
 			});
 		}
 		else {
 			// Bind the clean up of the existing form.
 			on(form, 'submit', () => {
-				setTimeout(() => {
+				setImmediate(() => {
 					reenableAfterSubmit.forEach((input) => {
 						if (input) {
 							input.setAttribute('disabled', false);
@@ -195,7 +196,7 @@ function createFormFromData(data) {
 
 					// Reset, incase this is called again.
 					reenableAfterSubmit.length = 0;
-				}, 0);
+				});
 			});
 		}
 

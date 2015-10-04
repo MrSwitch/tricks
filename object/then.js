@@ -1,5 +1,6 @@
 // Then
 // Create a Promise instance which can be returned by a function
+import setImmediate from '../time/setImmediate.js';
 
 /*!
  **  Thenable -- Embeddable Minimum Strictly-Compliant Promises/A+ 1.1.1 Thenable
@@ -76,9 +77,6 @@ var execute = function (curr) {
 
 /*  execute particular set of handlers  */
 var execute_handlers = function (curr, name, value) {
-	/* global process: true */
-	/* global setImmediate: true */
-	/* global setTimeout: true */
 
 	/*  short-circuit processing  */
 	if (curr[name].length === 0)
@@ -87,18 +85,10 @@ var execute_handlers = function (curr, name, value) {
 	/*  iterate over all handlers, exactly once  */
 	var handlers = curr[name];
 	curr[name] = [];                                             /*  [Promises/A+ 2.2.2.3, 2.2.3.3]  */
-	var func = function () {
+	setImmediate(function () {
 		for (var i = 0; i < handlers.length; i++)
 			handlers[i](value);                                  /*  [Promises/A+ 2.2.5]  */
-	};
-
-	/*  execute procedure asynchronously  */                     /*  [Promises/A+ 2.2.4, 3.1]  */
-	if (typeof process === 'object' && typeof process.nextTick === 'function')
-		process.nextTick(func);
-	else if (typeof setImmediate === 'function')
-		setImmediate(func);
-	else
-		setTimeout(func, 0);
+	});
 };
 
 /*  generate a resolver function  */
