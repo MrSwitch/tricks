@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "eslint": "node_modules/.bin/eslint ./",
-    "test": "npm run eslint && gulp"
+    "browserstack": "node_modules/.bin/browserstack-runner",
+    "test": "npm run eslint && gulp && npm run browserstack"
   },
   "repository": {
     "type": "git",
