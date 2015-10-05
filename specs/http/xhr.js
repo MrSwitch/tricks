@@ -25,12 +25,11 @@ describe('http/xhr', () => {
 	it('should return headers', (done) => {
 
 		xhr('get', './stub.json', 'json', {}, {}, (r, headers) => {
-			expect(headers).to.have.property('Content-Type', 'application/json');
+			expect(headers).to.have.property('Content-Type');
 			done();
 		});
 
 	});
-
 
 	it('should format a response as a text', (done) => {
 
