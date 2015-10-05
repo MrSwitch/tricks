@@ -7,31 +7,46 @@ const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
 
 export default rewire(xhr);
 
-function xhr(method, url, headers, data, callback) {
+function xhr(method, url, responseType, headers, data, callback) {
 
 	var r = new XMLHttpRequest();
 
-	// Binary?
-	var binary = false;
-	if (method === 'blob') {
-		binary = method;
-		method = 'GET';
-	}
-
+	// Make it CAPITAL
 	method = method.toUpperCase();
 
-	// Xhr.responseType 'json' is not supported in any of the vendors yet.
+	// Set the responseType
+	responseType = responseType || 'json';
+
+	// Define the callback function
 	r.onload = () => {
-		var json = r.response;
-		try {
-			json = JSON.parse(r.responseText || r.response);
+		// Response
+		var response = r.response;
+
+		// Was this text
+		if (!response && (r.responseType === '' || r.responseType === 'text')) {
+			response = r.responseText;
 		}
-		catch (_e) {}
+
+		// Is this json?
+		if (typeof(response) === 'string' && responseType === 'json') {
+
+			// Set this to the json response
+			response = r.responseJSON;
+
+			// If the browser did not defined responseJSON...
+			if (!response) {
+				try {
+					// try to format it...
+					response = JSON.parse(r.responseText || r.response);
+				}
+				catch (_e) {}
+			}
+		}
 
 		var headers = extract(r.getAllResponseHeaders(), match_headers);
 		headers.statusCode = r.status;
 
-		callback(json, headers);
+		callback(response, headers);
 	};
 
 	r.onerror = r.onload;
@@ -52,13 +67,17 @@ function xhr(method, url, headers, data, callback) {
 	// Open the path, async
 	r.open(method, url, true);
 
-	if (binary) {
-		if ('responseType' in r) {
-			r.responseType = binary;
+	// Set responseType if supported
+	if ('responseType' in r) {
+
+		try {
+			// Setting this to an unsupported value can result in a "SYNTAX_ERR: DOM Exception 12"
+			r.responseType = responseType;
 		}
-		else {
-			r.overrideMimeType('text/plain; charset=x-user-defined');
-		}
+		catch (e) {}
+	}
+	else if (responseType === 'blob') {
+		r.overrideMimeType('text/plain; charset=x-user-defined');
 	}
 
 	// Set any bespoke headers

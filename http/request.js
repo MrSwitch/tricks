@@ -9,6 +9,11 @@ import createUrl from '../string/createUrl.js';
 import extend from '../object/extend.js';
 
 export default (p, callback) => {
+	// Set defaults
+	p.query = p.query || {};
+
+	// Set format
+	p.responseType = p.responseType || 'json';
 
 	// Default proxy response
 	if (!p.proxy) {
@@ -22,7 +27,7 @@ export default (p, callback) => {
 		p.proxy(() => {
 			// The agent and the provider support CORS
 			var url = createUrl(p.url, p.query);
-			var x = xhr(p.method, url, p.headers, p.data, callback);
+			var x = xhr(p.method, url, p.responseType, p.headers, p.data, callback);
 			x.onprogress = p.onprogress || null;
 
 			// Feature detect, not available on all implementations of XMLHttpRequest
