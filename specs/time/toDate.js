@@ -7,7 +7,7 @@ describe('time/toDate', () => {
 		[undefined, '', {}].forEach((input) => {
 			let output = toDate(input);
 			expect(output).to.be.a(Date);
-			expect(output.toString()).to.eql("Invalid Date");
+			expect(output.toString()).to.eql('Invalid Date');
 		});
 
 	});
