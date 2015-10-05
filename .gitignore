@@ -3,3 +3,4 @@ npm-debug.log
 specs/components/
 specs/bundle.js*
 tmp/
+.env
