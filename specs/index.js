@@ -14,6 +14,7 @@ import './dom/until.js';
 import './events/createEvent.js';
 import './events/emit.js';
 import './events/globalCallback.js';
+import './events/off.js';
 import './events/on.js';
 import './events/visible.js';
 import './helper/popup.js';
