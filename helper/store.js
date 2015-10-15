@@ -1,6 +1,6 @@
 
 var a = ['localStorage', 'sessionStorage'];
-var i = 0;
+var i = -1;
 var prefix = 'test';
 
 export const namespace = 'tricks';
@@ -8,7 +8,7 @@ export const namespace = 'tricks';
 // Set LocalStorage
 var localStorage;
 
-while (a[i++]) {
+while (a[++i]) {
 	try {
 		// In Chrome with cookies blocked, calling localStorage throws an error
 		localStorage = window[a[i]];
