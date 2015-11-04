@@ -64,7 +64,7 @@ function set(json) {
 }
 
 
-export default (name, value, days) => {
+export default (name, value) => {
 	// Local storage
 	var json = get();
 
