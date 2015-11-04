@@ -14,6 +14,7 @@ export default (path) => {
 	else {
 		var a = document.createElement('a');
 		a.href = path;
-		return a;
+		// Return clone for IE compatibility view.
+		return a.cloneNode(false);
 	}
 };
