@@ -1,6 +1,6 @@
-import url from 'object/url.js';
+import url from 'window/url.js';
 
-describe('object/url', () => {
+describe('window/url', () => {
 
 	var testLocationProtocol = window.location.protocol;
 	var testLocationRoot = window.location.origin || (testLocationProtocol + '//' + window.location.host);

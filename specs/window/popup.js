@@ -1,6 +1,6 @@
-import popup from 'helper/popup.js';
+import popup from 'window/popup.js';
 
-describe('helper/popup', () => {
+describe('window/popup', () => {
 
 	var _open = window.open;
 	var url = 'https://doma.in/oauth/auth';
