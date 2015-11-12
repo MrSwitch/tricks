@@ -19,7 +19,7 @@ describe('window/close', () => {
 	xit('should remove a window if its contained within another window.', () => {
 
 		var popup = document.createElement('iframe');
-		popup.src = "about:blank";
+		popup.src = 'about:blank';
 
 	});
 });
