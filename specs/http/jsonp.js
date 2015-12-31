@@ -2,10 +2,10 @@ import jsonp from 'http/jsonp.js';
 
 describe('http/jsonp', () => {
 
-	var jsonpMockUrl = "./mock-jsonp.js";
+	var jsonpMockUrl = './mock-jsonp.js';
 
 	it('should trigger a callback with a response', (done) => {
-		let json = {success:'ok'};
+		let json = {success: 'ok'};
 		let url = `${jsonpMockUrl}?response=${encodeURIComponent(JSON.stringify(json))}&callback=?`;
 		jsonp(url, (response) => {
 			expect(response).to.eql(json);
@@ -23,7 +23,7 @@ describe('http/jsonp', () => {
 
 	it('should clearup the script tag reference', (done) => {
 		let url = `${jsonpMockUrl}?callback=?`;
-		let script = jsonp(url, (response) => {
+		let script = jsonp(url, () => {
 			setTimeout(() => {
 				expect(script.parentNode).to.not.be.ok();
 				done();

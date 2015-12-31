@@ -2,7 +2,7 @@
 import prefix from './prefix.js';
 import CSSsupports from './CSSsupports.js';
 
-const result = prefix("BoxDirection");
+const result = prefix('BoxDirection');
 
 CSSsupports('legacyflex', result);
 

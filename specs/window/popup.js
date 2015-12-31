@@ -1,6 +1,6 @@
-import popup from 'helper/popup.js';
+import popup from 'window/popup.js';
 
-describe('helper/popup', () => {
+describe('window/popup', () => {
 
 	var _open = window.open;
 	var url = 'https://doma.in/oauth/auth';
@@ -11,7 +11,7 @@ describe('helper/popup', () => {
 
 	it('should call window.open with url', () => {
 
-		var spy = sinon.spy((_url, name, options) => {
+		var spy = sinon.spy((_url) => {
 			expect(url).to.eql(_url);
 		});
 
@@ -31,7 +31,7 @@ describe('helper/popup', () => {
 
 		window.open = spy;
 
-		popup(url, 'https://redirect.uri/path', {width:500, height:500});
+		popup(url, 'https://redirect.uri/path', {width: 500, height: 500});
 
 		expect(spy.calledOnce).to.be.ok();
 	});

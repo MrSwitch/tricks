@@ -1,18 +1,18 @@
-import url from 'object/url.js';
+import url from 'window/url.js';
 
-describe('object/url', () => {
+describe('window/url', () => {
 
 	var testLocationProtocol = window.location.protocol;
-	var testLocationRoot = window.location.origin || (testLocationProtocol + "//" + window.location.hostname);
+	var testLocationRoot = window.location.origin || (testLocationProtocol + '//' + window.location.host);
 	var testLocationDir = window.location.pathname.replace(/\/[^\/]+$/, '/');
 	var testLocationFilename = 'redirect.html';
 
-	if (testLocationRoot === testLocationProtocol + '//' && testLocationProtocol !== "file:") {
+	if (testLocationRoot === testLocationProtocol + '//' && testLocationProtocol !== 'file:') {
 		// Fix windows issue where origin does not include file:///d:/
-		// "origin":"d://"
-		// "href":"d:/Projects/tricks/specs/index.html",
-		// "hostname":"",
-		// "protocol":"d:"
+		// 'origin':'d://'
+		// 'href':'d:/Projects/tricks/specs/index.html',
+		// 'hostname':'',
+		// 'protocol':'d:'
 		testLocationRoot = testLocationProtocol;
 	}
 
@@ -35,7 +35,7 @@ describe('object/url', () => {
 	it('should return a full URL, if a protocol-less URL is given', () => {
 		var _url = '//test/' + testLocationFilename;
 		var path = url(_url).href;
-		expect(path).to.equal((testLocationProtocol + _url).replace('////','//'));
+		expect(path).to.equal((testLocationProtocol + _url).replace('////', '//'));
 	});
 
 	it('should return a full URL, if a base-path is given', () => {

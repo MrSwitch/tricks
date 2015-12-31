@@ -7,21 +7,21 @@ export default (elements, callback) => {
 
 	return touch(elements, function(e, o, s) {
 
-		gesture(e,s);
+		gesture(e, s);
 
-		e.gesture.type = "drag" + e.gesture.direction;
+		e.gesture.type = 'drag' + e.gesture.direction;
 
 		callback.call(this, e);
 
-	}, function(e){
-
-	}, function(e, s) {
+	},
+	function() {},
+	function(e) {
 		// How long did this operation take?
 		if (e.gesture.deltaTime < 200 && e.gesture.distance > 20 && e.gesture.velocity > 0.3) {
-			e.gesture.type = "swipe" + e.gesture.direction;
+			e.gesture.type = 'swipe' + e.gesture.direction;
 		}
 		else {
-			e.gesture.type = "release";
+			e.gesture.type = 'release';
 		}
 
 

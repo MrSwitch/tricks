@@ -16,8 +16,8 @@ describe('string/queryparse', () => {
 		var value = queryparse('&test=1&test2=2');
 
 		expect(value).to.eql({
-			test: "1",
-			test2: "2"
+			test: '1',
+			test2: '2'
 		});
 	});
 });

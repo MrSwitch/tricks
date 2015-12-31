@@ -1,5 +1,6 @@
 // Pubsub extension
 // A contructor superclass for adding event menthods, on, off, emit.
+import setImmediate from '../time/setImmediate.js';
 
 const separator = /[\s\,]+/;
 
@@ -89,9 +90,9 @@ function emit(evt, ...args) {
 function emitAfter() {
 	var _this = this;
 	var args = arguments;
-	setTimeout(function() {
+	setImmediate(function() {
 		_this.emit.apply(_this, args);
-	}, 0);
+	});
 
 	return this;
 }
@@ -104,13 +105,15 @@ function findEvents(evt, callback) {
 
 		if (a.indexOf(name) > -1) {
 
-			this.events[name].forEach((handler, i) => {
-				// Does the event handler exist?
-				if (handler) {
-					// Emit on the local instance of this
-					callback.call(this, name, i);
-				}
-			});
+			this.events[name].forEach(triggerCallback.bind(this, name, callback));
 		}
 	}}
+}
+
+function triggerCallback(name, callback, handler, i) {
+	// Does the event handler exist?
+	if (handler) {
+		// Emit on the local instance of this
+		callback.call(this, name, i);
+	}
 }

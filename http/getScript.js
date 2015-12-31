@@ -26,8 +26,8 @@ export default (url, callback, timeout = 0) => {
 	// Build script tag
 	var script = createElement('script', {
 		src: url,
-		onerror:cb,
-		onload:cb,
+		onerror: cb,
+		onload: cb,
 		onreadystatechange: () => {
 			if (/loaded|complete/i.test(script.readyState)) {
 				cb(createEvent('load'));

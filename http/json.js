@@ -6,12 +6,12 @@ export default (url, callback) => {
 		try {
 			v = JSON.parse(x.response);
 		}
-		catch(e) {
+		catch (e) {
 
 		}
 		callback(v);
 	};
 	x.onerror = callback;
-	x.open("GET", url);
+	x.open('GET', url);
 	x.send();
 };

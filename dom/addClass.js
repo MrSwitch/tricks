@@ -5,7 +5,7 @@ import hasClass from './hasClass.js';
 export default (elements, className) => {
 	return each(elements, (el) => {
 		if (!hasClass(el, className)) {
-			el.className += " " + className;
+			el.className += ' ' + className;
 		}
 	});
 };

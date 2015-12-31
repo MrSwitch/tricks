@@ -1,7 +1,7 @@
 import on from './on.js';
 
 export default (callback) => {
-	if (document.readyState !== "loading" && document.body) {
+	if (document.readyState !== 'loading' && document.body) {
 		callback();
 	}
 	else {

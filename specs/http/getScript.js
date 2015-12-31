@@ -2,7 +2,7 @@ import getScript from 'http/getScript.js';
 
 describe('http/getScript', () => {
 
-	var jsonpMockUrl = "./mock-jsonp.js";
+	var jsonpMockUrl = './mock-jsonp.js';
 
 	it('should trigger a callback once the script has loaded', (done) => {
 

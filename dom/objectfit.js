@@ -17,11 +17,11 @@ export default (item_width, item_height, target_width, target_height) => {
 		offsetLeft = Math.round(((target_height / item_r) - target_width));
 	}
 	// Window is proportionally narrower than the image
-	else if(target_r < item_r) {
+	else if (target_r < item_r) {
 		// Get the vertical middle offset
 		offsetTop = Math.round(((target_width * item_r) - target_height));
 	}
 
 	// Returns the new [x,y,w,h];
-	return [-offsetLeft/2, -offsetTop/2, target_width + offsetLeft, target_height + offsetTop];
+	return [-offsetLeft / 2, -offsetTop / 2, target_width + offsetLeft, target_height + offsetTop];
 };

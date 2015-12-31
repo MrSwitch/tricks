@@ -12,15 +12,15 @@ var _getUserMedia = (
 ).bind(navigator);
 
 export default (constraints, success, failure) => {
-	try{
+	try {
 		_getUserMedia(constraints, success, failure);
 	}
-	catch(e){
-		try{
+	catch (e) {
+		try {
 			// provide a string of constraints
-			_getUserMedia( Object.keys(constraints).join(','), success, failure);
+			_getUserMedia(Object.keys(constraints).join(','), success, failure);
 		}
-		catch(_e){
+		catch (_e) {
 			failure();
 		}
 	}

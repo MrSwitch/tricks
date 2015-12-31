@@ -1,10 +1,10 @@
 // Timing function
 import requestAnimationFrame from '../support/requestAnimationFrame.js';
+import now from './now.js';
 
-var linear = function(t) {return t;};
-var now = Date.now || function() {
-	return (new Date()).getTime();
-};
+function linear(t) {
+	return t;
+}
 
 // Give a duration, an easing function and a frame callback we have...
 export default (durationMS, easeFunc, frameCallback) => {

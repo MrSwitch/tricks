@@ -6,7 +6,7 @@ window.requestAnimationFrame =
 	window.oRequestAnimationFrame ||
 	window.msRequestAnimationFrame ||
 	function (callback) {
-		window.setTimeout(callback, 1000 / 60);
+		setTimeout(callback, 1000 / 60);
 	};
 
 export default window.requestAnimationFrame.bind(window);

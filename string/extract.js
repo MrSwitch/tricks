@@ -5,7 +5,7 @@
 export default (str, match_params, formatFunction = (x) => {return x;}) => {
 	var a = {};
 	var m;
-	while((m = match_params.exec(str))) {
+	while ((m = match_params.exec(str))) {
 		a[m[1]] = formatFunction(m[2]);
 	}
 	return a;

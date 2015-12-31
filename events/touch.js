@@ -55,7 +55,7 @@ export default (elements, onmove, onstart, onend) => {
 		var i = e.pointerId || 0;
 		cb[i] = null;
 
-		if (e.type === "touchend" || e.type === "touchcancel") {
+		if (e.type === 'touchend' || e.type === 'touchcancel') {
 			e = mv[i];
 		}
 
@@ -72,11 +72,11 @@ export default (elements, onmove, onstart, onend) => {
 
 		// bind events
 		// on(element, 'touchend', (e) => {
-		// 	console.log("el:touchend");
+		// 	console.log('el:touchend');
 		// 	console.log(e);
 		// });
 
-		on(element, "selectstart", (e) => {return false;} );
+		on(element, 'selectstart', () => {return false;});
 
 		on(element, eventStartTypes, (startEvent) => {
 
