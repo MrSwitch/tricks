@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-- '0.10'
+- stable
 before_script:
 - npm install gulp
 - npm install -g bower
@@ -17,9 +17,9 @@ env:
 deploy:
   provider: npm
   email: andrewjdodson@gmail.com
-  'on':
+  on:
     tags: true
     repo: MrSwitch/tricks
     all_branches: true
   api_key:
-    secure: JFFvJmjEAcd3xBfN0VVuMgpD/2n+MXeUw2PYPB4ASyWeVFiz/qsdaa4TruzRqsor0Sr68QLry3hj2CK9nxlWwID/bcN/paM1irUsZA7TubGHqqoSNTYe0Mi4KOm8jJykocYn/9dFyVtGLJn+sAS8F+py8m8UFxw7bfhIsN6BKJZ6Cg0B5Zc8tIHiLMT9iUjBhZtQKCYX5UwvmQZvoSzkcR/LerpdOO6c7hcuoXP8Ql3u4yJlGUwOes0CKa01Ytn8EvNAlfERH4JzmjEdNwY6x6Njt8thaSbUaoirUkxrwpeK25Wy46/Nl371DJY03Izi3k9jSlTZ63bj9vOX9JG75rQfQguLxKH8ccqsqA3+lyFwdvAMKa8sPxm6QceTahKc4G9pfzOHWiDlfTplYrgl6xZGL5LcQgRbq6KlI0pUxBldpePsk9GpwPI83eHMh5JzZu61OHd2OoPJXWyt6JN54J7rmOnZc1K11JlbvYbxAsKdCHS9HqxJj7orIi7/pzdHWFHRonPGZRn7CzIFzrJGJN+cJO3vxl6hzGaEYf8gu8jOC6O8OHEgod+NIy1a4M/OquGljxBbkxSz9kZmDjB+hiRvcBvOQfBFT1YHlyWCVhS7VP0B6/nVWSDX49qmVNjSnSkB/Yz0nOozmxqz4zO95TNhjKKuEdXzU9cpnnT1LiE=
+    secure: PYWJQVQVYokJ/fCTPaD3iFgjYFXjH7D9DSlEk0BSeqpZkxKvQT489slXfwmjFjXa1I+TtGXoo4smtjgy+BgYMT6vTBOJeYtsC/JZbuEqrRnYqQwb/zRSIKlZzihrTO8sySmNQHsdxC2xvYRRvQ1a/u8aYVxhtIPLAOZx3YUjy96HCfl2MwH3/A4z1zJGB920KMrzy9H+447PSwuagSKHHKIv4YMYDal/yDaUVX1/Vx9Xho0zlfqhFrkerOwYCswQkevvOOZ/qLvUYKhL0e3m+yxMYe3QFk48/ttF+ZZqzbCnzIGA4M20i5optgyeictD1dmjoDXLAe34oiJaKUuNuTXB+MN2wpuvmAZu7o27i9zr0G6qzSsvz6O0c192s4+zbnJ+KqCANetNiKxbRMChh/c3D6AKjeSrOZapd0YQWvpWY9QRj8j3MbZ8SVXBNjotg0EaZd1cs8lKuVWSbgVB4YtD58t1x+Rdf3I6PtixwWooSC4qGUDV0JSryIVaPvh7Emlim9eG841U8Yd0ht+5r3AImJ5hgpE71Zx+bcXW+NegQNYzT9Jj950bUIpz38fBPin8Kc77I9KBfY4Z+tT6FFu130tYBoLCEoc9+MGNEshW61hd+8ebK32dmENzxv98JuZaoOFMB6181Hb6YlNrPlwjL6aOHfk5SwcfovLUzew=
