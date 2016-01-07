@@ -33,6 +33,7 @@ import './object/instanceOf.js';
 import './object/merge.js';
 import './object/objectCreate.js';
 import './object/pubsub.js';
+import './object/Queue.js';
 import './object/then.js';
 import './object/toArray.js';
 import './object/toBlob.js';
