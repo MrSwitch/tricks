@@ -12,6 +12,7 @@ import './dom/objectfit.js';
 import './dom/prepend.js';
 import './dom/until.js';
 import './events/createEvent.js';
+import './events/delegate.js';
 import './events/emit.js';
 import './events/globalCallback.js';
 import './events/off.js';
