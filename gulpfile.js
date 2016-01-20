@@ -19,15 +19,10 @@ gulp.task('localhost', function() {
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
+gulp.task('test', ['index_tests'], testSpecs('specs/index.html'));
+gulp.task('test_bundle', ['bundle'], testSpecs('specs/bundle.html'));
 
-gulp.task('test', function () {
-    var stream = mochaPhantomJS();
-    stream.write({path: 'http://localhost:' + port + '/specs/index.html', reporter: 'spec'});
-    stream.end();
-    return stream;
-});
-
-gulp.task('build_test_index', function () {
+gulp.task('index_tests', function () {
 	var root = __dirname.replace(/\\/g, '/') + '/specs/';
 
 	// for the given files in the test directory, create an index
@@ -44,14 +39,14 @@ gulp.task('build_test_index', function () {
 });
 
 gulp.task('watch', ['localhost'], function () {
-	return gulp.watch(scripts_to_watch, {interval: 500}, ['build_test_index', 'test']);
+	return gulp.watch(scripts_to_watch, {interval: 500}, ['index_tests', 'test']);
 });
 
-gulp.task('close', ['test'], function () {
+gulp.task('close', function () {
 	localhost.close();
 });
 
-gulp.task('build', ['build_test_index'], function() {
+gulp.task('bundle', ['index_tests'], function() {
 
 	// Package up the specs directory into a single file called config.js
 	return browserify('./specs/index.js', {debug: true, paths: './'})
@@ -65,8 +60,21 @@ gulp.task('build', ['build_test_index'], function() {
 	.pipe(gulp.dest('./specs/'));
 });
 
-gulp.task('watch_build', function () {
-	return gulp.watch(scripts_to_watch, {interval: 500}, ['build']);
+gulp.task('watch_bundle', function () {
+	return gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']);
 });
 
-gulp.task('default', ['localhost', 'test', 'close', 'build']);
+gulp.task('default', ['localhost', 'test_bundle'], () => {
+	util.log('Closing localhost:' + port);
+	localhost.close();
+});
+
+
+function testSpecs(path) {
+	return () => {
+	    var stream = mochaPhantomJS();
+	    stream.write({path: 'http://localhost:' + port + '/' + path, reporter: 'spec'});
+	    stream.end();
+	    return stream;
+	}
+}
