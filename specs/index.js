@@ -40,6 +40,7 @@ import './object/toBlob.js';
 import './object/unique.js';
 import './string/createUrl.js';
 import './string/extract.js';
+import './string/ltrim.js';
 import './string/param.js';
 import './string/queryparse.js';
 import './string/random.js';
