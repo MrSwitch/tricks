@@ -69,12 +69,11 @@ gulp.task('default', ['localhost', 'test_bundle'], () => {
 	localhost.close();
 });
 
-
 function testSpecs(path) {
 	return () => {
-	    var stream = mochaPhantomJS();
-	    stream.write({path: 'http://localhost:' + port + '/' + path, reporter: 'spec'});
-	    stream.end();
-	    return stream;
-	}
+		var stream = mochaPhantomJS();
+		stream.write({path: 'http://localhost:' + port + '/' + path, reporter: 'spec'});
+		stream.end();
+		return stream;
+	};
 }
