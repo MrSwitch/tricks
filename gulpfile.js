@@ -14,7 +14,7 @@ var localhost = require('localhost')('./');
 
 var scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!specs/components/**/*', '!specs/bundle.js', '!specs/index.js'];
 
-gulp.task('localhost', function() {
+gulp.task('localhost', () => {
 	localhost.listen(port);
 	util.log('Listening on port', util.colors.cyan(port));
 });
@@ -22,31 +22,31 @@ gulp.task('localhost', function() {
 gulp.task('test', ['index_tests'], testSpecs('specs/index.html'));
 gulp.task('test_bundle', ['bundle'], testSpecs('specs/bundle.html'));
 
-gulp.task('index_tests', function () {
+gulp.task('index_tests', () => {
 	var root = __dirname.replace(/\\/g, '/') + '/specs/';
 
 	// for the given files in the test directory, create an index
-	return gulp.src(['specs/*/*.js', '!specs/components{,/**}'], function(err, files) {
+	return gulp.src(['specs/*/*.js', '!specs/components{,/**}'], (err, files) => {
 		// Write line to the index file
-		var index = files.filter(function(name) {
+		var index = files.filter((name) => {
 			// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
 			return !name.match('/components/');
-		}).map(function(name) {
+		}).map((name) => {
 			return 'import \'' + name.replace(root, './') + '\';';
 		});
 		fs.writeFileSync('specs/index.js', index.join('\n'));
 	});
 });
 
-gulp.task('watch', ['localhost'], function () {
+gulp.task('watch', ['localhost'], () => {
 	return gulp.watch(scripts_to_watch, {interval: 500}, ['index_tests', 'test']);
 });
 
-gulp.task('close', function () {
+gulp.task('close', () => {
 	localhost.close();
 });
 
-gulp.task('bundle', ['index_tests'], function() {
+gulp.task('bundle', ['index_tests'], () => {
 
 	// Package up the specs directory into a single file called config.js
 	return browserify('./specs/index.js', {debug: true, paths: './'})
@@ -60,7 +60,7 @@ gulp.task('bundle', ['index_tests'], function() {
 	.pipe(gulp.dest('./specs/'));
 });
 
-gulp.task('watch_bundle', function () {
+gulp.task('watch_bundle', () => {
 	return gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']);
 });
 
