@@ -1,5 +1,5 @@
 // Close a window
-export default (window) => {
+export default window => {
 
 	// Is this window within an Iframe?
 	if (window.frameElement) {
@@ -14,9 +14,7 @@ export default (window) => {
 
 		// IOS bug wont let us close a popup if still loading
 		if (window.addEventListener) {
-			window.addEventListener('load', function() {
-				window.close();
-			});
+			window.addEventListener('load', () => window.close());
 		}
 	}
 };

@@ -11,7 +11,7 @@ describe('object/Queue', () => {
 		let x = 0;
 
 		// Create a handling function
-		let spy = sinon.spy((item) => {
+		let spy = sinon.spy(item => {
 			// Should return the first item
 			expect(item).to.be.eql(x++);
 		});

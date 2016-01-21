@@ -2,9 +2,7 @@
 import requestAnimationFrame from '../support/requestAnimationFrame.js';
 import now from './now.js';
 
-function linear(t) {
-	return t;
-}
+let linear = t => t;
 
 // Give a duration, an easing function and a frame callback we have...
 export default (durationMS, easeFunc, frameCallback) => {

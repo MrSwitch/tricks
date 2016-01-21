@@ -19,7 +19,7 @@ export default (url, data, options, callback, callback_name, timeout = 60000) =>
 
 	var timer;
 	var bool = 0;
-	var cb = (r) => {
+	var cb = r => {
 		if (!(bool++)) {
 			if (timer) {
 				clearTimeout(timer);
@@ -136,7 +136,7 @@ function createFormFromData(data) {
 		form = data.form;
 
 		// Loop through and disable all of its siblings
-		toArray(form.elements).forEach((input) => {
+		toArray(form.elements).forEach(input => {
 			if (input !== data) {
 				input.setAttribute('disabled', true);
 			}
@@ -152,7 +152,7 @@ function createFormFromData(data) {
 		form = data;
 
 		// Does this form need to be a multipart form?
-		toArray(form.elements).forEach((input) => {
+		toArray(form.elements).forEach(input => {
 			if (!input.disabled && input.type === 'file') {
 				form.encoding = form.enctype = 'multipart/form-data';
 				input.setAttribute('name', 'file');
@@ -187,7 +187,7 @@ function createFormFromData(data) {
 			// Bind the clean up of the existing form.
 			on(form, 'submit', () => {
 				setImmediate(() => {
-					reenableAfterSubmit.forEach((input) => {
+					reenableAfterSubmit.forEach(input => {
 						if (input) {
 							input.setAttribute('disabled', false);
 							input.disabled = false;
@@ -252,7 +252,7 @@ function createFormFromData(data) {
 		}
 
 		// Disable elements from within the form if they weren't specified
-		toArray(form.elements).forEach((input) => {
+		toArray(form.elements).forEach(input => {
 
 			// Does the same name and value exist in the parent
 			if (!(input.name in data) && input.getAttribute('disabled') !== true) {

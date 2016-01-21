@@ -2,7 +2,7 @@ import now from 'time/now.js';
 
 describe('time/now', () => {
 
-	it('should return the current time in milliseconds', (done) => {
+	it('should return the current time in milliseconds', done => {
 
 		let i = now();
 

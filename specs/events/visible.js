@@ -17,7 +17,7 @@ describe('events/visible', () => {
 		document.body.removeChild(elm);
 	});
 
-	it('should trigger visibilitychange when bound to an element', (done) => {
+	it('should trigger visibilitychange when bound to an element', done => {
 
 		var spy = () => {
 			// Test
@@ -38,7 +38,7 @@ describe('events/visible', () => {
 		visible(elm);
 	});
 
-	it('should trigger visibilitychange and pass a visible value to that of the inViewport value', (done) => {
+	it('should trigger visibilitychange and pass a visible value to that of the inViewport value', done => {
 
 		var spy = () => {
 			// Test

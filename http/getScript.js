@@ -7,7 +7,7 @@ export default (url, callback, timeout = 0) => {
 	var bool = 0,
 		timer,
 		head = document.getElementsByTagName('script')[0].parentNode,
-		cb = (e) => {
+		cb = e => {
 			if (!(bool++) && callback) {
 				callback(e);
 			}

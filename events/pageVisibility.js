@@ -19,7 +19,7 @@ until([
 	['msHidden', 'ms' + VISIBILITYCHANGE],
 	['mozHidden', 'moz' + VISIBILITYCHANGE],
 	['webkitHidden', 'webkit' + VISIBILITYCHANGE]
-], (item) => {
+], item => {
 	let [flag, handler] = item;
 	if (typeof document[flag] !== 'undefined') {
 		_hidden = flag;

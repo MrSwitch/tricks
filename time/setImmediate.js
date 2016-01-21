@@ -1,3 +1,1 @@
-export default window.setImmediate || ((cb) => {
-	return setTimeout(cb, 0);
-});
+export default window.setImmediate || (cb => setTimeout(cb, 0));

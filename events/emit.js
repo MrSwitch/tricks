@@ -4,9 +4,5 @@ import each from '../dom/each.js';
 import createEvent from './createEvent.js';
 
 // Return
-export default (elements, eventname) => {
-	return each(elements, (el) => {
-		el.dispatchEvent(createEvent(eventname));
-	});
-};
+export default (elements, eventname) => each(elements, el => el.dispatchEvent(createEvent(eventname)));
 

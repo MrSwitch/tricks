@@ -3,7 +3,7 @@ import instanceOf from '../object/instanceOf.js';
 export default (type, data) => {
 	var test = 'HTML' + (type || '').replace(
 		/^[a-z]/,
-		(m) => {
+		m => {
 			return m.toUpperCase();
 		}
 

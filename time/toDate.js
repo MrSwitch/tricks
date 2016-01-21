@@ -1,6 +1,6 @@
 // Can this convert a string to a number
 
-export default (str) => {
+export default str => {
 
 	var date = new Date(str);
 

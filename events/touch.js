@@ -19,7 +19,7 @@ export default (elements, onmove, onstart, onend) => {
 	// Store callbacks, and previous pointer position
 	var cb = {}, mv = {}, fin = {};
 
-	on(document, eventMoveTypes, (moveEvent) => {
+	on(document, eventMoveTypes, moveEvent => {
 
 		// Fix Android not firing multiple moves
 		// if (e.type.match(/touch/i)) {
@@ -50,7 +50,7 @@ export default (elements, onmove, onstart, onend) => {
 		mv[i] = moveEvent;
 	});
 
-	on(document, eventEndTypes, (e) => {
+	on(document, eventEndTypes, e => {
 
 		var i = e.pointerId || 0;
 		cb[i] = null;
@@ -68,17 +68,17 @@ export default (elements, onmove, onstart, onend) => {
 	});
 
 	// loop through and add events
-	each(elements, (element) => {
+	each(elements, element => {
 
 		// bind events
-		// on(element, 'touchend', (e) => {
+		// on(element, 'touchend', e => {
 		// 	console.log('el:touchend');
 		// 	console.log(e);
 		// });
 
 		on(element, 'selectstart', () => {return false;});
 
-		on(element, eventStartTypes, (startEvent) => {
+		on(element, eventStartTypes, startEvent => {
 
 			// default pointer ID
 			var i = startEvent.pointerId || 0;
@@ -100,7 +100,7 @@ export default (elements, onmove, onstart, onend) => {
 			};
 
 			if (onend) {
-				fin[i] = (endEvent) => {
+				fin[i] = endEvent => {
 
 					// Add Gestures to event Object
 					gesture(endEvent, startEvent);

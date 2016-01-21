@@ -5,7 +5,7 @@ describe('dom/until', () => {
 	it('should trigger the callback until it returns true', () => {
 		let a = [1, 2, 3, 4];
 		let i = 0;
-		until(a, (n) => {
+		until(a, n => {
 			i++;
 			return n === 2;
 		});

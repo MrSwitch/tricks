@@ -7,7 +7,7 @@ export default (root = document) => {
 	}
 	else {
 		// Enable event delegation to fix anchor elements
-		delegate('a', 'click', (e) => {
+		delegate('a', 'click', e => {
 
 			let target = e.delegateTarget;
 

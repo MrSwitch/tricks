@@ -8,7 +8,7 @@ describe('time/age', () => {
 
 	it('should return empty string if value passed is not a date', () => {
 
-		[undefined, null, '', {}, 1].forEach((input) => {
+		[undefined, null, '', {}, 1].forEach(input => {
 			expect(age(input)).to.equal('');
 		});
 
@@ -28,7 +28,7 @@ describe('time/age', () => {
 			['2013-06-20T19:00:17.130+10:00', '11 months ago'],
 			['2011-11-11T15:50:00.000+11:00', '2 years ago']
 
-		].forEach((test) => {
+		].forEach(test => {
 			let [input, output] = test;
 			expect(age(input, now)).to.equal(output);
 		});

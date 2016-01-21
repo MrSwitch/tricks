@@ -28,10 +28,10 @@ gulp.task('index_tests', () => {
 	// for the given files in the test directory, create an index
 	return gulp.src(['specs/*/*.js', '!specs/components{,/**}'], (err, files) => {
 		// Write line to the index file
-		var index = files.filter((name) => {
+		var index = files.filter(name => {
 			// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
 			return !name.match('/components/');
-		}).map((name) => {
+		}).map(name => {
 			return 'import \'' + name.replace(root, './') + '\';';
 		});
 		fs.writeFileSync('specs/index.js', index.join('\n'));

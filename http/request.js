@@ -17,7 +17,7 @@ export default (p, callback) => {
 
 	// Default proxy response
 	if (!p.proxy) {
-		p.proxy = (cb) => {cb();};
+		p.proxy = cb => {cb();};
 	}
 
 	// CORS

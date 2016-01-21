@@ -2,7 +2,7 @@ import setImmediate from 'time/setImmediate.js';
 
 describe('time/setImmediate', () => {
 
-	it('should run the callback in another process, after the current one has finished', (done) => {
+	it('should run the callback in another process, after the current one has finished', done => {
 
 		let bool = true;
 

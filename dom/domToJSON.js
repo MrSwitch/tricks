@@ -1,7 +1,7 @@
 import domInstance from './domInstance.js';
 import instanceOf from '../object/instanceOf.js';
 
-export default (node) => {
+export default node => {
 
 	let data = {};
 

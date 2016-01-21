@@ -6,7 +6,7 @@ import documentElement from './documentElement.js';
 
 export default (elements, match) => {
 	var m = [];
-	each(elements, (el) => {
+	each(elements, el => {
 		while (el && el.parentNode) {
 			el = el.parentNode;
 

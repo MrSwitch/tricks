@@ -1,4 +1,4 @@
-export default (path) => {
+export default path => {
 
 	// If the path is empty
 	if (!path) {
@@ -12,7 +12,7 @@ export default (path) => {
 
 	// Ugly shim, it works!
 	else {
-		var a = document.createElement('a');
+		let a = document.createElement('a');
 		a.href = path;
 		// Return clone for IE compatibility view.
 		return a.cloneNode(false);

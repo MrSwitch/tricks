@@ -1,3 +1,1 @@
-export default () => {
-	return parseInt(Math.random() * 1e12, 10).toString(36);
-};
+export default () => parseInt(Math.random() * 1e12, 10).toString(36);

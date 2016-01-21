@@ -33,7 +33,7 @@ export default function() {
 function on(evt, callback) {
 
 	if (callback && typeof (callback) === 'function') {
-		evt.split(separator).forEach((name) => {
+		evt.split(separator).forEach(name => {
 			// Has this event already been fired on this instance?
 			this.events[name] = [callback].concat(this.events[name] || []);
 		});

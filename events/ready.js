@@ -1,6 +1,6 @@
 import on from './on.js';
 
-export default (callback) => {
+export default callback => {
 	if (document.readyState !== 'loading' && document.body) {
 		callback();
 	}

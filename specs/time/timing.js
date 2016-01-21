@@ -2,7 +2,7 @@ import timing from 'time/timing.js';
 
 describe('time/timing', () => {
 
-	it('should trigger numerous callbacks between a period of time', (done) => {
+	it('should trigger numerous callbacks between a period of time', done => {
 
 		var spy = sinon.spy((x, t) => {
 

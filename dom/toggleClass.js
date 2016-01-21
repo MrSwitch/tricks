@@ -6,12 +6,10 @@ import hasClass from './hasClass.js';
 export default (elements, className, condition) => {
 
 	if (typeof(condition) !== 'function') {
-		condition = function(el) {
-			return !hasClass(el, className);
-		};
+		condition = el => !hasClass(el, className);
 	}
 
-	return each(elements, (el) => {
+	return each(elements, el => {
 		if (condition(el)) {
 			addClass(el, className);
 		}
