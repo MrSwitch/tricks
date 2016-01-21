@@ -10,7 +10,7 @@ try {
 catch (e) {
 	createEvent = (eventname, options = dict) => {
 		let e = document.createEvent('Event');
-		e.initEvent(eventname, dict.bubble, dict.cancelable);
+		e.initEvent(eventname, !!options.bubbles, !!options.cancelable);
 		return e;
 	};
 }
