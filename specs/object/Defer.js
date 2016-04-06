@@ -18,7 +18,7 @@ describe('object/Defer', () => {
 
 	});
 
-	it('should push callbacks, and trigger them with the contents of resolve' , (done) => {
+	it('should push callbacks, and trigger them with the contents of resolve', (done) => {
 
 		let test = 'test';
 		let defer = new Defer();
