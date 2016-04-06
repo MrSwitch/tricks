@@ -4,7 +4,7 @@ describe('time/toDate', () => {
 
 	it('should return null string if value passed is not a date', () => {
 
-		[undefined, '', {}].forEach((input) => {
+		[undefined, '', {}].forEach(input => {
 			let output = toDate(input);
 			expect(output).to.be.a(Date);
 			expect(output.toString()).to.eql('Invalid Date');

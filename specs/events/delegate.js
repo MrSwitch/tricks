@@ -19,7 +19,7 @@ describe('events/delegate', () => {
 
 	it('should employ concept of Event Delegation', () => {
 
-		let spy = sinon.spy((e) => {
+		let spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.ok();
 		});
 
@@ -37,7 +37,7 @@ describe('events/delegate', () => {
 		let child = document.createElement('span');
 		el.appendChild(child);
 
-		let spy = sinon.spy((e) => {
+		let spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.equal(el);
 		});
 
@@ -52,7 +52,7 @@ describe('events/delegate', () => {
 
 	it('should return an object with a remove method', () => {
 
-		let spy = sinon.spy((e) => {
+		let spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.equal(el);
 		});
 

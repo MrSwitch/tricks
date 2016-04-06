@@ -12,7 +12,7 @@ describe('string/extract', () => {
 
 		// Convert there and back
 		var reg = /([a-z0-9\-]+):\s*([^\:\;]+)/gi;
-		var test = extract('test:value;test2:2;', reg, (value) => {
+		var test = extract('test:value;test2:2;', reg, value => {
 			return value.match(/^\d+$/) ? +value : value;
 		});
 

@@ -8,9 +8,7 @@ export default (elements, query) => {
 	let handler = query;
 
 	if (typeof query === 'string') {
-		handler = (el) => {
-			return matches.call(el, query);
-		};
+		handler = el => matches.call(el, query);
 	}
 
 	return until(elements, handler);

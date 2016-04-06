@@ -28,7 +28,7 @@ function scanElement(el) {
 	}
 }
 
-export default (el) => {
+export default el => {
 	// Add element to list of elements to monitor
 	elements.push(el);
 

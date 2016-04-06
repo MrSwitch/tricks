@@ -4,7 +4,7 @@ import matches from '../dom/matches.js';
 
 export default (match, eventName, handler, root = document) => {
 
-	let eventHandler = (e) => {
+	let eventHandler = e => {
 		let target = e.target;
 		while (target) {
 			if (matches(target, match)) {
@@ -22,8 +22,6 @@ export default (match, eventName, handler, root = document) => {
 	on(root, eventName, eventHandler);
 
 	return {
-		remove: () => {
-			off(root, eventName, eventHandler);
-		}
+		remove: () => off(root, eventName, eventHandler)
 	}
 };

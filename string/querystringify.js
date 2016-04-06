@@ -1,5 +1,5 @@
 // Create a Query string
 import param from './param.js';
-export default (o, formatFunction = (value) => {return (value === '?' ? '?' : encodeURIComponent(value));}) => {
+export default (o, formatFunction = value => (value === '?' ? '?' : encodeURIComponent(value))) => {
 	return param(o, '&', '=', formatFunction);
 };

@@ -2,7 +2,7 @@ import isDom from './isDom.js';
 import instanceOf from '../object/instanceOf.js';
 import toArray from '../object/toArray.js';
 
-export default (matches, callback = function() {}) => {
+export default (matches, callback = () => {}) => {
 
 	if (isDom(matches)) {
 		matches = [matches];

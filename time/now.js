@@ -1,3 +1,1 @@
-export default Date.now || () => {
-	return (new Date()).getTime();
-};
+export default Date.now || () => (new Date()).getTime();

@@ -14,7 +14,7 @@ let map = {
 
 let ua = window.navigator.userAgent;
 
-let test = (a) => {
+let test = a => {
 	let [match, ignore] = a;
 	return match.test(ua) && !(ignore && ignore.test(ua));
 };

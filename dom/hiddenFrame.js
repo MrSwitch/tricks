@@ -1,7 +1,7 @@
 import append from './append.js';
 import param from '../string/param.js';
 
-export default (src) => {
+export default src => {
 
 	var style = param({
 		position: 'absolute',

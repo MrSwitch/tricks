@@ -2,7 +2,7 @@ import globalCallback, {prefix as globalCallbackPrefix} from 'events/globalCallb
 
 describe('events/globalCallback', () => {
 
-	it('should set a callback function on the window object', (done) => {
+	it('should set a callback function on the window object', done => {
 
 		var id = globalCallback(() => {
 			done();

@@ -13,7 +13,7 @@ describe('events/emit', () => {
 		document.body.removeChild(el);
 	});
 
-	it('should trigger an event on an element', (done) => {
+	it('should trigger an event on an element', done => {
 
 		// Define the click handler
 		el.onclick = () => {
@@ -23,7 +23,7 @@ describe('events/emit', () => {
 		emit(el, 'click');
 	});
 
-	it('should trigger an event on an array of elements', (done) => {
+	it('should trigger an event on an array of elements', done => {
 
 		// Define the click handler
 		el.addEventListener('click', () => {

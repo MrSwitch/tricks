@@ -1,5 +1,1 @@
-export default (a, b) => {
-	return b.filter((item) => {
-		return a.indexOf(item) === -1;
-	});
-};
+export default (a, b) => b.filter(item => a.indexOf(item) === -1);

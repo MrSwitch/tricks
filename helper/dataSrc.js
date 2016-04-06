@@ -11,12 +11,12 @@ import toArray from '../object/toArray.js';
 
 
 var images = [];
-export default (elements) => {
+export default elements => {
 
 	// Find all the elements in the page with data-src className
 	// Bind listeners to the page to determine whether this content is changing.
 
-	return each(elements, (el) => {
+	return each(elements, el => {
 
 		// Listen to the scroll event on this item
 		on(el, 'scroll', () => check(el));
@@ -36,7 +36,7 @@ function check(el) {
 	// [data-src]
 	toArray(el.querySelectorAll('img[data-src]'))
 	// Is it shown?
-	.filter((img) => {
+	.filter(img => {
 		// Where is this positioned?
 		var _t = img.offsetTop,
 			_h = img.offsetHeight;
@@ -45,7 +45,7 @@ function check(el) {
 		return ((_t + _h) >= t && _t <= (t + h));
 	})
 	// Process the element
-	.forEach((img) => {
+	.forEach(img => {
 
 		// SRC
 		img.src = img.getAttribute('data-src');

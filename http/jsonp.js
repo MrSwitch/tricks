@@ -10,7 +10,7 @@ export default (url, callback, callback_name, timeout = 60000) => {
 	var result;
 
 	// Add callback to the window object
-	callback_name = globalCallback((json) => {
+	callback_name = globalCallback(json => {
 		result = json;
 		return true; // this ensure the window reference is removed
 	}, callback_name);

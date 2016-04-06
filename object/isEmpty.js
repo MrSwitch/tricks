@@ -1,4 +1,4 @@
-export default (obj) => {
+export default obj => {
 
 	// Scalar
 	if (!obj)

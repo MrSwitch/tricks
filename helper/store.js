@@ -26,10 +26,10 @@ if (!localStorage) {
 	var cache = null;
 
 	localStorage = {
-		getItem: (prop) => {
+		getItem: prop => {
 			prop += '=';
 			var m = document.cookie.split(';');
-			m.forEach((item) => {
+			m.forEach(item => {
 				item = item.replace(/(^\s+|\s+$)/, '');
 				if (item && item.indexOf(prop) === 0) {
 					return item.substr(prop.length);
