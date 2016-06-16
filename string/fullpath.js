@@ -1,5 +1,5 @@
 // Return the relative url for a path
-export default (path, relative) => {
+export default (path, relative = './') => {
 	if (!path) {
 		return '';
 	}
