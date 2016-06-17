@@ -48,6 +48,7 @@ import './string/queryparse.js';
 import './string/random.js';
 import './string/toXML.js';
 import './string/trim.js';
+import './string/uuid.js';
 import './support/browser.js';
 import './support/canvasToBlob.js';
 import './support/index.js';
