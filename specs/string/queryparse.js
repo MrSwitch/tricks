@@ -1,4 +1,5 @@
 import queryparse from 'string/queryparse.js';
+import stringify from 'string/querystringify.js';
 
 describe('string/queryparse', () => {
 
@@ -20,4 +21,19 @@ describe('string/queryparse', () => {
 			test2: '2'
 		});
 	});
+
+	it('should perform the opposite of querystringify, e.g. return a decoded URL string', () => {
+
+		// Encode
+		var params = {
+			test: 'http://word',
+			test2: '2'
+		};
+
+		// Convert there and back
+		var value = queryparse(stringify(params));
+
+		expect(value).to.eql(params);
+	});
+
 });
