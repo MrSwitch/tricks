@@ -4,10 +4,11 @@
   "description": "ES6 modules",
   "main": "index.js",
   "scripts": {
-    "browserstack": "node_modules/.bin/browserstack-runner",
-    "eslint": "node_modules/.bin/eslint ./",
-    "test": "npm run eslint && gulp && npm run browserstack",
-    "test-local": "env $(cat .env | xargs) npm run test"
+    "lint": "eslint ./",
+    "test": "npm run lint && npm run test:specs",
+    "test:specs": "gulp",
+    "test:remote": "browserstack-runner",
+    "test-remote-args": "env $(cat .env | xargs) npm run test"
   },
   "repository": {
     "type": "git",
