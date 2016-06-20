@@ -1,6 +1,8 @@
 // XHR: uses CORS to make requests
 import instanceOf from '../object/instanceOf.js';
 import extract from '../string/extract.js';
+import jsonParse from '../string/jsonParse.js';
+import tryCatch from '../object/tryCatch.js';
 import rewire from '../object/rewire.js';
 
 const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
@@ -31,16 +33,8 @@ function xhr(method, url, responseType, headers, data, callback) {
 		if (typeof(response) === 'string' && responseType === 'json') {
 
 			// Set this to the json response
-			response = r.responseJSON;
-
-			// If the browser did not defined responseJSON...
-			if (!response) {
-				try {
-					// try to format it...
-					response = JSON.parse(r.responseText || r.response);
-				}
-				catch (_e) {}
-			}
+			// Fallback if the browser did not defined responseJSON...
+			response = r.responseJSON || jsonParse(r.responseText || r.response);
 		}
 
 		var headers = extract(r.getAllResponseHeaders(), match_headers);
@@ -70,11 +64,10 @@ function xhr(method, url, responseType, headers, data, callback) {
 	// Set responseType if supported
 	if ('responseType' in r) {
 
-		try {
+		tryCatch(() => {
 			// Setting this to an unsupported value can result in a "SYNTAX_ERR: DOM Exception 12"
 			r.responseType = responseType;
-		}
-		catch (e) {}
+		});
 	}
 	else if (responseType === 'blob') {
 		r.overrideMimeType('text/plain; charset=x-user-defined');

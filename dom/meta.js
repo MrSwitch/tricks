@@ -1,9 +1,4 @@
-export default name => {
-	var content;
-	try {
-		content = document.querySelector('meta[name="' + name + '"]').content;
-	}
-	catch (e) {}
+import tryCatch from '../object/tryCatch';
+import query from './query.js';
 
-	return content;
-};
+export default name => tryCatch(() => query('meta[name="' + name + '"]').content);
