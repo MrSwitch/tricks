@@ -7,8 +7,8 @@
     "lint": "eslint ./",
     "test": "npm run lint && npm run test:specs",
     "test:specs": "gulp",
-    "test:remote": "browserstack-runner",
-    "test-remote-args": "env $(cat .env | xargs) npm run test &&  npm run test:remote"
+    "test:browsers": "browserstack-runner",
+    "test-remote-args": "env $(cat .env | xargs) npm run test &&  npm run test:browsers"
   },
   "repository": {
     "type": "git",
