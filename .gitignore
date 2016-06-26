@@ -4,3 +4,4 @@ specs/components/
 specs/bundle.js*
 tmp/
 .env
+.DS_Store
