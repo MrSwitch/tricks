@@ -6,7 +6,7 @@ export default (url, callback) => {
 	let x = new XMLHttpRequest();
 	x.onload = () => {
 		// Get the JSON response
-		let v = x.responseJSON || jsonParse(x.response);
+		let v = (typeof x.response === 'object') ? x.response : jsonParse(x.response);
 
 		// Callback
 		callback(v);

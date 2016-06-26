@@ -12,21 +12,21 @@ var util = require('gulp-util');
 var port = 8080;
 var localhost = require('localhost')('./');
 
-var scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!specs/components/**/*', '!specs/bundle.js', '!specs/index.js'];
+var scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!test/components/**/*', '!test/bundle.js', '!test/specs/index.js'];
 
 gulp.task('localhost', () => {
 	localhost.listen(port);
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
-gulp.task('test', ['index_tests'], testSpecs('specs/index.html'));
-gulp.task('test_bundle', ['bundle'], testSpecs('specs/bundle.html'));
+gulp.task('test', ['index_tests'], testSpecs('test/index.html'));
+gulp.task('test_bundle', ['bundle'], testSpecs('test/bundle.html'));
 
 gulp.task('index_tests', () => {
-	var root = __dirname.replace(/\\/g, '/') + '/specs/';
+	var root = __dirname.replace(/\\/g, '/') + '/test/specs/';
 
 	// for the given files in the test directory, create an index
-	return gulp.src(['specs/*/*.js', '!specs/components{,/**}'], (err, files) => {
+	return gulp.src(['test/specs/*/*.js', '!test/components{,/**}'], (err, files) => {
 		// Write line to the index file
 		var index = files.filter(name => {
 			// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
@@ -34,7 +34,7 @@ gulp.task('index_tests', () => {
 		}).map(name => {
 			return 'import \'' + name.replace(root, './') + '\';';
 		});
-		fs.writeFileSync('specs/index.js', index.join('\n'));
+		fs.writeFileSync('test/specs/index.js', index.join('\n'));
 	});
 });
 
@@ -49,7 +49,7 @@ gulp.task('close', () => {
 gulp.task('bundle', ['index_tests'], () => {
 
 	// Package up the specs directory into a single file called config.js
-	return browserify('./specs/index.js', {debug: true, paths: './'})
+	return browserify('./test/specs/index.js', {debug: true, paths: './'})
 	.transform(babelify)
 	.bundle()
 	.on('error', util.log.bind(util, 'Browserify Error'))
@@ -57,7 +57,7 @@ gulp.task('bundle', ['index_tests'], () => {
 	.pipe(buffer())
 	.pipe(sourcemaps.init({loadMaps: true}))
 	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('./specs/'));
+	.pipe(gulp.dest('./test/'));
 });
 
 gulp.task('watch_bundle', () => {

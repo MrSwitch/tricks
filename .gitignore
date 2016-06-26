@@ -1,7 +1,7 @@
 node_modules/
 npm-debug.log
-specs/components/
-specs/bundle.js*
+test/components/
+test/bundle.js*
 tmp/
 .env
 .DS_Store

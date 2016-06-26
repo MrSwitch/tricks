@@ -1,3 +1,3 @@
 node_modules/
-specs/components/
-specs/bundle.js
+test/components/
+test/bundle.js
