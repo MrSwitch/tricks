@@ -7,7 +7,7 @@
     "lint": "eslint ./",
     "test": "npm run lint && npm run test:specs",
     "test:specs": "gulp",
-    "test:browsers": "browserstack-runner",
+    "test:browsers": "node_modules/.bin/browserstack-runner",
     "test:runner": "npm test && npm run test:browsers",
     "test-remote-args": "env $(cat .env | xargs) npm run test:runner"
   },
