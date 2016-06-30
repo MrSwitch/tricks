@@ -1,5 +1,5 @@
-import delegate from 'events/delegate.js';
-import emit from 'events/emit.js';
+let delegate = require('../../../events/delegate.js');
+let emit = require('../../../events/emit.js');
 
 describe('events/delegate', () => {
 

@@ -1,4 +1,4 @@
-import unique from 'object/unique.js';
+let unique = require('../../../object/unique.js');
 
 describe('object/unique', () => {
 

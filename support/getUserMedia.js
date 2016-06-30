@@ -11,7 +11,7 @@ var _getUserMedia = (
 	}
 ).bind(navigator);
 
-export default (constraints, success, failure) => {
+module.exports = (constraints, success, failure) => {
 	try {
 		_getUserMedia(constraints, success, failure);
 	}

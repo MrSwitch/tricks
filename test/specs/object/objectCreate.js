@@ -1,4 +1,4 @@
-import objectCreate from 'object/objectCreate.js';
+let objectCreate = require('../../../object/objectCreate.js');
 
 describe('object/objectCreate', () => {
 

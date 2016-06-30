@@ -1,6 +1,6 @@
-import instanceOf from './instanceOf.js';
+let instanceOf = require('./instanceOf.js');
 
-export default function extend(r, ...args) {
+module.exports = function extend(r, ...args) {
 	args.forEach(o => {
 		if (instanceOf(r, Object) && instanceOf(o, Object) && r !== o) {
 			for (let x in o) {

@@ -1,4 +1,4 @@
-import pubsub from 'object/pubsub.js';
+let pubsub = require('../../../object/pubsub.js');
 
 describe('object/pubsub', () => {
 

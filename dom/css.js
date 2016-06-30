@@ -1,7 +1,7 @@
 // css - apply properties to an element
-import each from './each.js';
+let each = require('./each.js');
 
-export default (elements, props) => {
+module.exports = (elements, props) => {
 	return each(elements, el => {
 		for (let key in props) {
 			el.style[key] = props[key];

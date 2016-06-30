@@ -1,4 +1,4 @@
-import toArray from 'object/toArray.js';
+let toArray = require('../../../object/toArray.js');
 
 describe('object/toArray', () => {
 

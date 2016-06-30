@@ -1,7 +1,7 @@
-import domInstance from './domInstance.js';
-import instanceOf from '../object/instanceOf.js';
+let domInstance = require('./domInstance.js');
+let instanceOf = require('../object/instanceOf.js');
 
-export default node => {
+module.exports = node => {
 
 	let data = {};
 

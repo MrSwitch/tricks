@@ -1,4 +1,4 @@
-import ltrim from 'string/ltrim.js';
+let ltrim = require('../../../string/ltrim.js');
 
 describe('string/ltrim', () => {
 

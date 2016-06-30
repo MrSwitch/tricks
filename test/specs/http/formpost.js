@@ -1,4 +1,4 @@
-import formpost from 'http/formpost.js';
+let formpost = require('../../../http/formpost.js');
 
 describe('http/formpost', () => {
 

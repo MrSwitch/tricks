@@ -1,7 +1,7 @@
 // Extend an object
-import extend from './extend.js';
+let extend = require('./extend.js');
 
-export default (...args) => {
+module.exports = (...args) => {
 	args.unshift({});
 	return extend.apply(null, args);
 };

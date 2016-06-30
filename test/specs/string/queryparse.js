@@ -1,5 +1,5 @@
-import queryparse from 'string/queryparse.js';
-import stringify from 'string/querystringify.js';
+let queryparse = require('../../../string/queryparse.js');
+let stringify = require('../../../string/querystringify.js');
 
 describe('string/queryparse', () => {
 

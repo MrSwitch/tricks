@@ -1,7 +1,7 @@
 /* global _gaq */
-import getScript from '../http/getScript.js';
+let getScript = require('../http/getScript.js');
 
-export default tracking => {
+module.exports = tracking => {
 	window._gaq = window._gaq || [];
 	_gaq.push(['_setAccount', tracking]);
 	_gaq.push(['_trackPageview']);

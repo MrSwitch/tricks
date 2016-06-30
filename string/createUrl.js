@@ -1,7 +1,7 @@
-import querystringify from './querystringify.js';
-import isEmpty from '../object/isEmpty.js';
+let querystringify = require('./querystringify.js');
+let isEmpty = require('../object/isEmpty.js');
 
-export default (url, params, formatFunction) => {
+module.exports = (url, params, formatFunction) => {
 
 	var reg;
 

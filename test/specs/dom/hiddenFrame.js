@@ -1,4 +1,4 @@
-import hiddenFrame from 'dom/hiddenFrame.js';
+let hiddenFrame = require('../../../dom/hiddenFrame.js');
 
 describe('dom/hiddenFrame', () => {
 

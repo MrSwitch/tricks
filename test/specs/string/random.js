@@ -1,4 +1,4 @@
-import random from 'string/random.js';
+let random = require('../../../string/random.js');
 
 describe('string/random', () => {
 

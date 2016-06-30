@@ -1,5 +1,5 @@
 // SVG Capable
-import CSSsupports from './CSSsupports.js';
+let CSSsupports = require('./CSSsupports.js');
 var bool = !!document.createElementNS;
 CSSsupports('svg', bool);
-export default bool;
+module.exports = bool;

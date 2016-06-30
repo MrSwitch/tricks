@@ -29,6 +29,7 @@
 	},
 	"globals": {
 		"sinon": true,
-		"mochaPhantomJS": true
+		"mochaPhantomJS": true,
+		"HTMLInput": true
 	}
 }

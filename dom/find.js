@@ -1,7 +1,7 @@
-import until from './until.js';
-import matches from './matches.js';
+let until = require('./until.js');
+let matches = require('./matches.js');
 
-export default (elements, match) => {
+module.exports = (elements, match) => {
 	return until(elements, el => {
 		if (matches(el, match)) {
 			return el;

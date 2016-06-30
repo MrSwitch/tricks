@@ -1,8 +1,8 @@
 // JSON
-import jsonParse from '../string/jsonParse.js';
-import tryCatch from '../object/tryCatch.js';
+let jsonParse = require('../string/jsonParse.js');
+let tryCatch = require('../object/tryCatch.js');
 
-export default (url, callback) => {
+module.exports = (url, callback) => {
 	let x = new XMLHttpRequest();
 	x.onload = () => {
 		// Get the JSON response

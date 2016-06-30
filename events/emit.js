@@ -1,8 +1,8 @@
 // on.js
 // Listen to events, this is a wrapper for addEventListener
-import each from '../dom/each.js';
-import createEvent from './createEvent.js';
+let each = require('../dom/each.js');
+let createEvent = require('./createEvent.js');
 
 // Return
-export default (elements, eventname) => each(elements, el => el.dispatchEvent(createEvent(eventname)));
+module.exports = (elements, eventname) => each(elements, el => el.dispatchEvent(createEvent(eventname)));
 

@@ -1,5 +1,5 @@
 // onhashchange
-import on from '../events/on';
+let on = require('../events/on');
 
 let a = [];
 
@@ -16,7 +16,7 @@ function handler() {
 	});
 }
 
-export default (callback) => {
+module.exports = (callback) => {
 
 	if (callback) {
 		a.push(callback);

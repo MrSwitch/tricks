@@ -1,4 +1,4 @@
-import append from 'dom/append.js';
+let append = require('../../../dom/append.js');
 
 describe('dom/append', () => {
 

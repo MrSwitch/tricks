@@ -1,4 +1,4 @@
-import toXML from 'string/toXML.js';
+let toXML = require('../../../string/toXML.js');
 
 describe('string/toXML', () => {
 

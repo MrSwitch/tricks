@@ -1,14 +1,14 @@
 // Request
 // Makes an REST request given an object which describes how (aka, xhr, jsonp, formpost)
-import jsonp from './jsonp.js';
-import xhr from './xhr.js';
-import formpost from './formpost.js';
-import SupportCORS from '../support/cors.js';
-import globalCallback from '../events/globalCallback.js';
-import createUrl from '../string/createUrl.js';
-import extend from '../object/extend.js';
+let jsonp = require('./jsonp.js');
+let xhr = require('./xhr.js');
+let formpost = require('./formpost.js');
+let SupportCORS = require('../support/cors.js');
+let globalCallback = require('../events/globalCallback.js');
+let createUrl = require('../string/createUrl.js');
+let extend = require('../object/extend.js');
 
-export default (p, callback) => {
+module.exports = (p, callback) => {
 	// Set defaults
 	p.query = p.query || {};
 

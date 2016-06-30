@@ -15,4 +15,4 @@ catch (e) {
 	};
 }
 
-export default createEvent;
+module.exports = createEvent;

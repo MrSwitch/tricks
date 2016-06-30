@@ -1,4 +1,4 @@
-import args from 'object/args.js';
+let args = require('../../../object/args.js');
 
 describe('object/args', () => {
 

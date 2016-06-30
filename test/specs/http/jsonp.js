@@ -1,4 +1,4 @@
-import jsonp from 'http/jsonp.js';
+let jsonp = require('../../../http/jsonp.js');
 
 describe('http/jsonp', () => {
 

@@ -1,4 +1,4 @@
-import xhr from 'http/xhr.js';
+let xhr = require('../../../http/xhr.js');
 
 describe('http/xhr', () => {
 

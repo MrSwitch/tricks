@@ -1,4 +1,4 @@
-import jsonParse from 'string/jsonParse.js';
+let jsonParse = require('../../../string/jsonParse.js');
 
 describe('string/jsonParse', () => {
 

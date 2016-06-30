@@ -1,4 +1,4 @@
-import createUrl from 'string/createUrl.js';
+let createUrl = require('../../../string/createUrl.js');
 
 describe('string/createUrl', () => {
 

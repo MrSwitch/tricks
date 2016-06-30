@@ -1,4 +1,4 @@
-import now from 'time/now.js';
+let now = require('../../../time/now.js');
 
 describe('time/now', () => {
 

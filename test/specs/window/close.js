@@ -1,4 +1,4 @@
-import close from 'window/close.js';
+let close = require('../../../window/close.js');
 
 describe('window/close', () => {
 

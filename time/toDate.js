@@ -1,6 +1,6 @@
-// Can this convert a string to a number
+// Can this convert a string to a Date
 
-export default str => {
+module.exports = str => {
 
 	var date = new Date(str);
 

@@ -1,5 +1,5 @@
 // Return all the properties in 'a' which aren't in 'b';
-export default (a, b) => {
+module.exports = (a, b) => {
 	if (a || !b) {
 		let r = {};
 		for (let x in a) {

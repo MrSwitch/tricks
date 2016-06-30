@@ -1,5 +1,5 @@
 // Auto Set/Get the ID of a tag element based
-export default tag => {
+module.exports = tag => {
 	if (tag.id) {
 		return tag.id;
 	}

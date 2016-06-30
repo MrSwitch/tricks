@@ -1,4 +1,4 @@
-import matches from 'dom/matches.js';
+let matches = require('../../../dom/matches.js');
 
 describe('dom/matches', () => {
 

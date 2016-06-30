@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var fs = require('fs');
@@ -26,25 +28,20 @@ gulp.task('index_tests', () => {
 	var root = __dirname.replace(/\\/g, '/') + '/test/specs/';
 
 	// for the given files in the test directory, create an index
-	return gulp.src(['test/specs/*/*.js', '!test/components{,/**}'], (err, files) => {
+	return gulp.src(['test/specs/*/*.js'], (err, files) => {
 		// Write line to the index file
-		var index = files.filter(name => {
-			// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
-			return !name.match('/components/');
-		}).map(name => {
-			return 'import \'' + name.replace(root, './') + '\';';
-		});
+		// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
+		let index = files
+		.filter(name => !name.match('/lib/'))
+		.map(name => 'require(\'' + name.replace(root, './') + '\');');
+
 		fs.writeFileSync('test/specs/index.js', index.join('\n'));
 	});
 });
 
-gulp.task('watch', ['localhost'], () => {
-	return gulp.watch(scripts_to_watch, {interval: 500}, ['index_tests', 'test']);
-});
+gulp.task('watch', ['localhost'], () => gulp.watch(scripts_to_watch, {interval: 500}, ['index_tests', 'test']));
 
-gulp.task('close', () => {
-	localhost.close();
-});
+gulp.task('close', () => localhost.close());
 
 gulp.task('bundle', ['index_tests'], () => {
 
@@ -60,9 +57,7 @@ gulp.task('bundle', ['index_tests'], () => {
 	.pipe(gulp.dest('./test/'));
 });
 
-gulp.task('watch_bundle', () => {
-	return gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']);
-});
+gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
 gulp.task('default', ['localhost', 'test_bundle'], () => {
 	util.log('Closing localhost:' + port);

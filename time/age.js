@@ -1,7 +1,7 @@
 //
 // Age
 // Converts a date to an age
-import toDate from './toDate.js';
+let toDate = require('./toDate.js');
 
 // Number of seconds in...
 var HOUR = 3600,
@@ -12,7 +12,7 @@ var HOUR = 3600,
 
 // format age function
 // Creates a readable time when something was released
-export default (date_str, now) => {
+module.exports = (date_str, now) => {
 
 	// Cannot be a small
 	if (!date_str || date_str < YEAR) {

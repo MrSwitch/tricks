@@ -1,4 +1,4 @@
-import store from 'helper/store.js';
+let store = require('../../../helper/store.js');
 
 describe('helper/store', () =>{
 

@@ -1,4 +1,4 @@
-import browser from 'support/browser.js';
+let browser = require('../../../support/browser.js');
 
 describe('support/browser', () => {
 

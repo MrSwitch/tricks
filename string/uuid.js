@@ -1,7 +1,7 @@
 // UUID
 // Generates a Universally Unique Identifier
 
-export default () => {
+module.exports = () => {
 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
 		let r = Math.random() * 16 | 0;
 		let v = c == 'x' ? r : (r & 0x3 | 0x8);

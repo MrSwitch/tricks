@@ -16,4 +16,4 @@ else {
 	};
 }
 
-export default oc;
+module.exports = oc;

@@ -6,7 +6,7 @@ System.config({
 	paths: {
 		'babel': 'node_modules/babel-core/browser.js'
 	},
-	baseURL: '../',
+	baseURL: './',
 	// or 'traceur' or 'typescript'
 	transpiler: 'babel',
 	// or traceurOptions or typescriptOptions

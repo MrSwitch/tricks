@@ -1,4 +1,4 @@
-import diff from 'object/diff.js';
+let diff = require('../../../object/diff.js');
 
 describe('object/diff', () => {
 

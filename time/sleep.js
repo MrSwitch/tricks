@@ -3,7 +3,7 @@
 let i = 1;
 let hash = {};
 
-export default (callback, period = 0, guid = i++) => {
+module.exports = (callback, period = 0, guid = i++) => {
 
 	if (guid && hash[guid]) {
 		clearTimeout(hash[guid]);

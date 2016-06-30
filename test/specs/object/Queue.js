@@ -1,4 +1,4 @@
-import Queue from 'object/Queue.js';
+let Queue = require('../../../object/Queue.js');
 
 describe('object/Queue', () => {
 

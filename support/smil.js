@@ -5,4 +5,4 @@ try {
 }
 catch (e) {}
 
-export default bool;
+module.exports = bool;

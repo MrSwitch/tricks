@@ -1,9 +1,9 @@
-import each from './each.js';
-import addClass from './addClass.js';
-import removeClass from './removeClass.js';
-import hasClass from './hasClass.js';
+let each = require('./each.js');
+let addClass = require('./addClass.js');
+let removeClass = require('./removeClass.js');
+let hasClass = require('./hasClass.js');
 
-export default (elements, className, condition) => {
+module.exports = (elements, className, condition) => {
 
 	if (typeof(condition) !== 'function') {
 		condition = el => !hasClass(el, className);

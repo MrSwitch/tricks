@@ -1,4 +1,4 @@
-import isDom from 'dom/isDom.js';
+let isDom = require('../../../dom/isDom.js');
 
 describe('dom/isDom', () => {
 

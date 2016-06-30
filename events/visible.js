@@ -1,8 +1,8 @@
 // visible
 // Apply a visibilitychange event, and hidden property to elements
-import emit from './emit.js';
-import on from './on.js';
-import inViewport from '../dom/inviewport.js';
+let emit = require('./emit.js');
+let on = require('./on.js');
+let inViewport = require('../dom/inviewport.js');
 import './pageVisibility.js';
 
 // These are the elements which are being managed
@@ -28,7 +28,7 @@ function scanElement(el) {
 	}
 }
 
-export default el => {
+module.exports = el => {
 	// Add element to list of elements to monitor
 	elements.push(el);
 

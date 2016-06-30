@@ -1,5 +1,5 @@
 // Rewire functions
-export default fn => {
+module.exports = fn => {
 	var f = (...args) => f.fn.apply(null, args);
 	f.fn = fn;
 	return f;

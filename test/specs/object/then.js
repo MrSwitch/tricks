@@ -1,4 +1,4 @@
-import Then from 'object/then.js';
+let Then = require('../../../object/then.js');
 
 describe('object/then', () => {
 

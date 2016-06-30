@@ -1,7 +1,7 @@
 // Makes it easier to assign parameters, where some are optional
 // @param o object
 // @param a arguments
-export default (o, args) => {
+module.exports = (o, args) => {
 
 	var p = {};
 	var i = 0;

@@ -1,6 +1,6 @@
-import timing from 'time/timing.js';
+let timing = require('../../../animation/timing.js');
 
-describe('time/timing', () => {
+describe('animation/timing', () => {
 
 	it('should trigger numerous callbacks between a period of time', done => {
 

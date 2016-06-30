@@ -1,8 +1,8 @@
-import hasBinary from 'object/hasBinary.js';
+let hasBinary = require('../../../object/hasBinary.js');
 
 describe('object/hasBinary', () => {
 
-	if (window.Blob) {
+	if (typeof Blob !== 'undefined') {
 		it('should return true if the content of the arguments contain binary data', () => {
 
 			var b = hasBinary({

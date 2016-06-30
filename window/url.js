@@ -1,4 +1,4 @@
-export default path => {
+module.exports = path => {
 
 	// If the path is empty
 	if (!path) {

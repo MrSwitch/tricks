@@ -1,4 +1,4 @@
-import uuid from 'string/uuid.js';
+let uuid = require('../../../string/uuid.js');
 
 describe('string/uuid', () => {
 

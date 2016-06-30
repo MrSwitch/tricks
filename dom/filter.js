@@ -1,4 +1,4 @@
-import each from './each.js';
-import matches from './matches.js';
+let each = require('./each.js');
+let matches = require('./matches.js');
 
-export default (elements, match) => each(elements).filter(el => matches(el, match));
+module.exports = (elements, match) => each(elements).filter(el => matches(el, match));

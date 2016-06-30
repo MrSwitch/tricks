@@ -2,7 +2,7 @@
 
 var reg = /^data\:([^;,]+(\;charset=[^;,]+)?)(\;base64)?,/i;
 
-export default dataURI => {
+module.exports = dataURI => {
 	var m = dataURI.match(reg);
 	if (!m) {
 		return dataURI;

@@ -1,4 +1,4 @@
-import until from 'dom/until.js';
+let until = require('../../../dom/until.js');
 
 describe('dom/until', () => {
 

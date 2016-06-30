@@ -1,1 +1,2 @@
-export default Date.now || () => (new Date()).getTime();
+let f = () => (new Date()).getTime();
+module.exports = Date.now || f;

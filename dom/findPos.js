@@ -1,5 +1,5 @@
 // Find position of an element
-export default obj => {
+module.exports = obj => {
 	var curleft = 0,
 		curtop = 0;
 	if (obj.offsetParent) {

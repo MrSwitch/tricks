@@ -1,4 +1,4 @@
-import Defer from 'object/Defer.js';
+let Defer = require('../../../object/Defer.js');
 
 describe('object/Defer', () => {
 

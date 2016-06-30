@@ -1,4 +1,4 @@
-import canvasToBlob from 'support/canvasToBlob.js';
+let canvasToBlob = require('../../../support/canvasToBlob.js');
 
 describe('support/canvasToBlob', () => {
 

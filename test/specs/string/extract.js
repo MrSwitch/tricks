@@ -1,4 +1,4 @@
-import extract from 'string/extract.js';
+let extract = require('../../../string/extract.js');
 
 describe('string/extract', () => {
 

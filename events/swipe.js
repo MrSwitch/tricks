@@ -3,7 +3,7 @@
 
 import touch, {gesture} from './touch.js';
 
-export default (elements, callback) => {
+module.exports = (elements, callback) => {
 
 	return touch(elements, function(e, o, s) {
 

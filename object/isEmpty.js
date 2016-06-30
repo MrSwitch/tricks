@@ -1,4 +1,4 @@
-export default obj => {
+module.exports = obj => {
 
 	// Scalar
 	if (!obj)

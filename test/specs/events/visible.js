@@ -1,6 +1,6 @@
-import visible from 'events/visible.js';
-import on from 'events/on.js';
-import off from 'events/off.js';
+let visible = require('../../../events/visible.js');
+let on = require('../../../events/on.js');
+let off = require('../../../events/off.js');
 
 describe('events/visible', () => {
 

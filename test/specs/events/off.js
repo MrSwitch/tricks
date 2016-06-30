@@ -1,6 +1,6 @@
-import on from 'events/on.js';
-import off from 'events/off.js';
-import emit from 'events/emit.js';
+let on = require('../../../events/on.js');
+let off = require('../../../events/off.js');
+let emit = require('../../../events/emit.js');
 
 describe('events/on', () => {
 

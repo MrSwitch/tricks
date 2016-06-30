@@ -1,13 +1,35 @@
 # Tricks
 
-Herein lies some tricks to pull out of the hat for faster front end development.
+Herein lies some tricks to pull out of the hat for faster backfront development.
 
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-image]][npm-url]
 
+## Go Deep
+
+After installing tricks ...
+
+```bash
+npm i tricks
+```
+
+Incorporate a trick by pointing deep into the library... e.g.
+
+```javascript
+let createUrl = require('tricks/string/createUrl');
+
+module.exports = createUrl('https://test.com/?name=dodson', {name: 'andrew', extra: 1});
+
+// 'https://test.com/?name=andrew&extra=1'
+```
+
+Helping to keep your projects bundled size to a minimum.
+
+## Docs
+
 Do explore the [directory](https://github.com/MrSwitch/tricks) of functions.
 
-More info and specs are available in the [test/](https://github.com/MrSwitch/tricks/test) directory.
+More info and specs are available in the [test/specs/](https://github.com/MrSwitch/tricks/test/specs) directory.
 
 
 [travis-image]: https://img.shields.io/travis/MrSwitch/tricks.svg?style=flat

@@ -1,4 +1,4 @@
-import diffKey from 'object/diffKey.js';
+let diffKey = require('../../../object/diffKey.js');
 
 describe('object/diffKey', () => {
 

@@ -1,6 +1,6 @@
-import instanceOf from '../object/instanceOf.js';
+let instanceOf = require('../object/instanceOf.js');
 
-export default (type, data) => {
+module.exports = (type, data) => {
 	var test = 'HTML' + (type || '').replace(
 		/^[a-z]/,
 		m => {

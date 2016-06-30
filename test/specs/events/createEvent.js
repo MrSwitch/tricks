@@ -1,4 +1,4 @@
-import createEvent from 'events/createEvent.js';
+let createEvent = require('../../../events/createEvent.js');
 
 describe('events/createEvent', () => {
 

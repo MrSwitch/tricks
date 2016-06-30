@@ -1,7 +1,7 @@
-import link from '../dom/link.js';
-import json from './json.js';
+let link = require('../dom/link.js');
+let json = require('./json.js');
 
-export default (callback) => {
+module.exports = (callback) => {
 
 	// Manifest, e.g.
 	// <link rel="manifest" href="manifest.webmanifest">

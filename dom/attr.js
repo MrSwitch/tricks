@@ -1,6 +1,6 @@
-import each from './each.js';
+let each = require('./each.js');
 
-export default (elements, props) => {
+module.exports = (elements, props) => {
 	return each(elements, element => {
 		for (let x in props) {
 			let prop = props[x];

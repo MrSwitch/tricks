@@ -1,5 +1,5 @@
 // Return trimmed string
-export default (str, trim) => {
+module.exports = (str, trim) => {
 	if (!trim) {
 		return str;
 	}

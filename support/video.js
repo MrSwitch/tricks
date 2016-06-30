@@ -2,4 +2,4 @@
 // Test to see if the HTML5 player supports AUTOPLAY
 var v = document.createElement('video');
 const bool = !!v.play;
-export default bool;
+module.exports = bool;

@@ -1,5 +1,5 @@
-import xhr from 'http/xhr.js';
-import request from 'http/request.js';
+let xhr = require('../../../http/xhr.js');
+let request = require('../../../http/request.js');
 
 describe('http/request', () => {
 

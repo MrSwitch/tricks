@@ -1,4 +1,4 @@
-import extend from 'object/extend.js';
+let extend = require('../../../object/extend.js');
 
 describe('object/extend', () => {
 

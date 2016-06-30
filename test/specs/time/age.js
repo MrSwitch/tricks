@@ -1,4 +1,4 @@
-import age from 'time/age.js';
+let age = require('../../../time/age.js');
 
 describe('time/age', () => {
 

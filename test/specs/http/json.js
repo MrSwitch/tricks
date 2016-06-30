@@ -1,4 +1,4 @@
-import json from 'http/json.js';
+let json = require('../../../http/json.js');
 
 describe('http/json', () => {
 

@@ -1,4 +1,4 @@
-export default (fn) => {
+module.exports = (fn) => {
 	try {
 		return fn.call(null);
 	}

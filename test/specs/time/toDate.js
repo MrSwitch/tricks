@@ -1,4 +1,4 @@
-import toDate from 'time/toDate.js';
+let toDate = require('../../../time/toDate.js');
 
 describe('time/toDate', () => {
 

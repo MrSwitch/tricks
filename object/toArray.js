@@ -1,1 +1,1 @@
-export default obj => Array.prototype.slice.call(obj);
+module.exports = obj => Array.prototype.slice.call(obj);

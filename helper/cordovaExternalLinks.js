@@ -1,7 +1,7 @@
-import delegate from '../events/delegate';
-import cordova from '../support/cordova';
+let delegate = require('../events/delegate');
+let cordova = require('../support/cordova');
 
-export default (root = document) => {
+module.exports = (root = document) => {
 	if (!cordova) {
 		return false;
 	}

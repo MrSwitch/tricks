@@ -1,8 +1,8 @@
-import isDom from './isDom.js';
-import instanceOf from '../object/instanceOf.js';
-import toArray from '../object/toArray.js';
+let isDom = require('./isDom.js');
+let instanceOf = require('../object/instanceOf.js');
+let toArray = require('../object/toArray.js');
 
-export default (matches, callback = () => {}) => {
+module.exports = (matches, callback = () => {}) => {
 
 	if (isDom(matches)) {
 		matches = [matches];

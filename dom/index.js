@@ -1,1 +1,1 @@
-export default elem => Array.prototype.indexOf.call(elem.parentNode.children, elem);
+module.exports = elem => Array.prototype.indexOf.call(elem.parentNode.children, elem);

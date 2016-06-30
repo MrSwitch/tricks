@@ -1,4 +1,4 @@
-import popup from 'window/popup.js';
+let popup = require('../../../window/popup.js');
 
 describe('window/popup', () => {
 

@@ -1,6 +1,6 @@
-import on from './on.js';
+let on = require('./on.js');
 
-export default callback => {
+module.exports = callback => {
 	if (document.readyState !== 'loading' && document.body) {
 		callback();
 	}

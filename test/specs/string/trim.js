@@ -1,4 +1,4 @@
-import trim from 'string/trim.js';
+let trim = require('../../../string/trim.js');
 
 describe('string/trim', () => {
 

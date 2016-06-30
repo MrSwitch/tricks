@@ -1,4 +1,4 @@
-import emit from 'events/emit.js';
+let emit = require('../../../events/emit.js');
 
 describe('events/emit', () => {
 

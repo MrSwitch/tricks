@@ -1,4 +1,4 @@
-import tryCatch from 'object/tryCatch.js';
+let tryCatch = require('../../../object/tryCatch.js');
 
 describe('object/tryCatch', () => {
 

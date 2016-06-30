@@ -1,2 +1,2 @@
-import tryCatch from '../object/tryCatch.js';
-export default (str) => tryCatch(() => JSON.parse(str));
+let tryCatch = require('../object/tryCatch.js');
+module.exports = (str) => tryCatch(() => JSON.parse(str));

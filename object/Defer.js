@@ -1,7 +1,7 @@
 // Defer
 // Creates a new Iterative object
 
-export default class Defer {
+module.exports = class Defer {
 
 	constructor (...args) {
 		this.items = [];

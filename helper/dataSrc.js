@@ -4,14 +4,14 @@
 // The data-src attribute is read and defines a path to the image
 // load an image once the image fits a visible area. or if the image exists
 
-import each from '../dom/each.js';
-import css from '../dom/css.js';
-import on from '../events/on.js';
-import toArray from '../object/toArray.js';
+let each = require('../dom/each.js');
+let css = require('../dom/css.js');
+let on = require('../events/on.js');
+let toArray = require('../object/toArray.js');
 
 
 var images = [];
-export default elements => {
+module.exports = elements => {
 
 	// Find all the elements in the page with data-src className
 	// Bind listeners to the page to determine whether this content is changing.

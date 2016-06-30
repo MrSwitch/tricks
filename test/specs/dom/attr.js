@@ -1,4 +1,4 @@
-import attr from 'dom/attr.js';
+let attr = require('../../../dom/attr.js');
 
 describe('dom/attr', () => {
 

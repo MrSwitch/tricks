@@ -1,4 +1,4 @@
-import each from 'dom/each.js';
+let each = require('../../../dom/each.js');
 
 describe('dom/each', () => {
 	it('should return an array given an array', () => {

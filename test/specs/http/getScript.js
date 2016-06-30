@@ -1,4 +1,4 @@
-import getScript from 'http/getScript.js';
+let getScript = require('../../../http/getScript.js');
 
 describe('http/getScript', () => {
 

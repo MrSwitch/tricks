@@ -1,4 +1,4 @@
-import clone from 'object/clone.js';
+let clone = require('../../../object/clone.js');
 
 describe('object/clone', function() {
 
@@ -15,7 +15,7 @@ describe('object/clone', function() {
 
 	});
 
-	if (window.Blob) {
+	if (typeof Blob !== 'undefined') {
 		it('should not clone Blob values', function() {
 
 			var blob = new Blob();
@@ -32,18 +32,20 @@ describe('object/clone', function() {
 		});
 	}
 
-	it('should not clone DOM element', function() {
+	if (typeof document !== 'undefined') {
+		it('should not clone DOM element', function() {
 
-		var orig = {
-			prop: document.createElement('input')
-		};
+			var orig = {
+				prop: document.createElement('input')
+			};
 
-		var _clone = clone(orig);
+			var _clone = clone(orig);
 
-		// Assert that its the same but different.
-		expect(_clone.prop).to.be.a(window.Element || window.HTMLElement).and.to.be.equal(orig.prop);
+			// Assert that its the same but different.
+			expect(_clone.prop).to.be.a(window.Element || window.HTMLElement).and.to.be.equal(orig.prop);
 
-	});
+		});
+	}
 
 	it('should clone arrays', function() {
 

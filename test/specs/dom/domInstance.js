@@ -1,4 +1,4 @@
-import domInstance from 'dom/domInstance.js';
+let domInstance = require('../../../dom/domInstance.js');
 
 describe('dom/domInstance', () => {
 

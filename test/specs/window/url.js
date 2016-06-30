@@ -1,4 +1,4 @@
-import url from 'window/url.js';
+let url = require('../../../window/url.js');
 
 describe('window/url', () => {
 

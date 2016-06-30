@@ -1,5 +1,5 @@
 // Insert After
-export default (el, ref) => {
+module.exports = (el, ref) => {
 	if (ref.nextSibling) {
 		ref.parentNode.insertBefore(el, ref.nextSibling);
 	}

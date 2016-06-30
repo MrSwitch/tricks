@@ -1,4 +1,4 @@
-import tryCatch from '../object/tryCatch.js';
-import query from './query.js';
+let tryCatch = require('../object/tryCatch.js');
+let query = require('./query.js');
 
-export default name => tryCatch(() => query('link[rel="' + name + '"]').href);
+module.exports = name => tryCatch(() => query('link[rel="' + name + '"]').href);

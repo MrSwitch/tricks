@@ -1,10 +1,10 @@
 // Pubsub extension
 // A contructor superclass for adding event menthods, on, off, emit.
-import setImmediate from '../time/setImmediate.js';
+let setImmediate = require('../time/setImmediate.js');
 
 const separator = /[\s\,]+/;
 
-export default function() {
+module.exports = function() {
 
 	// If this doesn't support getPrototype then we can't get prototype.events of the parent
 	// So lets get the current instance events, and add those to a parent property

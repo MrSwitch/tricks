@@ -3,7 +3,7 @@
 // Then each item will be processed against the handler.
 // Useful for creating Global Asynchronous Queues, as can be retro fitted to existing arrays.
 
-export default class Queue {
+module.exports = class Queue {
 
 	constructor (arr, handler) {
 		this.items = (Array.isArray(arr) ? arr : []);

@@ -1,4 +1,4 @@
-import merge from 'object/merge.js';
+let merge = require('../../../object/merge.js');
 
 describe('object/merge', () => {
 

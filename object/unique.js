@@ -1,4 +1,4 @@
-export default a => {
+module.exports = a => {
 	if (!Array.isArray(a)) {
 		return [];
 	}

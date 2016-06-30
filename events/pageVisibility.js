@@ -2,9 +2,9 @@
 // This is similar to the Page Visibility API
 //  - https://developer.mozilla.org/en-US/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API
 
-import emit from './emit.js';
-import on from './on.js';
-import until from '../dom/until.js';
+let emit = require('./emit.js');
+let on = require('./on.js');
+let until = require('../dom/until.js');
 
 
 // Variables

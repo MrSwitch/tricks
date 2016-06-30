@@ -1,4 +1,4 @@
-import inviewport from 'dom/inviewport.js';
+let inviewport = require('../../../dom/inviewport.js');
 
 describe('dom/inviewport', () => {
 

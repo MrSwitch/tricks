@@ -1,6 +1,6 @@
-import until from './until.js';
+let until = require('./until.js');
 
-export default (elements, className) => {
+module.exports = (elements, className) => {
 	var reg = new RegExp('(^|\\s)' + className + '($|\\s)', 'i');
 	return until(elements, el => (el.className || '').match(reg));
 };

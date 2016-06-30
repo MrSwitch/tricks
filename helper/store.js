@@ -64,7 +64,7 @@ function set(json) {
 }
 
 
-export default (name, value) => {
+module.exports = (name, value) => {
 	// Local storage
 	var json = get();
 
