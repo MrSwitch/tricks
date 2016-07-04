@@ -31,5 +31,5 @@ module.exports = (data) => {
 };
 
 module.exports.unstub = () => {
-	XMLHttpRequest = _xhr;
+	//XMLHttpRequest = _xhr;
 };
