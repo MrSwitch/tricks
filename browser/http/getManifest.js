@@ -1,4 +1,4 @@
-let link = require('../dom/link.js');
+let link = require('../../dom/link.js');
 let json = require('./json.js');
 
 module.exports = (callback) => {

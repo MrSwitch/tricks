@@ -1,5 +1,5 @@
 // JSONP
-let globalCallback = require('../events/globalCallback.js');
+let globalCallback = require('../../events/globalCallback.js');
 let getScript = require('./getScript.js');
 
 const MATCH_CALLBACK_PLACEHOLDER = /=\?(&|$)/;

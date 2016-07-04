@@ -1,4 +1,4 @@
-let formpost = require('../../../http/formpost.js');
+let formpost = require('../../../../browser/http/formpost.js');
 
 describe('http/formpost', () => {
 

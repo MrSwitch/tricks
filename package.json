@@ -7,7 +7,7 @@
     "lint": "eslint ./",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
-    "test:node": "mocha ./test/specs/{time,object,string}/*.js",
+    "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
     "test:spawn": "node_modules/.bin/browserstack-runner",
     "test:runner": "npm test && npm run test:spawn",
     "test:spawn-local": "env $(cat .env | xargs) npm run test:spawn"
@@ -29,6 +29,11 @@
     "transform": [
       "babelify"
     ]
+  },
+  "browser": {
+    "./http/json.js": "./browser/http/json.js",
+    "./http/request.js": "./browser/http/request.js",
+    "./test/stubs/http.js": "./test/stubs/xhr.js"
   },
   "homepage": "https://github.com/MrSwitch/tricks",
   "devDependencies": {

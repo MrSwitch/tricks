@@ -4,16 +4,16 @@
 // @param object data, key value data to send
 // @param function callback, function to execute in response
 
-let append = require('../dom/append.js');
-let attr = require('../dom/attr.js');
-let domInstance = require('../dom/domInstance.js');
-let createElement = require('../dom/createElement.js');
-let globalCallback = require('../events/globalCallback.js');
-let toArray = require('../object/toArray.js');
-let instanceOf = require('../object/instanceOf.js');
-let on = require('../events/on.js');
-let emit = require('../events/emit.js');
-let setImmediate = require('../time/setImmediate.js');
+let append = require('../../dom/append.js');
+let attr = require('../../dom/attr.js');
+let domInstance = require('../../dom/domInstance.js');
+let createElement = require('../../dom/createElement.js');
+let globalCallback = require('../../events/globalCallback.js');
+let toArray = require('../../object/toArray.js');
+let instanceOf = require('../../object/instanceOf.js');
+let on = require('../../events/on.js');
+let emit = require('../../events/emit.js');
+let setImmediate = require('../../time/setImmediate.js');
 
 module.exports = (url, data, options, callback, callback_name, timeout = 60000) => {
 

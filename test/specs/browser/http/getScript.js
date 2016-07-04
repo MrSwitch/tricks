@@ -1,4 +1,4 @@
-let getScript = require('../../../http/getScript.js');
+let getScript = require('../../../../browser/http/getScript.js');
 
 describe('http/getScript', () => {
 

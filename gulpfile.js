@@ -28,12 +28,9 @@ gulp.task('index_tests', () => {
 	var root = __dirname.replace(/\\/g, '/') + '/test/specs/';
 
 	// for the given files in the test directory, create an index
-	return gulp.src(['test/specs/*/*.js'], (err, files) => {
+	return gulp.src(['test/specs/**/*.js', '!test/specs/index.js'], (err, files) => {
 		// Write line to the index file
-		// shouldn't have to do this if the glob '!specs/components{,/**}' worked, urgh!
-		let index = files
-		.filter(name => !name.match('/lib/'))
-		.map(name => 'require(\'' + name.replace(root, './') + '\');');
+		let index = files.map(name => 'require(\'' + name.replace(root, './') + '\');');
 
 		fs.writeFileSync('test/specs/index.js', index.join('\n'));
 	});

@@ -1,5 +1,5 @@
-let createElement = require('../dom/createElement.js');
-let createEvent = require('../events/createEvent.js');
+let createElement = require('../../dom/createElement.js');
+let createEvent = require('../../events/createEvent.js');
 
 module.exports = (url, callback, timeout = 0) => {
 

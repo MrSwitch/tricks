@@ -1,4 +1,4 @@
-let jsonp = require('../../../http/jsonp.js');
+let jsonp = require('../../../../browser/http/jsonp.js');
 
 describe('http/jsonp', () => {
 

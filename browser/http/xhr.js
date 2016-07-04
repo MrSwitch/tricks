@@ -1,9 +1,9 @@
 // XHR: uses CORS to make requests
-let instanceOf = require('../object/instanceOf.js');
-let extract = require('../string/extract.js');
-let jsonParse = require('../string/jsonParse.js');
-let tryCatch = require('../object/tryCatch.js');
-let rewire = require('../object/rewire.js');
+let instanceOf = require('../../object/instanceOf.js');
+let extract = require('../../string/extract.js');
+let jsonParse = require('../../string/jsonParse.js');
+let tryCatch = require('../../object/tryCatch.js');
+let rewire = require('../../object/rewire.js');
 
 const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
 
@@ -15,9 +15,6 @@ function xhr(method, url, responseType, headers, data, callback) {
 
 	// Make it CAPITAL
 	method = method.toUpperCase();
-
-	// Set the responseType
-	responseType = responseType || 'json';
 
 	// Define the callback function
 	r.onload = () => {

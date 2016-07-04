@@ -1,4 +1,4 @@
-let xhr = require('../../../http/xhr.js');
+let xhr = require('../../../../browser/http/xhr.js');
 
 describe('http/xhr', () => {
 
