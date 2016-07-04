@@ -29,7 +29,7 @@ Helping to keep your projects bundled size to a minimum.
 
 Do explore the [directory](https://github.com/MrSwitch/tricks) of functions.
 
-More info and specs are available in the [test/specs/](https://github.com/MrSwitch/tricks/test/specs) directory.
+More info and specs are available in the [test/](https://github.com/MrSwitch/tricks/tree/master/test) directory.
 
 
 [travis-image]: https://img.shields.io/travis/MrSwitch/tricks.svg?style=flat
