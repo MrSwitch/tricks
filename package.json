@@ -9,7 +9,7 @@
     "test:browser": "gulp",
     "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
     "test:spawn": "node_modules/.bin/browserstack-runner",
-    "test:runner": "npm test && npm run test:spawn",
+    "test:deploy": "npm test && npm run test:spawn",
     "test:spawn-local": "env $(cat .env | xargs) npm run test:spawn"
   },
   "repository": {
