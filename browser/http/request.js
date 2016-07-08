@@ -16,22 +16,23 @@ module.exports = (p, callback) => {
 		};
 	}
 
+	// Use interchangeably
+	p.url = p.url || p.uri;
+
 	// Set defaults
-	p.query = p.query || {};
+	p.query = p.query || p.qs || {};
 
 	// Default method
 	p.method = (p.method || 'get').toLowerCase();
 
 	// Default proxy response
-	if (!p.proxy) {
-		p.proxy = cb => {cb();};
-	}
+	p.proxyHandler = p.proxyHandler || ((p, cb) => {cb();});
 
 	// CORS
 	if (SupportCORS && (typeof (p.xhr) === 'function' ? p.xhr(p, p.query) : p.xhr !== false)) {
 
 		// Pass the selected request through a proxy
-		p.proxy(() => {
+		p.proxyHandler(p, () => {
 			// The agent and the provider support CORS
 			var url = createUrl(p.url, p.query);
 			var x = xhr(p.method, url, p.responseType, p.headers, p.data, callback);
@@ -61,7 +62,7 @@ module.exports = (p, callback) => {
 		// Lets use JSONP if the method is 'get'
 		if (p.method === 'get') {
 
-			p.proxy(() => {
+			p.proxyHandler(p, () => {
 				var url = createUrl(p.url, extend(p.query, p.data || {}));
 				jsonp(url, callback, p.callbackID, p.timeout);
 			});
@@ -89,7 +90,7 @@ module.exports = (p, callback) => {
 
 		if (p.method === 'post' && opts !== false) {
 
-			p.proxy(() => {
+			p.proxyHandler(p, () => {
 				var url = createUrl(p.url, p.query);
 				formpost(url, p.data, opts, callback, p.callbackID, p.timeout);
 			});

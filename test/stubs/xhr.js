@@ -1,36 +1,49 @@
 /* eslint no-undef: 0 */
 
-module.exports = () => {};
+// module.exports = () => {};
 
-// var _xhr = XMLHttpRequest;
-// module.exports = (data) => {
+var _xhr = window.XMLHttpRequest;
+module.exports = (data) => {
 
-// 	function xhr() {}
+	let a = [];
 
-// 	xhr.prototype.send = function() {};
-// 	xhr.prototype.onload = function() {};
-// 	xhr.prototype.onerror = function() {};
+	function xhr() {
+		// expose this instance
+		a.push(this);
+	}
 
-// 	xhr.prototype.open = function() {
+	xhr.prototype.send = function() {
+		this.sendArgs = arguments;
+	};
+	xhr.prototype.onload = function() {};
+	xhr.prototype.onerror = function() {};
 
-// 		setTimeout(() => {
-// 			try {
-// 				this.response = data;
-// 				this.onload();
-// 			}
-// 			catch (e) {
-// 				this.onerror();
-// 			}
-// 		});
-// 	};
-// 	xhr.prototype.overrideMimeType = () => {};
-// 	xhr.prototype.setRequestHeader = () => {};
-// 	xhr.prototype.getAllResponseHeaders = () => {};
+	xhr.prototype.open = function(method, url) {
+
+		this.openArgs = Array.prototype.slice.call(arguments);
+		this.method = method;
+		this.url = url;
+
+		setTimeout(() => {
+			try {
+				this.response = data;
+				this.onload();
+			}
+			catch (e) {
+				this.onerror();
+			}
+		});
+	};
+	xhr.prototype.overrideMimeType = () => {};
+	xhr.prototype.setRequestHeader = () => {};
+	xhr.prototype.getAllResponseHeaders = () => {};
 
 
-// 	XMLHttpRequest = xhr;
-// };
+	window.XMLHttpRequest = xhr;
+
+	return a;
+};
 
 module.exports.unstub = () => {
-	// XMLHttpRequest = _xhr;
+	window.XMLHttpRequest = _xhr;
 };
