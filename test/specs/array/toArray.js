@@ -1,6 +1,6 @@
-let toArray = require('../../../object/toArray.js');
+let toArray = require('../../../array/toArray.js');
 
-describe('object/toArray', () => {
+describe('array/toArray', () => {
 
 	it('should convert an object into an Array', () => {
 

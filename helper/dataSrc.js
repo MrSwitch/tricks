@@ -7,7 +7,7 @@
 let each = require('../dom/each.js');
 let css = require('../dom/css.js');
 let on = require('../events/on.js');
-let toArray = require('../object/toArray.js');
+let toArray = require('../array/toArray.js');
 
 
 var images = [];

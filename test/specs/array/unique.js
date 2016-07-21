@@ -1,6 +1,6 @@
-let unique = require('../../../object/unique.js');
+let unique = require('../../../array/unique.js');
 
-describe('object/unique', () => {
+describe('array/unique', () => {
 
 	it('should return only unique values from an array', () => {
 

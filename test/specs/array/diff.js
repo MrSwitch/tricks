@@ -1,6 +1,6 @@
-let diff = require('../../../object/diff.js');
+let diff = require('../../../array/diff.js');
 
-describe('object/diff', () => {
+describe('array/diff', () => {
 
 	it('should return the values which are in the second array but not the first', () => {
 
