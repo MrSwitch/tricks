@@ -26,11 +26,7 @@ function respond(a, mock) {
 	return (req, callback) => {
 
 		// Info
-		let info = {
-			method: req.method,
-			url: req.url
-		}
-		a.push(info);
+		a.push(req);
 
 		// Cosntruct an event emitter
 		let e = new EventEmitter();
@@ -39,7 +35,18 @@ function respond(a, mock) {
 		callback(e);
 
 		// Push out event
-		e.emit('data', mock);
+		if (mock) {
+			e.emit('data', mock);
+		}
+
 		e.emit('end');
+		return {
+			write: (data) => {
+				req.writeCalledWith = data;
+			},
+			end: () => {
+				req.endCalled = true;
+			}
+		};
 	};
 }

@@ -29,6 +29,7 @@ require('./events/visible.js');
 require('./helper/store.js');
 require('./http/json.js');
 require('./http/request.js');
+require('./http/sendBeacon.js');
 require('./index.js');
 require('./object/args.js');
 require('./object/clone.js');

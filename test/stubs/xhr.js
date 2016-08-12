@@ -14,6 +14,8 @@ module.exports = (data) => {
 
 	xhr.prototype.send = function() {
 		this.sendArgs = arguments;
+		this.writeCalledWith = arguments[0];
+		this.endCalled = true;
 	};
 	xhr.prototype.onload = function() {};
 	xhr.prototype.onerror = function() {};

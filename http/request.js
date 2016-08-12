@@ -39,5 +39,10 @@ module.exports = (req, callback) => {
 			res.on('data', (chunk => data += chunk.toString()));
 			res.on('end', () => callback(data));
 		});
+
+		if (req.data) {
+			protocol.write(req.data);
+		}
+		protocol.end();
 	});
 }
