@@ -13,8 +13,8 @@ describe('http/sendBeacon', () => {
 
 			// override
 			navigator.sendBeacon = (url, data) => {
-				expect(url).to.have.property('./stub.json');
-				expect(data).to.eql(JSON.stringify(data));
+				expect(url).to.equal('./stub.json');
+				expect(data).to.be.a(Blob);
 				done();
 			};
 
