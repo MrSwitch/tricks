@@ -49,8 +49,7 @@ function store(name, value) {
 		throw 'agent/store must have a valid name';
 	}
 	else if (value === undefined) {
-		let value = localStorage.getItem(name);
-		return jsonParse(value) || value;
+		return jsonParse(localStorage.getItem(name));
 	}
 	else if (value === null) {
 		localStorage.removeItem(name);

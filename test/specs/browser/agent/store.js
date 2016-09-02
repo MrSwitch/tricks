@@ -45,6 +45,24 @@ describe('helper/store', () =>{
 
 	});
 
+	it('should store strings', () => {
+
+		store(label, 'hello');
+
+		expect(store(label)).to.equal('hello');
+
+	});
+
+	it('should store numbers', () => {
+
+		store(label, 1);
+		expect(store(label)).to.equal(1);
+
+		store(label, 0);
+		expect(store(label)).to.equal(0);
+
+	});
+
 	it('should accept a hash to store multiple items simultaneously', () => {
 
 		store({
