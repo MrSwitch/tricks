@@ -45,4 +45,16 @@ describe('helper/store', () =>{
 
 	});
 
+	it('should accept a hash to store multiple items simultaneously', () => {
+
+		store({
+			'a': 1,
+			'b': 2
+		});
+
+		expect(store('a')).to.equal(1);
+		expect(store('b')).to.equal(2);
+
+	});
+
 });

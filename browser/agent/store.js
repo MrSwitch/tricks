@@ -1,36 +1,51 @@
 var jsonParse = require('../../string/jsonParse.js');
 var cookie = require('./cookie.js');
-var a = ['localStorage', 'sessionStorage'];
-var i = -1;
-var prefix = 'test';
 
 // Set LocalStorage
 var localStorage;
 
-while (a[++i]) {
-	try {
-		// In Chrome with cookies blocked, calling localStorage throws an error
-		localStorage = window[a[i]];
-		localStorage.setItem(prefix + i, i);
-		localStorage.removeItem(prefix + i);
+// Test the environment
+{
+	var a = ['localStorage', 'sessionStorage'];
+	var i = -1;
+	var prefix = 'test';
 
-		// Yeah none of these created an error, we have a storage solution...
-		break;
+	while (a[++i]) {
+		try {
+			// In Chrome with cookies blocked, calling localStorage throws an error
+			localStorage = window[a[i]];
+			localStorage.setItem(prefix + i, i);
+			localStorage.removeItem(prefix + i);
+
+			// Yeah none of these created an error, we have a storage solution...
+			break;
+		}
+		catch (e) {
+			localStorage = null;
+		}
 	}
-	catch (e) {
-		localStorage = null;
+
+	// this browser didn't let us use LocalStorage, or SessionStorage
+	// Falls over to cookies
+	if (!localStorage) {
+		localStorage = cookie;
 	}
 }
 
-// this browser didn't let us use LocalStorage, or SessionStorage
-// Falls over to cookies
-if (!localStorage) {
-	localStorage = cookie;
-}
+// Return handler
+module.exports = store;
 
-module.exports = (name, value) => {
+function store(name, value) {
+
+	// recursive
+	if (typeof name === 'object') {
+		for (let x in name) {
+			store(x, name[x]);
+		}
+	}
+
 	// Local storage
-	if (!name) {
+	else if (!name) {
 		throw 'agent/store must have a valid name';
 	}
 	else if (value === undefined) {
@@ -43,4 +58,4 @@ module.exports = (name, value) => {
 	else {
 		localStorage.setItem(name, JSON.stringify(value));
 	}
-};
+}
