@@ -1,4 +1,4 @@
-let store = require('../../../helper/store.js');
+let store = require('../../../../browser/agent/store.js');
 
 describe('helper/store', () =>{
 
