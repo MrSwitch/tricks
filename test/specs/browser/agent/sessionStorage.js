@@ -1,6 +1,6 @@
-let store = require('../../../../browser/agent/store.js');
+let store = require('../../../../browser/agent/sessionStorage.js');
 
-describe('helper/store', () =>{
+describe('browser/agent/sessionStorage', () =>{
 
 	var data = {
 		key: 'value',

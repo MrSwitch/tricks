@@ -1,34 +1,34 @@
 var jsonParse = require('../../string/jsonParse.js');
-var cookie = require('./cookie.js');
+var cookie = require('./cookieStorage.js');
 
 // Set LocalStorage
-var localStorage;
+var storage;
 
 // Test the environment
 {
 	var a = ['localStorage', 'sessionStorage'];
 	var i = -1;
-	var prefix = 'test';
+	var prefix = '__tricks_temp__';
 
 	while (a[++i]) {
 		try {
 			// In Chrome with cookies blocked, calling localStorage throws an error
-			localStorage = window[a[i]];
-			localStorage.setItem(prefix + i, i);
-			localStorage.removeItem(prefix + i);
+			storage = window[a[i]];
+			storage.setItem(prefix + i, i);
+			storage.removeItem(prefix + i);
 
 			// Yeah none of these created an error, we have a storage solution...
 			break;
 		}
 		catch (e) {
-			localStorage = null;
+			storage = null;
 		}
 	}
 
 	// this browser didn't let us use LocalStorage, or SessionStorage
 	// Falls over to cookies
-	if (!localStorage) {
-		localStorage = cookie;
+	if (!storage) {
+		storage = cookie;
 	}
 }
 
@@ -49,12 +49,12 @@ function store(name, value) {
 		throw 'agent/store must have a valid name';
 	}
 	else if (value === undefined) {
-		return jsonParse(localStorage.getItem(name));
+		return jsonParse(storage.getItem(name));
 	}
 	else if (value === null) {
-		localStorage.removeItem(name);
+		storage.removeItem(name);
 	}
 	else {
-		localStorage.setItem(name, JSON.stringify(value));
+		storage.setItem(name, JSON.stringify(value));
 	}
 }
