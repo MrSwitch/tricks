@@ -1,4 +1,6 @@
-import globalCallback, {prefix as globalCallbackPrefix} from 'events/globalCallback.js';
+let globalCallback = require('../../../events/globalCallback.js');
+
+let globalCallbackPrefix = globalCallback.prefix;
 
 describe('events/globalCallback', () => {
 

@@ -3,7 +3,7 @@
 let emit = require('./emit.js');
 let on = require('./on.js');
 let inViewport = require('../dom/inviewport.js');
-import './pageVisibility.js';
+require('./pageVisibility.js');
 
 // These are the elements which are being managed
 var elements = [];

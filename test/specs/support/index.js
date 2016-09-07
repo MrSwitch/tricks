@@ -7,7 +7,7 @@ let svg = require('../../../support/svg.js');
 let smil = require('../../../support/smil.js');
 let touch = require('../../../support/touch.js');
 let transform = require('../../../support/transform.js');
-import transform3d from 'support/transform3d.js';
+let transform3d = require('../../../support/transform3d.js');
 let video = require('../../../support/video.js');
 let videoAutoplay = require('../../../support/video.autoplay.js');
 
