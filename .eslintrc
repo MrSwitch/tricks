@@ -23,13 +23,9 @@
 	},
 	"env": {
 		"node": true,
-		"browser": true,
-		"jasmine": true,
-		"mocha": true
+		"browser": true
 	},
 	"globals": {
-		"sinon": true,
-		"mochaPhantomJS": true,
 		"HTMLInput": true
 	}
 }
