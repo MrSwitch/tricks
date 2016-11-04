@@ -1,9 +1,9 @@
-let each = require('./each.js');
+const each = require('./each.js');
 
-module.exports = (elements, props) => {
-	return each(elements, element => {
-		for (let x in props) {
-			let prop = props[x];
+module.exports = (elements, props) =>
+	each(elements, element => {
+		for (const x in props) {
+			const prop = props[x];
 			if (typeof prop === 'function') {
 				element[x] = prop;
 			}
@@ -12,4 +12,3 @@ module.exports = (elements, props) => {
 			}
 		}
 	});
-};

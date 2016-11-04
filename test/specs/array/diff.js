@@ -1,10 +1,10 @@
-let diff = require('../../../array/diff.js');
+const diff = require('../../../array/diff.js');
 
 describe('array/diff', () => {
 
 	it('should return the values which are in the second array but not the first', () => {
 
-		var value = diff([1, 3], [1, 2, 3]);
+		let value = diff([1, 3], [1, 2, 3]);
 		expect(value).to.eql([2]);
 
 		value = diff([1, 2, 3], [1, 3]);

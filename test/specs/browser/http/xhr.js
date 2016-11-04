@@ -1,10 +1,10 @@
-let xhr = require('../../../../browser/http/xhr.js');
+const xhr = require('../../../../browser/http/xhr.js');
 
 describe('http/xhr', () => {
 
 	it('should open a GET request and trigger the callback', done => {
 
-		var json = {'success': true};
+		const json = {success: true};
 
 		xhr('get', './stub.json', 'json', {}, {}, r => {
 			expect(r).to.be.eql(json);

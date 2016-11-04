@@ -1,4 +1,4 @@
-let toArray = require('../../../array/toArray.js');
+const toArray = require('../../../array/toArray.js');
 
 describe('array/toArray', () => {
 

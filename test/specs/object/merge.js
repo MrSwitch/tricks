@@ -1,18 +1,18 @@
-let merge = require('../../../object/merge.js');
+const merge = require('../../../object/merge.js');
 
 describe('object/merge', () => {
 
 	it('should merge arguments into one new object', () => {
 
-		var a = {
+		const a = {
 			key: 'valueA'
 		};
 
-		var b = {
+		const b = {
 			key: 'valueB'
 		};
 
-		var value = merge(a, b);
+		const value = merge(a, b);
 
 		// Check: a is like b
 		expect(value).to.eql(b);

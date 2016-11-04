@@ -14,11 +14,11 @@ module.exports = class Queue {
 	push (...args) {
 
 		// Append items to the internal array.
-		args.forEach((item) => this.items.push(item));
+		args.forEach(item => this.items.push(item));
 
 		// Trigger the custom handler
 		if (this._handler) {
-			args.forEach((item) => this._handler(item));
+			args.forEach(item => this._handler(item));
 		}
 	}
 
@@ -40,7 +40,7 @@ module.exports = class Queue {
 		this._handler = callback;
 
 		if (this._handler) {
-			this.items.forEach((item) => this._handler(item));
+			this.items.forEach(item => this._handler(item));
 		}
 	}
-}
+};

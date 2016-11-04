@@ -1,10 +1,10 @@
-let now = require('../../../time/now.js');
+const now = require('../../../time/now.js');
 
 describe('time/now', () => {
 
 	it('should return the current time in milliseconds', done => {
 
-		let i = now();
+		const i = now();
 
 		expect(i).to.be.a('number');
 

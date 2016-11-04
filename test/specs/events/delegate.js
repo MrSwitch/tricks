@@ -1,14 +1,17 @@
-let delegate = require('../../../events/delegate.js');
-let emit = require('../../../events/emit.js');
+const delegate = require('../../../events/delegate.js');
+const emit = require('../../../events/emit.js');
 
 describe('events/delegate', () => {
 
 	// Create an element
-	var el, del;
+	let el;
+	let del;
+
 	beforeEach(() => {
 		el = document.createElement('a');
 		document.body.appendChild(el);
 	});
+
 	afterEach(() => {
 		// Clean up
 		document.body.removeChild(el);
@@ -19,7 +22,7 @@ describe('events/delegate', () => {
 
 	it('should employ concept of Event Delegation', () => {
 
-		let spy = sinon.spy(e => {
+		const spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.ok();
 		});
 
@@ -34,10 +37,10 @@ describe('events/delegate', () => {
 
 	it('should capture events initiated on child elements', () => {
 
-		let child = document.createElement('span');
+		const child = document.createElement('span');
 		el.appendChild(child);
 
-		let spy = sinon.spy(e => {
+		const spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.equal(el);
 		});
 
@@ -52,7 +55,7 @@ describe('events/delegate', () => {
 
 	it('should return an object with a remove method', () => {
 
-		let spy = sinon.spy(e => {
+		const spy = sinon.spy(e => {
 			expect(e.delegateTarget).to.be.equal(el);
 		});
 

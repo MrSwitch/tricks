@@ -1,10 +1,10 @@
-let timing = require('../../../animation/timing.js');
+const timing = require('../../../animation/timing.js');
 
 describe('animation/timing', () => {
 
 	it('should trigger numerous callbacks between a period of time', done => {
 
-		var spy = sinon.spy((x, t) => {
+		const spy = sinon.spy((x, t) => {
 
 			if (t === 1) {
 				expect(spy.callCount >= 1).to.be.ok();

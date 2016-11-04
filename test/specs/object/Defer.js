@@ -1,4 +1,4 @@
-let Defer = require('../../../object/Defer.js');
+const Defer = require('../../../object/Defer.js');
 
 describe('object/Defer', () => {
 
@@ -10,7 +10,7 @@ describe('object/Defer', () => {
 	it('should construct an Object with push method, length, resolve', () => {
 
 
-		let defer = new Defer();
+		const defer = new Defer();
 
 		expect(defer).to.have.property('push');
 		expect(defer).to.have.property('length');
@@ -18,10 +18,10 @@ describe('object/Defer', () => {
 
 	});
 
-	it('should push callbacks, and trigger them with the contents of resolve', (done) => {
+	it('should push callbacks, and trigger them with the contents of resolve', done => {
 
-		let test = 'test';
-		let defer = new Defer();
+		const test = 'test';
+		const defer = new Defer();
 
 		defer.push(response => {
 			expect(response).to.eql(test);

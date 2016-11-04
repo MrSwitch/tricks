@@ -1,6 +1,6 @@
 // Pubsub extension
 // A contructor superclass for adding event menthods, on, off, emit.
-let setImmediate = require('../time/setImmediate.js');
+const setImmediate = require('../time/setImmediate.js');
 
 const separator = /[\s\,]+/;
 
@@ -24,7 +24,7 @@ module.exports = function() {
 	this.findEvents = findEvents;
 
 	return this;
-}
+};
 
 
 // On, subscribe to events
@@ -65,7 +65,7 @@ function emit(evt, ...args) {
 	args.push(evt);
 
 	// Handler
-	var handler = function(name, index) {
+	const handler = function(name, index) {
 
 		// Replace the last property with the event name
 		args[args.length - 1] = (name === '*' ? evt : name);
@@ -75,11 +75,11 @@ function emit(evt, ...args) {
 	};
 
 	// Find the callbacks which match the condition and call
-	var _this = this;
+	let _this = this;
 	while (_this && _this.findEvents) {
 
 		// Find events which match
-		_this.findEvents(evt + ',*', handler);
+		_this.findEvents(`${evt },*`, handler);
 		_this = _this.parent;
 	}
 
@@ -87,11 +87,10 @@ function emit(evt, ...args) {
 }
 
 // Easy functions
-function emitAfter() {
-	var _this = this;
-	var args = arguments;
-	setImmediate(function() {
-		_this.emit.apply(_this, args);
+function emitAfter(...args) {
+
+	setImmediate(() => {
+		this.emit(...args);
 	});
 
 	return this;
@@ -99,15 +98,16 @@ function emitAfter() {
 
 function findEvents(evt, callback) {
 
-	var a = evt.split(separator);
+	const a = evt.split(separator);
 
-	for (var name in this.events) {if (this.events.hasOwnProperty(name)) {
+	for (const name in this.events) {
+		if (this.events.hasOwnProperty(name)) {
 
-		if (a.indexOf(name) > -1) {
+			if (a.indexOf(name) > -1) {
 
-			this.events[name].forEach(triggerCallback.bind(this, name, callback));
-		}
-	}}
+				this.events[name].forEach(triggerCallback.bind(this, name, callback));
+			}
+		}}
 }
 
 function triggerCallback(name, callback, handler, i) {

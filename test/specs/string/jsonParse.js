@@ -1,16 +1,16 @@
-let jsonParse = require('../../../string/jsonParse.js');
+const jsonParse = require('../../../string/jsonParse.js');
 
 describe('string/jsonParse', () => {
 
 	it('should accept a string and return an object', () => {
 
-		var json = {
+		const json = {
 			test: 1
-		}
+		};
 
-		var str = JSON.stringify(json);
+		const str = JSON.stringify(json);
 
-		var test = jsonParse(str);
+		const test = jsonParse(str);
 
 		expect(test).to.eql(json);
 	});
@@ -19,7 +19,7 @@ describe('string/jsonParse', () => {
 
 		// Convert there and back
 
-		var test = jsonParse('invalid json');
+		const test = jsonParse('invalid json');
 
 		expect(test).to.eql(undefined);
 	});

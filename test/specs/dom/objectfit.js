@@ -1,13 +1,13 @@
-let objectfit = require('../../../dom/objectfit.js');
+const objectfit = require('../../../dom/objectfit.js');
 
 describe('dom/objectfit', () => {
 
 	it('should return coordinates for positioning an element within another element covering it completely', () => {
 
-		var [W, H] = [200, 100];
-		var [w, h] = [100, 100];
+		const [W, H] = [200, 100];
+		const [w, h] = [100, 100];
 
-		var response = objectfit(w, h, W, H);
+		const response = objectfit(w, h, W, H);
 		expect(response).to.be.an('array');
 		expect(response).to.eql([0, -50, 200, 200]);
 	});

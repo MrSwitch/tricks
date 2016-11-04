@@ -1,11 +1,11 @@
-let queryparse = require('../../../string/queryparse.js');
-let stringify = require('../../../string/querystringify.js');
+const queryparse = require('../../../string/queryparse.js');
+const stringify = require('../../../string/querystringify.js');
 
 describe('string/queryparse', () => {
 
 	it('should accept a string and return an object', () => {
 
-		var value = queryparse('');
+		const value = queryparse('');
 
 		expect(value).to.be.an(Object);
 	});
@@ -14,7 +14,7 @@ describe('string/queryparse', () => {
 
 		// Convert there and back
 
-		var value = queryparse('&test=1&test2=2');
+		const value = queryparse('&test=1&test2=2');
 
 		expect(value).to.eql({
 			test: '1',
@@ -25,13 +25,13 @@ describe('string/queryparse', () => {
 	it('should perform the opposite of querystringify, e.g. return a decoded URL string', () => {
 
 		// Encode
-		var params = {
+		const params = {
 			test: 'http://word',
 			test2: '2'
 		};
 
 		// Convert there and back
-		var value = queryparse(stringify(params));
+		const value = queryparse(stringify(params));
 
 		expect(value).to.eql(params);
 	});

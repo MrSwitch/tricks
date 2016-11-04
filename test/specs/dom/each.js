@@ -1,4 +1,4 @@
-let each = require('../../../dom/each.js');
+const each = require('../../../dom/each.js');
 
 describe('dom/each', () => {
 	it('should return an array given an array', () => {

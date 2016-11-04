@@ -1,9 +1,9 @@
 // Get JSON
-let request = require('./request.js');
-let jsonParse = require('../string/jsonParse.js');
+const request = require('./request.js');
+const jsonParse = require('../string/jsonParse.js');
 
 module.exports = (url, callback) => {
 
 	// Protocol
-	request(url, (data) => callback(jsonParse(data)));
+	request(url, data => callback(jsonParse(data)));
 };

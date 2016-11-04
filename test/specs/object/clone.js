@@ -1,14 +1,14 @@
-let clone = require('../../../object/clone.js');
+const clone = require('../../../object/clone.js');
 
-describe('object/clone', function() {
+describe('object/clone', () => {
 
-	it('should clone a simple object', function() {
+	it('should clone a simple object', () => {
 
-		var orig = {
+		const orig = {
 			prop: 'prop'
 		};
 
-		var _clone = clone(orig);
+		const _clone = clone(orig);
 
 		// Assert that its the same but different.
 		expect(_clone).to.be.eql(orig).and.not.to.be.equal(orig);
@@ -16,15 +16,15 @@ describe('object/clone', function() {
 	});
 
 	if (typeof Blob !== 'undefined') {
-		it('should not clone Blob values', function() {
+		it('should not clone Blob values', () => {
 
-			var blob = new Blob();
+			const blob = new Blob();
 
-			var orig = {
+			const orig = {
 				prop: blob
 			};
 
-			var _clone = clone(orig);
+			const _clone = clone(orig);
 
 			// Assert that its the same but different.
 			expect(_clone.prop).to.be.a(Blob).and.to.be.equal(orig.prop);
@@ -33,13 +33,13 @@ describe('object/clone', function() {
 	}
 
 	if (typeof document !== 'undefined') {
-		it('should not clone DOM element', function() {
+		it('should not clone DOM element', () => {
 
-			var orig = {
+			const orig = {
 				prop: document.createElement('input')
 			};
 
-			var _clone = clone(orig);
+			const _clone = clone(orig);
 
 			// Assert that its the same but different.
 			expect(_clone.prop).to.be.a(window.Element || window.HTMLElement).and.to.be.equal(orig.prop);
@@ -47,58 +47,58 @@ describe('object/clone', function() {
 		});
 	}
 
-	it('should clone arrays', function() {
+	it('should clone arrays', () => {
 
-		var orig = [1, 2, 3];
-		var _clone = clone(orig);
+		const orig = [1, 2, 3];
+		const _clone = clone(orig);
 
 		// Assert that its the same but different.
 		expect(_clone).to.be.eql(orig).and.to.not.be.equal(orig);
 
 	});
 
-	it('should return primitive value (Number)', function() {
+	it('should return primitive value (Number)', () => {
 
-		var orig = 1;
-		var _clone = clone(orig);
-
-		// Assert that its the same but different.
-		expect(_clone).to.be.eql(orig);
-
-	});
-
-	it('should return primitive value (null)', function() {
-
-		var orig = null;
-		var _clone = clone(orig);
+		const orig = 1;
+		const _clone = clone(orig);
 
 		// Assert that its the same but different.
 		expect(_clone).to.be.eql(orig);
 
 	});
 
-	it('should return primitive value (String)', function() {
+	it('should return primitive value (null)', () => {
 
-		var orig = 'string';
-		var _clone = clone(orig);
-
-		// Assert that its the same but different.
-		expect(_clone).to.be.eql(orig);
-
-	});
-
-	it('should clone Date objects', function() {
-
-		var orig = (new Date());
-		var _clone = clone(orig);
+		const orig = null;
+		const _clone = clone(orig);
 
 		// Assert that its the same but different.
 		expect(_clone).to.be.eql(orig);
 
 	});
 
-	it('should clone arrays in objects', function() {
-		var orig = {
+	it('should return primitive value (String)', () => {
+
+		const orig = 'string';
+		const _clone = clone(orig);
+
+		// Assert that its the same but different.
+		expect(_clone).to.be.eql(orig);
+
+	});
+
+	it('should clone Date objects', () => {
+
+		const orig = (new Date());
+		const _clone = clone(orig);
+
+		// Assert that its the same but different.
+		expect(_clone).to.be.eql(orig);
+
+	});
+
+	it('should clone arrays in objects', () => {
+		const orig = {
 			foo: 'bar',
 			arr: [
 				{
@@ -111,7 +111,7 @@ describe('object/clone', function() {
 				}
 			]
 		};
-		var _clone = clone(orig);
+		const _clone = clone(orig);
 
 		expect(_clone).to.be.eql(orig).and.to.not.be.equal(orig);
 	});

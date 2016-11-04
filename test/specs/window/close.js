@@ -1,13 +1,13 @@
-let close = require('../../../window/close.js');
+const close = require('../../../window/close.js');
 
 describe('window/close', () => {
 
 	it('should call window.close on a popup', () => {
 
 		// Create a fake instance of a popup.
-		var popup = {};
+		const popup = {};
 
-		var spy = sinon.spy();
+		const spy = sinon.spy();
 
 		popup.close = spy;
 
@@ -18,7 +18,7 @@ describe('window/close', () => {
 
 	xit('should remove a window if its contained within another window.', () => {
 
-		var popup = document.createElement('iframe');
+		const popup = document.createElement('iframe');
 		popup.src = 'about:blank';
 
 	});

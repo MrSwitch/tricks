@@ -1,11 +1,11 @@
-let toDate = require('../../../time/toDate.js');
+const toDate = require('../../../time/toDate.js');
 
 describe('time/toDate', () => {
 
 	it('should return null string if value passed is not a date', () => {
 
 		[undefined, '', {}].forEach(input => {
-			let output = toDate(input);
+			const output = toDate(input);
 			expect(output).to.be.a(Date);
 			expect(output.toString()).to.eql('Invalid Date');
 		});

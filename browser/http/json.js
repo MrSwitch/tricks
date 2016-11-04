@@ -1,13 +1,13 @@
 // JSON
-let jsonParse = require('../../string/jsonParse.js');
-let tryCatch = require('../../object/tryCatch.js');
+const jsonParse = require('../../string/jsonParse.js');
+const tryCatch = require('../../object/tryCatch.js');
 
 module.exports = (url, callback) => {
 
-	let x = new XMLHttpRequest();
+	const x = new XMLHttpRequest();
 	x.onload = () => {
 		// Get the JSON response
-		let v = (typeof x.response === 'object') ? x.response : jsonParse(x.response);
+		const v = (typeof x.response === 'object') ? x.response : jsonParse(x.response);
 
 		// Callback
 		callback(v);

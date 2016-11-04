@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Test file
 mocha.ui('bdd');
 

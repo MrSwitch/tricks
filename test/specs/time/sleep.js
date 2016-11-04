@@ -1,4 +1,4 @@
-let sleep = require('../../../time/sleep.js');
+const sleep = require('../../../time/sleep.js');
 
 describe('time/sleep', () => {
 
@@ -10,7 +10,7 @@ describe('time/sleep', () => {
 	it('should fire a callback after a given period of time.', done => {
 
 		let i = 0;
-		let cb = () => {
+		const cb = () => {
 			i = 1;
 			done();
 		};
@@ -23,7 +23,7 @@ describe('time/sleep', () => {
 
 	it('should cancel a previous callback, if passsed its ID', done => {
 
-		let id = sleep(() => done(new Error('Should not be called')), 10);
+		const id = sleep(() => done(new Error('Should not be called')), 10);
 
 		sleep(() => done(), 10, id);
 

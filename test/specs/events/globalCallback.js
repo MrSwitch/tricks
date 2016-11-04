@@ -1,12 +1,12 @@
-let globalCallback = require('../../../events/globalCallback.js');
+const globalCallback = require('../../../events/globalCallback.js');
 
-let globalCallbackPrefix = globalCallback.prefix;
+const globalCallbackPrefix = globalCallback.prefix;
 
 describe('events/globalCallback', () => {
 
 	it('should set a callback function on the window object', done => {
 
-		var id = globalCallback(() => {
+		const id = globalCallback(() => {
 			done();
 		});
 
@@ -20,8 +20,8 @@ describe('events/globalCallback', () => {
 
 	it('should set unique callback names', () => {
 
-		var id = globalCallback(() => {});
-		var id2 = globalCallback(() => {});
+		const id = globalCallback(() => {});
+		const id2 = globalCallback(() => {});
 
 		// Expect there to be a function on the window object which can be triggered
 		expect(id).to.not.be.eql(id2);
@@ -29,8 +29,8 @@ describe('events/globalCallback', () => {
 
 	it('should let callback names be defined', () => {
 
-		var id = globalCallback(() => {});
-		var id2 = globalCallback(() => {}, id);
+		const id = globalCallback(() => {});
+		const id2 = globalCallback(() => {}, id);
 
 		// Expect there to be a function on the window object which can be triggered
 		expect(id).to.be.eql(id2);
@@ -38,11 +38,9 @@ describe('events/globalCallback', () => {
 
 	it('should remove window[callback] reference if it returns truthy', () => {
 
-		var spy = sinon.spy(() => {
-			return true;
-		});
+		const spy = sinon.spy(() => true);
 
-		var id = globalCallback(spy);
+		const id = globalCallback(spy);
 		window[id].call(null);
 
 		// Should be removed
@@ -53,11 +51,9 @@ describe('events/globalCallback', () => {
 
 	it('should keep the window[callback] reference if it returns falsy', () => {
 
-		var spy = sinon.spy(() => {
-			return 0;
-		});
+		const spy = sinon.spy(() => 0);
 
-		var id = globalCallback(spy);
+		const id = globalCallback(spy);
 		window[id].call(null);
 
 		// Should be removed
@@ -69,7 +65,7 @@ describe('events/globalCallback', () => {
 	it('should change the prefix to the random id', () => {
 
 		globalCallbackPrefix('test_');
-		var id = globalCallback(() => {});
+		const id = globalCallback(() => {});
 
 		expect(id).to.match(/^test_/);
 

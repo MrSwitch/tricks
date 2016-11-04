@@ -1,10 +1,10 @@
-let pubsub = require('../../../object/pubsub.js');
+const pubsub = require('../../../object/pubsub.js');
 
 describe('object/pubsub', () => {
 
-	var testObj;
-	var arbitaryData;
-	var eventName;
+	let testObj;
+	let arbitaryData;
+	let eventName;
 
 	beforeEach(() => {
 
@@ -21,7 +21,7 @@ describe('object/pubsub', () => {
 	it('should bind events by name and be able to trigger them by name', () => {
 
 		// Make request
-		var spy = sinon.spy((data, type) => {
+		const spy = sinon.spy((data, type) => {
 
 			expect(eventName).to.be(type);
 
@@ -39,7 +39,7 @@ describe('object/pubsub', () => {
 	it('should listen to any event by using a *', () => {
 
 		// Make request
-		var spy = sinon.spy((data, type) => {
+		const spy = sinon.spy((data, type) => {
 
 			expect(eventName).to.be(type);
 
@@ -57,11 +57,11 @@ describe('object/pubsub', () => {
 	it('should unbind an event by name and callback', () => {
 
 		// Listeners
-		var spy = sinon.spy(() => {
+		const spy = sinon.spy(() => {
 			// Should not be called.
 		});
 
-		var spy2 = sinon.spy(() => {
+		const spy2 = sinon.spy(() => {
 			// Should not be called.
 		});
 
@@ -85,11 +85,11 @@ describe('object/pubsub', () => {
 	it('should unbind all events by name', () => {
 
 		// Listeners
-		var spy = sinon.spy(() => {
+		const spy = sinon.spy(() => {
 			// Should not be called.
 		});
 
-		var spy2 = sinon.spy(() => {
+		const spy2 = sinon.spy(() => {
 			// Should not be called.
 		});
 
@@ -114,7 +114,7 @@ describe('object/pubsub', () => {
 
 		// PROTO
 		// Listeners
-		var spy = sinon.spy(() => {
+		const spy = sinon.spy(() => {
 			// Should not be called.
 		});
 
@@ -122,9 +122,9 @@ describe('object/pubsub', () => {
 		testObj.on(eventName, spy);
 
 		// PROTO
-		var child = Object.create(testObj);
+		const child = Object.create(testObj);
 
-		var spy2 = sinon.spy(() => {
+		const spy2 = sinon.spy(() => {
 			// Should not be called.
 		});
 

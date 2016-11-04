@@ -1,7 +1,7 @@
 // Sleep
 // Creates an instance of a function which
 let i = 1;
-let hash = {};
+const hash = {};
 
 module.exports = (callback, period = 0, guid = i++) => {
 
@@ -18,4 +18,4 @@ module.exports = (callback, period = 0, guid = i++) => {
 	}
 
 	return guid;
-}
+};

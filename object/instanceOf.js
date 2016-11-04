@@ -1,3 +1,1 @@
-module.exports = (test, root) => {
-	return root && test instanceof root;
-};
+module.exports = (test, root) => root && test instanceof root;

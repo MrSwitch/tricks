@@ -1,11 +1,11 @@
-let hasBinary = require('../../../object/hasBinary.js');
+const hasBinary = require('../../../object/hasBinary.js');
 
 describe('object/hasBinary', () => {
 
 	if (typeof Blob !== 'undefined') {
 		it('should return true if the content of the arguments contain binary data', () => {
 
-			var b = hasBinary({
+			const b = hasBinary({
 				key: 'valueB',
 				bin: new Blob()
 			});
@@ -17,7 +17,7 @@ describe('object/hasBinary', () => {
 
 	it('should return false if the content of the arguments does not contain binary data', () => {
 
-		var b = hasBinary({
+		const b = hasBinary({
 			key: 'valueB'
 		});
 

@@ -1,4 +1,4 @@
-let Stores = {
+const Stores = {
 	sessionStorage: require('../../../../browser/agent/sessionStorage.js'),
 	localStorage: require('../../../../browser/agent/localStorage.js'),
 	cookieStorage: require('../../../../browser/agent/cookieStorage.js')
@@ -6,24 +6,24 @@ let Stores = {
 
 describe('Storage', () => {
 
-	Object.keys(Stores).forEach((label) => {
+	Object.keys(Stores).forEach(label => {
 
-		let store = Stores[label];
+		const store = Stores[label];
 
-		describe('browser/agent/' + label, () =>{
+		describe(`browser/agent/${ label}`, () => {
 
-			var data = {
+			const data = {
 				key: 'value',
 				key1: 'value1'
 			};
-			var label = 'test';
+			const label = 'test';
 
 			// Store data for retrieval
-			beforeEach(() =>{
+			beforeEach(() => {
 				store(label, data);
 			});
 
-			afterEach(() =>{
+			afterEach(() => {
 				store(label, null);
 			});
 
@@ -35,7 +35,7 @@ describe('Storage', () => {
 
 			it('should update data placed into the store', () => {
 
-				var update = {
+				const update = {
 					updated: 'update'
 				};
 
@@ -80,8 +80,8 @@ describe('Storage', () => {
 			it('should accept a hash to store multiple items simultaneously', () => {
 
 				store({
-					'a': 1,
-					'b': 2
+					a: 1,
+					b: 2
 				});
 
 				expect(store('a')).to.equal(1);
@@ -92,7 +92,7 @@ describe('Storage', () => {
 
 			describe('getItem', () => {
 				it('should expose getItem', () => {
-					let x = store.getItem(label);
+					const x = store.getItem(label);
 					expect(x).to.eql(data);
 				});
 			});
@@ -100,7 +100,7 @@ describe('Storage', () => {
 			describe('setItem', () => {
 				it('should expose setItem', () => {
 					store.setItem(label, 1);
-					let x = store.getItem(label);
+					const x = store.getItem(label);
 					expect(x).to.eql(1);
 				});
 			});
@@ -108,7 +108,7 @@ describe('Storage', () => {
 			describe('removeItem', () => {
 				it('should expose setItem', () => {
 					store.removeItem(label);
-					let x = store.getItem(label);
+					const x = store.getItem(label);
 					expect(x).to.eql(null);
 				});
 			});

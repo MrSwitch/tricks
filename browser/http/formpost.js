@@ -4,22 +4,22 @@
 // @param object data, key value data to send
 // @param function callback, function to execute in response
 
-let append = require('../../dom/append.js');
-let attr = require('../../dom/attr.js');
-let domInstance = require('../../dom/domInstance.js');
-let createElement = require('../../dom/createElement.js');
-let globalCallback = require('../../events/globalCallback.js');
-let toArray = require('../../array/toArray.js');
-let instanceOf = require('../../object/instanceOf.js');
-let on = require('../../events/on.js');
-let emit = require('../../events/emit.js');
-let setImmediate = require('../../time/setImmediate.js');
+const append = require('../../dom/append.js');
+const attr = require('../../dom/attr.js');
+const domInstance = require('../../dom/domInstance.js');
+const createElement = require('../../dom/createElement.js');
+const globalCallback = require('../../events/globalCallback.js');
+const toArray = require('../../array/toArray.js');
+const instanceOf = require('../../object/instanceOf.js');
+const on = require('../../events/on.js');
+const emit = require('../../events/emit.js');
+const setImmediate = require('../../time/setImmediate.js');
 
 module.exports = (url, data, options, callback, callback_name, timeout = 60000) => {
 
-	var timer;
-	var bool = 0;
-	var cb = r => {
+	let timer;
+	let bool = 0;
+	const cb = r => {
 		if (!(bool++)) {
 			if (timer) {
 				clearTimeout(timer);
@@ -46,7 +46,7 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 	// Create the FRAME
 	/////////////////////
 
-	var frame = createFrame(callback_name);
+	const frame = createFrame(callback_name);
 
 	// Override callback mechanism. Triggger a response onload/onerror
 	if (options && options.callbackonload) {
@@ -72,17 +72,17 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 	// Create a form
 	/////////////////////
 
-	var form = createFormFromData(data);
+	const form = createFormFromData(data);
 
 	// The URL is a function for some cases and as such
 	// Determine its value with a callback containing the new parameters of this function.
-	url = url.replace(new RegExp('=\\?(&|$)'), '=' + callback_name + '$1');
+	url = url.replace(new RegExp('=\\?(&|$)'), `=${ callback_name }$1`);
 
 	// Set the target of the form
 	attr(form, {
-		'method': 'POST',
-		'target': callback_name,
-		'action': url
+		method: 'POST',
+		target: callback_name,
+		action: url
 	});
 
 	form.target = callback_name;
@@ -95,13 +95,12 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 };
 
 
-
 function createFrame(callback_name) {
-	var frame;
+	let frame;
 
 	try {
 		// IE7 hack, only lets us define the name here, not later.
-		frame = createElement('<iframe name="' + callback_name + '">');
+		frame = createElement(`<iframe name="${ callback_name }">`);
 	}
 	catch (e) {
 		frame = createElement('iframe');
@@ -120,14 +119,13 @@ function createFrame(callback_name) {
 }
 
 
-
 function createFormFromData(data) {
 
 	// This hack needs a form
-	var form = null;
-	var reenableAfterSubmit = [];
-	var i = 0;
-	var x = null;
+	let form = null;
+	const reenableAfterSubmit = [];
+	let i = 0;
+	let x = null;
 
 
 	// If we are just posting a single item
@@ -200,19 +198,19 @@ function createFormFromData(data) {
 			});
 		}
 
-		var input;
+		let input;
 
 		// Add elements to the form if they dont exist
 		for (x in data) if (data.hasOwnProperty(x)) {
 
 			// Is this an element?
-			var el = (domInstance('input', data[x]) || domInstance('textArea', data[x]) || domInstance('select', data[x]));
+			const el = (domInstance('input', data[x]) || domInstance('textArea', data[x]) || domInstance('select', data[x]));
 
 			// Is this not an input element, or one that exists outside the form.
 			if (!el || data[x].form !== form) {
 
 				// Does an element have the same name?
-				var inputs = form.elements[x];
+				let inputs = form.elements[x];
 				if (input) {
 					// Remove it.
 					if (!instanceOf(inputs, window.NodeList)) {
@@ -227,8 +225,8 @@ function createFormFromData(data) {
 
 				// Create an input element
 				input = append('input', {
-					'type': 'hidden',
-					'name': x
+					type: 'hidden',
+					name: x
 				}, form);
 
 				// Does it have a value attribute?

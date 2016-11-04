@@ -1,12 +1,12 @@
 // Request
 // Makes an REST request given an object which describes how (aka, xhr, jsonp, formpost)
-let jsonp = require('./jsonp.js');
-let xhr = require('./xhr.js');
-let formpost = require('./formpost.js');
-let SupportCORS = require('../../support/cors.js');
-let globalCallback = require('../../events/globalCallback.js');
-let createUrl = require('../../string/createUrl.js');
-let extend = require('../../object/extend.js');
+const jsonp = require('./jsonp.js');
+const xhr = require('./xhr.js');
+const formpost = require('./formpost.js');
+const SupportCORS = require('../../support/cors.js');
+const globalCallback = require('../../events/globalCallback.js');
+const createUrl = require('../../string/createUrl.js');
+const extend = require('../../object/extend.js');
 
 module.exports = (p, callback) => {
 
@@ -26,7 +26,9 @@ module.exports = (p, callback) => {
 	p.method = (p.method || 'get').toLowerCase();
 
 	// Default proxy response
-	p.proxyHandler = p.proxyHandler || ((p, cb) => {cb();});
+	p.proxyHandler = p.proxyHandler || ((p, cb) => {
+		cb();
+	});
 
 	// CORS
 	if (SupportCORS && (typeof (p.xhr) === 'function' ? p.xhr(p, p.query) : p.xhr !== false)) {
@@ -34,8 +36,8 @@ module.exports = (p, callback) => {
 		// Pass the selected request through a proxy
 		p.proxyHandler(p, () => {
 			// The agent and the provider support CORS
-			var url = createUrl(p.url, p.query);
-			var x = xhr(p.method, url, p.responseType, p.headers, p.data, callback);
+			const url = createUrl(p.url, p.query);
+			const x = xhr(p.method, url, p.responseType, p.headers, p.data, callback);
 			x.onprogress = p.onprogress || null;
 
 			// Feature detect, not available on all implementations of XMLHttpRequest
@@ -63,7 +65,7 @@ module.exports = (p, callback) => {
 		if (p.method === 'get') {
 
 			p.proxyHandler(p, () => {
-				var url = createUrl(p.url, extend(p.query, p.data || {}));
+				const url = createUrl(p.url, extend(p.query, p.data || {}));
 				jsonp(url, callback, p.callbackID, p.timeout);
 			});
 
@@ -80,7 +82,7 @@ module.exports = (p, callback) => {
 		p.query.state = JSON.stringify({callback: p.callbackID});
 		delete p.query.callback;
 
-		var opts;
+		let opts;
 
 		if (typeof (p.form) === 'function') {
 
@@ -91,7 +93,7 @@ module.exports = (p, callback) => {
 		if (p.method === 'post' && opts !== false) {
 
 			p.proxyHandler(p, () => {
-				var url = createUrl(p.url, p.query);
+				const url = createUrl(p.url, p.query);
 				formpost(url, p.data, opts, callback, p.callbackID, p.timeout);
 			});
 

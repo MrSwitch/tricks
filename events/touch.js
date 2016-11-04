@@ -2,8 +2,8 @@
 // Calculate the difference from the starting position and the end position.
 // Returns a gesture object given
 
-let on = require('./on.js');
-let each = require('../dom/each.js');
+const on = require('./on.js');
+const each = require('../dom/each.js');
 
 // Does this support pointer events?
 const pointerEnabled = window.navigator.pointerEnabled;
@@ -17,7 +17,9 @@ const eventEndTypes = pointerEnabled ? 'MSPointerUp pointerUp' : 'mouseup touche
 module.exports = (elements, onmove, onstart, onend) => {
 
 	// Store callbacks, and previous pointer position
-	var cb = {}, mv = {}, fin = {};
+	const cb = {};
+	const mv = {};
+	const fin = {};
 
 	on(document, eventMoveTypes, moveEvent => {
 
@@ -33,12 +35,12 @@ module.exports = (elements, onmove, onstart, onend) => {
 		}
 
 		// trigger the call
-		var i = moveEvent.pointerId || 0;
-		var handler = cb[i];
+		const i = moveEvent.pointerId || 0;
+		const handler = cb[i];
 
 		if (handler && typeof(handler) === 'function') {
 
-			var prevEvent = mv[i];
+			const prevEvent = mv[i];
 
 			// Extend the Event Object with 'gestures'
 			gesture(moveEvent, prevEvent);
@@ -52,14 +54,14 @@ module.exports = (elements, onmove, onstart, onend) => {
 
 	on(document, eventEndTypes, e => {
 
-		var i = e.pointerId || 0;
+		const i = e.pointerId || 0;
 		cb[i] = null;
 
 		if (e.type === 'touchend' || e.type === 'touchcancel') {
 			e = mv[i];
 		}
 
-		let handler = fin[i];
+		const handler = fin[i];
 		if (handler) {
 			handler(e);
 		}
@@ -76,17 +78,17 @@ module.exports = (elements, onmove, onstart, onend) => {
 		// 	console.log(e);
 		// });
 
-		on(element, 'selectstart', () => {return false;});
+		on(element, 'selectstart', () => false);
 
 		on(element, eventStartTypes, startEvent => {
 
 			// default pointer ID
-			var i = startEvent.pointerId || 0;
+			const i = startEvent.pointerId || 0;
 
 			// If touch, choose the first element.
 			// For multiple we may need to pass in a flag to this function
 			if (startEvent.touches && startEvent.touches.length) {
-				var ts = startEvent.timeStamp;
+				const ts = startEvent.timeStamp;
 				startEvent = startEvent.touches[0];
 				startEvent.timeStamp = ts;
 			}
@@ -146,8 +148,8 @@ export function gesture(currEvent, prevEvent) {
 
 		currEvent.gesture.deltaTime = (currEvent.timeStamp - prevEvent.timeStamp);
 
-		var dx = currEvent.gesture.deltaX = currEvent.gesture.screenX - prevEvent.gesture.screenX;
-		var dy = currEvent.gesture.deltaY = currEvent.gesture.screenY - prevEvent.gesture.screenY;
+		const dx = currEvent.gesture.deltaX = currEvent.gesture.screenX - prevEvent.gesture.screenX;
+		const dy = currEvent.gesture.deltaY = currEvent.gesture.screenY - prevEvent.gesture.screenY;
 
 		// Which is the best direction for the gesture?
 		if (Math.abs(dy) > Math.abs(dx)) {
@@ -167,6 +169,6 @@ export function gesture(currEvent, prevEvent) {
 
 
 function voidEvent(event) {
-	var type = event.pointerType || event.type;
+	const type = event.pointerType || event.type;
 	return (type.match(/mouse/i) && (event.which || event.buttons) !== 1);
 }

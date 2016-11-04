@@ -1,11 +1,10 @@
 // addClass
-let each = require('./each.js');
-let hasClass = require('./hasClass.js');
+const each = require('./each.js');
+const hasClass = require('./hasClass.js');
 
-module.exports = (elements, className) => {
-	return each(elements, el => {
+module.exports = (elements, className) =>
+	each(elements, el => {
 		if (!hasClass(el, className)) {
-			el.className += ' ' + className;
+			el.className += ` ${ className}`;
 		}
 	});
-};

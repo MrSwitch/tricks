@@ -1,14 +1,14 @@
-let toBlob = require('../../../object/toBlob.js');
+const toBlob = require('../../../object/toBlob.js');
 
 describe('object/toBlob', () => {
 
-	var test = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+	const test = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
 
 	if (typeof Blob !== 'undefined' && typeof Uint8Array !== 'undefined') {
 
 		it('should convert a data-URI to a Blob', () => {
 
-			var value = toBlob(test);
+			const value = toBlob(test);
 
 			// Assert that its the same but different.
 			expect(value).to.be.a(Blob);
@@ -18,8 +18,8 @@ describe('object/toBlob', () => {
 
 	it('should return the item if it is not a dataURI, or otherwise the browser doeas not support blobs', () => {
 
-		var invalid = 'http://' + test;
-		var value = toBlob(invalid);
+		const invalid = `http://${ test}`;
+		const value = toBlob(invalid);
 
 		// Assert that it's the same but different.
 		expect(value).to.equal(invalid);

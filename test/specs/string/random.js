@@ -1,10 +1,10 @@
-let random = require('../../../string/random.js');
+const random = require('../../../string/random.js');
 
 describe('string/random', () => {
 
 	it('should return a new random string everytime.', () => {
-		var a = random();
-		var b = random();
+		const a = random();
+		const b = random();
 		expect(a).to.be.a('string');
 		expect(b).to.be.a('string');
 		expect(a).to.not.eql(b);

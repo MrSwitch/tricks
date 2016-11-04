@@ -1,5 +1,5 @@
-let domInstance = require('./domInstance.js');
-let instanceOf = require('../object/instanceOf.js');
+const domInstance = require('./domInstance.js');
+const instanceOf = require('../object/instanceOf.js');
 
 module.exports = node => {
 
@@ -30,7 +30,7 @@ module.exports = node => {
 	// Loop through data if it's not form data it must now be a JSON object
 	if (!instanceOf(data, window.FormData)) {
 
-		for (var x in data) if (data.hasOwnProperty(x)) {
+		for (const x in data) if (data.hasOwnProperty(x)) {
 
 			if (instanceOf(data[x], window.FileList)) {
 				if (data[x].length === 1) {
@@ -58,12 +58,12 @@ module.exports = node => {
 // Given a list of elements extrapolate their values and return as a json object
 function nodeListToJSON(nodelist) {
 
-	var json = {};
+	const json = {};
 
 	// Create a data string
-	for (var i = 0; i < nodelist.length; i++) {
+	for (let i = 0; i < nodelist.length; i++) {
 
-		var input = nodelist[i];
+		const input = nodelist[i];
 
 		// If the name of the input is empty or diabled, dont add it.
 		if (input.disabled || !input.name) {

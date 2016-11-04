@@ -1,6 +1,8 @@
-module.exports = (fn) => {
+module.exports = fn => {
 	try {
 		return fn.call(null);
 	}
-	catch (e) {}
-}
+	catch (e) {
+		// Continue
+	}
+};

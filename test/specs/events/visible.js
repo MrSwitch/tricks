@@ -1,10 +1,10 @@
-let visible = require('../../../events/visible.js');
-let on = require('../../../events/on.js');
-let off = require('../../../events/off.js');
+const visible = require('../../../events/visible.js');
+const on = require('../../../events/on.js');
+const off = require('../../../events/off.js');
 
 describe('events/visible', () => {
 
-	var elm;
+	let elm;
 
 	beforeEach(() => {
 		elm = document.createElement('div');
@@ -19,7 +19,7 @@ describe('events/visible', () => {
 
 	it('should trigger visibilitychange when bound to an element', done => {
 
-		var spy = () => {
+		const spy = () => {
 			// Test
 			expect(elm.visible).to.eql(1);
 
@@ -40,7 +40,7 @@ describe('events/visible', () => {
 
 	it('should trigger visibilitychange and pass a visible value to that of the inViewport value', done => {
 
-		var spy = () => {
+		const spy = () => {
 			// Test
 			expect(elm.visible).to.eql(0);
 

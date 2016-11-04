@@ -1,10 +1,10 @@
-let requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
+const requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
 
 describe('support/requestAnimationFrame', () => {
 
 	it('should trigger the callback handler', done => {
 
-		var spy = sinon.spy(() => {
+		const spy = sinon.spy(() => {
 			done();
 		});
 

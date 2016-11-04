@@ -1,8 +1,8 @@
 // Timing function
-let requestAnimationFrame = require('../support/requestAnimationFrame.js');
-let now = require('../time/now.js');
+const requestAnimationFrame = require('../support/requestAnimationFrame.js');
+const now = require('../time/now.js');
 
-let linear = t => t;
+const linear = t => t;
 
 // Give a duration, an easing function and a frame callback we have...
 module.exports = (durationMS, easeFunc, frameCallback) => {
@@ -13,7 +13,7 @@ module.exports = (durationMS, easeFunc, frameCallback) => {
 		easeFunc = linear;
 	}
 
-	var start = now();
+	const start = now();
 
 	tick(durationMS, easeFunc, frameCallback, start);
 };
@@ -22,7 +22,7 @@ module.exports = (durationMS, easeFunc, frameCallback) => {
 function tick(durationMS, easeFunc, frameCallback, start) {
 
 	// what proportion through the animation is this?
-	var t = (now() - start) / durationMS;
+	let t = (now() - start) / durationMS;
 
 	if (t >= 1) {
 		t = 1;

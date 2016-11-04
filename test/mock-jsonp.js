@@ -1,3 +1,4 @@
+/* eslint-disable */
 // jsonp mock
 // Find the full path of this request
 

@@ -43,4 +43,4 @@ module.exports = class Defer {
 		// Trigger the callbacks
 		this.push();
 	}
-}
+};

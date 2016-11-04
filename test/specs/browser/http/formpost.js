@@ -1,13 +1,13 @@
-let formpost = require('../../../../browser/http/formpost.js');
+const formpost = require('../../../../browser/http/formpost.js');
 
 describe('http/formpost', () => {
 
-	var mockUrl = './mock-formpost.html';
+	const mockUrl = './mock-formpost.html';
 
 	it('should post data to the formpost-mock', done => {
 
-		let data = {name: 'Switch'};
-		let url = `${mockUrl}?response=${encodeURIComponent(JSON.stringify(data))}&callback=?`;
+		const data = {name: 'Switch'};
+		const url = `${mockUrl}?response=${encodeURIComponent(JSON.stringify(data))}&callback=?`;
 		formpost(url, data, {}, response => {
 			expect(response).to.eql(data);
 			done();
@@ -18,11 +18,11 @@ describe('http/formpost', () => {
 
 		this.timeout(5000);
 
-		let callback_name = 'test_iframe';
-		let url = `${mockUrl}?callback=?`;
+		const callback_name = 'test_iframe';
+		const url = `${mockUrl}?callback=?`;
 		formpost(url, {}, {}, () => {
-			let form = document.querySelector('form[target="' + callback_name + '"]:last-of-type');
-			let iframe = document.querySelector('iframe[id="' + callback_name + '"]:last-of-type');
+			const form = document.querySelector(`form[target="${ callback_name }"]:last-of-type`);
+			const iframe = document.querySelector(`iframe[id="${ callback_name }"]:last-of-type`);
 			expect(iframe.parentNode).to.be.ok();
 			expect(form.parentNode).to.be.ok();
 			setTimeout(() => {

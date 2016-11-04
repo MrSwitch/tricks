@@ -1,12 +1,12 @@
-let domInstance = require('../../../dom/domInstance.js');
+const domInstance = require('../../../dom/domInstance.js');
 
 describe('dom/domInstance', () => {
 
 	it('should return true, if type is an HTMLInputElement matches "input"', () => {
 
-		var type = 'input';
+		const type = 'input';
 
-		var value = domInstance(type, document.createElement(type));
+		const value = domInstance(type, document.createElement(type));
 
 		expect(value).to.equal(true);
 
@@ -14,9 +14,9 @@ describe('dom/domInstance', () => {
 
 	it('should return false, if type is an HTMLInputElement matches "form"', () => {
 
-		var type = 'input';
+		const type = 'input';
 
-		var value = domInstance('form', document.createElement(type));
+		const value = domInstance('form', document.createElement(type));
 
 		expect(value).to.equal(false);
 
@@ -24,9 +24,9 @@ describe('dom/domInstance', () => {
 
 	it('should return false, if an object posess as an HTMLInputElement', () => {
 
-		var type = 'input';
+		const type = 'input';
 
-		var value = domInstance('input', {tagName: type});
+		const value = domInstance('input', {tagName: type});
 
 		expect(value).to.equal(false);
 

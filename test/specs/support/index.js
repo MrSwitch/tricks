@@ -1,38 +1,38 @@
 /*eslint no-loop-func: 0*/
-let cors = require('../../../support/cors.js');
-let flex = require('../../../support/flex.js');
-let legacyflex = require('../../../support/legacyflex.js');
-let mobile = require('../../../support/mobile.js');
-let svg = require('../../../support/svg.js');
-let smil = require('../../../support/smil.js');
-let touch = require('../../../support/touch.js');
-let transform = require('../../../support/transform.js');
-let transform3d = require('../../../support/transform3d.js');
-let video = require('../../../support/video.js');
-let videoAutoplay = require('../../../support/video.autoplay.js');
+const cors = require('../../../support/cors.js');
+const flex = require('../../../support/flex.js');
+const legacyflex = require('../../../support/legacyflex.js');
+const mobile = require('../../../support/mobile.js');
+const svg = require('../../../support/svg.js');
+const smil = require('../../../support/smil.js');
+const touch = require('../../../support/touch.js');
+const transform = require('../../../support/transform.js');
+const transform3d = require('../../../support/transform3d.js');
+const video = require('../../../support/video.js');
+const videoAutoplay = require('../../../support/video.autoplay.js');
 
 
-var obj = {
-	'cors': cors,
-	'flex': flex,
-	'legacyflex': legacyflex,
-	'mobile': mobile,
-	'smil': smil,
-	'svg': svg,
-	'touch': touch,
-	'transform': transform,
-	'transform3d': transform3d,
-	'video': video,
+const obj = {
+	cors,
+	flex,
+	legacyflex,
+	mobile,
+	smil,
+	svg,
+	touch,
+	transform,
+	transform3d,
+	video,
 	'video.autoplay': videoAutoplay
 };
 
-for (let name in obj) {
+for (const name in obj) {
 
-	let bool = obj[name];
+	const bool = obj[name];
 
-	describe('support/' + name, () => {
+	describe(`support/${ name}`, () => {
 
-		it('should return Boolean to indicate it supports ' + name, () => {
+		it(`should return Boolean to indicate it supports ${ name}`, () => {
 			expect(bool).to.be.a('boolean');
 		});
 
@@ -40,21 +40,21 @@ for (let name in obj) {
 }
 
 
-let requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
-let canvasToBlob = require('../../../support/canvasToBlob.js');
-let getUserMedia = require('../../../support/getUserMedia.js');
+const requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
+const canvasToBlob = require('../../../support/canvasToBlob.js');
+const getUserMedia = require('../../../support/getUserMedia.js');
 
-var fns = {
-	'requestAnimationFrame': requestAnimationFrame,
-	'canvasToBlob': canvasToBlob,
-	'getUserMedia': getUserMedia
+const fns = {
+	requestAnimationFrame,
+	canvasToBlob,
+	getUserMedia
 };
 
-for (let name in fns) {
+for (const name in fns) {
 
-	let fn = fns[name];
+	const fn = fns[name];
 
-	describe('support/' + name, () => {
+	describe(`support/${ name}`, () => {
 
 		it('should return a Function', () => {
 			expect(fn).to.be.a('function');

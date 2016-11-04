@@ -1,15 +1,15 @@
 // sendBeacon
 'use strict';
 
-let http = require('http');
-let https = require('https');
+const http = require('http');
+const https = require('https');
 
 module.exports = (url, data) => {
 
-	let options = {
+	const options = {
 		url,
 		method: 'post'
-	}
+	};
 
 	// format data
 	if (data && typeof data === 'object') {
@@ -18,8 +18,8 @@ module.exports = (url, data) => {
 	}
 
 	// Trigger
-	let protocol = (options.url.match(/^https/) ? https : http);
-	let req = protocol.request(options, () => {
+	const protocol = (options.url.match(/^https/) ? https : http);
+	const req = protocol.request(options, () => {
 		// do nothing
 	});
 

@@ -1,9 +1,9 @@
 'use strict';
 
-let http = require('http');
-let https = require('https');
-let promisify = require('../object/promisify.js');
-let createUrl = require('../string/createUrl.js');
+const http = require('http');
+const https = require('https');
+const promisify = require('../object/promisify.js');
+const createUrl = require('../string/createUrl.js');
 
 module.exports = (req, callback) => {
 
@@ -23,7 +23,9 @@ module.exports = (req, callback) => {
 	req.query = req.query || req.qs || {};
 
 	// Run the request through the proxy handler
-	let handler = promisify(req.proxyHandler || ((req, cb) => {cb();}));
+	const handler = promisify(req.proxyHandler || ((req, cb) => {
+		cb();
+	}));
 
 	// Run the request through a proxy handler
 	// This gives us the chance to manipulate the request
@@ -33,8 +35,8 @@ module.exports = (req, callback) => {
 		req.url = createUrl(req.url, req.query);
 
 		// Trigger
-		let protocol = (req.url.match(/^https/) ? https : http);
-		protocol.request(req, (res) => {
+		const protocol = (req.url.match(/^https/) ? https : http);
+		protocol.request(req, res => {
 			let data = '';
 			res.on('data', (chunk => data += chunk.toString()));
 			res.on('end', () => callback(data));
@@ -45,4 +47,4 @@ module.exports = (req, callback) => {
 		}
 		protocol.end();
 	});
-}
+};

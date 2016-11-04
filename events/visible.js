@@ -1,12 +1,12 @@
 // visible
 // Apply a visibilitychange event, and hidden property to elements
-let emit = require('./emit.js');
-let on = require('./on.js');
-let inViewport = require('../dom/inviewport.js');
+const emit = require('./emit.js');
+const on = require('./on.js');
+const inViewport = require('../dom/inviewport.js');
 require('./pageVisibility.js');
 
 // These are the elements which are being managed
-var elements = [];
+const elements = [];
 
 // Listen to the page visibility
 on(document, 'visibilitychange', scan);
@@ -21,7 +21,7 @@ function scan() {
 }
 
 function scanElement(el) {
-	let _visible = el.parentNode && !document.hidden && inViewport(el);
+	const _visible = el.parentNode && !document.hidden && inViewport(el);
 	if (el.visible !== _visible) {
 		el.visible = _visible;
 		emit(el, 'visibilitychange');

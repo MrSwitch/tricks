@@ -1,14 +1,14 @@
 // onhashchange
-let on = require('../events/on');
+const on = require('../events/on');
 
-let a = [];
+const a = [];
 
 on(window, 'hashchange', handler);
 
 function handler() {
 
 	// Get the hash value
-	let hash = 	window.location.hash.substr(1);
+	const hash = 	window.location.hash.substr(1);
 
 	// Loop through all the handlers
 	a.forEach(callback => {
@@ -16,7 +16,7 @@ function handler() {
 	});
 }
 
-module.exports = (callback) => {
+module.exports = callback => {
 
 	if (callback) {
 		a.push(callback);

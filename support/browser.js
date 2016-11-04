@@ -1,8 +1,8 @@
 // Browser Sniffing
 
-let addClass = require('../dom/addClass.js');
+const addClass = require('../dom/addClass.js');
 
-let map = {
+const map = {
 	seamonkey: [/Seamonkey\/\d+/],
 	firefox: [/Firefox\/\d+/, /Seamonkey\/\d+/],
 	chrome: [/Chrome\/\d/, /Chromium\/\d+/],
@@ -12,15 +12,15 @@ let map = {
 	ie: [/(;MSIE\s|Trident\/)\d+/]
 };
 
-let ua = window.navigator.userAgent;
+const ua = window.navigator.userAgent;
 
-let test = a => {
-	let [match, ignore] = a;
+const test = a => {
+	const [match, ignore] = a;
 	return match.test(ua) && !(ignore && ignore.test(ua));
 };
 
 let name;
-for (let x in map) {
+for (const x in map) {
 	if (test(map[x])) {
 		name = x;
 		break;

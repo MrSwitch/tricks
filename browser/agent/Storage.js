@@ -1,5 +1,5 @@
-var jsonParse = require('../../string/jsonParse.js');
-var extend = require('../../object/extend.js');
+const jsonParse = require('../../string/jsonParse.js');
+const extend = require('../../object/extend.js');
 
 // Return handler
 module.exports = Storage;
@@ -14,7 +14,7 @@ function Storage(method) {
 Storage.prototype.api = function(name, value) {
 	// recursive
 	if (typeof name === 'object') {
-		for (let x in name) {
+		for (const x in name) {
 			this.api(x, name[x]);
 		}
 	}

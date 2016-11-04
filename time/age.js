@@ -1,14 +1,14 @@
 //
 // Age
 // Converts a date to an age
-let toDate = require('./toDate.js');
+const toDate = require('./toDate.js');
 
 // Number of seconds in...
-var HOUR = 3600,
-	DAY = 3600 * 24,
-	WEEK = 3600 * 24 * 7,
-	MONTH = 3600 * 24 * 28,
-	YEAR = 3600 * 24 * 365;
+const HOUR = 3600;
+const DAY = 3600 * 24;
+const WEEK = 3600 * 24 * 7;
+const MONTH = 3600 * 24 * 28;
+const YEAR = 3600 * 24 * 365;
 
 // format age function
 // Creates a readable time when something was released
@@ -19,7 +19,7 @@ module.exports = (date_str, now) => {
 		return '';
 	}
 
-	var d = dateToMS(date_str);
+	const d = dateToMS(date_str);
 
 	// Convert point in time to a date.
 	now = dateToMS(now || (new Date()));
@@ -28,9 +28,9 @@ module.exports = (date_str, now) => {
 		return '';
 	}
 
-	var dx = now - d,
-		i = 0, // T
-		u = '';
+	const dx = now - d;
+	let i = 0; // T
+	let u = '';
 
 	// less than five minutes
 	if (dx < (5 * 60)) {
@@ -72,7 +72,7 @@ module.exports = (date_str, now) => {
 	// This means multiplying by 12 in parseInt((dx/YEAR)*12,10) could return a value less than 0.
 	i = i || 1;
 
-	return i + ' ' + u + (i > 1 ? 's' : '') + ' ago';
+	return `${i } ${ u }${i > 1 ? 's' : '' } ago`;
 };
 
 function dateToMS(date) {

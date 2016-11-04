@@ -1,14 +1,14 @@
 // stubs nodes http.request methods
 // Get the methods to stub
 
-let http = require('http');
-let https = require('https');
-let _http = http.request;
-let _https = https.request;
-let EventEmitter = require('events').EventEmitter;
+const http = require('http');
+const https = require('https');
+const _http = http.request;
+const _https = https.request;
+const EventEmitter = require('events').EventEmitter;
 
-module.exports = (mock) => {
-	let a = [];
+module.exports = mock => {
+	const a = [];
 
 	http.request = respond(a, mock);
 	https.request = respond(a, mock);
@@ -29,7 +29,7 @@ function respond(a, mock) {
 		a.push(req);
 
 		// Cosntruct an event emitter
-		let e = new EventEmitter();
+		const e = new EventEmitter();
 
 		// trigger callback to listen to new events
 		callback(e);
@@ -41,7 +41,7 @@ function respond(a, mock) {
 
 		e.emit('end');
 		return {
-			write: (data) => {
+			write: data => {
 				req.writeCalledWith = data;
 			},
 			end: () => {

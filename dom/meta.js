@@ -1,4 +1,4 @@
-let tryCatch = require('../object/tryCatch.js');
-let query = require('./query.js');
+const tryCatch = require('../object/tryCatch.js');
+const query = require('./query.js');
 
-module.exports = name => tryCatch(() => query('meta[name="' + name + '"]').content);
+module.exports = name => tryCatch(() => query(`meta[name="${ name }"]`).content);

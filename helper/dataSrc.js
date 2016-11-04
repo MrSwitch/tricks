@@ -4,42 +4,42 @@
 // The data-src attribute is read and defines a path to the image
 // load an image once the image fits a visible area. or if the image exists
 
-let each = require('../dom/each.js');
-let css = require('../dom/css.js');
-let on = require('../events/on.js');
-let toArray = require('../array/toArray.js');
+const each = require('../dom/each.js');
+const css = require('../dom/css.js');
+const on = require('../events/on.js');
+const toArray = require('../array/toArray.js');
 
 
-var images = [];
-module.exports = elements => {
+const images = [];
+module.exports = elements =>
 
 	// Find all the elements in the page with data-src className
 	// Bind listeners to the page to determine whether this content is changing.
 
-	return each(elements, el => {
+	each(elements, el => {
 
 		// Listen to the scroll event on this item
 		on(el, 'scroll', () => check(el));
 
 		// Check
 		check(el);
-	});
-};
+	})
+;
 
 
 function check(el) {
 
 	// Retrieve the relative position of this item to the page
-	var h = el.offsetHeight,
-		t = el.scrollTop;
+	const h = el.offsetHeight;
+	const t = el.scrollTop;
 
 	// [data-src]
 	toArray(el.querySelectorAll('img[data-src]'))
 	// Is it shown?
 	.filter(img => {
 		// Where is this positioned?
-		var _t = img.offsetTop,
-			_h = img.offsetHeight;
+		const _t = img.offsetTop;
+		const _h = img.offsetHeight;
 
 		// does it fix in the bounding box?
 		return ((_t + _h) >= t && _t <= (t + h));
@@ -52,7 +52,7 @@ function check(el) {
 		img.removeAttribute('data-src');
 
 		// Error fallback
-		let errorSrc = img.getAttribute('data-src-error');
+		const errorSrc = img.getAttribute('data-src-error');
 
 		if (errorSrc) {
 			img.onerror = () => {

@@ -1,8 +1,8 @@
-let matches = require('../../../dom/matches.js');
+const matches = require('../../../dom/matches.js');
 
 describe('dom/matches', () => {
 
-	var el = document.createElement('div');
+	const el = document.createElement('div');
 	el.className = 'test';
 
 	it('should return true if an element matches a given selector', () => {

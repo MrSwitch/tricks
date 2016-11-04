@@ -1,6 +1,6 @@
 // Prop
-let prefix = require('./prefix.js');
-let CSSsupports = require('./CSSsupports.js');
+const prefix = require('./prefix.js');
+const CSSsupports = require('./CSSsupports.js');
 
 const result = prefix('BoxDirection');
 

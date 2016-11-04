@@ -1,4 +1,4 @@
-let hiddenFrame = require('../../../dom/hiddenFrame.js');
+const hiddenFrame = require('../../../dom/hiddenFrame.js');
 
 describe('dom/hiddenFrame', () => {
 
@@ -10,7 +10,7 @@ describe('dom/hiddenFrame', () => {
 	});
 
 	it('should create a new hidden iframe element and append it to the document body', () => {
-		var src = 'about:blank';
+		const src = 'about:blank';
 		elm = hiddenFrame(src);
 		expect(elm.parentNode).to.eql(document.body);
 		expect(elm.tagName).to.equal('IFRAME');

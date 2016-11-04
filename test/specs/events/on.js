@@ -1,10 +1,10 @@
-let on = require('../../../events/on.js');
-let emit = require('../../../events/emit.js');
+const on = require('../../../events/on.js');
+const emit = require('../../../events/emit.js');
 
 describe('events/on', () => {
 
-	var spy;
-	var el;
+	let spy;
+	let el;
 
 	beforeEach(() => {
 		spy = sinon.spy();

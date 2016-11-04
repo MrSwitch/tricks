@@ -1,7 +1,7 @@
-let until = require('./until.js');
+const until = require('./until.js');
 
-let el = document.createElement('div');
-let matches = (el.matches || el.mozMatchesSelector || el.webkitMatchesSelector || el.msMatchesSelector || el.oMatchesSelector);
+const el = document.createElement('div');
+const matches = (el.matches || el.mozMatchesSelector || el.webkitMatchesSelector || el.msMatchesSelector || el.oMatchesSelector);
 
 module.exports = (elements, query) => {
 

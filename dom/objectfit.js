@@ -4,12 +4,12 @@
 module.exports = (item_width, item_height, target_width, target_height) => {
 
 	// Deterine the ratio
-	var item_r = item_height / item_width;
-	var target_r = target_height / target_width;
+	const item_r = item_height / item_width;
+	const target_r = target_height / target_width;
 
 	// initial offset points
-	var offsetLeft = 0,
-		offsetTop = 0;
+	let offsetLeft = 0;
+	let offsetTop = 0;
 
 	// Window is proportionally taller than image
 	if (target_r > item_r) {

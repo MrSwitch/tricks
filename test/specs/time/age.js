@@ -1,4 +1,4 @@
-let age = require('../../../time/age.js');
+const age = require('../../../time/age.js');
 
 describe('time/age', () => {
 
@@ -16,7 +16,7 @@ describe('time/age', () => {
 
 	it('should retrn the age of a date, e.g. "new" for "2014-06-12T13:38:48.000+10:00"', () => {
 
-		var now = 'Thu, 12 Jun 2014 03:39:19 GMT';
+		const now = 'Thu, 12 Jun 2014 03:39:19 GMT';
 
 		[
 			['2014-06-12T13:38:48.000+10:00', 'new'],
@@ -29,7 +29,7 @@ describe('time/age', () => {
 			['2011-11-11T15:50:00.000+11:00', '2 years ago']
 
 		].forEach(test => {
-			let [input, output] = test;
+			const [input, output] = test;
 			expect(age(input, now)).to.equal(output);
 		});
 

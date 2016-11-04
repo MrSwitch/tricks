@@ -1,4 +1,4 @@
-let CSSsupports = require('./CSSsupports.js');
+const CSSsupports = require('./CSSsupports.js');
 
 const result = ('ontouchstart' in window);
 

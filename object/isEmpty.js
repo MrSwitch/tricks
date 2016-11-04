@@ -10,7 +10,7 @@ module.exports = obj => {
 	}
 	else if (typeof (obj) === 'object') {
 		// Object
-		for (var key in obj) {
+		for (const key in obj) {
 			if (obj.hasOwnProperty(key)) {
 				return false;
 			}

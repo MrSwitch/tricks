@@ -1,7 +1,7 @@
-let each = require('./each.js');
-let addClass = require('./addClass.js');
-let removeClass = require('./removeClass.js');
-let hasClass = require('./hasClass.js');
+const each = require('./each.js');
+const addClass = require('./addClass.js');
+const removeClass = require('./removeClass.js');
+const hasClass = require('./hasClass.js');
 
 module.exports = (elements, className, condition) => {
 

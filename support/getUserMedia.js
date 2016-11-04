@@ -1,6 +1,6 @@
 // Shim up the getUserMedia API
 // Wrap this to a custom variable but bind it on the navigator object to work
-var _getUserMedia = (
+const _getUserMedia = (
 	navigator.getUserMedia ||
 	navigator.webkitGetUserMedia ||
 	navigator.mozGetUserMedia ||

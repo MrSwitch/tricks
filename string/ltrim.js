@@ -7,4 +7,4 @@ module.exports = (str, trim) => {
 		return str.slice(trim.length);
 	}
 	return str;
-}
+};

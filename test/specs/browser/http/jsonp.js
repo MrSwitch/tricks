@@ -1,12 +1,12 @@
-let jsonp = require('../../../../browser/http/jsonp.js');
+const jsonp = require('../../../../browser/http/jsonp.js');
 
 describe('http/jsonp', () => {
 
-	var jsonpMockUrl = './mock-jsonp.js';
+	const jsonpMockUrl = './mock-jsonp.js';
 
 	it('should trigger a callback with a response', done => {
-		let json = {success: 'ok'};
-		let url = `${jsonpMockUrl}?response=${encodeURIComponent(JSON.stringify(json))}&callback=?`;
+		const json = {success: 'ok'};
+		const url = `${jsonpMockUrl}?response=${encodeURIComponent(JSON.stringify(json))}&callback=?`;
 		jsonp(url, response => {
 			expect(response).to.eql(json);
 			done();
@@ -14,7 +14,7 @@ describe('http/jsonp', () => {
 	});
 
 	it('should return a response even if the endpoint returned an error', done => {
-		let url = `404/${jsonpMockUrl}?callback=?`;
+		const url = `404/${jsonpMockUrl}?callback=?`;
 		jsonp(url, response => {
 			expect(response).to.not.be.ok();
 			done();
@@ -22,8 +22,8 @@ describe('http/jsonp', () => {
 	});
 
 	it('should clearup the script tag reference', done => {
-		let url = `${jsonpMockUrl}?callback=?`;
-		let script = jsonp(url, () => {
+		const url = `${jsonpMockUrl}?callback=?`;
+		const script = jsonp(url, () => {
 			setTimeout(() => {
 				expect(script.parentNode).to.not.be.ok();
 				done();

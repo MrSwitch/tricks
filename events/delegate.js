@@ -1,10 +1,10 @@
-let on = require('./on.js');
-let off = require('./off.js');
-let matches = require('../dom/matches.js');
+const on = require('./on.js');
+const off = require('./off.js');
+const matches = require('../dom/matches.js');
 
 module.exports = (match, eventName, handler, root = document) => {
 
-	let eventHandler = e => {
+	const eventHandler = e => {
 		let target = e.target;
 		while (target) {
 			if (matches(target, match)) {
@@ -23,5 +23,5 @@ module.exports = (match, eventName, handler, root = document) => {
 
 	return {
 		remove: () => off(root, eventName, eventHandler)
-	}
+	};
 };

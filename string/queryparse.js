@@ -1,5 +1,5 @@
 // Create a Query string
-let extract = require('./extract.js');
+const extract = require('./extract.js');
 
 const trim_left = /^[\#\?]/;
 const match_params = /([^=\/\&]+)=([^\&]+)/g;

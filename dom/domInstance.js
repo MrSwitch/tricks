@@ -1,13 +1,10 @@
-let instanceOf = require('../object/instanceOf.js');
+const instanceOf = require('../object/instanceOf.js');
 
 module.exports = (type, data) => {
-	var test = 'HTML' + (type || '').replace(
+	const test = `HTML${ (type || '').replace(
 		/^[a-z]/,
-		m => {
-			return m.toUpperCase();
-		}
-
-	) + 'Element';
+		m => m.toUpperCase()
+	)}Element`;
 
 	if (!data) {
 		return false;

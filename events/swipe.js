@@ -3,28 +3,30 @@
 
 import touch, {gesture} from './touch.js';
 
-module.exports = (elements, callback) => {
+module.exports = (elements, callback) =>
 
-	return touch(elements, function(e, o, s) {
+	touch(elements, function(e, o, s) {
 
 		gesture(e, s);
 
-		e.gesture.type = 'drag' + e.gesture.direction;
+		e.gesture.type = `drag${e.gesture.direction}`;
 
 		callback.call(this, e);
 
 	},
-	function() {},
+	() => {},
 	function(e) {
+
+		const g = e.gesture;
+
 		// How long did this operation take?
-		if (e.gesture.deltaTime < 200 && e.gesture.distance > 20 && e.gesture.velocity > 0.3) {
-			e.gesture.type = 'swipe' + e.gesture.direction;
+		if (g.deltaTime < 200 && g.distance > 20 && g.velocity > 0.3) {
+			g.type = `swipe${g.direction}`;
 		}
 		else {
-			e.gesture.type = 'release';
+			g.type = 'release';
 		}
 
-
 		callback.call(this, e);
-	});
-};
+	})
+;

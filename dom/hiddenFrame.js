@@ -1,9 +1,9 @@
-let append = require('./append.js');
-let param = require('../string/param.js');
+const append = require('./append.js');
+const param = require('../string/param.js');
 
 module.exports = src => {
 
-	var style = param({
+	const style = param({
 		position: 'absolute',
 		left: '-1000px',
 		bottom: 0,
@@ -11,5 +11,5 @@ module.exports = src => {
 		width: '1px'
 	}, ';', ':');
 
-	return append('iframe', {src: src, style: style});
+	return append('iframe', {src, style});
 };

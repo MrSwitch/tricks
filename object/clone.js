@@ -1,4 +1,4 @@
-let isBinary = require('./isBinary.js');
+const isBinary = require('./isBinary.js');
 
 // Create a clone of an object
 module.exports = function clone(obj) {
@@ -13,10 +13,10 @@ module.exports = function clone(obj) {
 	}
 
 	// But does clone everything else.
-	var _clone = {};
-	for (var x in obj) {
+	const _clone = {};
+	for (const x in obj) {
 		_clone[x] = clone(obj[x]);
 	}
 
 	return _clone;
-}
+};

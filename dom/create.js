@@ -3,10 +3,10 @@
 // @param attr object literal
 module.exports = (node, attr = {}, children = [], append = null) => {
 
-	var n = typeof(node) === 'string' ? document.createElement(node) : node;
+	const n = typeof(node) === 'string' ? document.createElement(node) : node;
 
 	// Attributes
-	for (var x in attr) {
+	for (const x in attr) {
 
 		if (attr.hasOwnProperty(x)) {
 
@@ -22,7 +22,7 @@ module.exports = (node, attr = {}, children = [], append = null) => {
 				}
 			}
 			else if (typeof(attr[x]) === 'object') {
-				for (var y in attr[x]) {
+				for (const y in attr[x]) {
 					if (attr[x].hasOwnProperty(y)) {
 						n[x][y] = attr[x][y];
 					}

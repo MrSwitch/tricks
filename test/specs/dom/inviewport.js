@@ -1,8 +1,8 @@
-let inviewport = require('../../../dom/inviewport.js');
+const inviewport = require('../../../dom/inviewport.js');
 
 describe('dom/inviewport', () => {
 
-	var elm;
+	let elm;
 
 	beforeEach(() => {
 		elm = document.createElement('div');

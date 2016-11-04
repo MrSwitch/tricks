@@ -1,5 +1,5 @@
 // Create a Query string
-let param = require('./param.js');
-module.exports = (o, formatFunction = value => (value === '?' ? '?' : encodeURIComponent(value))) => {
-	return param(o, '&', '=', formatFunction);
-};
+const param = require('./param.js');
+const fn = value => (value === '?' ? '?' : encodeURIComponent(value));
+
+module.exports = (o, formatter = fn) => param(o, '&', '=', formatter);

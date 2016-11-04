@@ -1,5 +1,5 @@
-let delegate = require('../events/delegate');
-let cordova = require('../support/cordova');
+const delegate = require('../events/delegate');
+const cordova = require('../support/cordova');
 
 module.exports = (root = document) => {
 	if (!cordova) {
@@ -9,7 +9,7 @@ module.exports = (root = document) => {
 		// Enable event delegation to fix anchor elements
 		delegate('a', 'click', e => {
 
-			let target = e.delegateTarget;
+			const target = e.delegateTarget;
 
 			// Check this is a valid external URL...
 			if (target.href && target.href.match(/^https?:\/\//)) {

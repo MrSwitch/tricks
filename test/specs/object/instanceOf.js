@@ -1,4 +1,4 @@
-let instanceOf = require('../../../object/instanceOf.js');
+const instanceOf = require('../../../object/instanceOf.js');
 
 describe('object/instanceOf', () => {
 

@@ -1,10 +1,10 @@
-let isDom = require('../../../dom/isDom.js');
+const isDom = require('../../../dom/isDom.js');
 
 describe('dom/isDom', () => {
 
 	it('should return true if object is part of the DOM', () => {
 
-		var elm = document.createElement('div');
+		const elm = document.createElement('div');
 		expect(isDom(elm)).to.be.ok();
 		expect(isDom(document.body)).to.be.ok();
 		expect(isDom(document)).to.be.ok();

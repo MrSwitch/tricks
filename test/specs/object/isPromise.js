@@ -1,5 +1,5 @@
-let isPromise = require('../../../object/isPromise.js');
-let Promise = require('../../../object/Promise.js');
+const isPromise = require('../../../object/isPromise.js');
+const Promise = require('../../../object/Promise.js');
 
 describe('object/isPromise', () => {
 

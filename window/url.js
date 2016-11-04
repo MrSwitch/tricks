@@ -12,7 +12,7 @@ module.exports = path => {
 
 	// Ugly shim, it works!
 	else {
-		let a = document.createElement('a');
+		const a = document.createElement('a');
 		a.href = path;
 		// Return clone for IE compatibility view.
 		return a.cloneNode(false);

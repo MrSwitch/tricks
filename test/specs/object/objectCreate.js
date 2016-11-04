@@ -1,14 +1,14 @@
-let objectCreate = require('../../../object/objectCreate.js');
+const objectCreate = require('../../../object/objectCreate.js');
 
 describe('object/objectCreate', () => {
 
 	it('should create a new object which inherits default properties from another', () => {
 
-		let base = {
+		const base = {
 			a: true
 		};
 
-		let obj = objectCreate(base);
+		const obj = objectCreate(base);
 		obj.b = true;
 
 		expect(base).to.have.property('a');

@@ -1,13 +1,13 @@
-let canvasToBlob = require('../../../support/canvasToBlob.js');
+const canvasToBlob = require('../../../support/canvasToBlob.js');
 
 describe('support/canvasToBlob', () => {
 
-	var bool = window.Blob && window.Uint8Array;
+	const bool = window.Blob && window.Uint8Array;
 
 	self[bool ? 'it' : 'xit']('should trigger the callback handler', done => {
 
-		var canvas = document.createElement('canvas');
-		var spy = sinon.spy(blob => {
+		const canvas = document.createElement('canvas');
+		const spy = sinon.spy(blob => {
 			expect(blob).to.be.a(Blob);
 			done();
 		});

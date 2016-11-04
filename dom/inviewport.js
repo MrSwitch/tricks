@@ -1,6 +1,6 @@
 // inviewport
 // Determine what proportion of an element is in view
-let documentElement = require('./documentElement.js');
+const documentElement = require('./documentElement.js');
 
 // Is the element contained in the current view
 module.exports = (elm, bounding) => {
@@ -11,18 +11,18 @@ module.exports = (elm, bounding) => {
 
 	// find the position of the icon relative
 	// Is if fully shown in the page
-	var pos = elm.getBoundingClientRect();
+	const pos = elm.getBoundingClientRect();
 
-	var x = pos.left,
-		y = pos.top,
-		w = pos.width || elm.offsetWidth || 1, // must have a minium dimension
-		h = pos.height || elm.offsetHeight || 1;  // must have a minium dimension
+	const x = pos.left;
+	const y = pos.top;
+	const w = pos.width || elm.offsetWidth || 1; // must have a minium dimension
+	const h = pos.height || elm.offsetHeight || 1;  // must have a minium dimension
 
 	// Default viewport
-	var X = 0,
-		Y = 0,
-		W = window.innerWidth || documentElement.offsetWidth,
-		H = window.innerHeight || documentElement.offsetHeight;
+	let X = 0;
+	let Y = 0;
+	let W = window.innerWidth || documentElement.offsetWidth;
+	let H = window.innerHeight || documentElement.offsetHeight;
 
 	if (bounding) {
 		// Get the bounding element
@@ -36,7 +36,7 @@ module.exports = (elm, bounding) => {
 	// return !( x + w > X + W || x < X || y + h > Y + H || y < Y ) && 100;
 
 	// Return the percentage of the video element that is showing
-	var dx = (Math.min(x - X, 0) + Math.min((X + W) - (x + w), 0) + w) / w;
+	let dx = (Math.min(x - X, 0) + Math.min((X + W) - (x + w), 0) + w) / w;
 	if (dx < 0) {
 		dx = 0;
 	}
@@ -44,7 +44,7 @@ module.exports = (elm, bounding) => {
 		dx = 1;
 	}
 
-	var dy = (Math.min(y - Y, 0) + Math.min((Y + H) - (y + h), 0) + h) / h;
+	let dy = (Math.min(y - Y, 0) + Math.min((Y + H) - (y + h), 0) + h) / h;
 	if (dy < 0) {
 		dy = 0;
 	}

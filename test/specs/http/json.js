@@ -1,5 +1,5 @@
-let json = require('../../../http/json.js');
-let stubRequest = require('../../stubs/http.js');
+const json = require('../../../http/json.js');
+const stubRequest = require('../../stubs/http.js');
 
 describe('http/json', () => {
 
@@ -7,7 +7,7 @@ describe('http/json', () => {
 
 	it('should open a GET request and trigger the callback', done => {
 
-		let obj = {'success': true};
+		const obj = {success: true};
 
 		stubRequest(JSON.stringify(obj));
 

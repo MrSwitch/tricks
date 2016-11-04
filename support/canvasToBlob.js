@@ -1,4 +1,4 @@
-let toBlob = require('../object/toBlob.js');
+const toBlob = require('../object/toBlob.js');
 
 module.exports = canvasToBlob;
 

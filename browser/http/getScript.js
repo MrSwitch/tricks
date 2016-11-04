@@ -1,20 +1,20 @@
-let createElement = require('../../dom/createElement.js');
-let createEvent = require('../../events/createEvent.js');
+const createElement = require('../../dom/createElement.js');
+const createEvent = require('../../events/createEvent.js');
 
 module.exports = (url, callback, timeout = 0) => {
 
 	// Inject a script tag
-	var bool = 0,
-		timer,
-		head = document.getElementsByTagName('script')[0].parentNode,
-		cb = e => {
-			if (!(bool++) && callback) {
-				callback(e);
-			}
-			if (timer) {
-				clearTimeout(timer);
-			}
-		};
+	let bool = 0;
+	let timer;
+	const head = document.getElementsByTagName('script')[0].parentNode;
+	const cb = e => {
+		if (!(bool++) && callback) {
+			callback(e);
+		}
+		if (timer) {
+			clearTimeout(timer);
+		}
+	};
 
 	// Add timeout
 	if (timeout) {
@@ -24,7 +24,7 @@ module.exports = (url, callback, timeout = 0) => {
 	}
 
 	// Build script tag
-	var script = createElement('script', {
+	const script = createElement('script', {
 		src: url,
 		onerror: cb,
 		onload: cb,

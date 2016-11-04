@@ -1,5 +1,5 @@
-let insertBefore = require('../dom/insertBefore.js');
-let create = require('../dom/create.js');
+const insertBefore = require('../dom/insertBefore.js');
+const create = require('../dom/create.js');
 
 // Insert Meta Tag
 insertBefore(create('meta', {

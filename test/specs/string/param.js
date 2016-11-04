@@ -1,8 +1,8 @@
-let params = require('../../../string/param.js');
+const params = require('../../../string/param.js');
 
 describe('string/param', () => {
 
-	var test = {
+	const test = {
 		param: 'param1',
 		param2: 'param2',
 		hyperlink: 'https://example.com?a=1&b=2',
@@ -11,7 +11,7 @@ describe('string/param', () => {
 
 	it('should accept an object and return a string', () => {
 
-		var value = params({});
+		const value = params({});
 
 		expect(value).to.be.a('string');
 
@@ -21,7 +21,7 @@ describe('string/param', () => {
 
 		// Convert there and back
 
-		var value = params(test);
+		const value = params(test);
 
 		expect(value).to.be.a('string');
 
@@ -31,10 +31,10 @@ describe('string/param', () => {
 
 		// Convert there and back
 
-		var obj = Object.create({ignore: 'this should be excluded'});
+		const obj = Object.create({ignore: 'this should be excluded'});
 		obj.included = 'this is included';
 
-		var value = params(obj);
+		const value = params(obj);
 
 		expect(value).to.contain('included').and.not.to.contain('ignore');
 

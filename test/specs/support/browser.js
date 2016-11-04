@@ -1,4 +1,4 @@
-let browser = require('../../../support/browser.js');
+const browser = require('../../../support/browser.js');
 
 describe('support/browser', () => {
 

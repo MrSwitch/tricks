@@ -1,8 +1,8 @@
-let Then = require('../../../object/then.js');
+const Then = require('../../../object/then.js');
 
 describe('object/then', () => {
 
-	var then;
+	let then;
 
 	describe('fulfill', () => {
 
@@ -19,11 +19,15 @@ describe('object/then', () => {
 
 		it('should trigger any fulfill handler', done => {
 
-			var fail = () => {throw 'should not reject';};
+			const fail = () => {
+				throw 'should not reject';
+			};
 
 			// Should pass ok to the then
 			then.proxy
-			.then(value => {expect(value).to.be.eql('ok'); return;}, fail)
+			.then(value => {
+				expect(value).to.be.eql('ok'); return;
+			}, fail)
 			.then(done, done);
 		});
 
@@ -55,7 +59,7 @@ describe('object/then', () => {
 
 		it('should chain multiple then handlers', done => {
 
-			var f = () => done('should not be called');
+			const f = () => done('should not be called');
 
 			// Should pass ok to the then
 			then.proxy.then(f).then(f).then(f, value => {

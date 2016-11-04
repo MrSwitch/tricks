@@ -1,17 +1,17 @@
 // Object Create
 // shims up the ES5 function Object.create
-var oc;
+let oc;
 function F() {}
 
 if (Object.create) {
 	oc = Object.create;
 }
 else {
-	oc = function(o) {
-		if (arguments.length != 1) {
+	oc = (...args) => {
+		if (args.length !== 1) {
 			throw new Error('Object.create implementation only accepts one parameter.');
 		}
-		F.prototype = o;
+		F.prototype = args[0];
 		return new F();
 	};
 }

@@ -1,6 +1,6 @@
-let request = require('../../../http/request.js');
-let stubRequest = require('../../stubs/http.js');
-let mock = JSON.stringify(require('../../stub.json'));
+const request = require('../../../http/request.js');
+const stubRequest = require('../../stubs/http.js');
+const mock = JSON.stringify(require('../../stub.json'));
 
 describe('http/request', () => {
 
@@ -11,14 +11,14 @@ describe('http/request', () => {
 	});
 
 
-	it('should accept a String and make a HTTP GET Request', (done) => {
+	it('should accept a String and make a HTTP GET Request', done => {
 
 		// Response
 		stubRequest(mock);
 
-		var url = './stub.json';
+		const url = './stub.json';
 
-		request(url, (data) => {
+		request(url, data => {
 			expect(JSON.parse(data)).to.be.eql(JSON.parse(mock));
 			done();
 		});
@@ -26,15 +26,15 @@ describe('http/request', () => {
 
 	['uri', 'url'].forEach(name => {
 
-		it('should use a Request Object which contains the URL, via property ' + name, (done) => {
+		it(`should use a Request Object which contains the URL, via property ${ name}`, done => {
 
 			// Response
 			stubRequest(mock);
 
-			var p = {};
+			const p = {};
 			p[name] = './stub.json';
 
-			request(p, (data) => {
+			request(p, data => {
 				expect(JSON.parse(data)).to.be.eql(JSON.parse(mock));
 				done();
 			});
@@ -43,12 +43,12 @@ describe('http/request', () => {
 
 	['qs', 'query'].forEach(name => {
 
-		it('should add query params, via property ' + name + ' Object', (done) => {
+		it(`should add query params, via property ${ name } Object`, done => {
 
 			// Response
-			let stubs = stubRequest(mock);
+			const stubs = stubRequest(mock);
 
-			var p = {
+			const p = {
 				uri: './stub.json'
 			};
 
@@ -56,8 +56,8 @@ describe('http/request', () => {
 				name: 'Andrew'
 			};
 
-			request(p, (data) => {
-				let stub = stubs[0];
+			request(p, data => {
+				const stub = stubs[0];
 				expect(stub).to.be.ok();
 				expect(stub.method).to.equal('GET');
 				expect(stub.url).to.contain('./stub.json?name=Andrew');
@@ -67,24 +67,24 @@ describe('http/request', () => {
 		});
 	});
 
-	it('should trigger proxyHandler after formatting the request', (done) => {
+	it('should trigger proxyHandler after formatting the request', done => {
 
 		// Response
-		let stubs = stubRequest(mock);
-		let proxyHandler = (req, callback) => {
+		const stubs = stubRequest(mock);
+		const proxyHandler = (req, callback) => {
 			req.query.name = 'Andrew';
 			expect(req).to.eql(p);
 			callback();
 		};
 
-		var p = {
+		const p = {
 			uri: './stub.json',
 			query: {},
 			proxyHandler
 		};
 
-		request(p, (data) => {
-			let stub = stubs[0];
+		request(p, data => {
+			const stub = stubs[0];
 			expect(stub).to.be.ok();
 			expect(stub.method).to.equal('GET');
 			expect(stub.url).to.contain('./stub.json?name=Andrew');

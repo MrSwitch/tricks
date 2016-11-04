@@ -1,4 +1,4 @@
-let setImmediate = require('../../../time/setImmediate.js');
+const setImmediate = require('../../../time/setImmediate.js');
 
 describe('time/setImmediate', () => {
 

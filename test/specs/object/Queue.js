@@ -1,17 +1,17 @@
-let Queue = require('../../../object/Queue.js');
+const Queue = require('../../../object/Queue.js');
 
 describe('object/Queue', () => {
 
 	it('should convert an Array into a Queue', () => {
 
 		// Create a Queue with initial value
-		let q = new Queue([0]);
+		const q = new Queue([0]);
 
 		// Anticipate what should be called
 		let x = 0;
 
 		// Create a handling function
-		let spy = sinon.spy(item => {
+		const spy = sinon.spy(item => {
 			// Should return the first item
 			expect(item).to.be.eql(x++);
 		});

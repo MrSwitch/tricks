@@ -1,8 +1,8 @@
-let CSSsupport = require('./CSSsupports.js');
-var bool = false;
+const CSSsupport = require('./CSSsupports.js');
+let bool = false;
 
 // Test to see if the HTML5 player supports AUTOPLAY
-var v = document.createElement('video');
+const v = document.createElement('video');
 try {
 	// IE doesn't like this
 	v.src = 'data:video/mpeg;base64,';
@@ -11,7 +11,9 @@ try {
 		bool = !v.paused;
 	}
 }
-catch (e) {}
+catch (e) {
+	// Continue
+}
 
 CSSsupport('video-autoplay', bool);
 

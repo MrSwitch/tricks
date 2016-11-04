@@ -10,7 +10,9 @@ module.exports = window => {
 		try {
 			window.close();
 		}
-		catch (e) {}
+		catch (e) {
+			// Continue
+		}
 
 		// IOS bug wont let us close a popup if still loading
 		if (window.addEventListener) {

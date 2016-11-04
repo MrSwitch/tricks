@@ -2,9 +2,9 @@
 // This is similar to the Page Visibility API
 //  - https://developer.mozilla.org/en-US/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API
 
-let emit = require('./emit.js');
-let on = require('./on.js');
-let until = require('../dom/until.js');
+const emit = require('./emit.js');
+const on = require('./on.js');
+const until = require('../dom/until.js');
 
 
 // Variables
@@ -12,15 +12,16 @@ const VISIBILITYCHANGE = 'visibilitychange';
 const HIDDEN = 'hidden';
 
 // Shim up the Page Visibility API
-var _hidden, _visibilitychange;
+let _hidden;
+let _visibilitychange;
 
 until([
 	[HIDDEN, VISIBILITYCHANGE],
-	['msHidden', 'ms' + VISIBILITYCHANGE],
-	['mozHidden', 'moz' + VISIBILITYCHANGE],
-	['webkitHidden', 'webkit' + VISIBILITYCHANGE]
+	['msHidden', `ms${ VISIBILITYCHANGE}`],
+	['mozHidden', `moz${ VISIBILITYCHANGE}`],
+	['webkitHidden', `webkit${ VISIBILITYCHANGE}`]
 ], item => {
-	let [flag, handler] = item;
+	const [flag, handler] = item;
 	if (typeof document[flag] !== 'undefined') {
 		_hidden = flag;
 		_visibilitychange = handler;

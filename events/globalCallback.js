@@ -1,7 +1,7 @@
 // Global Events
 // Attach the callback to the window object
 // Return its unique reference
-let random = require('../string/random.js');
+const random = require('../string/random.js');
 
 let prefix = '_tricks_';
 
@@ -16,10 +16,10 @@ module.exports = (callback, guid) => {
 	return guid;
 };
 
-module.exports.prefix = (str) => {
+module.exports.prefix = str => {
 	prefix = str;
-}
+};
 
 function handle(guid, callback, ...args) {
-	callback.apply(null, args) && delete window[guid];
+	callback(...args) && delete window[guid];
 }

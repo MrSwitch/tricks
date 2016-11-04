@@ -1,13 +1,13 @@
 // JSONP
-let globalCallback = require('../../events/globalCallback.js');
-let getScript = require('./getScript.js');
+const globalCallback = require('../../events/globalCallback.js');
+const getScript = require('./getScript.js');
 
 const MATCH_CALLBACK_PLACEHOLDER = /=\?(&|$)/;
 
 module.exports = (url, callback, callback_name, timeout = 60000) => {
 
 	// Change the name of the callback
-	var result;
+	let result;
 
 	// Add callback to the window object
 	callback_name = globalCallback(json => {
@@ -17,9 +17,9 @@ module.exports = (url, callback, callback_name, timeout = 60000) => {
 
 	// The URL is a function for some cases and as such
 	// Determine its value with a callback containing the new parameters of this function.
-	url = url.replace(MATCH_CALLBACK_PLACEHOLDER, '=' + callback_name + '$1');
+	url = url.replace(MATCH_CALLBACK_PLACEHOLDER, `=${ callback_name }$1`);
 
-	var script = getScript(url, () => {
+	const script = getScript(url, () => {
 		callback(result);
 		script.parentNode.removeChild(script);
 	}, timeout);

@@ -1,9 +1,9 @@
-let domToJSON = require('../../../dom/domToJSON.js');
+const domToJSON = require('../../../dom/domToJSON.js');
 
 // Are errors thrown if an invalid network is provided?
 describe('dom/domToJSON', () => {
 
-	var test;
+	let test;
 
 	beforeEach(() => {
 		test = document.createElement('div');
@@ -17,14 +17,14 @@ describe('dom/domToJSON', () => {
 	it('should extrapolate the data in a form', () => {
 
 		// Create a form
-		test.innerHTML = '<form id="form">' +
+		test.innerHTML = `<form id="form">${
 			[
 				'<input name="key" value="value"/>',
 				'<input name="key2" value="value2"/>',
 				'<input name="file" type="file"/>'
-			].join() + '</form>';
+			].join() }</form>`;
 
-		var json = domToJSON(document.getElementById('form'));
+		const json = domToJSON(document.getElementById('form'));
 
 		if (json) {
 			// This has been altered to a JSON object

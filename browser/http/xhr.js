@@ -1,9 +1,9 @@
 // XHR: uses CORS to make requests
-let instanceOf = require('../../object/instanceOf.js');
-let extract = require('../../string/extract.js');
-let jsonParse = require('../../string/jsonParse.js');
-let tryCatch = require('../../object/tryCatch.js');
-let rewire = require('../../object/rewire.js');
+const instanceOf = require('../../object/instanceOf.js');
+const extract = require('../../string/extract.js');
+const jsonParse = require('../../string/jsonParse.js');
+const tryCatch = require('../../object/tryCatch.js');
+const rewire = require('../../object/rewire.js');
 
 const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
 
@@ -11,7 +11,7 @@ module.exports = rewire(xhr);
 
 function xhr(method, url, responseType, headers, data, callback) {
 
-	var r = new XMLHttpRequest();
+	const r = new XMLHttpRequest();
 
 	// Make it CAPITAL
 	method = method.toUpperCase();
@@ -19,7 +19,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 	// Define the callback function
 	r.onload = () => {
 		// Response
-		var response = r.response;
+		let response = r.response;
 
 		// Was this text
 		if (!response && (r.responseType === '' || r.responseType === 'text')) {
@@ -34,7 +34,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 			response = r.responseJSON || jsonParse(r.responseText || r.response);
 		}
 
-		var headers = extract(r.getAllResponseHeaders(), match_headers);
+		const headers = extract(r.getAllResponseHeaders(), match_headers);
 		headers.statusCode = r.status;
 
 		callback(response, headers);
@@ -49,8 +49,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 	else if (data && typeof (data) !== 'string' &&
 		!instanceOf(data, window.FormData) &&
 		!instanceOf(data, window.File) &&
-		!instanceOf(data, window.Blob))
-	{
+		!instanceOf(data, window.Blob))	{
 		// Loop through and add formData
 		data = toFormData(data);
 	}
@@ -72,7 +71,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 
 	// Set any bespoke headers
 	if (headers) {
-		for (let x in headers) {
+		for (const x in headers) {
 			r.setRequestHeader(x, headers[x]);
 		}
 	}
@@ -84,8 +83,8 @@ function xhr(method, url, responseType, headers, data, callback) {
 
 
 function toFormData(data) {
-	var f = new FormData();
-	for (var x in data) {
+	const f = new FormData();
+	for (const x in data) {
 		if (data.hasOwnProperty(x)) {
 			if (instanceOf(data[x], window.HTMLInputElement) && 'files' in data[x]) {
 				if (data[x].files.length > 0) {

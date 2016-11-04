@@ -4,10 +4,10 @@ module.exports = function xml(obj) {
 		return (obj) ? obj.toString() : '';
 	}
 
-	var r = '';
-	for (var x in obj) {
-		r += '<' + x + '>' + xml(obj[x]) + '</' + x + '>';
+	let r = '';
+	for (const x in obj) {
+		r += `<${ x }>${ xml(obj[x]) }</${ x }>`;
 	}
 
 	return r;
-}
+};

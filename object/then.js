@@ -1,6 +1,6 @@
 // Then
 // Create a Promise instance which can be returned by a function
-let setImmediate = require('../time/setImmediate.js');
+const setImmediate = require('../time/setImmediate.js');
 
 /*!
  **  Thenable -- Embeddable Minimum Strictly-Compliant Promises/A+ 1.1.1 Thenable
@@ -10,9 +10,9 @@ let setImmediate = require('../time/setImmediate.js');
  */
 
 /*  promise states [Promises/A+ 2.1]  */
-var STATE_PENDING = 0;                                         /*  [Promises/A+ 2.1.1]  */
-var STATE_FULFILLED = 1;                                       /*  [Promises/A+ 2.1.2]  */
-var STATE_REJECTED = 2;                                        /*  [Promises/A+ 2.1.3]  */
+const STATE_PENDING = 0;                                         /*  [Promises/A+ 2.1.1]  */
+const STATE_FULFILLED = 1;                                       /*  [Promises/A+ 2.1.2]  */
+const STATE_REJECTED = 2;                                        /*  [Promises/A+ 2.1.3]  */
 
 /*  promise object constructor  */
 module.exports = api;
@@ -43,13 +43,17 @@ function api(executor) {
 /*  promise API methods  */
 api.prototype = {
 	/*  promise resolving methods  */
-	fulfill: function (value) { return deliver(this, STATE_FULFILLED, 'fulfillValue', value); },
-	reject: function (value) { return deliver(this, STATE_REJECTED, 'rejectReason', value); },
+	fulfill (value) {
+		return deliver(this, STATE_FULFILLED, 'fulfillValue', value);
+	},
+	reject (value) {
+		return deliver(this, STATE_REJECTED, 'rejectReason', value);
+	},
 
 	/*  'The then Method' [Promises/A+ 1.1, 1.2, 2.2]  */
-	then: function (onFulfilled, onRejected) {
-		var curr = this;
-		var next = new api();                                    /*  [Promises/A+ 2.2.7]  */
+	then (onFulfilled, onRejected) {
+		const curr = this;
+		const next = new api();                                    /*  [Promises/A+ 2.2.7]  */
 		curr.onFulfilled.push(
 			resolver(onFulfilled, next, 'fulfill'));             /*  [Promises/A+ 2.2.2/2.2.6]  */
 		curr.onRejected.push(
@@ -60,7 +64,7 @@ api.prototype = {
 };
 
 /*  deliver an action  */
-var deliver = function (curr, state, name, value) {
+const deliver = function (curr, state, name, value) {
 	if (curr.state === STATE_PENDING) {
 		curr.state = state;                                      /*  [Promises/A+ 2.1.2.1, 2.1.3.1]  */
 		curr[name] = value;                                      /*  [Promises/A+ 2.1.2.2, 2.1.3.2]  */
@@ -70,7 +74,7 @@ var deliver = function (curr, state, name, value) {
 };
 
 /*  execute all handlers  */
-var execute = function (curr) {
+const execute = function (curr) {
 	if (curr.state === STATE_FULFILLED)
 		execute_handlers(curr, 'onFulfilled', curr.fulfillValue);
 	else if (curr.state === STATE_REJECTED)
@@ -78,29 +82,31 @@ var execute = function (curr) {
 };
 
 /*  execute particular set of handlers  */
-var execute_handlers = function (curr, name, value) {
+const execute_handlers = function (curr, name, value) {
 
 	/*  short-circuit processing  */
 	if (curr[name].length === 0)
 		return;
 
 	/*  iterate over all handlers, exactly once  */
-	var handlers = curr[name];
+	const handlers = curr[name];
 	curr[name] = [];                                             /*  [Promises/A+ 2.2.2.3, 2.2.3.3]  */
-	setImmediate(function () {
-		for (var i = 0; i < handlers.length; i++)
+	setImmediate(() => {
+		for (let i = 0; i < handlers.length; i++)
 			handlers[i](value);                                  /*  [Promises/A+ 2.2.5]  */
 	});
 };
 
 /*  generate a resolver function  */
-var resolver = function (cb, next, method) {
+const resolver = function (cb, next, method) {
 	return function (value) {
 		if (typeof cb !== 'function')                            /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
 			next[method].call(next, value);                      /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
 		else {
-			var result;
-			try { result = cb(value); }                          /*  [Promises/A+ 2.2.2.1, 2.2.3.1, 2.2.5, 3.2]  */
+			let result;
+			try {
+				result = cb(value);
+			}                          /*  [Promises/A+ 2.2.2.1, 2.2.3.1, 2.2.5, 3.2]  */
 			catch (e) {
 				next.reject(e);                                  /*  [Promises/A+ 2.2.7.2]  */
 				return;
@@ -111,7 +117,7 @@ var resolver = function (cb, next, method) {
 };
 
 /*  'Promise Resolution Procedure'  */                           /*  [Promises/A+ 2.3]  */
-var resolve = function (promise, x) {
+const resolve = function (promise, x) {
 	/*  sanity check arguments  */                               /*  [Promises/A+ 2.3.1]  */
 	if (promise === x || promise.proxy === x) {
 		promise.reject(new TypeError('cannot resolve promise with itself'));
@@ -120,9 +126,11 @@ var resolve = function (promise, x) {
 
 	/*  surgically check for a 'then' method
 		(mainly to just call the 'getter' of 'then' only once)  */
-	var then;
+	let then;
 	if ((typeof x === 'object' && x !== null) || typeof x === 'function') {
-		try { then = x.then; }                                   /*  [Promises/A+ 2.3.3.1, 3.5]  */
+		try {
+			then = x.then;
+		}                                   /*  [Promises/A+ 2.3.3.1, 3.5]  */
 		catch (e) {
 			promise.reject(e);                                   /*  [Promises/A+ 2.3.3.2]  */
 			return;
@@ -132,12 +140,12 @@ var resolve = function (promise, x) {
 	/*  handle own Thenables    [Promises/A+ 2.3.2]
 		and similar 'thenables' [Promises/A+ 2.3.3]  */
 	if (typeof then === 'function') {
-		var resolved = false;
+		let resolved = false;
 		try {
 			/*  call retrieved 'then' method */                  /*  [Promises/A+ 2.3.3.3]  */
 			then.call(x,
 				/*  resolvePromise  */                           /*  [Promises/A+ 2.3.3.3.1]  */
-				function (y) {
+				y => {
 					if (resolved) return; resolved = true;       /*  [Promises/A+ 2.3.3.3.3]  */
 					if (y === x)                                 /*  [Promises/A+ 3.6]  */
 						promise.reject(new TypeError('circular thenable chain'));
@@ -146,7 +154,7 @@ var resolve = function (promise, x) {
 				},
 
 				/*  rejectPromise  */                            /*  [Promises/A+ 2.3.3.3.2]  */
-				function (r) {
+				r => {
 					if (resolved) return; resolved = true;       /*  [Promises/A+ 2.3.3.3.3]  */
 					promise.reject(r);
 				}

@@ -1,9 +1,9 @@
-let emit = require('../../../events/emit.js');
+const emit = require('../../../events/emit.js');
 
 describe('events/emit', () => {
 
 	// Create an element
-	var el;
+	let el;
 	beforeEach(() => {
 		el = document.createElement('a');
 		document.body.appendChild(el);

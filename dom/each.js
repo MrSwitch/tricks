@@ -1,6 +1,6 @@
-let isDom = require('./isDom.js');
-let instanceOf = require('../object/instanceOf.js');
-let toArray = require('../array/toArray.js');
+const isDom = require('./isDom.js');
+const instanceOf = require('../object/instanceOf.js');
+const toArray = require('../array/toArray.js');
 
 module.exports = (matches, callback = () => {}) => {
 
