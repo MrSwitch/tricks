@@ -107,7 +107,8 @@ function findEvents(evt, callback) {
 
 				this.events[name].forEach(triggerCallback.bind(this, name, callback));
 			}
-		}}
+		}
+	}
 }
 
 function triggerCallback(name, callback, handler, i) {

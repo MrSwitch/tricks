@@ -23,13 +23,14 @@ module.exports = (o, args) => {
 		// Check the object keys if they match any of the property keys
 		for (x in args[0]) {
 			if (o.hasOwnProperty(x)) {
-			// Does this key exist in the property list?
+				// Does this key exist in the property list?
 				if (x in o) {
-				// Yes this key does exist so its most likely this function has been invoked with an object parameter
-				// Return first argument as the hash of all arguments
+					// Yes this key does exist so its most likely this function has been invoked with an object parameter
+					// Return first argument as the hash of all arguments
 					return args[0];
 				}
-			}}
+			}
+		}
 	}
 
 	// Else loop through and account for the missing ones.
@@ -39,20 +40,21 @@ module.exports = (o, args) => {
 			t = typeof (args[i]);
 
 			if ((typeof (o[x]) === 'function' && o[x].test(args[i])) || (typeof (o[x]) === 'string' && (
-		(o[x].indexOf('s') > -1 && t === 'string') ||
-		(o[x].indexOf('o') > -1 && t === 'object') ||
-		(o[x].indexOf('i') > -1 && t === 'number') ||
-		(o[x].indexOf('a') > -1 && t === 'object') ||
-		(o[x].indexOf('f') > -1 && t === 'function')
-		))
-		) {
+				(o[x].indexOf('s') > -1 && t === 'string') ||
+				(o[x].indexOf('o') > -1 && t === 'object') ||
+				(o[x].indexOf('i') > -1 && t === 'number') ||
+				(o[x].indexOf('a') > -1 && t === 'object') ||
+				(o[x].indexOf('f') > -1 && t === 'function')
+				))
+				) {
 				p[x] = args[i++];
 			}
 
 			else if (typeof (o[x]) === 'string' && o[x].indexOf('!') > -1) {
 				return false;
 			}
-		}}
+		}
+	}
 
 	return p;
 };
