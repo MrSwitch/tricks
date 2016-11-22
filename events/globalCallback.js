@@ -3,9 +3,7 @@
 // Return its unique reference
 const random = require('../string/random.js');
 
-let prefix = '_tricks_';
-
-module.exports = (callback, guid) => {
+module.exports = (callback, guid, prefix = '_tricks_') => {
 
 	// If the guid has not been supplied then create a new one.
 	guid = guid || prefix + random();
@@ -14,10 +12,6 @@ module.exports = (callback, guid) => {
 	window[guid] = handle.bind(null, guid, callback);
 
 	return guid;
-};
-
-module.exports.prefix = str => {
-	prefix = str;
 };
 
 function handle(guid, callback, ...args) {

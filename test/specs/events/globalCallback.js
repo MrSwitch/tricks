@@ -1,7 +1,5 @@
 const globalCallback = require('../../../events/globalCallback.js');
 
-const globalCallbackPrefix = globalCallback.prefix;
-
 describe('events/globalCallback', () => {
 
 	it('should set a callback function on the window object', done => {
@@ -62,12 +60,11 @@ describe('events/globalCallback', () => {
 
 	});
 
-	it('should change the prefix to the random id', () => {
+	it('should customize the prefix of the callback in the third argument', () => {
 
-		globalCallbackPrefix('test_');
-		const id = globalCallback(() => {});
+		const id = globalCallback(() => {}, null, 'test_');
 
-		expect(id).to.match(/^test_/);
+		expect(id).to.match(/^test_[a-z0-9]+/i);
 
 		// clean up
 		delete window[id];
