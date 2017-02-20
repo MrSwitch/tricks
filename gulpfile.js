@@ -21,8 +21,7 @@ gulp.task('localhost', () => {
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
-gulp.task('test', ['index_tests'], testSpecs('test/index.html'));
-gulp.task('test_bundle', ['bundle'], testSpecs('test/bundle.html'));
+gulp.task('test', ['bundle'], testSpecs('test/bundle.html'));
 
 gulp.task('index_tests', () => {
 	const root = `${__dirname.replace(/\\/g, '/') }/test/specs/`;
@@ -36,15 +35,22 @@ gulp.task('index_tests', () => {
 	});
 });
 
-gulp.task('watch', ['localhost'], () => gulp.watch(scripts_to_watch, {interval: 500}, ['index_tests', 'test']));
+gulp.task('watch', ['localhost'], () => gulp.watch(scripts_to_watch, {interval: 500}, ['test']));
 
 gulp.task('close', () => localhost.close());
 
 gulp.task('bundle', ['index_tests'], () =>
 
 	// Package up the specs directory into a single file called config.js
-	browserify('./test/specs/index.js', {debug: true, paths: './'})
-	.transform(babelify)
+	browserify('./test/setup_bundle.js', {debug: true, paths: './'})
+	.transform(babelify, {
+		presets: ['es2015',
+			['env', {
+				include: ['es6.object.assign', 'es6.promise']
+			}]
+		],
+		plugins: ['transform-object-assign'] //add-module-exports allows mixing of commonJs and ES6 exports
+	})
 	.bundle()
 	.on('error', util.log.bind(util, 'Browserify Error'))
 	.pipe(source('./bundle.js'))
@@ -56,15 +62,16 @@ gulp.task('bundle', ['index_tests'], () =>
 
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
-gulp.task('default', ['localhost', 'test_bundle'], () => {
+gulp.task('default', ['localhost', 'test'], () => {
 	util.log(`Closing localhost:${ port}`);
 	localhost.close();
 });
 
 function testSpecs(path) {
 	return () => {
+		path = `http://localhost:${port}/${path}`;
 		const stream = mochaPhantomJS();
-		stream.write({path: `http://localhost:${ port }/${ path}`, reporter: 'spec'});
+		stream.write({path, reporter: 'spec'});
 		stream.end();
 		return stream;
 	};

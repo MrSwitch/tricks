@@ -2,6 +2,7 @@ require('./animation/timing.js');
 require('./array/diff.js');
 require('./array/toArray.js');
 require('./array/unique.js');
+require('./browser/agent/indexStorage.js');
 require('./browser/agent/Storage.js');
 require('./browser/http/formpost.js');
 require('./browser/http/getScript.js');
