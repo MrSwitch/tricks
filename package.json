@@ -38,7 +38,9 @@
     ]
   },
   "browser": {
+    "./http/getScript.js": "./browser/http/getScript.js",
     "./http/json.js": "./browser/http/json.js",
+    "./http/jsonp.js": "./browser/http/jsonp.js",
     "./http/request.js": "./browser/http/request.js",
     "./http/sendBeacon.js": "./browser/http/sendBeacon.js",
     "./test/stubs/http.js": "./test/stubs/xhr.js"
