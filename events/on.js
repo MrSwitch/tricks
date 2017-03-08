@@ -7,13 +7,16 @@ const SEPERATOR = /[\s\,]+/;
 // See https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
 let supportsPassive = false;
 try {
-  const opts = Object.defineProperty({}, 'passive', {
-    get() {
-      supportsPassive = true;
-    }
-  });
-  window.addEventListener("test", null, opts);
-} catch (e) {}
+	const opts = Object.defineProperty({}, 'passive', {
+		get() {
+			supportsPassive = true;
+		}
+	});
+	window.addEventListener('test', null, opts);
+}
+catch (e) {
+	// Continue
+}
 
 
 module.exports = (elements, eventnames, callback, options = false) => {
