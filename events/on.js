@@ -4,7 +4,25 @@
 const each = require('../dom/each.js');
 const SEPERATOR = /[\s\,]+/;
 
-module.exports = (elements, eventnames, callback, useCapture = false) => {
+// See https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+let supportsPassive = false;
+try {
+  const opts = Object.defineProperty({}, 'passive', {
+    get() {
+      supportsPassive = true;
+    }
+  });
+  window.addEventListener("test", null, opts);
+} catch (e) {}
+
+
+module.exports = (elements, eventnames, callback, options = false) => {
+
+	if (typeof options === 'object' && options.passive && !supportsPassive) {
+		// Override the passive mark
+		options = false;
+	}
+
 	eventnames = eventnames.split(SEPERATOR);
-	return each(elements, el => eventnames.forEach(eventname => el.addEventListener(eventname, callback, useCapture)));
+	return each(elements, el => eventnames.forEach(eventname => el.addEventListener(eventname, callback, options)));
 };
