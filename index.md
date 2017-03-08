@@ -1,5 +1,6 @@
 ---
 title: Tricks web utility
+layout: null
 ---
 <!DOCTYPE html>
 <head>
