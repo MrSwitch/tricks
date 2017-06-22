@@ -3,6 +3,7 @@
 
 const http = require('http');
 const https = require('https');
+const querystringify = require('../string/querystringify');
 
 module.exports = (url, data) => {
 
@@ -13,8 +14,8 @@ module.exports = (url, data) => {
 
 	// format data
 	if (data && typeof data === 'object') {
-		data = JSON.stringify(data);
-		options.headers = {'content-type': 'application/json; charset=UTF-8'};
+		data = querystringify(data);
+		options.headers = {'content-type': 'application/x-www-form-urlencoded'};
 	}
 
 	// Trigger

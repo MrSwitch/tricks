@@ -26,7 +26,7 @@ describe('http/sendBeacon', () => {
 
 		afterEach(() => stubRequest.unstub());
 
-		it('should trigger a POST request and send JSON object', () => {
+		it('should trigger a POST request and send x-www-form-urlencoded string', () => {
 
 			const a = stubRequest();
 			const data = {payload: 'hello'};
@@ -36,7 +36,7 @@ describe('http/sendBeacon', () => {
 			const req = a[0];
 			expect(req).to.have.property('url', './stub.json');
 			expect(req).to.have.property('method', 'post');
-			expect(req.writeCalledWith).to.eql(JSON.stringify(data));
+			expect(req.writeCalledWith).to.eql('payload=hello');
 			expect(req.endCalled).to.be.ok();
 		});
 	}
