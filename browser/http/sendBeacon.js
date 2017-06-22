@@ -1,16 +1,17 @@
+const querystringify = require('../../string/querystringify');
 
 module.exports = (url, data = null, contentType = 'text/plain') => {
 
 	// Format data
 	if (data && typeof data === 'object') {
-		data = JSON.stringify(data);
-		contentType = 'application/json; charset=UTF-8';
+		// Wrap the data using a simple header to migigate against CORS pre-flight request header conflicts
+		// See https://w3c.github.io/beacon/#sec-sendBeacon-method
+		data = querystringify(data);
+		contentType = 'application/x-www-form-urlencoded';
 	}
 
 	// Send
 	if (navigator.sendBeacon) {
-		// SendBeacon would otherwise send the data as text unless its in a Blob
-		// See http://stackoverflow.com/questions/31355128/how-to-receive-data-posted-by-navigator-sendbeacon-on-node-js-server
 		const blob = new Blob([data], {type: contentType});
 		navigator.sendBeacon(url, blob);
 	}
