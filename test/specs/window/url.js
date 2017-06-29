@@ -4,7 +4,7 @@ describe('window/url', () => {
 
 	const testLocationProtocol = window.location.protocol;
 	let testLocationRoot = window.location.origin || (`${testLocationProtocol }//${ window.location.host}`);
-	const testLocationDir = window.location.pathname.replace(/\/[^\/]+$/, '/');
+	const testLocationDir = window.location.pathname.replace(/\/[^/]+$/, '/');
 	const testLocationFilename = 'redirect.html';
 
 	if (testLocationRoot === `${testLocationProtocol }//` && testLocationProtocol !== 'file:') {
@@ -53,19 +53,19 @@ describe('window/url', () => {
 	it('should return a full URL, if a relative-ascendant-path is given', () => {
 		const _url = `../${ testLocationFilename}`;
 		const path = url(_url).href;
-		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^\/]+\/$/, '/') + testLocationFilename);
+		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^/]+\/$/, '/') + testLocationFilename);
 	});
 
 	it('should return a full URL, if a deeper relative-ascendant-path is given', () => {
 		const _url = `../../${ testLocationFilename}`;
 		const path = url(_url).href;
-		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^\/]+\/$/, '/').replace(/\/[^\/]+\/$/, '/') + testLocationFilename);
+		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^/]+\/$/, '/').replace(/\/[^/]+\/$/, '/') + testLocationFilename);
 	});
 
 	it('should return a full URL, if a complex relative-ascendant-path is given', () => {
 		const _url = `../../asdasd/asdasd/../../${ testLocationFilename}`;
 		const path = url(_url).href;
-		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^\/]+\/$/, '/').replace(/\/[^\/]+\/$/, '/') + testLocationFilename);
+		expect(path).to.equal(testLocationRoot + testLocationDir.replace(/\/[^/]+\/$/, '/').replace(/\/[^/]+\/$/, '/') + testLocationFilename);
 	});
 
 });

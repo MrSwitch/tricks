@@ -6,7 +6,7 @@ module.exports = tag => {
 	}
 
 	const text = (tag.innerText || tag.textContent || tag.innerHTML);
-	const ref = text.toLowerCase().replace(/\s/g, '-').replace(/[^a-z0-9\_\-]/g, '');
+	const ref = text.toLowerCase().replace(/\s/g, '-').replace(/[^a-z0-9_-]/g, '');
 
 	tag.id = ref;
 

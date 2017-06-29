@@ -1,7 +1,7 @@
 // transform
 // Assign CSS transform operation
 const css = require('./css.js');
-import supportsTransform3d from '../support/transform3d.js';
+const supportsTransform3d = require('../support/transform3d.js');
 
 module.exports = (element, prop, value) => {
 	let x = `${prop }(${ value })`;

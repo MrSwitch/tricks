@@ -1,5 +1,15 @@
 {
-	"parser": "babel-eslint",
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"globals": {
+		"HTMLInput": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 8
+	},
 	"extends": "eslint:recommended",
 	"rules": {
 		"arrow-spacing": [2, { "before": true, "after": true }],
@@ -60,14 +70,5 @@
 		"space-infix-ops": [2, {"int32Hint": false}],
 		"space-in-parens": [2, "never"],
 		"valid-typeof": 2
-
-	},
-	"env": {
-		"es6": true,
-		"node": true,
-		"browser": true
-	},
-	"globals": {
-		"HTMLInput": true
 	}
 }

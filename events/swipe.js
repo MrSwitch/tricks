@@ -1,7 +1,8 @@
 // swipe
 // Checks for a swipe to the left or to the right
 
-import touch, {gesture} from './touch.js';
+const touch = require('./touch.js');
+const {gesture} = touch;
 
 module.exports = (elements, callback) =>
 

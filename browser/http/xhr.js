@@ -5,7 +5,7 @@ const jsonParse = require('../../string/jsonParse.js');
 const tryCatch = require('../../object/tryCatch.js');
 const rewire = require('../../object/rewire.js');
 
-const match_headers = /([a-z0-9\-]+):\s*(.*);?/gi;
+const match_headers = /([a-z0-9-]+):\s*(.*);?/gi;
 
 module.exports = rewire(xhr);
 

@@ -25,10 +25,10 @@ describe('object/then', () => {
 
 			// Should pass ok to the then
 			then.proxy
-			.then(value => {
-				expect(value).to.be.eql('ok'); return;
-			}, fail)
-			.then(done, done);
+				.then(value => {
+					expect(value).to.be.eql('ok'); return;
+				}, fail)
+				.then(done, done);
 		});
 
 		it('should chain multiple then handlers', done => {

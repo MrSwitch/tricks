@@ -37,7 +37,7 @@ describe('browser/agent/indexStorage - supported', () => {
 			expect(a).to.be.an('array');
 			done();
 		}).
-		catch(done);
+			catch(done);
 
 	});
 
@@ -63,7 +63,7 @@ describe('browser/agent/indexStorage - supported', () => {
 				done();
 			});
 		})
-		.catch(done);
+			.catch(done);
 
 	});
 
@@ -93,15 +93,15 @@ describe('browser/agent/indexStorage - supported', () => {
 				done();
 			});
 		})
-		.catch(done);
+			.catch(done);
 
 	});
 
 	xit('should delete the database', done => {
 
 		DB.delete('test')
-		.then(() => done())
-		.catch(done);
+			.then(() => done())
+			.catch(done);
 
 	});
 });

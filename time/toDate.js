@@ -10,7 +10,7 @@ module.exports = str => {
 		// IE can't process i.e. isNaN(Date.parse('2000-01-01T00:00:00.000Z'))
 		// If its a string we can do this
 		if (str.replace) {
-			const a = str.split(/[\:\T\-]|(\.\d+)/); // Create Array from ISO time stamp 2013-01-13T11:51:05+1000
+			const a = str.split(/[:T-]|(\.\d+)/); // Create Array from ISO time stamp 2013-01-13T11:51:05+1000
 			if (a.length > 2) {
 				const d = new Date();
 				d.setYear(a[0]);

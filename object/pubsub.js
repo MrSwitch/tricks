@@ -2,7 +2,7 @@
 // A contructor superclass for adding event menthods, on, off, emit.
 const setImmediate = require('../time/setImmediate.js');
 
-const separator = /[\s\,]+/;
+const separator = /[\s,]+/;
 
 module.exports = function() {
 

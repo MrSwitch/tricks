@@ -45,8 +45,8 @@ module.exports = (o, args) => {
 				(o[x].indexOf('i') > -1 && t === 'number') ||
 				(o[x].indexOf('a') > -1 && t === 'object') ||
 				(o[x].indexOf('f') > -1 && t === 'function')
-				))
-				) {
+			))
+			) {
 				p[x] = args[i++];
 			}
 

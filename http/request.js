@@ -30,21 +30,21 @@ module.exports = (req, callback) => {
 	// Run the request through a proxy handler
 	// This gives us the chance to manipulate the request
 	handler(req)
-	.then(() => {
+		.then(() => {
 		// URL
-		req.url = createUrl(req.url, req.query);
+			req.url = createUrl(req.url, req.query);
 
-		// Trigger
-		const protocol = (req.url.match(/^https/) ? https : http);
-		protocol.request(req, res => {
-			let data = '';
-			res.on('data', (chunk => data += chunk.toString()));
-			res.on('end', () => callback(data));
+			// Trigger
+			const protocol = (req.url.match(/^https/) ? https : http);
+			protocol.request(req, res => {
+				let data = '';
+				res.on('data', (chunk => data += chunk.toString()));
+				res.on('end', () => callback(data));
+			});
+
+			if (req.data) {
+				protocol.write(req.data);
+			}
+			protocol.end();
 		});
-
-		if (req.data) {
-			protocol.write(req.data);
-		}
-		protocol.end();
-	});
 };

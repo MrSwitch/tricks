@@ -74,15 +74,15 @@ class DB {
 				}
 			};
 		})
-		.then(db => {
+			.then(db => {
 
 			// The DB connection has been established
 			// Lets create a connection to it
-			const transaction = db.transaction([this.table_name], mode);
+				const transaction = db.transaction([this.table_name], mode);
 
-			// Return the API for the Object Store
-			return transaction.objectStore(this.table_name);
-		});
+				// Return the API for the Object Store
+				return transaction.objectStore(this.table_name);
+			});
 	}
 
 	get (key) {
@@ -116,7 +116,7 @@ class DB {
 					}
 				};
 			})
-			.catch(reject);
+				.catch(reject);
 		});
 	}
 

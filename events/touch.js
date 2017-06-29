@@ -120,7 +120,7 @@ module.exports = (elements, onmove, onstart, onend) => {
 	});
 };
 
-export function gesture(currEvent, prevEvent) {
+function gesture(currEvent, prevEvent) {
 
 	// Response Object
 	currEvent.gesture = {};
@@ -167,6 +167,7 @@ export function gesture(currEvent, prevEvent) {
 	}
 }
 
+module.exports.gesture = gesture;
 
 function voidEvent(event) {
 	const type = event.pointerType || event.type;

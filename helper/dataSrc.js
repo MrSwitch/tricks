@@ -36,41 +36,41 @@ function check(el) {
 	// [data-src]
 	toArray(el.querySelectorAll('img[data-src]'))
 	// Is it shown?
-	.filter(img => {
+		.filter(img => {
 		// Where is this positioned?
-		const _t = img.offsetTop;
-		const _h = img.offsetHeight;
+			const _t = img.offsetTop;
+			const _h = img.offsetHeight;
 
-		// does it fix in the bounding box?
-		return ((_t + _h) >= t && _t <= (t + h));
-	})
+			// does it fix in the bounding box?
+			return ((_t + _h) >= t && _t <= (t + h));
+		})
 	// Process the element
-	.forEach(img => {
+		.forEach(img => {
 
 		// SRC
-		img.src = img.getAttribute('data-src');
-		img.removeAttribute('data-src');
+			img.src = img.getAttribute('data-src');
+			img.removeAttribute('data-src');
 
-		// Error fallback
-		const errorSrc = img.getAttribute('data-src-error');
+			// Error fallback
+			const errorSrc = img.getAttribute('data-src-error');
 
-		if (errorSrc) {
-			img.onerror = () => {
-				img.src = errorSrc;
-			};
-		}
+			if (errorSrc) {
+				img.onerror = () => {
+					img.src = errorSrc;
+				};
+			}
 
-		// Have we already loaded this image into the browser?
-		if (images.indexOf(img.src) > -1) {
-			show(img);
-		}
-		else {
-			img.onload = () => {
+			// Have we already loaded this image into the browser?
+			if (images.indexOf(img.src) > -1) {
 				show(img);
-				images.push(img.src);
-			};
-		}
-	});
+			}
+			else {
+				img.onload = () => {
+					show(img);
+					images.push(img.src);
+				};
+			}
+		});
 }
 
 function show(el) {

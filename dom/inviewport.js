@@ -16,7 +16,7 @@ module.exports = (elm, bounding) => {
 	const x = pos.left;
 	const y = pos.top;
 	const w = pos.width || elm.offsetWidth || 1; // must have a minium dimension
-	const h = pos.height || elm.offsetHeight || 1;  // must have a minium dimension
+	const h = pos.height || elm.offsetHeight || 1; // must have a minium dimension
 
 	// Default viewport
 	let X = 0;

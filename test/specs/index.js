@@ -48,6 +48,7 @@ require('./object/Queue.js');
 require('./object/then.js');
 require('./object/toBlob.js');
 require('./object/tryCatch.js');
+require('./object/until.js');
 require('./string/createUrl.js');
 require('./string/extract.js');
 require('./string/jsonParse.js');
