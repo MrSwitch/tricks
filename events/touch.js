@@ -25,7 +25,7 @@ module.exports = (elements, onmove, onstart, onend) => {
 
 		// Fix Android not firing multiple moves
 		// if (e.type.match(/touch/i)) {
-		// // e.preventDefault();
+		// 	e.preventDefault();
 		// }
 
 		// Pointer/Mouse down?
@@ -85,14 +85,6 @@ module.exports = (elements, onmove, onstart, onend) => {
 			// default pointer ID
 			const i = startEvent.pointerId || 0;
 
-			// If touch, choose the first element.
-			// For multiple we may need to pass in a flag to this function
-			if (startEvent.touches && startEvent.touches.length) {
-				const ts = startEvent.timeStamp;
-				startEvent = startEvent.touches[0];
-				startEvent.timeStamp = ts;
-			}
-
 			// Add Gestures to event Object
 			gesture(startEvent);
 
@@ -135,10 +127,10 @@ function gesture(currEvent, prevEvent) {
 	currEvent.gesture.screenX = currEvent.gesture.touches[0].screenX;
 	currEvent.gesture.screenY = currEvent.gesture.touches[0].screenY;
 
-	if (!currEvent.screenX) {
+	if (!('screenX' in currEvent)) {
 		currEvent.screenX = currEvent.gesture.screenX;
 	}
-	if (!currEvent.screenY) {
+	if (!('screenY' in currEvent)) {
 		currEvent.screenY = currEvent.gesture.screenY;
 	}
 

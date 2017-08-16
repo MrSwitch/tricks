@@ -15,7 +15,10 @@ module.exports = (elements, callback) =>
 		callback.call(this, e);
 
 	},
-	() => {},
+	function (e) {
+		e.gesture.type = 'start';
+		callback.call(this, e);
+	},
 	function(e) {
 
 		const g = e.gesture;
@@ -23,6 +26,9 @@ module.exports = (elements, callback) =>
 		// How long did this operation take?
 		if (g.deltaTime < 200 && g.distance > 20 && g.velocity > 0.3) {
 			g.type = `swipe${g.direction}`;
+		}
+		else if (g.distance < 20) {
+			g.type = 'click';
 		}
 		else {
 			g.type = 'release';
