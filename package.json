@@ -1,6 +1,6 @@
 {
   "name": "tricks",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "ES6 modules",
   "main": "index.js",
   "scripts": {
