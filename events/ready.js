@@ -1,7 +1,7 @@
 const on = require('./on.js');
 
 module.exports = callback => {
-	if (document.readyState !== 'loading' && document.body) {
+	if (document.readyState === 'complete' && document.body) {
 		callback();
 	}
 	else {
