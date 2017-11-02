@@ -1,5 +1,7 @@
 # Tricks
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/MrSwitch/tricks.svg)](https://greenkeeper.io/)
+
 Herein lies some tricks to pull out of the hat for faster backfront development.
 
 [![Build Status][travis-image]][travis-url]
