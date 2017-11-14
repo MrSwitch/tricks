@@ -5,6 +5,7 @@ Herein lies some tricks to pull out of the hat for faster backfront development.
 [![Greenkeeper badge](https://badges.greenkeeper.io/MrSwitch/tricks.svg)](https://greenkeeper.io/)
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-image]][npm-url]
+[![Known Vulnerabilities](https://snyk.io/test/github/mrswitch/tricks/badge.svg)](https://snyk.io/test/github/mrswitch/tricks)
 
 ## Go Deep
 
