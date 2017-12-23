@@ -67,6 +67,6 @@
     "shunt": "^0.1.6",
     "sinon": "^4.0.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^2.0.0"
   }
 }
