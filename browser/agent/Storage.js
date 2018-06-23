@@ -21,7 +21,7 @@ Storage.prototype.api = function(name, value) {
 
 	// Local storage
 	else if (!name) {
-		throw 'agent/store must have a valid name';
+		throw new Error('agent/store must have a valid name');
 	}
 	else if (value === undefined) {
 		return this.getItem(name);

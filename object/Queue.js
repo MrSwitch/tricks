@@ -5,13 +5,13 @@
 
 module.exports = class Queue {
 
-	constructor (arr, handler) {
+	constructor(arr, handler) {
 		this.items = (Array.isArray(arr) ? arr : []);
 		this.handler = handler;
 	}
 
 	// Mimic the Array.push function
-	push (...args) {
+	push(...args) {
 
 		// Append items to the internal array.
 		args.forEach(item => this.items.push(item));
@@ -23,19 +23,19 @@ module.exports = class Queue {
 	}
 
 	// Mimic the length
-	get length () {
+	get length() {
 		return this.items.length;
 	}
-	set length (value) {
+	set length(value) {
 		return this.items.length = value;
 	}
 
 	// Set the item handler
-	get handler () {
+	get handler() {
 		return this._handler;
 	}
 
-	set handler (callback) {
+	set handler(callback) {
 
 		this._handler = callback;
 

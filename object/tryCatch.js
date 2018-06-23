@@ -1,6 +1,6 @@
 module.exports = fn => {
 	try {
-		return fn.call(null);
+		return fn();
 	}
 	catch (e) {
 		// Continue

@@ -2,7 +2,7 @@
 const globalCallback = require('../../events/globalCallback.js');
 const getScript = require('./getScript.js');
 
-const MATCH_CALLBACK_PLACEHOLDER = /=\?(&|$)/;
+const MATCH_CALLBACK_PLACEHOLDER = /[=]\?(&|$)/;
 
 module.exports = (url, callback, callback_name, timeout = 60000) => {
 
