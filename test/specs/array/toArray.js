@@ -6,7 +6,7 @@ describe('array/toArray', () => {
 
 		expect(toArray([])).to.be.an('array');
 		expect(toArray({})).to.be.an('array');
-		expect(toArray(arguments)).to.be.an('array');
+		expect(toArray(1)).to.be.an('array');
 
 	});
 

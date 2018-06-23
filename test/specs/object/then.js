@@ -20,13 +20,13 @@ describe('object/then', () => {
 		it('should trigger any fulfill handler', done => {
 
 			const fail = () => {
-				throw 'should not reject';
+				throw new Error('should not reject');
 			};
 
 			// Should pass ok to the then
 			then.proxy
 				.then(value => {
-					expect(value).to.be.eql('ok'); return;
+					expect(value).to.be.eql('ok');
 				}, fail)
 				.then(done, done);
 		});
