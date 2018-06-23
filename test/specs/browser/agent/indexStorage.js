@@ -18,7 +18,7 @@ describe('browser/agent/indexStorage', () => {
 
 describe('browser/agent/indexStorage - supported', () => {
 
-	before(function () {
+	before(function() {
 		// Not running all tests because of Lack of support for indexedDB
 		if (!indexedDB) this.skip();
 	});

@@ -15,7 +15,7 @@ module.exports = (elements, callback) =>
 		callback.call(this, e);
 
 	},
-	function (e) {
+	function(e) {
 		e.gesture.type = 'start';
 		callback.call(this, e);
 	},

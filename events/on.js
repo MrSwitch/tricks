@@ -8,7 +8,7 @@ const SEPERATOR = /[\s,]+/;
 let supportsPassive = false;
 try {
 	const opts = Object.defineProperty({}, 'passive', {
-		get() {
+		get() { // eslint-disable-line getter-return
 			supportsPassive = true;
 		}
 	});

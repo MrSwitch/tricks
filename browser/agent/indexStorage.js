@@ -6,7 +6,7 @@ const indexedDB = require('../../support/indexedDB.js');
 // The Cache name is optional, it will allow us to group various datasets (the default is __tricks__)
 
 class DB {
-	constructor (name, version, schema) {
+	constructor(name, version, schema) {
 
 		// Define the schema to use in the connection
 		this.db_name = name || '__tricks__';
@@ -23,7 +23,7 @@ class DB {
 		return Object.assign(this.scope.bind(this), this);
 	}
 
-	static delete (db_name) {
+	static delete(db_name) {
 		// Delete all the current open connections
 
 		return requestToPromise(indexedDB.deleteDatabase(db_name));
@@ -48,7 +48,7 @@ class DB {
 		// });
 	}
 
-	scope (name) {
+	scope(name) {
 		// Create a new store instance
 		const inst = Object.create(this);
 		inst.table_name = name || '__tricks__';
@@ -85,7 +85,7 @@ class DB {
 			});
 	}
 
-	get (key) {
+	get(key) {
 
 		// We've got all the information to make a request to IndexDB
 		return this.open().then(
@@ -93,7 +93,7 @@ class DB {
 		);
 	}
 
-	all () {
+	all() {
 
 		// We've got all the information to make a request to IndexDB
 		return new Promise((accept, reject) => {
@@ -120,7 +120,7 @@ class DB {
 		});
 	}
 
-	put (key, data) {
+	put(key, data) {
 
 		// Allow data as a thing on its own.
 		if (typeof key === 'object') {
