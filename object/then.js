@@ -43,15 +43,15 @@ function api(executor) {
 /*  promise API methods  */
 api.prototype = {
 	/*  promise resolving methods  */
-	fulfill (value) {
+	fulfill(value) {
 		return deliver(this, STATE_FULFILLED, 'fulfillValue', value);
 	},
-	reject (value) {
+	reject(value) {
 		return deliver(this, STATE_REJECTED, 'rejectReason', value);
 	},
 
 	/*  'The then Method' [Promises/A+ 1.1, 1.2, 2.2]  */
-	then (onFulfilled, onRejected) {
+	then(onFulfilled, onRejected) {
 		const curr = this;
 		const next = new api(); /*  [Promises/A+ 2.2.7]  */
 		curr.onFulfilled.push(
@@ -64,7 +64,7 @@ api.prototype = {
 };
 
 /*  deliver an action  */
-const deliver = function (curr, state, name, value) {
+const deliver = function(curr, state, name, value) {
 	if (curr.state === STATE_PENDING) {
 		curr.state = state; /*  [Promises/A+ 2.1.2.1, 2.1.3.1]  */
 		curr[name] = value; /*  [Promises/A+ 2.1.2.2, 2.1.3.2]  */
@@ -74,7 +74,7 @@ const deliver = function (curr, state, name, value) {
 };
 
 /*  execute all handlers  */
-const execute = function (curr) {
+const execute = function(curr) {
 	if (curr.state === STATE_FULFILLED)
 		execute_handlers(curr, 'onFulfilled', curr.fulfillValue);
 	else if (curr.state === STATE_REJECTED)
@@ -82,7 +82,7 @@ const execute = function (curr) {
 };
 
 /*  execute particular set of handlers  */
-const execute_handlers = function (curr, name, value) {
+const execute_handlers = function(curr, name, value) {
 
 	/*  short-circuit processing  */
 	if (curr[name].length === 0)
@@ -98,10 +98,10 @@ const execute_handlers = function (curr, name, value) {
 };
 
 /*  generate a resolver function  */
-const resolver = function (cb, next, method) {
-	return function (value) {
+const resolver = function(cb, next, method) {
+	return function(value) {
 		if (typeof cb !== 'function') /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
-			next[method].call(next, value); /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
+			next[method](value); /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
 		else {
 			let result;
 			try {
@@ -117,7 +117,7 @@ const resolver = function (cb, next, method) {
 };
 
 /*  'Promise Resolution Procedure'  */ /*  [Promises/A+ 2.3]  */
-const resolve = function (promise, x) {
+const resolve = function(promise, x) {
 	/*  sanity check arguments  */ /*  [Promises/A+ 2.3.1]  */
 	if (promise === x || promise.proxy === x) {
 		promise.reject(new TypeError('cannot resolve promise with itself'));

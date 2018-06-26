@@ -14,7 +14,7 @@ module.exports = (url, target, options = {}) => {
 	return window.open(url, target, param(options, ','));
 };
 
-function generatePosition ([Position, Dimension]) {
+function generatePosition([Position, Dimension]) {
 	const position = Position.toLowerCase();
 	const dimension = Dimension.toLowerCase();
 	if (this[dimension] && !(position in this)) {

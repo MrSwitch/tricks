@@ -42,4 +42,27 @@ describe('object/extend', () => {
 		expect(a).to.not.eql(b);
 
 	});
+
+	it('should understand null is not an object', () => {
+
+		const a = {
+			key: 'valueA',
+			child: null
+		};
+
+		const child = {
+			key: 'valueA'
+		};
+
+		const b = {
+			key: 'valueB',
+			child
+		};
+
+		extend(a, b);
+
+		// Check a is like b
+		expect(a.child).to.eql(child);
+
+	});
 });

@@ -3,7 +3,7 @@
 
 module.exports = class Defer {
 
-	constructor (...args) {
+	constructor(...args) {
 		this.items = [];
 		this.state = 'pending';
 		this.response = null;
@@ -11,7 +11,7 @@ module.exports = class Defer {
 	}
 
 	// Mimic the Array.push function
-	push (...args) {
+	push(...args) {
 
 		// Append items to the internal array.
 		this.items.push(...args);
@@ -27,14 +27,14 @@ module.exports = class Defer {
 	}
 
 	// Mimic the length
-	get length () {
+	get length() {
 		return this.items.length;
 	}
-	set length (value) {
+	set length(value) {
 		return this.items.length = value;
 	}
 
-	resolve (response) {
+	resolve(response) {
 
 		// Change the instances state
 		this.state = 'resolved';
