@@ -25,7 +25,7 @@ describe('http/xhr', () => {
 	it('should return headers', done => {
 
 		xhr('get', './stub.json', 'json', {}, {}, (r, headers) => {
-			expect(headers).to.have.property('Content-Type');
+			expect(headers['content-type'] || headers['Content-Type']).to.be.ok();
 			done();
 		});
 
