@@ -21,8 +21,6 @@ gulp.task('localhost', () => {
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
-gulp.task('test', ['bundle'], testSpecs('test/bundle.html'));
-
 gulp.task('index_tests', () => {
 	const root = `${__dirname.replace(/\\/g, '/') }/test/specs/`;
 
@@ -35,11 +33,11 @@ gulp.task('index_tests', () => {
 	});
 });
 
-gulp.task('watch', ['localhost'], () => gulp.watch(scripts_to_watch, {interval: 500}, ['test']));
+gulp.task('watch', gulp.series('localhost', () => gulp.watch(scripts_to_watch, {interval: 500}, ['test'])));
 
 gulp.task('close', () => localhost.close());
 
-gulp.task('bundle', ['index_tests'], () =>
+gulp.task('bundle', gulp.series('index_tests', () =>
 
 	// Package up the specs directory into a single file called config.js
 	browserify('./test/setup_bundle.js', {debug: true, paths: './'})
@@ -58,14 +56,18 @@ gulp.task('bundle', ['index_tests'], () =>
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./test/'))
-);
+));
+
+
+gulp.task('test', gulp.series('bundle', testSpecs('test/bundle.html')));
+
 
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
-gulp.task('default', ['localhost', 'test'], () => {
+gulp.task('default', gulp.series('localhost', 'test', () => {
 	util.log(`Closing localhost:${ port}`);
 	localhost.close();
-});
+}));
 
 function testSpecs(path) {
 	return () => {
