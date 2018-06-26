@@ -16,12 +16,13 @@ const localhost = require('localhost')('./');
 
 const scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!test/components/**/*', '!test/bundle.js', '!test/specs/index.js'];
 
-gulp.task('localhost', () => {
-	localhost.listen(port);
+gulp.task('localhost', (done) => {
+	localhost.listen(port, done);
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
 gulp.task('index_tests', () => {
+
 	const root = `${__dirname.replace(/\\/g, '/') }/test/specs/`;
 
 	// for the given files in the test directory, create an index
@@ -64,13 +65,13 @@ gulp.task('test', gulp.series('bundle', testSpecs('test/bundle.html')));
 
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
-gulp.task('default', gulp.series('localhost', 'test', () => {
+gulp.task('default', gulp.series('localhost', 'test', function end(done) {
 	util.log(`Closing localhost:${ port}`);
-	localhost.close();
+	localhost.close(done);
 }));
 
 function testSpecs(path) {
-	return () => {
+	return function stream() {
 		path = `http://localhost:${port}/${path}`;
 		const stream = mochaPhantomJS();
 		stream.write({path, reporter: 'spec'});
