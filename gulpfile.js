@@ -16,7 +16,7 @@ const localhost = require('localhost')('./');
 
 const scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!test/components/**/*', '!test/bundle.js', '!test/specs/index.js'];
 
-gulp.task('localhost', (done) => {
+gulp.task('localhost', done => {
 	localhost.listen(port, done);
 	util.log('Listening on port', util.colors.cyan(port));
 });

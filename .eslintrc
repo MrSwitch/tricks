@@ -8,5 +8,8 @@
 	},
 	"globals": {
 		"HTMLInput": true
+	},
+	"rules": {
+		"prefer-arrow-callback": [2, {allowNamedFunctions: true}]
 	}
 }
