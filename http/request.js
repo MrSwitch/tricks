@@ -36,15 +36,15 @@ module.exports = (req, callback) => {
 
 			// Trigger
 			const protocol = (req.url.match(/^https/) ? https : http);
-			protocol.request(req, res => {
+			const request = protocol.request(req, res => {
 				let data = '';
 				res.on('data', (chunk => data += chunk.toString()));
 				res.on('end', () => callback(data));
 			});
 
 			if (req.data) {
-				protocol.write(req.data);
+				request.write(req.data);
 			}
-			protocol.end();
+			request.end();
 		});
 };
