@@ -76,8 +76,8 @@ class DB {
 		})
 			.then(db => {
 
-			// The DB connection has been established
-			// Lets create a connection to it
+				// The DB connection has been established
+				// Lets create a connection to it
 				const transaction = db.transaction([this.table_name], mode);
 
 				// Return the API for the Object Store

@@ -6,16 +6,6 @@
 		"firefox_latest",
 		"ie_latest",
 		"edge_latest",
-		"safari_latest",
-		{
-			"os": "ios",
-			"os_version": "9.1",
-			"device": "iPhone 6S"
-		},
-		{
-			"os": "android",
-			"os_version": "4.4",
-			"device": "Samsung Galaxy S5"
-		}
+		"safari_latest"
 	]
 }
