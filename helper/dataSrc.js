@@ -13,8 +13,8 @@ const toArray = require('../array/toArray.js');
 const images = [];
 module.exports = elements =>
 
-	// Find all the elements in the page with data-src className
-	// Bind listeners to the page to determine whether this content is changing.
+// Find all the elements in the page with data-src className
+// Bind listeners to the page to determine whether this content is changing.
 
 	each(elements, el => {
 
@@ -47,7 +47,7 @@ function check(el) {
 	// Process the element
 		.forEach(img => {
 
-		// SRC
+			// SRC
 			img.src = img.getAttribute('data-src');
 			img.removeAttribute('data-src');
 
