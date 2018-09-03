@@ -55,6 +55,7 @@ require('./string/jsonParse.js');
 require('./string/ltrim.js');
 require('./string/param.js');
 require('./string/queryparse.js');
+require('./string/querystringify.js');
 require('./string/random.js');
 require('./string/toXML.js');
 require('./string/trim.js');
