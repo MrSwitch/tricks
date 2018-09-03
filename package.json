@@ -13,6 +13,11 @@
     "test:deploy": "npm test && npm run test:spawn",
     "test:spawn-local": "env $(cat .env | xargs) npm run test:spawn"
   },
+  "files": [
+    "**/*.js",
+    "!test",
+    "!.git"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/MrSwitch/tricks.git"
