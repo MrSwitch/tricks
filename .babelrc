@@ -1,0 +1,8 @@
+{
+	presets: ['es2015',
+		['env', {
+			include: ['es6.object.assign', 'es6.promise']
+		}]
+	],
+	plugins: ['transform-object-assign']
+}
