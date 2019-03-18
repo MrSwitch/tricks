@@ -23,8 +23,6 @@ describe('object/filter', () => {
 
 	it('should remove falsy object values subject to a customisable filter', () => {
 
-		let empty;
-
 		const data = {
 			key: 'value',
 			remove: 'value'
