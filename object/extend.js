@@ -1,6 +1,13 @@
 const instanceOf = require('./instanceOf.js');
 
-module.exports = function extend(r, ...args) {
+/**
+ * Extend Deep Object
+ *
+ * @param {object} object - an object to extend
+ * @param {...object} - a series of objects to extend
+ * @return {object} extended object
+ */
+function extend(r, ...args) {
 	args.forEach(o => {
 		if (Array.isArray(r) && Array.isArray(o)) {
 			Array.prototype.push.apply(r, o);
@@ -19,4 +26,6 @@ module.exports = function extend(r, ...args) {
 		}
 	});
 	return r;
-};
+}
+
+module.exports = extend;
