@@ -42,14 +42,7 @@ gulp.task('bundle', gulp.series('index_tests', () =>
 
 	// Package up the specs directory into a single file called config.js
 	browserify('./test/setup_bundle.js', {debug: true, paths: './'})
-		.transform(babelify, {
-			presets: ['es2015',
-				['env', {
-					include: ['es6.object.assign', 'es6.promise']
-				}]
-			],
-			plugins: ['transform-object-assign'] //add-module-exports allows mixing of commonJs and ES6 exports
-		})
+		.transform(babelify)
 		.bundle()
 		.on('error', util.log.bind(util, 'Browserify Error'))
 		.pipe(source('./bundle.js'))
