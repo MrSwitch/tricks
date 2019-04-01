@@ -1,7 +1,7 @@
 const instanceOf = require('./instanceOf.js');
 
 /**
- * Extend Deep Object
+ * Extend Object works like Object.assign(...) but recurses into the nested properties
  *
  * @param {object} object - an object to extend
  * @param {...object} - a series of objects to extend

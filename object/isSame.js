@@ -5,15 +5,15 @@
  * @param {*} Param B - second parameter
  * @return {boolean} true if the two parameters have the same value
  *
- * @example
+ * @example <caption>matches nested objects with same keys => values</caption>
  * // returns true
  * isSame({a: {b: 1}}, {a: {b: 1}});
  *
- * @example
+ * @example <caption>does not match nested objects with same keys, but different values</caption>
  * // returns false
  * isSame({a: {b: 1}}, {a: {b: 2}});
  *
- * @example
+ * @example <caption>does not match nested objects with additional properties</caption>
  * // returns false
  * isSame({a: {b: 1}}, {a: {b: 1, c: 2}});
  */

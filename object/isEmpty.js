@@ -1,8 +1,15 @@
 /**
  * Determines if the value is empty, accepts object and primitive types
  *
- * @param {object|array|string|number} - value
+ * @param {*} - value
  * @return {boolean}
+ *
+ * @example <caption>Returns true for empty objects</caption>
+ * isEmpty(null) 
+ * isEmpty([]) 
+ * isEmpty(0) 
+ * isEmpty({}) 
+ * isEmpty('') 
  */
 
 function isEmpty(obj) {
