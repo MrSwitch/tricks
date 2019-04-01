@@ -5,7 +5,7 @@
   "modules": "index.js",
   "main": "index.js",
   "scripts": {
-    "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js > docs.md",
+    "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js > docs/README.md",
     "lint": "eslint ./",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
@@ -17,6 +17,7 @@
   "files": [
     "**/*.js",
     "!test",
+    "!docs",
     "!.git"
   ],
   "repository": {

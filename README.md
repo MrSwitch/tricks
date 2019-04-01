@@ -7,13 +7,15 @@ Herein lies some tricks to pull out of the hat for faster backfront development.
 [![NPM Version][npm-image]][npm-url]
 [![Known Vulnerabilities](https://snyk.io/test/github/mrswitch/tricks/badge.svg)](https://snyk.io/test/github/mrswitch/tricks)
 
-## Go Deep
+## Install
 
 After installing tricks ...
 
 ```bash
 npm i tricks
 ```
+
+### Example usage...
 
 Incorporate a trick by pointing deep into the library... e.g.
 
@@ -29,9 +31,9 @@ Helping to keep your projects bundled size to a minimum.
 
 ## Docs
 
-Do explore the [directory](https://github.com/MrSwitch/tricks) of functions.
+Whilst the jsdocs are being composed piecemeal [./docs](./docs), go explore the [directory](https://github.com/MrSwitch/tricks) of functions.
 
-More info and specs are available in the [test/](https://github.com/MrSwitch/tricks/tree/master/test) directory.
+More info and specs in [test/](https://github.com/MrSwitch/tricks/tree/master/test) directory.
 
 
 [travis-image]: https://img.shields.io/travis/MrSwitch/tricks.svg?style=flat
