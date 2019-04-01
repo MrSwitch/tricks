@@ -5,7 +5,7 @@
 <dd><p>Extend Deep Object</p>
 </dd>
 <dt><a href="#filter">filter(object, [callbackFilter])</a> ⇒ <code>object</code></dt>
-<dd><p>Filter Ohject properties of falsy values, or apply a custom callback</p>
+<dd><p>Filter Object properties of falsy values, or apply a custom callback</p>
 </dd>
 <dt><a href="#isEmpty">isEmpty(obj)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determines if the value is empty, accepts object and primitive types</p>
@@ -38,7 +38,7 @@ Extend Deep Object
 <a name="filter"></a>
 
 ## filter(object, [callbackFilter]) ⇒ <code>object</code>
-Filter Ohject properties of falsy values, or apply a custom callback
+Filter Object properties of falsy values, or apply a custom callback
 
 **Kind**: global function  
 **Returns**: <code>object</code> - filtered  

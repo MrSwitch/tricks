@@ -8,9 +8,11 @@
  * @example
  * // returns true
  * isSame({a: {b: 1}}, {a: {b: 1}});
+ *
  * @example
  * // returns false
  * isSame({a: {b: 1}}, {a: {b: 2}});
+ *
  * @example
  * // returns false
  * isSame({a: {b: 1}}, {a: {b: 1, c: 2}});
