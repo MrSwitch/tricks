@@ -1,4 +1,11 @@
-module.exports = obj => {
+/**
+ * Determines if the value is empty, accepts object and primitive types
+ *
+ * @param {object|array|string|number} - value
+ * @return {boolean}
+ */
+
+function isEmpty(obj) {
 
 	// Scalar
 	if (!obj)
@@ -18,4 +25,7 @@ module.exports = obj => {
 	}
 
 	return true;
-};
+}
+
+module.exports = isEmpty;
+

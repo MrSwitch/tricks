@@ -5,6 +5,7 @@
   "modules": "index.js",
   "main": "index.js",
   "scripts": {
+    "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js > docs/README.md",
     "lint": "eslint ./",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
@@ -16,6 +17,7 @@
   "files": [
     "**/*.js",
     "!test",
+    "!docs",
     "!.git"
   ],
   "repository": {
@@ -69,6 +71,7 @@
     "gulp-mocha-phantomjs": "^0.12.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
+    "jsdoc": "^3.5.5",
     "localhost": "^0.2.2",
     "mocha": "^6.0.2",
     "sinon": "^7.3.1",
