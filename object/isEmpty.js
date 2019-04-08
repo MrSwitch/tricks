@@ -5,11 +5,11 @@
  * @return {boolean}
  *
  * @example <caption>Returns true for empty objects</caption>
- * isEmpty(null) 
- * isEmpty([]) 
- * isEmpty(0) 
- * isEmpty({}) 
- * isEmpty('') 
+ * isEmpty(null)
+ * isEmpty([])
+ * isEmpty(0)
+ * isEmpty({})
+ * isEmpty('')
  */
 
 function isEmpty(obj) {
