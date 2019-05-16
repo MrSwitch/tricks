@@ -18,6 +18,7 @@
     "**/*.js",
     "!test",
     "!docs",
+    "!gulpfile.js",
     "!.git"
   ],
   "repository": {
