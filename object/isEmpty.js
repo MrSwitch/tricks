@@ -1,8 +1,8 @@
 /**
  * Determines if the value is empty, accepts object and primitive types
  *
- * @param {*} - value
- * @return {boolean}
+ * @param {*} obj - value
+ * @returns {boolean} Returns true is the object is falsy, or an empty object/array.
  *
  * @example <caption>Returns true for empty objects</caption>
  * isEmpty(null)
@@ -11,7 +11,6 @@
  * isEmpty({})
  * isEmpty('')
  */
-
 function isEmpty(obj) {
 
 	// Scalar

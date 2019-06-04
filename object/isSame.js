@@ -1,9 +1,9 @@
 /**
  * isSame compares two parameters to determine whether they have identical structures and values.
  *
- * @param {*} Param A - first parameter
- * @param {*} Param B - second parameter
- * @return {boolean} true if the two parameters have the same value
+ * @param {*} a - first parameter
+ * @param {*} b - second parameter
+ * @returns {boolean} true if the two parameters have the same value
  *
  * @example <caption>matches nested objects with same keys => values</caption>
  * // returns true
@@ -17,7 +17,6 @@
  * // returns false
  * isSame({a: {b: 1}}, {a: {b: 1, c: 2}});
  */
-
 function isSame(a, b) {
 	const type = typeof a;
 	if (type !== typeof b) {

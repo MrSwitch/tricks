@@ -3,29 +3,29 @@ const instanceOf = require('./instanceOf.js');
 /**
  * Extend Object works like Object.assign(...) but recurses into the nested properties
  *
- * @param {object} object - an object to extend
- * @param {...object} - a series of objects to extend
- * @return {object} extended object
+ * @param {object} base - an object to extend
+ * @param {...object} args - a series of objects to extend
+ * @returns {object} extended object
  */
-function extend(r, ...args) {
+function extend(base, ...args) {
 	args.forEach(o => {
-		if (Array.isArray(r) && Array.isArray(o)) {
-			Array.prototype.push.apply(r, o);
+		if (Array.isArray(base) && Array.isArray(o)) {
+			Array.prototype.push.apply(base, o);
 		}
-		else if (instanceOf(r, Object) && instanceOf(o, Object) && r !== o) {
+		else if (instanceOf(base, Object) && instanceOf(o, Object) && base !== o) {
 			for (const x in o) {
-				r[x] = extend(r[x], o[x]);
+				base[x] = extend(base[x], o[x]);
 			}
 		}
 		else if (Array.isArray(o)) {
 			// Clone it
-			r = o.slice(0);
+			base = o.slice(0);
 		}
 		else {
-			r = o;
+			base = o;
 		}
 	});
-	return r;
+	return base;
 }
 
 module.exports = extend;
