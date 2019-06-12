@@ -36,8 +36,8 @@ describe('browser/agent/indexStorage - supported', () => {
 		db('mylist').all().then(a => {
 			expect(a).to.be.an('array');
 			done();
-		}).
-			catch(done);
+		})
+			.catch(done);
 
 	});
 

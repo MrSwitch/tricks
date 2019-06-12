@@ -38,32 +38,32 @@ module.exports = (date_str, now) => {
 	}
 	// Less than 1hour, e.g. 11 minutes
 	else if (dx < HOUR) {
-		i = parseInt((dx / HOUR) * 60, 10);
+		i = parseInt((dx / HOUR) * 60);
 		u = 'minute';
 	}
 	// Less than 24hours
 	else if (dx < DAY) {
-		i = parseInt((dx / DAY) * 24, 10);
+		i = parseInt((dx / DAY) * 24);
 		u = 'hour';
 	}
 	// Less than 7 days
 	else if (dx < WEEK) {
-		i = parseInt((dx / WEEK) * 7, 10);
+		i = parseInt((dx / WEEK) * 7);
 		u = 'day';
 	}
 	// Less than a month
 	else if (dx < MONTH) {
-		i = parseInt((dx / MONTH) * 4, 10);
+		i = parseInt((dx / MONTH) * 4);
 		u = 'week';
 	}
 	// Less than a year
 	else if (dx < YEAR) {
-		i = parseInt((dx / YEAR) * 12, 10);
+		i = parseInt((dx / YEAR) * 12);
 		u = 'month';
 	}
 	// Over a year
 	else {
-		i = parseInt((dx / YEAR), 10);
+		i = parseInt((dx / YEAR));
 		u = 'year';
 	}
 

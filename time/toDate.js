@@ -16,7 +16,7 @@ module.exports = str => {
 				d.setYear(a[0]);
 				d.setMonth(a[1] - 1);
 				d.setDate(a[2]);
-				d.setHours(a[3] + parseInt(a[6], 10));
+				d.setHours(a[3] + parseInt(a[6]));
 				d.setMinutes(a[4]);
 				d.setSeconds(a[5]);
 				return d;
