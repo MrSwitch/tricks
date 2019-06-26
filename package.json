@@ -1,6 +1,6 @@
 {
   "name": "tricks",
-  "version": "1.11.1",
+  "version": "1.12.0",
   "description": "ES6 modules",
   "modules": "index.js",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "lint": "eslint ./",
     "lint-diff": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "lint-diff-fix": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint --fix $LIST; fi",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release -d false",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
     "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
