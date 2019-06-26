@@ -9,6 +9,7 @@
     "lint": "eslint ./",
     "lint-diff": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "lint-diff-fix": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint --fix $LIST; fi",
+    "semantic-release": "semantic-release",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
     "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
@@ -58,6 +59,8 @@
   },
   "homepage": "https://github.com/MrSwitch/tricks",
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.13",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.26.0",
@@ -78,8 +81,30 @@
     "jsdoc": "^3.6.2",
     "localhost": "^0.2.2",
     "mocha": "^6.1.4",
+    "semantic-release": "^15.13.17",
     "sinon": "^7.3.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "release": {
+    "branch": "master",
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
   }
 }
