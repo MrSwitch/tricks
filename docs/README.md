@@ -13,6 +13,22 @@
 <dt><a href="#isSame">isSame(a, b)</a> ⇒ <code>boolean</code></dt>
 <dd><p>isSame compares two parameters to determine whether they have identical structures and values.</p>
 </dd>
+<dt><a href="#diff">diff(a, b)</a> ⇒ <code>Array</code></dt>
+<dd><p>Array diff
+Returns all items in the first array which are also in the second</p>
+</dd>
+<dt><a href="#find">find(arr, callback, thisArg)</a> ⇒ <code>*</code></dt>
+<dd><p>Array find
+Returns the first non undefined response
+If the response is (Boolean) True, then the value of that array item is returned instead...</p>
+</dd>
+<dt><a href="#toArray">toArray(obj)</a> ⇒ <code>Array</code></dt>
+<dd><p>Converts an iterable value to an Array</p>
+</dd>
+<dt><a href="#unique">unique(a)</a> ⇒ <code>Array</code></dt>
+<dd><p>Unique
+Filter an Array for unique values</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -106,6 +122,61 @@ isSame({a: {b: 1}}, {a: {b: 2}});
 // returns false
 isSame({a: {b: 1}}, {a: {b: 1, c: 2}});
 ```
+<a name="diff"></a>
+
+## diff(a, b) ⇒ <code>Array</code>
+Array diff
+Returns all items in the first array which are also in the second
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - All items which are in both arrays  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | First array |
+| b | <code>Array</code> | Second array |
+
+<a name="find"></a>
+
+## find(arr, callback, thisArg) ⇒ <code>\*</code>
+Array find
+Returns the first non undefined response
+If the response is (Boolean) True, then the value of that array item is returned instead...
+
+**Kind**: global function  
+**Returns**: <code>\*</code> - returns the found item in the array if the callback returned true, or the response from the callback.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| arr | <code>Array</code> |  | Array or iterable object to search |
+| callback | <code>function</code> |  | callback to run tests on, return value other than undefined to stop searching |
+| thisArg | <code>object</code> | <code></code> | Instance to execute the callback on |
+
+<a name="toArray"></a>
+
+## toArray(obj) ⇒ <code>Array</code>
+Converts an iterable value to an Array
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - The object as an array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>object</code> | Object to convert into an array |
+
+<a name="unique"></a>
+
+## unique(a) ⇒ <code>Array</code>
+Unique
+Filter an Array for unique values
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - A unique array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | Array to filter |
+
 <a name="callbackFilter"></a>
 
 ## callbackFilter : <code>function</code>
