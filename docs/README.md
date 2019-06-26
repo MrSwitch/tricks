@@ -29,6 +29,10 @@ If the response is (Boolean) True, then the value of that array item is returned
 <dd><p>Unique
 Filter an Array for unique values</p>
 </dd>
+<dt><a href="#capitalize">capitalize(str)</a> ⇒ <code>string</code></dt>
+<dd><p>Capitalize
+Converts the first character of a sting to uppercase</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -176,6 +180,19 @@ Filter an Array for unique values
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>Array</code> | Array to filter |
+
+<a name="capitalize"></a>
+
+## capitalize(str) ⇒ <code>string</code>
+Capitalize
+Converts the first character of a sting to uppercase
+
+**Kind**: global function  
+**Returns**: <code>string</code> - String with the first character made uppercase  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | String to capitalize |
 
 <a name="callbackFilter"></a>
 
