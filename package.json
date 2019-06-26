@@ -7,6 +7,8 @@
   "scripts": {
     "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js > docs/README.md",
     "lint": "eslint ./",
+    "lint-diff": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
+    "lint-diff-fix": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint --fix $LIST; fi",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
     "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
