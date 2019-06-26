@@ -3,4 +3,8 @@
  * @param {object} obj - Object to convert into an array
  * @returns {Array} The object as an array
  */
-module.exports = obj => Array.prototype.slice.call(obj);
+function toArray(obj) {
+	return Array.prototype.slice.call(obj);
+}
+
+module.exports = toArray;

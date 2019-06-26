@@ -5,4 +5,8 @@
  * @param {Array} b - Second array
  * @returns {Array} All items which are in both arrays
  */
-module.exports = (a, b) => b.filter(item => a.indexOf(item) === -1);
+function diff(a, b) {
+	return b.filter(item => a.indexOf(item) === -1);
+}
+
+module.exports = diff;
