@@ -1,7 +1,7 @@
 /**
  * @callback callbackFilter
- * @param {value} item value
- * @param {string} item key
+ * @param {value} value - item value
+ * @param {string} key - item key
  */
 
 /**

@@ -10,7 +10,7 @@ module.exports = (o, args) => {
 
 	// 'x' is the first key in the list of object parameters
 	for (x in o) {
-		if (o.hasOwnProperty(x)) {
+		if (Object.prototype.hasOwnProperty.call(o, x)) {
 			break;
 		}
 	}
@@ -22,7 +22,7 @@ module.exports = (o, args) => {
 		// Could this object still belong to a property?
 		// Check the object keys if they match any of the property keys
 		for (x in args[0]) {
-			if (o.hasOwnProperty(x)) {
+			if (Object.prototype.hasOwnProperty.call(o, x)) {
 				// Does this key exist in the property list?
 				if (x in o) {
 					// Yes this key does exist so its most likely this function has been invoked with an object parameter
@@ -35,7 +35,7 @@ module.exports = (o, args) => {
 
 	// Else loop through and account for the missing ones.
 	for (x in o) {
-		if (o.hasOwnProperty(x)) {
+		if (Object.prototype.hasOwnProperty.call(o, x)) {
 
 			t = typeof (args[i]);
 

@@ -101,7 +101,7 @@ function findEvents(evt, callback) {
 	const a = evt.split(separator);
 
 	for (const name in this.events) {
-		if (this.events.hasOwnProperty(name)) {
+		if (Object.prototype.hasOwnProperty.call(this.events, name)) {
 
 			if (a.indexOf(name) > -1) {
 

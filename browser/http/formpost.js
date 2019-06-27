@@ -161,7 +161,7 @@ function createFormFromData(data) {
 		// Its not a form element,
 		// Therefore it must be a JSON object of Key=>Value or Key=>Element
 		// If anyone of those values are a input type=file we shall shall insert its siblings into the form for which it belongs.
-		for (x in data) if (data.hasOwnProperty(x)) {
+		for (x in data) if (Object.prototype.hasOwnProperty.call(data, x)) {
 			// Is this an input Element?
 			if (domInstance('input', data[x]) && data[x].type === 'file') {
 				form = data[x].form;
@@ -201,7 +201,7 @@ function createFormFromData(data) {
 		let input;
 
 		// Add elements to the form if they dont exist
-		for (x in data) if (data.hasOwnProperty(x)) {
+		for (x in data) if (Object.prototype.hasOwnProperty.call(data, x)) {
 
 			// Is this an element?
 			const el = (domInstance('input', data[x]) || domInstance('textArea', data[x]) || domInstance('select', data[x]));

@@ -8,7 +8,7 @@ module.exports = (node, attr = {}, children = [], append = null) => {
 	// Attributes
 	for (const x in attr) {
 
-		if (attr.hasOwnProperty(x)) {
+		if (Object.prototype.hasOwnProperty.call(attr, x)) {
 
 			if (x === 'text') {
 				n.appendChild(document.createTextNode(attr[x]));
@@ -23,7 +23,7 @@ module.exports = (node, attr = {}, children = [], append = null) => {
 			}
 			else if (typeof(attr[x]) === 'object') {
 				for (const y in attr[x]) {
-					if (attr[x].hasOwnProperty(y)) {
+					if (Object.prototype.hasOwnProperty.call(attr[x], y)) {
 						n[x][y] = attr[x][y];
 					}
 				}

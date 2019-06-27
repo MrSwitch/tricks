@@ -4,7 +4,7 @@ const isBinary = require('./isBinary.js');
 // This function checks whether the form contains binary data
 module.exports = data => {
 	for (const x in data) {
-		if (data.hasOwnProperty(x)) {
+		if (Object.prototype.hasOwnProperty.call(data, x)) {
 			if (isBinary(data[x])) {
 				return true;
 			}

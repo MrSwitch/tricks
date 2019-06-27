@@ -30,7 +30,7 @@ module.exports = node => {
 	// Loop through data if it's not form data it must now be a JSON object
 	if (!instanceOf(data, window.FormData)) {
 
-		for (const x in data) if (data.hasOwnProperty(x)) {
+		for (const x in data) if (Object.prototype.hasOwnProperty.call(data, x)) {
 
 			if (instanceOf(data[x], window.FileList)) {
 				if (data[x].length === 1) {

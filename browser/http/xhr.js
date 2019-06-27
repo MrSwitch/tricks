@@ -85,7 +85,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 function toFormData(data) {
 	const f = new FormData();
 	for (const x in data) {
-		if (data.hasOwnProperty(x)) {
+		if (Object.prototype.hasOwnProperty.call(data, x)) {
 			if (instanceOf(data[x], window.HTMLInputElement) && 'files' in data[x]) {
 				if (data[x].files.length > 0) {
 					f.append(x, data[x].files[0]);
