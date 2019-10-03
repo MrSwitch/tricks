@@ -79,7 +79,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
     "jsdoc": "^3.6.2",
-    "localhost": "^0.2.2",
+    "localhost": "^0.3.0",
     "mocha": "^6.1.4",
     "semantic-release": "^15.13.18",
     "sinon": "^7.3.2",
