@@ -12,7 +12,7 @@
     "semantic-release": "semantic-release -d false",
     "test": "npm run lint && npm run test:node && npm run test:browser",
     "test:browser": "gulp",
-    "test:node": "mocha ./test/specs/{time,object,string,http}/*.js",
+    "test:node": "mocha ./test/specs/{array,time,object,string,http}/*.js",
     "test:spawn": "node_modules/.bin/browserstack-runner",
     "test:deploy": "npm test && npm run test:spawn",
     "test:spawn-local": "env $(cat .env | xargs) npm run test:spawn"
