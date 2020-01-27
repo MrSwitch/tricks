@@ -60,7 +60,7 @@
   "homepage": "https://github.com/MrSwitch/tricks",
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^8.0.0",
+    "@semantic-release/git": "^9.0.0",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.26.0",
@@ -81,7 +81,7 @@
     "jsdoc": "^3.6.2",
     "localhost": "^0.3.0",
     "mocha": "^7.0.0",
-    "semantic-release": "^16.0.0",
+    "semantic-release": "^17.0.0",
     "sinon": "^8.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
