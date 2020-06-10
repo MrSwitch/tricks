@@ -80,7 +80,7 @@
     "gulp-util": "^3.0.8",
     "jsdoc": "^3.6.2",
     "localhost": "^0.3.0",
-    "mocha": "^7.0.0",
+    "mocha": "^8.0.0",
     "semantic-release": "^17.0.0",
     "sinon": "^9.0.0",
     "vinyl-buffer": "^1.0.1",
