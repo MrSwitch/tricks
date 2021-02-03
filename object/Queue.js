@@ -27,7 +27,7 @@ module.exports = class Queue {
 		return this.items.length;
 	}
 	set length(value) {
-		return this.items.length = value;
+		this.items.length = value;
 	}
 
 	// Set the item handler
