@@ -1,8 +1,13 @@
 {
-	presets: ['es2015',
-		['env', {
-			include: ['es6.object.assign', 'es6.promise']
+	"presets":[
+		["@babel/preset-env", {
+			"useBuiltIns": "usage",
+			"corejs": {
+				"version": 3
+			},
+			"targets": {
+				"browsers": ["last 2 versions", "safari >= 10"]
+			}
 		}]
-	],
-	plugins: ['transform-object-assign']
+	]
 }
