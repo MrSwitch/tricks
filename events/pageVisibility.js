@@ -17,9 +17,9 @@ let _visibilitychange;
 
 until([
 	[HIDDEN, VISIBILITYCHANGE],
-	['msHidden', `ms${ VISIBILITYCHANGE}`],
-	['mozHidden', `moz${ VISIBILITYCHANGE}`],
-	['webkitHidden', `webkit${ VISIBILITYCHANGE}`]
+	['msHidden', `ms${VISIBILITYCHANGE}`],
+	['mozHidden', `moz${VISIBILITYCHANGE}`],
+	['webkitHidden', `webkit${VISIBILITYCHANGE}`]
 ], item => {
 	const [flag, handler] = item;
 	if (typeof document[flag] !== 'undefined') {

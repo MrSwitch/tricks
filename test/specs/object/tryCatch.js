@@ -12,7 +12,7 @@ describe('object/tryCatch', () => {
 
 	it('should return undefined if an exception occurs', () => {
 
-		/*eslint no-undef: 0*/
+		/* eslint no-undef: 0*/
 		const test = tryCatch(() => thiscausesanexception);
 
 		expect(test).to.eql(undefined);

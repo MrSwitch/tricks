@@ -72,7 +72,7 @@ module.exports = (date_str, now) => {
 	// This means multiplying by 12 in parseInt((dx/YEAR)*12,10) could return a value less than 0.
 	i = i || 1;
 
-	return `${i } ${ u }${i > 1 ? 's' : '' } ago`;
+	return `${i} ${u}${i > 1 ? 's' : ''} ago`;
 };
 
 function dateToMS(date) {

@@ -10,7 +10,7 @@ describe('Storage', () => {
 
 		const store = Stores[label];
 
-		describe(`browser/agent/${ label}`, () => {
+		describe(`browser/agent/${label}`, () => {
 
 			const data = {
 				key: 'value',

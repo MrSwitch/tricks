@@ -49,7 +49,7 @@ function xhr(method, url, responseType, headers, data, callback) {
 	else if (data && typeof (data) !== 'string' &&
 		!instanceOf(data, window.FormData) &&
 		!instanceOf(data, window.File) &&
-		!instanceOf(data, window.Blob))	{
+		!instanceOf(data, window.Blob)) {
 		// Loop through and add formData
 		data = toFormData(data);
 	}

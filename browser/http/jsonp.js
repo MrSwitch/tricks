@@ -17,7 +17,7 @@ module.exports = (url, callback, callback_name, timeout = 60000) => {
 
 	// The URL is a function for some cases and as such
 	// Determine its value with a callback containing the new parameters of this function.
-	url = url.replace(MATCH_CALLBACK_PLACEHOLDER, `=${ callback_name }$1`);
+	url = url.replace(MATCH_CALLBACK_PLACEHOLDER, `=${callback_name}$1`);
 
 	const script = getScript(url, () => {
 		callback(result);

@@ -26,7 +26,7 @@ describe('http/request', () => {
 
 	['uri', 'url'].forEach(name => {
 
-		it(`should use a Request Object which contains the URL, via property ${ name}`, done => {
+		it(`should use a Request Object which contains the URL, via property ${name}`, done => {
 
 			// Response
 			stubRequest(mock);
@@ -43,7 +43,7 @@ describe('http/request', () => {
 
 	['qs', 'query'].forEach(name => {
 
-		it(`should add query params, via property ${ name } Object`, done => {
+		it(`should add query params, via property ${name} Object`, done => {
 
 			// Response
 			const stubs = stubRequest(mock);

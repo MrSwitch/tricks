@@ -18,7 +18,7 @@ describe('object/toBlob', () => {
 
 	it('should return the item if it is not a dataURI, or otherwise the browser doeas not support blobs', () => {
 
-		const invalid = `http://${ test}`;
+		const invalid = `http://${test}`;
 		const value = toBlob(invalid);
 
 		// Assert that it's the same but different.

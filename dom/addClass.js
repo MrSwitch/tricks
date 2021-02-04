@@ -5,6 +5,6 @@ const hasClass = require('./hasClass.js');
 module.exports = (elements, className) =>
 	each(elements, el => {
 		if (!hasClass(el, className)) {
-			el.className += ` ${ className}`;
+			el.className += ` ${className}`;
 		}
 	});

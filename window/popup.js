@@ -18,8 +18,8 @@ function generatePosition([Position, Dimension]) {
 	const position = Position.toLowerCase();
 	const dimension = Dimension.toLowerCase();
 	if (this[dimension] && !(position in this)) {
-		const dualScreenPos = window[`screen${ Position}`] !== undefined ? window[`screen${ Position}`] : screen[position];
-		const d = screen[dimension] || window[`inner${ Dimension}`] || documentElement[`client${ Dimension}`];
+		const dualScreenPos = window[`screen${Position}`] !== undefined ? window[`screen${Position}`] : screen[position];
+		const d = screen[dimension] || window[`inner${Dimension}`] || documentElement[`client${Dimension}`];
 		this[position] = parseInt((d - this[dimension]) / 2) + dualScreenPos;
 	}
 }
