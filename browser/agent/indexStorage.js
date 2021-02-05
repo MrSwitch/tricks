@@ -28,24 +28,6 @@ class DB {
 
 		return requestToPromise(indexedDB.deleteDatabase(db_name));
 
-		// return new Promise((accept, reject) => {
-		// 	const db = conn[db_name].result;
-		// 	db.onclose = () => {
-		// 	};
-		// 	db.onerror = (event) => {
-		// 		console.log(event);
-		// 	};
-		// 	db.onblocked = (event) => {
-		// 		console.log(event);
-		// 	};
-		// 	db.onabort = (event) => {
-		// 		console.log(event);
-		// 	};
-		// 	db.onversionchange = (event) => {
-		// 		console.log(event);
-		// 	};
-		// 	db.close();
-		// });
 	}
 
 	scope(name) {

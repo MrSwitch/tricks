@@ -2,7 +2,7 @@
 // Create a Promise instance which can be returned by a function
 const setImmediate = require('../time/setImmediate.js');
 
-/*!
+/* !
  **  Thenable -- Embeddable Minimum Strictly-Compliant Promises/A+ 1.1.1 Thenable
  **  Copyright (c) 2013-2014 Ralf S. Engelschall <http://engelschall.com>
  **  Licensed under The MIT License <http://opensource.org/licenses/MIT>

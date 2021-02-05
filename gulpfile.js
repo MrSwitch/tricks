@@ -1,5 +1,3 @@
-'use strict';
-
 const gulp = require('gulp');
 const mochaPhantomJS = require('gulp-mocha-phantomjs');
 const fs = require('fs');
@@ -23,12 +21,12 @@ gulp.task('localhost', done => {
 
 gulp.task('index_tests', () => {
 
-	const root = `${__dirname.replace(/\\/g, '/') }/test/specs/`;
+	const root = `${__dirname.replace(/\\/g, '/')}/test/specs/`;
 
 	// for the given files in the test directory, create an index
 	return gulp.src(['test/specs/**/*.js', '!test/specs/index.js'], (err, files) => {
 		// Write line to the index file
-		const index = files.map(name => `require('${ name.replace(root, './') }');`);
+		const index = files.map(name => `require('${name.replace(root, './')}');`);
 
 		fs.writeFileSync('test/specs/index.js', index.join('\n'));
 	});
@@ -59,13 +57,13 @@ gulp.task('test', gulp.series('bundle', testSpecs('test/bundle.html')));
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
 gulp.task('default', gulp.series('localhost', 'test', function end(done) {
-	util.log(`Closing localhost:${ port}`);
+	util.log(`Closing localhost:${port}`);
 	localhost.close(done);
 }));
 
-function testSpecs(path) {
+function testSpecs(pathname) {
 	return function stream() {
-		path = `http://localhost:${port}/${path}`;
+		const path = `http://localhost:${port}/${pathname}`;
 		const stream = mochaPhantomJS();
 		stream.write({path, reporter: 'spec'});
 		stream.end();

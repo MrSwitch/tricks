@@ -6,7 +6,7 @@ module.exports = function xml(obj) {
 
 	let r = '';
 	for (const x in obj) {
-		r += `<${ x }>${ xml(obj[x]) }</${ x }>`;
+		r += `<${x}>${xml(obj[x])}</${x}>`;
 	}
 
 	return r;

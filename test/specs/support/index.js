@@ -1,4 +1,4 @@
-/*eslint no-loop-func: 0*/
+/* eslint no-loop-func: 0*/
 const cors = require('../../../support/cors.js');
 const flex = require('../../../support/flex.js');
 const legacyflex = require('../../../support/legacyflex.js');
@@ -30,9 +30,9 @@ for (const name in obj) {
 
 	const bool = obj[name];
 
-	describe(`support/${ name}`, () => {
+	describe(`support/${name}`, () => {
 
-		it(`should return Boolean to indicate it supports ${ name}`, () => {
+		it(`should return Boolean to indicate it supports ${name}`, () => {
 			expect(bool).to.be.a('boolean');
 		});
 
@@ -54,7 +54,7 @@ for (const name in fns) {
 
 	const fn = fns[name];
 
-	describe(`support/${ name}`, () => {
+	describe(`support/${name}`, () => {
 
 		it('should return a Function', () => {
 			expect(fn).to.be.a('function');

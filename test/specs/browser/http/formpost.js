@@ -21,8 +21,8 @@ describe('http/formpost', () => {
 		const callback_name = 'test_iframe';
 		const url = `${mockUrl}?callback=?`;
 		formpost(url, {}, {}, () => {
-			const form = document.querySelector(`form[target="${ callback_name }"]:last-of-type`);
-			const iframe = document.querySelector(`iframe[id="${ callback_name }"]:last-of-type`);
+			const form = document.querySelector(`form[target="${callback_name}"]:last-of-type`);
+			const iframe = document.querySelector(`iframe[id="${callback_name}"]:last-of-type`);
 			expect(iframe.parentNode).to.be.ok();
 			expect(form.parentNode).to.be.ok();
 			setTimeout(() => {

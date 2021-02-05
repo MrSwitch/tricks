@@ -1,4 +1,4 @@
-'use strict';
+
 
 const isPromise = require('./isPromise.js');
 const Promise = require('./Promise.js');

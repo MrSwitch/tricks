@@ -42,9 +42,9 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 	// We'll also use this to name the iframe
 	callback_name = globalCallback(cb, callback_name);
 
-	/////////////////////
+	// ///////////////////
 	// Create the FRAME
-	/////////////////////
+	// ///////////////////
 
 	const frame = createFrame(callback_name);
 
@@ -59,24 +59,24 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 	}
 
 
-	/////////////////////
+	// ///////////////////
 	// Set a timeout
-	/////////////////////
+	// ///////////////////
 
 	if (timeout) {
 		timer = setTimeout(cb.bind(null, new Error('timeout')), timeout);
 	}
 
 
-	/////////////////////
+	// ///////////////////
 	// Create a form
-	/////////////////////
+	// ///////////////////
 
 	const form = createFormFromData(data);
 
 	// The URL is a function for some cases and as such
 	// Determine its value with a callback containing the new parameters of this function.
-	url = url.replace(new RegExp('=\\?(&|$)'), `=${ callback_name }$1`);
+	url = url.replace(new RegExp('=\\?(&|$)'), `=${callback_name}$1`);
 
 	// Set the target of the form
 	attr(form, {
@@ -100,7 +100,7 @@ function createFrame(callback_name) {
 
 	try {
 		// IE7 hack, only lets us define the name here, not later.
-		frame = createElement(`<iframe name="${ callback_name }">`);
+		frame = createElement(`<iframe name="${callback_name}">`);
 	}
 	catch (e) {
 		frame = createElement('iframe');

@@ -11,10 +11,10 @@ module.exports = (url, params, formatFunction) => {
 
 		// Override the items in the URL which already exist
 		for (const x in params) {
-			const str = `([\\?\\&])${ x }=[^\\&]*`;
+			const str = `([\\?\\&])${x}=[^\\&]*`;
 			reg = new RegExp(str);
 			if (url.match(reg)) {
-				url = url.replace(reg, `$1${ x }=${ formatFunction(params[x])}`);
+				url = url.replace(reg, `$1${x}=${formatFunction(params[x])}`);
 				delete params[x];
 			}
 		}

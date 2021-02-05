@@ -79,7 +79,7 @@ function emit(evt, ...args) {
 	while (_this && _this.findEvents) {
 
 		// Find events which match
-		_this.findEvents(`${evt },*`, handler);
+		_this.findEvents(`${evt},*`, handler);
 		_this = _this.parent;
 	}
 

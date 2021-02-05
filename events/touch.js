@@ -25,7 +25,7 @@ module.exports = (elements, onmove, onstart, onend) => {
 
 		// Fix Android not firing multiple moves
 		// if (e.type.match(/touch/i)) {
-		// 	e.preventDefault();
+		//   e.preventDefault();
 		// }
 
 		// Pointer/Mouse down?
@@ -74,8 +74,8 @@ module.exports = (elements, onmove, onstart, onend) => {
 
 		// bind events
 		// on(element, 'touchend', e => {
-		// 	console.log('el:touchend');
-		// 	console.log(e);
+		//  console.log('el:touchend');
+		//  console.log(e);
 		// });
 
 		on(element, 'selectstart', () => false);

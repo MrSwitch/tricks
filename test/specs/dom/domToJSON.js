@@ -22,7 +22,7 @@ describe('dom/domToJSON', () => {
 				'<input name="key" value="value"/>',
 				'<input name="key2" value="value2"/>',
 				'<input name="file" type="file"/>'
-			].join() }</form>`;
+			].join()}</form>`;
 
 		const json = domToJSON(document.getElementById('form'));
 

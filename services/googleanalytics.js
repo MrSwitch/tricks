@@ -6,5 +6,5 @@ module.exports = tracking => {
 	_gaq.push(['_setAccount', tracking]);
 	_gaq.push(['_trackPageview']);
 
-	getScript(`${document.location.protocol === 'https:' ? 'https://ssl' : 'http://www' }.google-analytics.com/ga.js`);
+	getScript(`${document.location.protocol === 'https:' ? 'https://ssl' : 'http://www'}.google-analytics.com/ga.js`);
 };
