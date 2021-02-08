@@ -84,7 +84,10 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "release": {
-    "branch": "master",
+    "branches": [
+      "master",
+      "github-actions"
+    ],
     "prepare": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
