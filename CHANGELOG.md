@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/MrSwitch/tricks/compare/v1.12.0...v1.13.0) (2021-02-13)
+
+
+### Features
+
+* **array-partition:** add array/partition for breaking an array into separate arrays according to an indexer ([9df3510](https://github.com/MrSwitch/tricks/commit/9df35102bfa971a6dafcd47b7bdd98907ec89c37))
+
 # [1.12.0](https://github.com/MrSwitch/tricks/compare/v1.11.1...v1.12.0) (2019-06-26)
 
 
