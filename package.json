@@ -85,8 +85,7 @@
   },
   "release": {
     "branches": [
-      "master",
-      "github-actions"
+      "master"
     ],
     "prepare": [
       "@semantic-release/changelog",
