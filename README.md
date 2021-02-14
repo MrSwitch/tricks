@@ -33,10 +33,10 @@ Helping to keep your projects bundled size to a minimum.
 
 Whilst the jsdocs are being composed piecemeal [./docs](./docs), go explore the [directory](https://github.com/MrSwitch/tricks) of functions.
 
-More info and specs in [test/](https://github.com/MrSwitch/tricks/tree/master/test) directory.
+More info and specs in [test/](https://github.com/MrSwitch/tricks/tree/main/test) directory.
 
 
 [travis-image]: https://img.shields.io/travis/MrSwitch/tricks.svg?style=flat
 [travis-url]: https://travis-ci.org/MrSwitch/tricks
-[npm-image]: https://img.shields.io/npm/v/tricks.svg?style=flat&branch=master
+[npm-image]: https://img.shields.io/npm/v/tricks.svg?style=flat&branch=main
 [npm-url]: https://npmjs.org/package/tricks
