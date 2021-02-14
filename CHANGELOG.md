@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/MrSwitch/tricks/compare/v1.13.0...v1.13.1) (2021-02-14)
+
+
+### Bug Fixes
+
+* **extend:** prototype pollution ([beb1e43](https://github.com/MrSwitch/tricks/commit/beb1e43eab5aa4f4403483afadd39ea7ba020351))
+
 # [1.13.0](https://github.com/MrSwitch/tricks/compare/v1.12.0...v1.13.0) (2021-02-13)
 
 
