@@ -14,6 +14,11 @@ function extend(base, ...args) {
 		}
 		else if (instanceOf(base, Object) && instanceOf(o, Object) && base !== o) {
 			for (const x in o) {
+				// Prevent prototype pollution
+				if (x === '__proto__' || x === 'constructor') {
+					continue;
+				}
+
 				base[x] = extend(base[x], o[x]);
 			}
 		}

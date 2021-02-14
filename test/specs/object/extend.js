@@ -65,4 +65,22 @@ describe('object/extend', () => {
 		expect(a.child).to.eql(child);
 
 	});
+
+
+	it('should ignore potential prototype polution', () => {
+
+		const a = {};
+
+		const b = {
+			__proto__: 1,
+			constructor: 2
+		};
+
+		extend(a, b);
+
+		// Check a is like b
+		expect(a).to.eql({});
+
+	});
+
 });
