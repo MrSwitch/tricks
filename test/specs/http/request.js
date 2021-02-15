@@ -71,17 +71,18 @@ describe('http/request', () => {
 
 		// Response
 		const stubs = stubRequest(mock);
-		const proxyHandler = (req, callback) => {
-			req.query.name = 'Andrew';
-			expect(req).to.eql(p);
-			callback();
-		};
 
 		const p = {
 			uri: './stub.json',
 			query: {},
 			proxyHandler
 		};
+
+		function proxyHandler(req, callback) {
+			req.query.name = 'Andrew';
+			expect(req).to.eql(p);
+			callback();
+		}
 
 		request(p, data => {
 			const stub = stubs[0];

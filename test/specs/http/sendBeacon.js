@@ -5,7 +5,9 @@ describe('http/sendBeacon', () => {
 
 	if (typeof navigator === 'object' && navigator.sendBeacon) {
 		const sb = navigator.sendBeacon;
-		afterEach(() => navigator.sendBeacon = sb);
+		afterEach(() => {
+			navigator.sendBeacon = sb;
+		});
 
 		it('should trigger a navigator.sendBeacon if it exists and send JSON object', done => {
 

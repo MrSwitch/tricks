@@ -38,7 +38,9 @@ module.exports = (req, callback) => {
 			const protocol = (req.url.match(/^https/) ? https : http);
 			const request = protocol.request(req, res => {
 				let data = '';
-				res.on('data', (chunk => data += chunk.toString()));
+				res.on('data', (chunk => {
+					data += chunk.toString();
+				}));
 				res.on('end', () => callback(data));
 			});
 
