@@ -56,7 +56,7 @@ gulp.task('test', gulp.series('bundle', testSpecs('test/bundle.html')));
 
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
-gulp.task('default', gulp.series('localhost', 'test', function end(done) {
+gulp.task('default', gulp.series('localhost', 'test', done => {
 	util.log(`Closing localhost:${port}`);
 	localhost.close(done);
 }));

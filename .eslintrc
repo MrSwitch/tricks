@@ -14,7 +14,6 @@
 		"HTMLInput": true
 	},
 	"rules": {
-		"prefer-arrow-callback": [2, {"allowNamedFunctions": true}],
 		"no-param-reassign": 0,
 		"no-unused-vars": [2, {"caughtErrors": "all", "caughtErrorsIgnorePattern": "e"}],
 
