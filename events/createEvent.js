@@ -8,7 +8,7 @@ let createEvent = (eventname, options = dict) =>
 try {
 	createEvent('test');
 }
-catch (e) {
+catch {
 	createEvent = (eventname, options = dict) => {
 		const e = document.createEvent('Event');
 		e.initEvent(eventname, !!options.bubbles, !!options.cancelable);

@@ -32,7 +32,7 @@ module.exports = data => {
 				this.response = data;
 				this.onload();
 			}
-			catch (e) {
+			catch {
 				this.onerror();
 			}
 		});

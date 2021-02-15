@@ -104,7 +104,7 @@ function createFrame(callback_name) {
 		// IE7 hack, only lets us define the name here, not later.
 		frame = createElement(`<iframe name="${callback_name}">`);
 	}
-	catch (e) {
+	catch {
 		frame = createElement('iframe');
 	}
 

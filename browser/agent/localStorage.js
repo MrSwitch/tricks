@@ -14,6 +14,6 @@ try {
 	module.exports = new Storage(storage);
 
 }
-catch (e) {
+catch {
 	module.exports = sessionStorage;
 }

@@ -2,7 +2,7 @@ module.exports = fn => {
 	try {
 		return fn();
 	}
-	catch (e) {
+	catch {
 		// Continue
 	}
 };
