@@ -1,31 +1,61 @@
 
-name: Node Test and Release
+name: CI
 
 on: [push]
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
+      - run: npm i
+      - run: npm run lint
+
+  node-test:
+    name: Test Node@${{ matrix.node_version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [10, 12, 14]
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}.x
+      - run: npm i
+      - run: npm run test:node
+
+  browser-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
       - run: npm i
       - run: npx bower install
-      - run: npm test
+      - run: npm run test:browser
       - run: npm run test:spawn
         env:
             BROWSERSTACK_KEY: ${{ secrets.BROWSERSTACK_KEY }}
             BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+
   release:
-    needs: test
+    needs:
+      - lint
+      - browser-test
+      - node-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
       - run: npm i
       - name: Release
         env:
