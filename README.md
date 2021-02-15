@@ -3,7 +3,7 @@
 Herein lies some tricks to pull out of the hat for faster backfront development.
 
 ![CI](https://github.com/MrSwitch/tricks/workflows/CI/badge.svg)
-[![NPM Version][https://img.shields.io/npm/v/tricks.svg?style=flat&branch=main]][https://npmjs.org/package/tricks]
+[![NPM Version](https://img.shields.io/npm/v/tricks.svg?style=flat&branch=main)](https://npmjs.org/package/tricks)
 [![Known Vulnerabilities](https://snyk.io/test/github/mrswitch/tricks/badge.svg)](https://snyk.io/test/github/mrswitch/tricks)
 
 
