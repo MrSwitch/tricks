@@ -18,7 +18,9 @@ module.exports = (url, callback) => {
 	// Set responseType if supported
 	if ('responseType' in x) {
 		// Setting this to an unsupported value can result in a "SYNTAX_ERR: DOM Exception 12"
-		tryCatch(() => x.responseType = 'json');
+		tryCatch(() => {
+			x.responseType = 'json';
+		});
 	}
 
 	x.send();
