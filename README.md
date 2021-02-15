@@ -2,10 +2,10 @@
 
 Herein lies some tricks to pull out of the hat for faster backfront development.
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/MrSwitch/tricks.svg)](https://greenkeeper.io/)
-[![Build Status][travis-image]][travis-url]
-[![NPM Version][npm-image]][npm-url]
+![CI](https://github.com/MrSwitch/tricks/workflows/CI/badge.svg)
+[![NPM Version][https://img.shields.io/npm/v/tricks.svg?style=flat&branch=main]][https://npmjs.org/package/tricks]
 [![Known Vulnerabilities](https://snyk.io/test/github/mrswitch/tricks/badge.svg)](https://snyk.io/test/github/mrswitch/tricks)
+
 
 ## Install
 
@@ -34,9 +34,3 @@ Helping to keep your projects bundled size to a minimum.
 Whilst the jsdocs are being composed piecemeal [./docs](./docs), go explore the [directory](https://github.com/MrSwitch/tricks) of functions.
 
 More info and specs in [test/](https://github.com/MrSwitch/tricks/tree/main/test) directory.
-
-
-[travis-image]: https://img.shields.io/travis/MrSwitch/tricks.svg?style=flat
-[travis-url]: https://travis-ci.org/MrSwitch/tricks
-[npm-image]: https://img.shields.io/npm/v/tricks.svg?style=flat&branch=main
-[npm-url]: https://npmjs.org/package/tricks
