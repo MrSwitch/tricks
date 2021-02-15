@@ -1,6 +1,7 @@
 {
 	"root": true,
 	"extends": [
+		"plugin:node/recommended",
 		"5app"
 	],
 	"plugins": [

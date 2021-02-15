@@ -1,4 +1,7 @@
 /* global _gaq */
+
+// We are using the browser version here...
+// eslint-disable-next-line node/no-missing-require
 const getScript = require('../http/getScript.js');
 
 module.exports = tracking => {

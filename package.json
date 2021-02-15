@@ -4,6 +4,9 @@
   "description": "ES6 modules",
   "modules": "index.js",
   "main": "index.js",
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js ./string/**/*.js > docs/README.md",
     "lint": "eslint ./",
@@ -70,6 +73,7 @@
     "eslint": "^7.0.0",
     "eslint-config-5app": "^0.14.0",
     "eslint-plugin-jsdoc": "^32.0.0",
+    "eslint-plugin-node": "^11.1.0",
     "expect.js": "^0.3.1",
     "gulp": "^4.0.2",
     "gulp-mocha-phantomjs": "^0.12.2",
