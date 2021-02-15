@@ -10,7 +10,7 @@ module.exports = window => {
 		try {
 			window.close();
 		}
-		catch (e) {
+		catch {
 			// Continue
 		}
 

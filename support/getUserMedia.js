@@ -15,12 +15,12 @@ module.exports = (constraints, success, failure) => {
 	try {
 		_getUserMedia(constraints, success, failure);
 	}
-	catch (e) {
+	catch {
 		try {
 			// provide a string of constraints
 			_getUserMedia(Object.keys(constraints).join(','), success, failure);
 		}
-		catch (_e) {
+		catch {
 			failure();
 		}
 	}

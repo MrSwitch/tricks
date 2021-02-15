@@ -8,7 +8,7 @@ module.exports = (path, relative = './') => {
 		// This only works in a few browsers, but what the heck. i'll fix it later
 		return (new URL(path, new URL(relative, window.location))).href || path;
 	}
-	catch (e) {
+	catch {
 		return path;
 	}
 };

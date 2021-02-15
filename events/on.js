@@ -14,7 +14,7 @@ try {
 	});
 	window.addEventListener('test', null, opts);
 }
-catch (e) {
+catch {
 	// Continue
 }
 

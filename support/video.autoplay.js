@@ -11,7 +11,7 @@ try {
 		bool = !v.paused;
 	}
 }
-catch (e) {
+catch {
 	// Continue
 }
 
