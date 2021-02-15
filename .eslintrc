@@ -14,7 +14,6 @@
 	},
 	"rules": {
 		"prefer-arrow-callback": [2, {"allowNamedFunctions": true}],
-		"no-use-before-define": 0,
 		"no-param-reassign": 0,
 		"no-unused-vars": [2, {"caughtErrors": "all", "caughtErrorsIgnorePattern": "e"}],
 

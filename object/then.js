@@ -14,8 +14,6 @@ const STATE_PENDING = 0; /*  [Promises/A+ 2.1.1]  */
 const STATE_FULFILLED = 1; /*  [Promises/A+ 2.1.2]  */
 const STATE_REJECTED = 2; /*  [Promises/A+ 2.1.3]  */
 
-/*  promise object constructor  */
-module.exports = api;
 
 function api(executor) {
 	/*  optionally support non-constructor/plain-function call  */
@@ -40,47 +38,6 @@ function api(executor) {
 		executor.call(this, this.fulfill.bind(this), this.reject.bind(this));
 }
 
-/*  promise API methods  */
-api.prototype = {
-	/*  promise resolving methods  */
-	fulfill(value) {
-		return deliver(this, STATE_FULFILLED, 'fulfillValue', value);
-	},
-	reject(value) {
-		return deliver(this, STATE_REJECTED, 'rejectReason', value);
-	},
-
-	/*  'The then Method' [Promises/A+ 1.1, 1.2, 2.2]  */
-	then(onFulfilled, onRejected) {
-		const curr = this;
-		const next = new api(); /*  [Promises/A+ 2.2.7]  */
-		curr.onFulfilled.push(
-			resolver(onFulfilled, next, 'fulfill')); /*  [Promises/A+ 2.2.2/2.2.6]  */
-		curr.onRejected.push(
-			resolver(onRejected, next, 'reject')); /*  [Promises/A+ 2.2.3/2.2.6]  */
-		execute(curr);
-		return next.proxy; /*  [Promises/A+ 2.2.7, 3.3]  */
-	}
-};
-
-/*  deliver an action  */
-const deliver = function(curr, state, name, value) {
-	if (curr.state === STATE_PENDING) {
-		curr.state = state; /*  [Promises/A+ 2.1.2.1, 2.1.3.1]  */
-		curr[name] = value; /*  [Promises/A+ 2.1.2.2, 2.1.3.2]  */
-		execute(curr);
-	}
-	return curr;
-};
-
-/*  execute all handlers  */
-const execute = function(curr) {
-	if (curr.state === STATE_FULFILLED)
-		execute_handlers(curr, 'onFulfilled', curr.fulfillValue);
-	else if (curr.state === STATE_REJECTED)
-		execute_handlers(curr, 'onRejected', curr.rejectReason);
-};
-
 /*  execute particular set of handlers  */
 const execute_handlers = function(curr, name, value) {
 
@@ -97,24 +54,25 @@ const execute_handlers = function(curr, name, value) {
 	});
 };
 
-/*  generate a resolver function  */
-const resolver = function(cb, next, method) {
-	return function(value) {
-		if (typeof cb !== 'function') /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
-			next[method](value); /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
-		else {
-			let result;
-			try {
-				result = cb(value);
-			} /*  [Promises/A+ 2.2.2.1, 2.2.3.1, 2.2.5, 3.2]  */
-			catch (e) {
-				next.reject(e); /*  [Promises/A+ 2.2.7.2]  */
-				return;
-			}
-			resolve(next, result); /*  [Promises/A+ 2.2.7.1]  */
-		}
-	};
+/*  execute all handlers  */
+const execute = function(curr) {
+	if (curr.state === STATE_FULFILLED)
+		execute_handlers(curr, 'onFulfilled', curr.fulfillValue);
+	else if (curr.state === STATE_REJECTED)
+		execute_handlers(curr, 'onRejected', curr.rejectReason);
 };
+
+
+/*  deliver an action  */
+const deliver = function(curr, state, name, value) {
+	if (curr.state === STATE_PENDING) {
+		curr.state = state; /*  [Promises/A+ 2.1.2.1, 2.1.3.1]  */
+		curr[name] = value; /*  [Promises/A+ 2.1.2.2, 2.1.3.2]  */
+		execute(curr);
+	}
+	return curr;
+};
+
 
 /*  'Promise Resolution Procedure'  */ /*  [Promises/A+ 2.3]  */
 const resolve = function(promise, x) {
@@ -170,3 +128,50 @@ const resolve = function(promise, x) {
 	/*  handle other values  */
 	promise.fulfill(x); /*  [Promises/A+ 2.3.4, 2.3.3.4]  */
 };
+
+
+/*  generate a resolver function  */
+const resolver = function(cb, next, method) {
+	return function(value) {
+		if (typeof cb !== 'function') /*  [Promises/A+ 2.2.1, 2.2.7.3, 2.2.7.4]  */
+			next[method](value); /*  [Promises/A+ 2.2.7.3, 2.2.7.4]  */
+		else {
+			let result;
+			try {
+				result = cb(value);
+			} /*  [Promises/A+ 2.2.2.1, 2.2.3.1, 2.2.5, 3.2]  */
+			catch (e) {
+				next.reject(e); /*  [Promises/A+ 2.2.7.2]  */
+				return;
+			}
+			resolve(next, result); /*  [Promises/A+ 2.2.7.1]  */
+		}
+	};
+};
+
+/*  promise API methods  */
+api.prototype = {
+	/*  promise resolving methods  */
+	fulfill(value) {
+		return deliver(this, STATE_FULFILLED, 'fulfillValue', value);
+	},
+	reject(value) {
+		return deliver(this, STATE_REJECTED, 'rejectReason', value);
+	},
+
+	/*  'The then Method' [Promises/A+ 1.1, 1.2, 2.2]  */
+	then(onFulfilled, onRejected) {
+		const curr = this;
+		const next = new api(); /*  [Promises/A+ 2.2.7]  */
+		curr.onFulfilled.push(
+			resolver(onFulfilled, next, 'fulfill')); /*  [Promises/A+ 2.2.2/2.2.6]  */
+		curr.onRejected.push(
+			resolver(onRejected, next, 'reject')); /*  [Promises/A+ 2.2.3/2.2.6]  */
+		execute(curr);
+		return next.proxy; /*  [Promises/A+ 2.2.7, 3.3]  */
+	}
+};
+
+
+/*  promise object constructor  */
+module.exports = api;

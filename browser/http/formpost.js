@@ -29,9 +29,11 @@ module.exports = (url, data, options, callback, callback_name, timeout = 60000) 
 
 			// Trigger onsubmit on the form.
 			// Typically this isn't activated until afterwards
+			// eslint-disable-next-line no-use-before-define
 			emit(form, 'submit');
 
 			// The setImmediate fixes the test runner in phantomjs
+			// eslint-disable-next-line no-use-before-define
 			setImmediate(() => frame.parentNode.removeChild(frame));
 		}
 
