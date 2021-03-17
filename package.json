@@ -65,6 +65,7 @@
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
@@ -80,6 +81,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-util": "^3.0.8",
     "jsdoc": "^3.6.2",
+    "jsdoc-to-markdown": "^7.0.0",
     "localhost": "^0.3.0",
     "mocha": "^8.0.0",
     "semantic-release": "^17.0.0",
@@ -97,6 +99,7 @@
       {
         "path": "@semantic-release/git",
         "assets": [
+          "docs",
           "package.json",
           "CHANGELOG.md"
         ],
@@ -104,6 +107,12 @@
       }
     ],
     "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npm run docs"
+        }
+      ],
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
