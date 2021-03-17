@@ -64,7 +64,7 @@ gulp.task('default', gulp.series('localhost', 'test', done => {
 function testSpecs(pathname) {
 	return function stream() {
 		const path = `http://localhost:${port}/${pathname}`;
-		const stream = mochaPhantomJS();
+		const stream = mochaPhantomJS({reporter: 'bdd', phantomjs: {useColors: true}});
 		stream.write({path, reporter: 'spec'});
 		stream.end();
 		return stream;
