@@ -1,3 +1,11 @@
+## [1.13.4](https://github.com/MrSwitch/tricks/compare/v1.13.3...v1.13.4) (2021-03-19)
+
+
+### Bug Fixes
+
+* **ci:** publish docs ([ba4ee83](https://github.com/MrSwitch/tricks/commit/ba4ee839cd441a41016d9abecae1966bd5f31f1b))
+* cd docs ([3d0dbd9](https://github.com/MrSwitch/tricks/commit/3d0dbd976d12719383fba2eb6044915c66be1cb6))
+
 ## [1.13.3](https://github.com/MrSwitch/tricks/compare/v1.13.2...v1.13.3) (2021-03-17)
 
 

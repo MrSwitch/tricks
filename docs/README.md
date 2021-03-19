@@ -22,6 +22,10 @@ Returns all items in the first array which are also in the second</p>
 Returns the first non undefined response
 If the response is (Boolean) True, then the value of that array item is returned instead...</p>
 </dd>
+<dt><a href="#partition">partition(a, partitionIndexer)</a> ⇒ <code>Array</code></dt>
+<dd><p>Partition
+Partition an array into separate arrays</p>
+</dd>
 <dt><a href="#toArray">toArray(obj)</a> ⇒ <code>Array</code></dt>
 <dd><p>Converts an iterable value to an Array</p>
 </dd>
@@ -32,6 +36,10 @@ Filter an Array for unique values</p>
 <dt><a href="#capitalize">capitalize(str)</a> ⇒ <code>string</code></dt>
 <dd><p>Capitalize
 Converts the first character of a sting to uppercase</p>
+</dd>
+<dt><a href="#JSONParse">JSONParse(str)</a> ⇒ <code>object</code></dt>
+<dd><p>JSONParse
+Wraps JSON.parse in a try/catch</p>
 </dd>
 </dl>
 
@@ -156,6 +164,20 @@ If the response is (Boolean) True, then the value of that array item is returned
 | callback | <code>function</code> |  | callback to run tests on, return value other than undefined to stop searching |
 | thisArg | <code>object</code> | <code></code> | Instance to execute the callback on |
 
+<a name="partition"></a>
+
+## partition(a, partitionIndexer) ⇒ <code>Array</code>
+Partition
+Partition an array into separate arrays
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - An array of arrays, unflattened  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | Array to filter |
+| partitionIndexer | <code>function</code> | Partition indexer hander, returns the index of where to put the new array. |
+
 <a name="toArray"></a>
 
 ## toArray(obj) ⇒ <code>Array</code>
@@ -194,6 +216,24 @@ Converts the first character of a sting to uppercase
 | --- | --- | --- |
 | str | <code>string</code> | String to capitalize |
 
+<a name="JSONParse"></a>
+
+## JSONParse(str) ⇒ <code>object</code>
+JSONParse
+Wraps JSON.parse in a try/catch
+
+**Kind**: global function  
+**Returns**: <code>object</code> - JSON Object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | String to parse |
+
+**Example** *(JSONParse)*  
+```js
+JSONParse(null)
+// undefined
+```
 <a name="callbackFilter"></a>
 
 ## callbackFilter : <code>function</code>
@@ -201,6 +241,6 @@ Converts the first character of a sting to uppercase
 
 | Param | Type | Description |
 | --- | --- | --- |
-| item | <code>value</code> | value |
-| item | <code>string</code> | key |
+| value | <code>value</code> | item value |
+| key | <code>string</code> | item key |
 
