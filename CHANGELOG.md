@@ -1,3 +1,10 @@
+## [1.13.5](https://github.com/MrSwitch/tricks/compare/v1.13.4...v1.13.5) (2021-04-13)
+
+
+### Bug Fixes
+
+* **deps:** npm audit localhost ([ad1604b](https://github.com/MrSwitch/tricks/commit/ad1604bd01523162ac5c305d9bb042fec1f23c95))
+
 ## [1.13.4](https://github.com/MrSwitch/tricks/compare/v1.13.3...v1.13.4) (2021-03-19)
 
 
