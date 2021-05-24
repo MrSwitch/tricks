@@ -85,7 +85,7 @@
     "localhost": "^0.3.4",
     "mocha": "^8.0.0",
     "semantic-release": "^17.0.0",
-    "sinon": "^10.0.0",
+    "sinon": "^11.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
