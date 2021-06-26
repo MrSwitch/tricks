@@ -1,4 +1,4 @@
-const querystringify = require('../../string/querystringify');
+const querystringify = require('../../string/querystringify.js');
 
 module.exports = (url, data = null, contentType = 'text/plain') => {
 

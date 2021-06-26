@@ -3,7 +3,7 @@
 
 const http = require('http');
 const https = require('https');
-const querystringify = require('../string/querystringify');
+const querystringify = require('../string/querystringify.js');
 
 module.exports = (url, data) => {
 
