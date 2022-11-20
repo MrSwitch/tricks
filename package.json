@@ -80,7 +80,7 @@
     "gulp-mocha-phantomjs": "^0.12.2",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-util": "^3.0.8",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^4.0.0",
     "jsdoc-to-markdown": "^7.0.0",
     "localhost": "^0.3.4",
     "mocha": "^9.0.0",
