@@ -5,7 +5,7 @@
   "modules": "index.js",
   "main": "index.js",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js ./string/**/*.js > docs/README.md",
