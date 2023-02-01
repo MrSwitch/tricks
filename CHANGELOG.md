@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/MrSwitch/tricks/compare/v1.13.5...v1.14.0) (2023-02-01)
+
+
+### Features
+
+* **object/*nestedValues:** get/set nested values ([5751c5d](https://github.com/MrSwitch/tricks/commit/5751c5de8de511961e85706faac50a6585ce92df))
+
 ## [1.13.5](https://github.com/MrSwitch/tricks/compare/v1.13.4...v1.13.5) (2021-04-13)
 
 
