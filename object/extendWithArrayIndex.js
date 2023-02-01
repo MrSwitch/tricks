@@ -8,7 +8,7 @@ const instanceOf = require('./instanceOf.js');
  * @param {...object} args - a series of objects to extend
  * @returns {object} extended object
  */
-function extend(base, ...args) {
+function extendWithArrayIndex(base, ...args) {
 	args.forEach(o => {
 		if (instanceOf(base, Object) && instanceOf(o, Object) && base !== o) {
 			for (const x in o) {
@@ -17,7 +17,7 @@ function extend(base, ...args) {
 					continue;
 				}
 
-				base[x] = extend(base[x], o[x]);
+				base[x] = extendWithArrayIndex(base[x], o[x]);
 			}
 		}
 		else if (Array.isArray(o)) {
@@ -31,4 +31,4 @@ function extend(base, ...args) {
 	return base;
 }
 
-module.exports = extend;
+module.exports = extendWithArrayIndex;
