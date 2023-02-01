@@ -4,6 +4,10 @@
 <dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
 <dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties</p>
 </dd>
+<dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
+<dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties
+With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array</p>
+</dd>
 <dt><a href="#filter">filter(data, [callbackFilter])</a> ⇒ <code>object</code></dt>
 <dd><p>Filter Object properties of falsy values, or apply a custom callback</p>
 </dd>
@@ -54,6 +58,20 @@ Wraps JSON.parse in a try/catch</p>
 
 ## extend(base, ...args) ⇒ <code>object</code>
 Extend Object works like Object.assign(...) but recurses into the nested properties
+
+**Kind**: global function  
+**Returns**: <code>object</code> - extended object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| base | <code>object</code> | an object to extend |
+| ...args | <code>object</code> | a series of objects to extend |
+
+<a name="extend"></a>
+
+## extend(base, ...args) ⇒ <code>object</code>
+Extend Object works like Object.assign(...) but recurses into the nested properties
+With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array
 
 **Kind**: global function  
 **Returns**: <code>object</code> - extended object  

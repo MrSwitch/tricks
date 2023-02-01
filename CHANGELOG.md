@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/MrSwitch/tricks/compare/v1.14.0...v1.15.0) (2023-02-01)
+
+
+### Features
+
+* **object/extendWithArrayIndex:** Add new function ([1395867](https://github.com/MrSwitch/tricks/commit/1395867aa38356234440c177e9c2538adeb9ca4b))
+
 # [1.14.0](https://github.com/MrSwitch/tricks/compare/v1.13.5...v1.14.0) (2023-02-01)
 
 
