@@ -4,7 +4,7 @@
 <dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
 <dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties</p>
 </dd>
-<dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
+<dt><a href="#extendWithArrayIndex">extendWithArrayIndex(base, ...args)</a> ⇒ <code>object</code></dt>
 <dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties
 With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array</p>
 </dd>
@@ -67,9 +67,9 @@ Extend Object works like Object.assign(...) but recurses into the nested propert
 | base | <code>object</code> | an object to extend |
 | ...args | <code>object</code> | a series of objects to extend |
 
-<a name="extend"></a>
+<a name="extendWithArrayIndex"></a>
 
-## extend(base, ...args) ⇒ <code>object</code>
+## extendWithArrayIndex(base, ...args) ⇒ <code>object</code>
 Extend Object works like Object.assign(...) but recurses into the nested properties
 With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array
 

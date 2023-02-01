@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/MrSwitch/tricks/compare/v1.15.0...v1.15.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* **doc:** fix documentation of extendWithArrayIndex ([c294da6](https://github.com/MrSwitch/tricks/commit/c294da6d7eda0ba4faa96b4e10b010956e706878))
+
 # [1.15.0](https://github.com/MrSwitch/tricks/compare/v1.14.0...v1.15.0) (2023-02-01)
 
 
