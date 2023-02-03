@@ -15,6 +15,6 @@ module.exports = function getNestedValue(obj, path) {
 		// No object to navigate, end with undefined
 		return;
 	}
-	const value = obj[path.at(0)];
+	const value = obj[path[0]];
 	return getNestedValue(value, path.slice(1));
 };
