@@ -8,6 +8,7 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const util = require('gulp-util');
+const glob = require('glob');
 
 const port = 8080;
 const localhost = require('localhost')('./');
@@ -21,12 +22,17 @@ gulp.task('localhost', done => {
 
 gulp.task('index_tests', () => {
 
-	const root = `${__dirname.replace(/\\/g, '/')}/test/specs/`;
+	const root = 'test/specs/';
 
 	// for the given files in the test directory, create an index
-	return gulp.src(['test/specs/**/*.js', '!test/specs/index.js'], (err, files) => {
+	return glob('test/specs/**/*.js', (err, files) => {
+
+		files = files.filter(path => path !== '!test/specs/index.js');
+
 		// Write line to the index file
 		const index = files.map(name => `require('${name.replace(root, './')}');`);
+
+		index.push('');
 
 		fs.writeFileSync('test/specs/index.js', index.join('\n'));
 	});
