@@ -1,4 +1,4 @@
-const createEvent = require('../../../events/createEvent.js');
+import createEvent from '../../../events/createEvent.js';
 
 describe('events/createEvent', () => {
 

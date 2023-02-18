@@ -1,7 +1,7 @@
-const createElement = require('../../dom/createElement.js');
-const createEvent = require('../../events/createEvent.js');
+import createElement from '../../dom/createElement.js';
+import createEvent from '../../events/createEvent.js';
 
-module.exports = (url, callback, timeout = 0) => {
+export default (url, callback, timeout = 0) => {
 
 	// Inject a script tag
 	let bool = 0;

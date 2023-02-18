@@ -1,5 +1,5 @@
-const on = require('../../../events/on.js');
-const emit = require('../../../events/emit.js');
+import on from '../../../events/on.js';
+import emit from '../../../events/emit.js';
 
 describe('events/on', () => {
 

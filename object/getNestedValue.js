@@ -4,7 +4,7 @@
  * @param {string|Array} path - Address to given value
  * @returns {*} Value at address or undefined
  */
-module.exports = function getNestedValue(obj, path) {
+export default function getNestedValue(obj, path) {
 	if (!path || !path.length) {
 		return obj;
 	}
@@ -17,4 +17,4 @@ module.exports = function getNestedValue(obj, path) {
 	}
 	const value = obj[path[0]];
 	return getNestedValue(value, path.slice(1));
-};
+}

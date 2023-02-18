@@ -1,4 +1,4 @@
-const extendWithArrayIndex = require('../../../object/extendWithArrayIndex.js');
+import extendWithArrayIndex from '../../../object/extendWithArrayIndex.js';
 
 describe('object/extendWithArrayIndex', () => {
 

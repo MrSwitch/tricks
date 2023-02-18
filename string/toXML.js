@@ -1,4 +1,4 @@
-module.exports = function xml(obj) {
+export default function xml(obj) {
 
 	if (typeof(obj) !== 'object') {
 		return (obj) ? obj.toString() : '';
@@ -10,4 +10,4 @@ module.exports = function xml(obj) {
 	}
 
 	return r;
-};
+}

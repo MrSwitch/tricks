@@ -1,4 +1,4 @@
-const uuid = require('../../../string/uuid.js');
+import uuid from '../../../string/uuid.js';
 
 describe('string/uuid', () => {
 

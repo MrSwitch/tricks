@@ -1,4 +1,4 @@
-const partition = require('../../../array/partition.js');
+import partition from '../../../array/partition.js';
 
 describe('array/partition', () => {
 

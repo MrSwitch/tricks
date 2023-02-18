@@ -2,7 +2,7 @@
 // Extract the parameters of an URL string
 // @param string s, string to decode
 
-module.exports = (str, match_params, formatFunction = x => x) => {
+export default (str, match_params, formatFunction = x => x) => {
 	const a = {};
 	let m;
 	while ((m = match_params.exec(str))) {

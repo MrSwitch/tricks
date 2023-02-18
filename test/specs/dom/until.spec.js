@@ -1,4 +1,4 @@
-const until = require('../../../dom/until.js');
+import until from '../../../dom/until.js';
 
 describe('dom/until', () => {
 

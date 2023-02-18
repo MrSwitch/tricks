@@ -1,7 +1,7 @@
 // on.js
 // Listen to events, this is a wrapper for addEventListener
 
-const each = require('../dom/each.js');
+import each from '../dom/each.js';
 const SEPERATOR = /[\s,]+/;
 
 // See https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
@@ -19,7 +19,7 @@ catch {
 }
 
 
-module.exports = (elements, eventnames, callback, options = false) => {
+export default (elements, eventnames, callback, options = false) => {
 
 	if (typeof options === 'object' && options.passive && !supportsPassive) {
 		// Override the passive mark

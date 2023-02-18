@@ -1,7 +1,7 @@
 // Defer
 // Creates a new Iterative object
 
-module.exports = class Defer {
+export default class Defer {
 
 	constructor(...args) {
 		this.items = [];
@@ -43,4 +43,4 @@ module.exports = class Defer {
 		// Trigger the callbacks
 		this.push();
 	}
-};
+}

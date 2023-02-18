@@ -1,5 +1,5 @@
 // Close a window
-module.exports = window => {
+export default window => {
 
 	// Is this window within an Iframe?
 	if (window.frameElement) {

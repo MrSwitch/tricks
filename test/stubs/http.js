@@ -1,13 +1,13 @@
 // stubs nodes http.request methods
 // Get the methods to stub
 
-const http = require('http');
-const https = require('https');
+import http from 'http';
+import https from 'https';
 const _http = http.request;
 const _https = https.request;
-const EventEmitter = require('events').EventEmitter;
+import EventEmitter from 'events';
 
-module.exports = mock => {
+export default mock => {
 	const a = [];
 
 	http.request = respond(a, mock);
@@ -16,10 +16,10 @@ module.exports = mock => {
 	return a;
 };
 
-module.exports.unstub = () => {
+export function unstub() {
 	http.request = _http;
 	https.request = _https;
-};
+}
 
 function respond(a, mock) {
 

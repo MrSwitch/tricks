@@ -1,9 +1,9 @@
 // Provide an API for setting and retrieving cookies
-const arrayFind = require('../../array/find.js');
-const Storage = require('./Storage.js');
+import arrayFind from '../../array/find.js';
+import Storage from './Storage.js';
 
 // Emulate localStorage using cookies
-module.exports = new Storage({
+const storage = new Storage({
 	getItem: name => {
 		const key = `${name}=`;
 		const m = document.cookie.split(';');
@@ -24,3 +24,5 @@ module.exports = new Storage({
 		document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 	}
 });
+
+export default storage;

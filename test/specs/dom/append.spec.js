@@ -1,4 +1,4 @@
-const append = require('../../../dom/append.js');
+import append from '../../../dom/append.js';
 
 describe('dom/append', () => {
 

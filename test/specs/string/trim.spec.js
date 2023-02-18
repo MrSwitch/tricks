@@ -1,4 +1,4 @@
-const trim = require('../../../string/trim.js');
+import trim from '../../../string/trim.js';
 
 describe('string/trim', () => {
 

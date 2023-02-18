@@ -1,1 +1,1 @@
-module.exports = (el, ref) => ref.parentNode.insertBefore(el, ref);
+export default (el, ref) => ref.parentNode.insertBefore(el, ref);

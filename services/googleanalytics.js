@@ -2,9 +2,9 @@
 
 // We are using the browser version here...
 // eslint-disable-next-line node/no-missing-require
-const getScript = require('../http/getScript.js');
+import getScript from '../browser/http/getScript.js';
 
-module.exports = tracking => {
+export default tracking => {
 	window._gaq = window._gaq || [];
 	_gaq.push(['_setAccount', tracking]);
 	_gaq.push(['_trackPageview']);

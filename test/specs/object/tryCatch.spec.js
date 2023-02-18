@@ -1,4 +1,4 @@
-const tryCatch = require('../../../object/tryCatch.js');
+import tryCatch from '../../../object/tryCatch.js';
 
 describe('object/tryCatch', () => {
 

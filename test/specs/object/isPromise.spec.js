@@ -1,5 +1,5 @@
-const isPromise = require('../../../object/isPromise.js');
-const Promise = require('../../../object/Promise.js');
+import isPromise from '../../../object/isPromise.js';
+import Promise from '../../../object/Promise.js';
 
 describe('object/isPromise', () => {
 

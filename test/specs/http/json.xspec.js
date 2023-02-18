@@ -1,9 +1,9 @@
-const json = require('../../../http/json.js');
-const stubRequest = require('../../stubs/http.js');
+import json from '../../../http/json.js';
+import stubRequest, {unstub} from '../../stubs/http.js';
 
 describe('http/json', () => {
 
-	afterEach(() => stubRequest.unstub());
+	afterEach(() => unstub());
 
 	it('should open a GET request and trigger the callback', done => {
 

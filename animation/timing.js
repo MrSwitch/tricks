@@ -1,11 +1,11 @@
 // Timing function
-const requestAnimationFrame = require('../support/requestAnimationFrame.js');
-const now = require('../time/now.js');
+import requestAnimationFrame from '../support/requestAnimationFrame.js';
+import now from '../time/now.js';
 
 const linear = t => t;
 
 // Give a duration, an easing function and a frame callback we have...
-module.exports = (durationMS, easeFunc, frameCallback) => {
+export default (durationMS, easeFunc, frameCallback) => {
 
 	if (!frameCallback) {
 		// default to a linear easing function

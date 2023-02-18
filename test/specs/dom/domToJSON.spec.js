@@ -1,4 +1,4 @@
-const domToJSON = require('../../../dom/domToJSON.js');
+import domToJSON from '../../../dom/domToJSON.js';
 
 // Are errors thrown if an invalid network is provided?
 describe('dom/domToJSON', () => {

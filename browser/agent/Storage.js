@@ -1,8 +1,8 @@
-const jsonParse = require('../../string/jsonParse.js');
-const extend = require('../../object/extend.js');
+import jsonParse from '../../string/jsonParse.js';
+import extend from '../../object/extend.js';
 
 // Return handler
-module.exports = Storage;
+export default Storage;
 
 function Storage(method) {
 

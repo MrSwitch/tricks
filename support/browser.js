@@ -1,6 +1,6 @@
 // Browser Sniffing
 
-const addClass = require('../dom/addClass.js');
+import addClass from '../dom/addClass.js';
 
 const map = {
 	seamonkey: [/Seamonkey\/\d+/],
@@ -31,4 +31,4 @@ if (name) {
 	addClass(document.documentElement, name);
 }
 
-module.exports = name;
+export default name;

@@ -1,10 +1,10 @@
 // JSONP
-const globalCallback = require('../../events/globalCallback.js');
-const getScript = require('./getScript.js');
+import globalCallback from '../../events/globalCallback.js';
+import getScript from './getScript.js';
 
 const MATCH_CALLBACK_PLACEHOLDER = /[=]\?(&|$)/;
 
-module.exports = (url, callback, callback_name, timeout = 60000) => {
+export default (url, callback, callback_name, timeout = 60000) => {
 
 	// Change the name of the callback
 	let result;

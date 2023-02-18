@@ -1,7 +1,7 @@
-const append = require('./append.js');
-const param = require('../string/param.js');
+import append from './append.js';
+import param from '../string/param.js';
 
-module.exports = src => {
+export default src => {
 
 	const style = param({
 		position: 'absolute',

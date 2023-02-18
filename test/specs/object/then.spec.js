@@ -1,4 +1,4 @@
-const Then = require('../../../object/then.js');
+import Then from '../../../object/then.js';
 
 describe('object/then', () => {
 

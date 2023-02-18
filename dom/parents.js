@@ -1,10 +1,10 @@
 // Find parents of an element which match a pattern
 
-const each = require('./each.js');
-const matches = require('./matches.js');
-const documentElement = require('./documentElement.js');
+import each from './each.js';
+import matches from './matches.js';
+import documentElement from './documentElement.js';
 
-module.exports = (elements, match) => {
+export default (elements, match) => {
 	const m = [];
 	each(elements, el => {
 		while (el && el.parentNode) {

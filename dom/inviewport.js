@@ -1,9 +1,9 @@
 // inviewport
 // Determine what proportion of an element is in view
-const documentElement = require('./documentElement.js');
+import documentElement from './documentElement.js';
 
 // Is the element contained in the current view
-module.exports = (elm, bounding) => {
+export default (elm, bounding) => {
 
 	if (!elm.getBoundingClientRect) {
 		return;

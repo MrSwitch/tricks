@@ -1,10 +1,12 @@
-const request = require('../../../http/request.js');
-const stubRequest = require('../../stubs/http.js');
-const mock = JSON.stringify(require('../../stub.json'));
+import request from '../../../http/request.js';
+import stubRequest, {unstub} from '../../stubs/http.js';
+import {readFile} from 'fs/promises';
 
-describe('http/request', () => {
+describe('http/request', async () => {
 
-	afterEach(() => stubRequest.unstub());
+	const mock = await readFile(new URL('../../stub.json', import.meta.url));
+
+	afterEach(() => unstub());
 
 	it('should be a function', () => {
 		expect(request).to.be.a('function');

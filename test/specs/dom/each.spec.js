@@ -1,4 +1,4 @@
-const each = require('../../../dom/each.js');
+import each from '../../../dom/each.js';
 
 describe('dom/each', () => {
 	it('should return an array given an array', () => {

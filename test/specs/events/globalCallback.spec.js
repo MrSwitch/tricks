@@ -1,4 +1,4 @@
-const globalCallback = require('../../../events/globalCallback.js');
+import globalCallback from '../../../events/globalCallback.js';
 
 describe('events/globalCallback', () => {
 

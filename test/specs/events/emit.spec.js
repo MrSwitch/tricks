@@ -1,4 +1,4 @@
-const emit = require('../../../events/emit.js');
+import emit from '../../../events/emit.js';
 
 describe('events/emit', () => {
 

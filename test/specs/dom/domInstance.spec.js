@@ -1,4 +1,4 @@
-const domInstance = require('../../../dom/domInstance.js');
+import domInstance from '../../../dom/domInstance.js';
 
 describe('dom/domInstance', () => {
 

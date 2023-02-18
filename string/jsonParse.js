@@ -1,4 +1,4 @@
-const tryCatch = require('../object/tryCatch.js');
+import tryCatch from '../object/tryCatch.js';
 /**
  * JSONParse
  * Wraps JSON.parse in a try/catch
@@ -13,4 +13,4 @@ function JSONParse(str) {
 	return tryCatch(() => JSON.parse(str));
 }
 
-module.exports = JSONParse;
+export default JSONParse;

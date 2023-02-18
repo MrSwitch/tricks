@@ -1,4 +1,4 @@
-const createElement = require('../../../dom/createElement.js');
+import createElement from '../../../dom/createElement.js';
 
 describe('dom/createElement', () => {
 

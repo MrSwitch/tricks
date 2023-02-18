@@ -1,4 +1,4 @@
-const instanceOf = require('./instanceOf.js');
+import instanceOf from './instanceOf.js';
 
 /**
  * Extend Object works like Object.assign(...) but recurses into the nested properties
@@ -31,4 +31,4 @@ function extendWithArrayIndex(base, ...args) {
 	return base;
 }
 
-module.exports = extendWithArrayIndex;
+export default extendWithArrayIndex;

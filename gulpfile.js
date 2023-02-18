@@ -1,22 +1,24 @@
-const gulp = require('gulp');
-const mochaPhantomJS = require('gulp-mocha-phantomjs');
-const fs = require('fs');
+import gulp from 'gulp';
+import mochaPhantomJS from 'gulp-mocha-phantomjs';
+import fs from 'fs';
 
-const browserify = require('browserify');
-const babelify = require('babelify');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
-const sourcemaps = require('gulp-sourcemaps');
-const util = require('gulp-util');
-const glob = require('glob');
+import browserify from 'browserify';
+import babelify from 'babelify';
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import sourcemaps from 'gulp-sourcemaps';
+import util from 'gulp-util';
+import glob from 'glob';
 
 const port = 8080;
-const localhost = require('localhost')('./');
+import localhost from 'localhost';
+
+const server = localhost('./');
 
 const scripts_to_watch = ['**/*.js', '!node_modules/**/*', '!test/components/**/*', '!test/bundle.js', '!test/specs/index.js'];
 
 gulp.task('localhost', done => {
-	localhost.listen(port, done);
+	server.listen(port, done);
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
@@ -25,12 +27,12 @@ gulp.task('index_tests', () => {
 	const root = 'test/specs/';
 
 	// for the given files in the test directory, create an index
-	return glob('test/specs/**/*.js', (err, files) => {
+	return glob('test/specs/**/*.spec.js', (err, files) => {
 
 		files = files.filter(path => path !== '!test/specs/index.js');
 
 		// Write line to the index file
-		const index = files.map(name => `require('${name.replace(root, './')}');`);
+		const index = files.map(name => `import('${name.replace(root, './')}');`);
 
 		index.push('');
 
@@ -40,7 +42,7 @@ gulp.task('index_tests', () => {
 
 gulp.task('watch', gulp.series('localhost', () => gulp.watch(scripts_to_watch, {interval: 500}, ['test'])));
 
-gulp.task('close', () => localhost.close());
+gulp.task('close', () => server.close());
 
 gulp.task('bundle', gulp.series('index_tests', () =>
 
@@ -64,7 +66,7 @@ gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['
 
 gulp.task('default', gulp.series('localhost', 'test', done => {
 	util.log(`Closing localhost:${port}`);
-	localhost.close(done);
+	server.close(done);
 }));
 
 function testSpecs(pathname) {

@@ -1,4 +1,4 @@
-const formpost = require('../../../../browser/http/formpost.js');
+import formpost from '../../../../browser/http/formpost.js';
 
 describe('http/formpost', () => {
 

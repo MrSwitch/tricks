@@ -1,4 +1,4 @@
-const hiddenFrame = require('../../../dom/hiddenFrame.js');
+import hiddenFrame from '../../../dom/hiddenFrame.js';
 
 describe('dom/hiddenFrame', () => {
 

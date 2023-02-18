@@ -1,4 +1,4 @@
-const each = require('./each.js');
-const matches = require('./matches.js');
+import each from './each.js';
+import matches from './matches.js';
 
-module.exports = (elements, match) => each(elements).filter(el => matches(el, match));
+export default (elements, match) => each(elements).filter(el => matches(el, match));

@@ -1,4 +1,4 @@
-const unique = require('../../../array/unique.js');
+import unique from '../../../array/unique.js';
 
 describe('array/unique', () => {
 

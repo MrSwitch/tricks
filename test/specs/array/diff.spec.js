@@ -1,4 +1,4 @@
-const diff = require('../../../array/diff.js');
+import diff from '../../../array/diff.js';
 
 describe('array/diff', () => {
 

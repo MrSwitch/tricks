@@ -1,7 +1,11 @@
+import sessionStorage from '../../../../browser/agent/sessionStorage.js';
+import localStorage from '../../../../browser/agent/localStorage.js';
+import cookieStorage from '../../../../browser/agent/cookieStorage.js';
+
 const Stores = {
-	sessionStorage: require('../../../../browser/agent/sessionStorage.js'),
-	localStorage: require('../../../../browser/agent/localStorage.js'),
-	cookieStorage: require('../../../../browser/agent/cookieStorage.js')
+	sessionStorage,
+	localStorage,
+	cookieStorage,
 };
 
 describe('Storage', () => {

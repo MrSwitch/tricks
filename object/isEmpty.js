@@ -33,5 +33,5 @@ function isEmpty(obj) {
 	return true;
 }
 
-module.exports = isEmpty;
+export default isEmpty;
 

@@ -1,4 +1,4 @@
-const querystringify = require('../../../string/querystringify.js');
+import querystringify from '../../../string/querystringify.js';
 
 describe('string/querystringify', () => {
 

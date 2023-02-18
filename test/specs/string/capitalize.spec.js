@@ -1,4 +1,4 @@
-const capitalize = require('../../../string/capitalize.js');
+import capitalize from '../../../string/capitalize.js';
 
 describe('string/capitalize', () => {
 

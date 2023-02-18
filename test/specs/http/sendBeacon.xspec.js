@@ -1,5 +1,5 @@
-const sendBeacon = require('../../../http/sendBeacon.js');
-const stubRequest = require('../../stubs/http.js');
+import sendBeacon from '../../../http/sendBeacon.js';
+import stubRequest, {unstub} from '../../stubs/http.js';
 
 describe('http/sendBeacon', () => {
 
@@ -26,7 +26,7 @@ describe('http/sendBeacon', () => {
 	}
 	else {
 
-		afterEach(() => stubRequest.unstub());
+		afterEach(() => unstub());
 
 		it('should trigger a POST request and send x-www-form-urlencoded string', () => {
 

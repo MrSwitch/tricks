@@ -1,4 +1,4 @@
-const merge = require('../../../object/merge.js');
+import merge from '../../../object/merge.js';
 
 describe('object/merge', () => {
 

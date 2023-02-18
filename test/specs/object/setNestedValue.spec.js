@@ -1,4 +1,4 @@
-const setNestedValue = require('../../../object/setNestedValue.js');
+import setNestedValue from '../../../object/setNestedValue.js';
 
 describe('object/setNestedValue', () => {
 

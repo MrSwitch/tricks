@@ -15,6 +15,7 @@
 	},
 	"rules": {
 		"no-param-reassign": 0,
-		"max-params": [2, {"max": 6}]
+		"max-params": [2, {"max": 6}],
+		"node/no-unsupported-features/es-syntax": 0
 	}
 }

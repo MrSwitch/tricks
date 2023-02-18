@@ -32,4 +32,4 @@ function filter(data = {}, callbackFilter = (a => !!a)) {
 	return res;
 }
 
-module.exports = filter;
+export default filter;

@@ -1,5 +1,5 @@
-const queryparse = require('../../../string/queryparse.js');
-const stringify = require('../../../string/querystringify.js');
+import queryparse from '../../../string/queryparse.js';
+import stringify from '../../../string/querystringify.js';
 
 describe('string/queryparse', () => {
 
