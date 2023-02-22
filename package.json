@@ -72,7 +72,7 @@
     "browserstack-runner": "^0.9.4",
     "core-js": "^3.27.2",
     "eslint": "^8.33.0",
-    "eslint-config-5app": "^0.17.0",
+    "eslint-config-5app": "^0.19.0",
     "eslint-plugin-jsdoc": "^40.0.0",
     "eslint-plugin-node": "^11.1.0",
     "expect.js": "^0.3.1",
