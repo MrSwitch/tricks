@@ -1,3 +1,15 @@
+# [2.0.0-rc.1](https://github.com/MrSwitch/tricks/compare/v1.16.0...v2.0.0-rc.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* **semver:** trigger breaking change ([1c6fb3c](https://github.com/MrSwitch/tricks/commit/1c6fb3ce1411397607ef8356066f2cb9dcf8c255))
+
+
+### BREAKING CHANGES
+
+* **semver:** now using ES Modules
+
 # [1.16.0](https://github.com/MrSwitch/tricks/compare/v1.15.1...v1.16.0) (2023-03-20)
 
 
