@@ -9,9 +9,9 @@ import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import util from 'gulp-util';
 import glob from 'glob';
+import localhost from 'localhost';
 
 const port = 8080;
-import localhost from 'localhost';
 
 const server = localhost('./');
 

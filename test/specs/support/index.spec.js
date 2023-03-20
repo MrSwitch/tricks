@@ -12,6 +12,11 @@ import video from '../../../support/video.js';
 import videoAutoplay from '../../../support/video.autoplay.js';
 
 
+import requestAnimationFrame from '../../../support/requestAnimationFrame.js';
+import canvasToBlob from '../../../support/canvasToBlob.js';
+import getUserMedia from '../../../support/getUserMedia.js';
+
+
 const obj = {
 	cors,
 	flex,
@@ -38,11 +43,6 @@ for (const name in obj) {
 
 	});
 }
-
-
-import requestAnimationFrame from '../../../support/requestAnimationFrame.js';
-import canvasToBlob from '../../../support/canvasToBlob.js';
-import getUserMedia from '../../../support/getUserMedia.js';
 
 const fns = {
 	requestAnimationFrame,

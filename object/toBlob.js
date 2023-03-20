@@ -1,6 +1,6 @@
 // Convert Data-URI to Blob string
 
-const reg = /^data:([^;,]+(;charset=[^;,]+)?)(;base64)?,/i;
+const reg = /^data:([^,;]+(;charset=[^,;]+)?)(;base64)?,/i;
 
 export default dataURI => {
 	const m = dataURI.match(reg);

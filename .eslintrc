@@ -14,8 +14,12 @@
 		"HTMLInput": true
 	},
 	"rules": {
-		"no-param-reassign": 0,
+		"func-style": 0,
 		"max-params": [2, {"max": 6}],
-		"node/no-unsupported-features/es-syntax": 0
+		"no-param-reassign": 0,
+		"prefer-object-has-own": 0,
+		"node/no-unsupported-features/es-syntax": 0,
+		"unicorn/numeric-separators-style": 0,
+		"unicorn/prefer-node-protocol": 0
 	}
 }

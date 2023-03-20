@@ -3,9 +3,9 @@
 
 import http from 'http';
 import https from 'https';
+import EventEmitter from 'events';
 const _http = http.request;
 const _https = https.request;
-import EventEmitter from 'events';
 
 export default mock => {
 	const a = [];

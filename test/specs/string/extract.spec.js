@@ -12,7 +12,7 @@ describe('string/extract', () => {
 
 		// Convert there and back
 		const str = 'test:value;test2:2;';
-		const reg = /([a-z0-9-]+):\s*([^:;]+)/gi;
+		const reg = /([\da-z-]+):\s*([^:;]+)/gi;
 		const test = extract(str, reg, value => value + 1);
 
 		expect(test).to.eql({

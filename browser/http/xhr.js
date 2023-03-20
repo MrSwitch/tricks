@@ -5,7 +5,7 @@ import jsonParse from '../../string/jsonParse.js';
 import tryCatch from '../../object/tryCatch.js';
 import rewire from '../../object/rewire.js';
 
-const match_headers = /([a-z0-9-]+):\s*(.*);?/gi;
+const match_headers = /([\da-z-]+):\s*(.*);?/gi;
 
 export default rewire(xhr);
 

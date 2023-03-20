@@ -2,6 +2,7 @@
 import globalCallback from '../../events/globalCallback.js';
 import getScript from './getScript.js';
 
+// eslint-disable-next-line unicorn/better-regex
 const MATCH_CALLBACK_PLACEHOLDER = /[=]\?(&|$)/;
 
 export default (url, callback, callback_name, timeout = 60000) => {
