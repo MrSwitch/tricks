@@ -1,4 +1,4 @@
-const requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
+import requestAnimationFrame from '../../../support/requestAnimationFrame.js';
 
 describe('support/requestAnimationFrame', () => {
 

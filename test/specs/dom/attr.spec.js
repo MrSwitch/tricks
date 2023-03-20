@@ -1,4 +1,4 @@
-const attr = require('../../../dom/attr.js');
+import attr from '../../../dom/attr.js';
 
 describe('dom/attr', () => {
 

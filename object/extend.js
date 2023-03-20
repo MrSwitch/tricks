@@ -1,4 +1,4 @@
-const instanceOf = require('./instanceOf.js');
+import instanceOf from './instanceOf.js';
 
 /**
  * Extend Object works like Object.assign(...) but recurses into the nested properties
@@ -33,4 +33,4 @@ function extend(base, ...args) {
 	return base;
 }
 
-module.exports = extend;
+export default extend;

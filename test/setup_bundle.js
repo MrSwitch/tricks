@@ -1,1 +1,1 @@
-require('./specs/index.js');
+import('./specs/index.js');

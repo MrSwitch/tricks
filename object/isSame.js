@@ -64,4 +64,4 @@ function isSame(a, b) {
 	return true;
 }
 
-module.exports = isSame;
+export default isSame;

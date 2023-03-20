@@ -1,4 +1,4 @@
-const isSame = require('../../../object/isSame.js');
+import isSame from '../../../object/isSame.js';
 
 describe('object/isSame', () => {
 

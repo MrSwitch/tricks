@@ -4,18 +4,18 @@
 // @param object data, key value data to send
 // @param function callback, function to execute in response
 
-const append = require('../../dom/append.js');
-const attr = require('../../dom/attr.js');
-const domInstance = require('../../dom/domInstance.js');
-const createElement = require('../../dom/createElement.js');
-const globalCallback = require('../../events/globalCallback.js');
-const toArray = require('../../array/toArray.js');
-const instanceOf = require('../../object/instanceOf.js');
-const on = require('../../events/on.js');
-const emit = require('../../events/emit.js');
-const setImmediate = require('../../time/setImmediate.js');
+import append from '../../dom/append.js';
+import attr from '../../dom/attr.js';
+import domInstance from '../../dom/domInstance.js';
+import createElement from '../../dom/createElement.js';
+import globalCallback from '../../events/globalCallback.js';
+import toArray from '../../array/toArray.js';
+import instanceOf from '../../object/instanceOf.js';
+import on from '../../events/on.js';
+import emit from '../../events/emit.js';
+import setImmediate from '../../time/setImmediate.js';
 
-module.exports = (url, data, options, callback, callback_name, timeout = 60000) => {
+export default (url, data, options, callback, callback_name, timeout = 60000) => {
 
 	let timer;
 	let bool = 0;

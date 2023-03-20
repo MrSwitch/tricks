@@ -1,5 +1,7 @@
 
+import expect from 'expect.js';
+import sinon from 'sinon';
 
-global.expect = require('expect.js');
+global.expect = expect;
 
-global.sinon = require('sinon');
+global.sinon = sinon;

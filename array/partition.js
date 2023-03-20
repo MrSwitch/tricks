@@ -23,4 +23,4 @@ function partition(a, partitionIndexer) {
 	}, []);
 }
 
-module.exports = partition;
+export default partition;

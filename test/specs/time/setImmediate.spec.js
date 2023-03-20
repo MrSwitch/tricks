@@ -1,4 +1,4 @@
-const setImmediate = require('../../../time/setImmediate.js');
+import setImmediate from '../../../time/setImmediate.js';
 
 describe('time/setImmediate', () => {
 

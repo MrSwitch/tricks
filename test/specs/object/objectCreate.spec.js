@@ -1,4 +1,4 @@
-const objectCreate = require('../../../object/objectCreate.js');
+import objectCreate from '../../../object/objectCreate.js';
 
 describe('object/objectCreate', () => {
 

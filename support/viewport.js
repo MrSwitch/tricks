@@ -1,5 +1,5 @@
-const insertBefore = require('../dom/insertBefore.js');
-const create = require('../dom/create.js');
+import insertBefore from '../dom/insertBefore.js';
+import create from '../dom/create.js';
 
 // Insert Meta Tag
 insertBefore(create('meta', {

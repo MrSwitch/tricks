@@ -1,4 +1,4 @@
-const diffKey = require('../../../object/diffKey.js');
+import diffKey from '../../../object/diffKey.js';
 
 describe('object/diffKey', () => {
 

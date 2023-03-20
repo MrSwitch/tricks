@@ -1,6 +1,6 @@
-const attr = require('./attr.js');
+import attr from './attr.js';
 
-module.exports = (tagName, attrs) => {
+export default (tagName, attrs) => {
 	const elm = document.createElement(tagName);
 	attr(elm, attrs);
 	return elm;

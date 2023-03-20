@@ -1,6 +1,6 @@
-const each = require('./each.js');
+import each from './each.js';
 
-module.exports = (elements, props) =>
+export default (elements, props) =>
 	each(elements, element => {
 		for (const x in props) {
 			const prop = props[x];

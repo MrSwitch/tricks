@@ -1,4 +1,4 @@
-const toArray = require('../../../array/toArray.js');
+import toArray from '../../../array/toArray.js';
 
 describe('array/toArray', () => {
 

@@ -1,6 +1,6 @@
 // Test properties with prefix
 
-module.exports = prop => {
+export default prop => {
 
 	const s = (document.createElement('div')).style;
 

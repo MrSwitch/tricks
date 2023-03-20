@@ -17,4 +17,4 @@ function find(arr, callback, thisArg = null) {
 	}
 }
 
-module.exports = find;
+export default find;

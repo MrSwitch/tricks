@@ -1,4 +1,4 @@
-const Queue = require('../../../object/Queue.js');
+import Queue from '../../../object/Queue.js';
 
 describe('object/Queue', () => {
 

@@ -1,4 +1,4 @@
-const until = require('../../../object/until.js');
+import until from '../../../object/until.js';
 
 describe('object/until', () => {
 

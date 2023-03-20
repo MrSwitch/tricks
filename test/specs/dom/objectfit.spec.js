@@ -1,4 +1,4 @@
-const objectfit = require('../../../dom/objectfit.js');
+import objectfit from '../../../dom/objectfit.js';
 
 describe('dom/objectfit', () => {
 

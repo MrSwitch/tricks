@@ -1,15 +1,20 @@
 /* eslint no-loop-func: 0*/
-const cors = require('../../../support/cors.js');
-const flex = require('../../../support/flex.js');
-const legacyflex = require('../../../support/legacyflex.js');
-const mobile = require('../../../support/mobile.js');
-const svg = require('../../../support/svg.js');
-const smil = require('../../../support/smil.js');
-const touch = require('../../../support/touch.js');
-const transform = require('../../../support/transform.js');
-const transform3d = require('../../../support/transform3d.js');
-const video = require('../../../support/video.js');
-const videoAutoplay = require('../../../support/video.autoplay.js');
+import cors from '../../../support/cors.js';
+import flex from '../../../support/flex.js';
+import legacyflex from '../../../support/legacyflex.js';
+import mobile from '../../../support/mobile.js';
+import svg from '../../../support/svg.js';
+import smil from '../../../support/smil.js';
+import touch from '../../../support/touch.js';
+import transform from '../../../support/transform.js';
+import transform3d from '../../../support/transform3d.js';
+import video from '../../../support/video.js';
+import videoAutoplay from '../../../support/video.autoplay.js';
+
+
+import requestAnimationFrame from '../../../support/requestAnimationFrame.js';
+import canvasToBlob from '../../../support/canvasToBlob.js';
+import getUserMedia from '../../../support/getUserMedia.js';
 
 
 const obj = {
@@ -38,11 +43,6 @@ for (const name in obj) {
 
 	});
 }
-
-
-const requestAnimationFrame = require('../../../support/requestAnimationFrame.js');
-const canvasToBlob = require('../../../support/canvasToBlob.js');
-const getUserMedia = require('../../../support/getUserMedia.js');
 
 const fns = {
 	requestAnimationFrame,

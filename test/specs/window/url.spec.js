@@ -1,4 +1,4 @@
-const url = require('../../../window/url.js');
+import url from '../../../window/url.js';
 
 describe('window/url', () => {
 

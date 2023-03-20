@@ -1,5 +1,5 @@
 // Find position of an element
-module.exports = obj => {
+export default obj => {
 
 	let curleft = 0;
 	let curtop = 0;

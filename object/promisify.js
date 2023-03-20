@@ -1,9 +1,9 @@
 
 
-const isPromise = require('./isPromise.js');
-const Promise = require('./Promise.js');
+import isPromise from './isPromise.js';
+import Promise from './Promise.js';
 
-module.exports = func =>
+export default func =>
 
 	(...args) =>
 

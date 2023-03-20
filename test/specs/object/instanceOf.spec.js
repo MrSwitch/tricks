@@ -1,4 +1,4 @@
-const instanceOf = require('../../../object/instanceOf.js');
+import instanceOf from '../../../object/instanceOf.js';
 
 describe('object/instanceOf', () => {
 

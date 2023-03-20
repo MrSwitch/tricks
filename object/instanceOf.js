@@ -1,1 +1,1 @@
-module.exports = (test, root) => root && test instanceof root;
+export default (test, root) => root && test instanceof root;

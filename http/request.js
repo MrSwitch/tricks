@@ -1,11 +1,11 @@
 
 
-const http = require('http');
-const https = require('https');
-const promisify = require('../object/promisify.js');
-const createUrl = require('../string/createUrl.js');
+import http from 'http';
+import https from 'https';
+import promisify from '../object/promisify.js';
+import createUrl from '../string/createUrl.js';
 
-module.exports = (req, callback) => {
+export default (req, callback) => {
 
 	if (typeof req === 'string') {
 		req = {

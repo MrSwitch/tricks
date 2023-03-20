@@ -1,6 +1,6 @@
-const querystringify = require('../../string/querystringify');
+import querystringify from '../../string/querystringify';
 
-module.exports = (url, data = null, contentType = 'text/plain') => {
+export default (url, data = null, contentType = 'text/plain') => {
 
 	// Format data
 	if (data && typeof data === 'object') {

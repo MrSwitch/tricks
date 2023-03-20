@@ -1,13 +1,13 @@
 // XHR: uses CORS to make requests
-const instanceOf = require('../../object/instanceOf.js');
-const extract = require('../../string/extract.js');
-const jsonParse = require('../../string/jsonParse.js');
-const tryCatch = require('../../object/tryCatch.js');
-const rewire = require('../../object/rewire.js');
+import instanceOf from '../../object/instanceOf.js';
+import extract from '../../string/extract.js';
+import jsonParse from '../../string/jsonParse.js';
+import tryCatch from '../../object/tryCatch.js';
+import rewire from '../../object/rewire.js';
 
-const match_headers = /([a-z0-9-]+):\s*(.*);?/gi;
+const match_headers = /([\da-z-]+):\s*(.*);?/gi;
 
-module.exports = rewire(xhr);
+export default rewire(xhr);
 
 function xhr(method, url, responseType, headers, data, callback) {
 

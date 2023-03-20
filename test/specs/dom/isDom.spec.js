@@ -1,4 +1,4 @@
-const isDom = require('../../../dom/isDom.js');
+import isDom from '../../../dom/isDom.js';
 
 describe('dom/isDom', () => {
 

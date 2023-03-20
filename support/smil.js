@@ -7,4 +7,4 @@ catch {
 	// Continue
 }
 
-module.exports = bool;
+export default bool;

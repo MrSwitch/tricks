@@ -1,6 +1,6 @@
-const toBlob = require('../object/toBlob.js');
+import toBlob from '../object/toBlob.js';
 
-module.exports = canvasToBlob;
+export default canvasToBlob;
 
 function canvasToBlob(callback, type, quality) {
 	callback(toBlob(this.toDataURL(type, quality)));

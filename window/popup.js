@@ -1,11 +1,11 @@
 // popup
 // Easy options as a hash
-const param = require('../string/param.js');
+import param from '../string/param.js';
 
 const documentElement = document.documentElement;
 const dimensions = [['Top', 'Height'], ['Left', 'Width']];
 
-module.exports = (url, target, options = {}) => {
+export default (url, target, options = {}) => {
 
 	// centers the popup correctly to the current display of a multi-screen display.
 	dimensions.forEach(generatePosition.bind(options));

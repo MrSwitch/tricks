@@ -1,11 +1,11 @@
 // sendBeacon
 
 
-const http = require('http');
-const https = require('https');
-const querystringify = require('../string/querystringify');
+import http from 'http';
+import https from 'https';
+import querystringify from '../string/querystringify.js';
 
-module.exports = (url, data) => {
+export default (url, data) => {
 
 	const options = {
 		url,

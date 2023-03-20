@@ -1,4 +1,4 @@
-const filter = require('../../../object/filter.js');
+import filter from '../../../object/filter.js';
 
 describe('object/filter', () => {
 

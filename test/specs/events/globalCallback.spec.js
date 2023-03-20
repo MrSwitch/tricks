@@ -1,4 +1,4 @@
-const globalCallback = require('../../../events/globalCallback.js');
+import globalCallback from '../../../events/globalCallback.js';
 
 describe('events/globalCallback', () => {
 
@@ -64,7 +64,7 @@ describe('events/globalCallback', () => {
 
 		const id = globalCallback(() => {}, null, 'test_');
 
-		expect(id).to.match(/^test_[a-z0-9]+/i);
+		expect(id).to.match(/^test_[\da-z]+/i);
 
 		// clean up
 		delete window[id];

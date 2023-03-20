@@ -1,4 +1,4 @@
-const extend = require('../../../object/extend.js');
+import extend from '../../../object/extend.js';
 
 describe('object/extend', () => {
 

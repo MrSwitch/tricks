@@ -1,7 +1,7 @@
 // Object-Fit
 //  Maps an item to the width and the height of an item using the cover command
 // Returns the coordinatates and the new width and height of the item being drawn on the target
-module.exports = (item_width, item_height, target_width, target_height) => {
+export default (item_width, item_height, target_width, target_height) => {
 
 	// Deterine the ratio
 	const item_r = item_height / item_width;

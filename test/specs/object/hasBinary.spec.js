@@ -1,4 +1,4 @@
-const hasBinary = require('../../../object/hasBinary.js');
+import hasBinary from '../../../object/hasBinary.js';
 
 describe('object/hasBinary', () => {
 

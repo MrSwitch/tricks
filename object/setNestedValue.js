@@ -5,7 +5,7 @@
  * @param {Array|string} paths - Address where the new value to be applied to
  * @param {*} value - Value to assign
  */
-module.exports = function setNestedValue(obj, paths, value) {
+export default function setNestedValue(obj, paths, value) {
 
 	if (!Array.isArray(paths)) {
 		paths = paths.split('.');
@@ -26,4 +26,4 @@ module.exports = function setNestedValue(obj, paths, value) {
 
 		setNestedValue(newObj, paths, value);
 	}
-};
+}

@@ -16,4 +16,4 @@ catch {
 	};
 }
 
-module.exports = createEvent;
+export default createEvent;

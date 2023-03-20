@@ -1,6 +1,6 @@
 // Then
 // Create a Promise instance which can be returned by a function
-const setImmediate = require('../time/setImmediate.js');
+import setImmediate from '../time/setImmediate.js';
 
 /* !
  **  Thenable -- Embeddable Minimum Strictly-Compliant Promises/A+ 1.1.1 Thenable
@@ -174,4 +174,4 @@ api.prototype = {
 
 
 /*  promise object constructor  */
-module.exports = api;
+export default api;

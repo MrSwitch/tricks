@@ -1,6 +1,6 @@
-const instanceOf = require('./instanceOf.js');
+import instanceOf from './instanceOf.js';
 
-module.exports = data =>
+export default data =>
 	instanceOf(data, Object) && (
 		(instanceOf(data, typeof HTMLInputElement !== 'undefined' ? HTMLInputElement : undefined) && data.type === 'file') ||
 	(instanceOf(data, typeof HTMLInput !== 'undefined' ? HTMLInput : undefined) && data.type === 'file') ||

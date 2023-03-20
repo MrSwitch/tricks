@@ -1,5 +1,5 @@
-const delegate = require('../../../events/delegate.js');
-const emit = require('../../../events/emit.js');
+import delegate from '../../../events/delegate.js';
+import emit from '../../../events/emit.js';
 
 describe('events/delegate', () => {
 

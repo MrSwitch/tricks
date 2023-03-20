@@ -1,4 +1,4 @@
-const clone = require('../../../object/clone.js');
+import clone from '../../../object/clone.js';
 
 describe('object/clone', () => {
 
