@@ -1,4 +1,4 @@
-const random = require('../../../string/random.js');
+import random from '../../../string/random.js';
 
 describe('string/random', () => {
 

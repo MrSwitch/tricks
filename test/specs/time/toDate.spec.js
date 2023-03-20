@@ -1,4 +1,4 @@
-const toDate = require('../../../time/toDate.js');
+import toDate from '../../../time/toDate.js';
 
 describe('time/toDate', () => {
 

@@ -1,4 +1,4 @@
-const prepend = require('../../../dom/prepend.js');
+import prepend from '../../../dom/prepend.js';
 
 describe('dom/prepend', () => {
 

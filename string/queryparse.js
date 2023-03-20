@@ -1,10 +1,10 @@
 // Create a Query string
-const extract = require('./extract.js');
+import extract from './extract.js';
 
 const trim_left = /^[#?]/;
-const match_params = /([^=/&]+)=([^&]+)/g;
+const match_params = /([^&/=]+)=([^&]+)/g;
 
-module.exports = (str, formatFunction = decodeURIComponent) => {
+export default (str, formatFunction = decodeURIComponent) => {
 	str = str.replace(trim_left, '');
 	return extract(str, match_params, formatFunction);
 };

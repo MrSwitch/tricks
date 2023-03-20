@@ -1,5 +1,5 @@
 // Was the current event userInitiated?
-module.exports = (e = window.event) => {
+export default (e = window.event) => {
 	if (!e || typeof e !== 'object') {
 		return false;
 	}

@@ -1,7 +1,7 @@
 // cssCalc
-const each = require('./each.js');
+import each from './each.js';
 
-module.exports = elements => {
+export default elements => {
 	const elm = each(elements)[0];
 	return window.getComputedStyle(elm);
 };

@@ -1,4 +1,4 @@
-const ltrim = require('../../../string/ltrim.js');
+import ltrim from '../../../string/ltrim.js';
 
 describe('string/ltrim', () => {
 

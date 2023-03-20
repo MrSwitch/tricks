@@ -1,8 +1,8 @@
 // addClass
-const each = require('./each.js');
-const hasClass = require('./hasClass.js');
+import each from './each.js';
+import hasClass from './hasClass.js';
 
-module.exports = (elements, className) =>
+export default (elements, className) =>
 	each(elements, el => {
 		if (!hasClass(el, className)) {
 			el.className += ` ${className}`;

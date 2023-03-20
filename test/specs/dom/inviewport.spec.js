@@ -1,4 +1,4 @@
-const inviewport = require('../../../dom/inviewport.js');
+import inviewport from '../../../dom/inviewport.js';
 
 describe('dom/inviewport', () => {
 

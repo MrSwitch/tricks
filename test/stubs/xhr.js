@@ -1,9 +1,9 @@
 /* eslint no-undef: 0 */
 
-// module.exports = () => {};
+// export default () => {};
 
 const _xhr = window.XMLHttpRequest;
-module.exports = data => {
+export default data => {
 
 	const a = [];
 

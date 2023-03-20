@@ -1,4 +1,4 @@
-const params = require('../../../string/param.js');
+import params from '../../../string/param.js';
 
 describe('string/param', () => {
 

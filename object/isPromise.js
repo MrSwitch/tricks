@@ -1,3 +1,3 @@
 
 // Is Promise
-module.exports = obj => (obj && typeof obj === 'object' && 'then' in obj && typeof obj.then === 'function');
+export default obj => (obj && typeof obj === 'object' && 'then' in obj && typeof obj.then === 'function');

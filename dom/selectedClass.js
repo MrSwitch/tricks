@@ -1,9 +1,9 @@
 // Select Class
-const each = require('./each.js');
-const addClass = require('./addClass.js');
-const removeClass = require('./removeClass.js');
+import each from './each.js';
+import addClass from './addClass.js';
+import removeClass from './removeClass.js';
 
-module.exports = (elements, className = 'selected') =>
+export default (elements, className = 'selected') =>
 	each(elements, el => {
 		removeClass(el.parentNode.children, className);
 		addClass(el, className);

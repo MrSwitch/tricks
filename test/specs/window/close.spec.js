@@ -1,4 +1,4 @@
-const close = require('../../../window/close.js');
+import close from '../../../window/close.js';
 
 describe('window/close', () => {
 

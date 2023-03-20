@@ -1,5 +1,5 @@
 
 
-const then = require('./then.js');
+import then from './then.js';
 
-module.exports = (typeof Promise === 'function') ? Promise : then;
+export default (typeof Promise === 'function') ? Promise : then;

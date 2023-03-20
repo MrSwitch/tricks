@@ -1,7 +1,7 @@
-const CSSsupports = require('./CSSsupports.js');
+import CSSsupports from './CSSsupports.js';
 
 const result = ('ontouchstart' in window);
 
 CSSsupports('touch', result);
 
-module.exports = result;
+export default result;

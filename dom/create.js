@@ -1,7 +1,7 @@
 // Create and Append new Dom elements
 // @param node string
 // @param attr object literal
-module.exports = (node, attr = {}, children = [], append = null) => {
+export default (node, attr = {}, children = [], append = null) => {
 
 	const n = typeof(node) === 'string' ? document.createElement(node) : node;
 

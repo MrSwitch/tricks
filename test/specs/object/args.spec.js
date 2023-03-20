@@ -1,4 +1,4 @@
-const args = require('../../../object/args.js');
+import args from '../../../object/args.js';
 
 describe('object/args', () => {
 

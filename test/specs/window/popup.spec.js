@@ -1,4 +1,4 @@
-const popup = require('../../../window/popup.js');
+import popup from '../../../window/popup.js';
 
 describe('window/popup', () => {
 

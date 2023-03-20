@@ -1,2 +1,3 @@
+// eslint-disable-next-line unicorn/prefer-date-now
 const f = () => (new Date()).getTime();
-module.exports = Date.now || f;
+export default Date.now || f;

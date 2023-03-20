@@ -1,4 +1,4 @@
-module.exports = fn => {
+export default fn => {
 	try {
 		return fn();
 	}

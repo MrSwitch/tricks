@@ -2,9 +2,9 @@
 // This is similar to the Page Visibility API
 //  - https://developer.mozilla.org/en-US/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API
 
-const emit = require('./emit.js');
-const on = require('./on.js');
-const until = require('../dom/until.js');
+import emit from './emit.js';
+import on from './on.js';
+import until from '../dom/until.js';
 
 
 // Variables

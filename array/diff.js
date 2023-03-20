@@ -9,4 +9,4 @@ function diff(a, b) {
 	return b.filter(item => a.indexOf(item) === -1);
 }
 
-module.exports = diff;
+export default diff;

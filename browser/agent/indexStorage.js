@@ -1,6 +1,6 @@
 // indexStorage
 // This wraps an interface around IndexDB to create an object store
-const indexedDB = require('../../support/indexedDB.js');
+import indexedDB from '../../support/indexedDB.js';
 
 // Create an instance of the db
 // The Cache name is optional, it will allow us to group various datasets (the default is __tricks__)
@@ -133,6 +133,6 @@ function requestToPromise(request) {
 	});
 }
 
-module.exports = DB;
+export default DB;
 
 

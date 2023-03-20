@@ -1,2 +1,2 @@
 // Select a single element
-module.exports = (query, parent = document) => parent.querySelector(query);
+export default (query, parent = document) => parent.querySelector(query);

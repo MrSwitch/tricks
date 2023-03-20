@@ -1,9 +1,9 @@
 // Prop
-const prefix = require('./prefix.js');
-const CSSsupports = require('./CSSsupports.js');
+import prefix from './prefix.js';
+import CSSsupports from './CSSsupports.js';
 
 const result = prefix('transform');
 
 CSSsupports('transform', result);
 
-module.exports = result;
+export default result;

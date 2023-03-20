@@ -1,4 +1,4 @@
-const browser = require('../../../support/browser.js');
+import browser from '../../../support/browser.js';
 
 describe('support/browser', () => {
 

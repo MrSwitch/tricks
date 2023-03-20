@@ -1,4 +1,4 @@
-const CSSsupport = require('./CSSsupports.js');
+import CSSsupport from './CSSsupports.js';
 let bool = false;
 
 // Test to see if the HTML5 player supports AUTOPLAY
@@ -17,4 +17,4 @@ catch {
 
 CSSsupport('video-autoplay', bool);
 
-module.exports = bool;
+export default bool;

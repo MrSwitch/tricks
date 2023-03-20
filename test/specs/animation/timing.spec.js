@@ -1,4 +1,4 @@
-const timing = require('../../../animation/timing.js');
+import timing from '../../../animation/timing.js';
 
 describe('animation/timing', () => {
 

@@ -1,6 +1,6 @@
-const each = require('./each.js');
+import each from './each.js';
 
-module.exports = (elements, callback) => {
+export default (elements, callback) => {
 	let bool;
 
 	each(elements, el => {

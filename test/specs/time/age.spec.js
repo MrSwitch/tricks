@@ -1,4 +1,4 @@
-const age = require('../../../time/age.js');
+import age from '../../../time/age.js';
 
 describe('time/age', () => {
 

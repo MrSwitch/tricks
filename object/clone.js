@@ -1,7 +1,7 @@
-const isBinary = require('./isBinary.js');
+import isBinary from './isBinary.js';
 
 // Create a clone of an object
-module.exports = function clone(obj) {
+export default function clone(obj) {
 	// Does not clone DOM elements, nor Binary data, e.g. Blobs, Filelists
 	if (obj === null || typeof (obj) !== 'object' || obj instanceof Date || 'nodeName' in obj || isBinary(obj) || (typeof FormData === 'function' && obj instanceof FormData)) {
 		return obj;
@@ -19,4 +19,4 @@ module.exports = function clone(obj) {
 	}
 
 	return _clone;
-};
+}

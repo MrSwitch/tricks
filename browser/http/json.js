@@ -1,8 +1,8 @@
 // JSON
-const jsonParse = require('../../string/jsonParse.js');
-const tryCatch = require('../../object/tryCatch.js');
+import jsonParse from '../../string/jsonParse.js';
+import tryCatch from '../../object/tryCatch.js';
 
-module.exports = (url, callback) => {
+export default (url, callback) => {
 
 	const x = new XMLHttpRequest();
 	x.onload = () => {

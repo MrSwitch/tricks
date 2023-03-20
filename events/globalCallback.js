@@ -1,9 +1,9 @@
 // Global Events
 // Attach the callback to the window object
 // Return its unique reference
-const random = require('../string/random.js');
+import random from '../string/random.js';
 
-module.exports = (callback, guid, prefix = '_tricks_') => {
+export default (callback, guid, prefix = '_tricks_') => {
 
 	// If the guid has not been supplied then create a new one.
 	guid = guid || prefix + random();

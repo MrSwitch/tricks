@@ -20,9 +20,9 @@ npm i tricks
 Incorporate a trick by pointing deep into the library... e.g.
 
 ```javascript
-let createUrl = require('tricks/string/createUrl');
+import createUrl from 'tricks/string/createUrl';
 
-module.exports = createUrl('https://test.com/?name=dodson', {name: 'andrew', extra: 1});
+const url = createUrl('https://test.com/?name=dodson', {name: 'andrew', extra: 1});
 
 // 'https://test.com/?name=andrew&extra=1'
 ```

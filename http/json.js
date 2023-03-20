@@ -1,8 +1,8 @@
 // Get JSON
-const request = require('./request.js');
-const jsonParse = require('../string/jsonParse.js');
+import request from './request.js';
+import jsonParse from '../string/jsonParse.js';
 
-module.exports = (url, callback) => {
+export default (url, callback) => {
 
 	// Protocol
 	request(url, data => callback(jsonParse(data)));

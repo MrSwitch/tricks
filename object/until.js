@@ -1,6 +1,6 @@
 // Polls the fn multiple times until it's resolved
 // Period between polls is defined by the value defer
-module.exports = (fn, defer = 0) =>
+export default (fn, defer = 0) =>
 
 	new Promise((accept, reject) => {
 

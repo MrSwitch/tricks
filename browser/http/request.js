@@ -1,14 +1,14 @@
 // Request
 // Makes an REST request given an object which describes how (aka, xhr, jsonp, formpost)
-const jsonp = require('./jsonp.js');
-const xhr = require('./xhr.js');
-const formpost = require('./formpost.js');
-const SupportCORS = require('../../support/cors.js');
-const globalCallback = require('../../events/globalCallback.js');
-const createUrl = require('../../string/createUrl.js');
-const extend = require('../../object/extend.js');
+import jsonp from './jsonp.js';
+import xhr from './xhr.js';
+import formpost from './formpost.js';
+import SupportCORS from '../../support/cors.js';
+import globalCallback from '../../events/globalCallback.js';
+import createUrl from '../../string/createUrl.js';
+import extend from '../../object/extend.js';
 
-module.exports = (p, callback) => {
+export default (p, callback) => {
 
 	if (typeof p === 'string') {
 		p = {

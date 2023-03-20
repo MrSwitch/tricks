@@ -1,6 +1,6 @@
 // Can this convert a string to a Date
 
-module.exports = str => {
+export default str => {
 
 	const date = new Date(str);
 

@@ -1,3 +1,15 @@
+# [1.16.0-rc.1](https://github.com/MrSwitch/tricks/compare/v1.15.1...v1.16.0-rc.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* **ci:** prerelease channel config ([0ae0e4b](https://github.com/MrSwitch/tricks/commit/0ae0e4b93ee46e841105ed212e1300c2093f9880))
+
+
+### Features
+
+* **esm:** convert to esm ([#134](https://github.com/MrSwitch/tricks/issues/134)) ([e0acd31](https://github.com/MrSwitch/tricks/commit/e0acd3149a9fa7cea757b3ff75a8452681e77702))
+
 ## [1.15.1](https://github.com/MrSwitch/tricks/compare/v1.15.0...v1.15.1) (2023-02-01)
 
 

@@ -1,4 +1,4 @@
-const sleep = require('../../../time/sleep.js');
+import sleep from '../../../time/sleep.js';
 
 describe('time/sleep', () => {
 

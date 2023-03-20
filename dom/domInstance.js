@@ -1,6 +1,6 @@
-const instanceOf = require('../object/instanceOf.js');
+import instanceOf from '../object/instanceOf.js';
 
-module.exports = (type, data) => {
+export default (type, data) => {
 	const test = `HTML${(type || '').replace(
 		/^[a-z]/,
 		m => m.toUpperCase()

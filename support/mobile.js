@@ -1,3 +1,3 @@
 // device mobile
-const bool = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-module.exports = bool;
+const bool = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent);
+export default bool;

@@ -1,4 +1,4 @@
-const getScript = require('../../../../browser/http/getScript.js');
+import getScript from '../../../../browser/http/getScript.js';
 
 describe('http/getScript', () => {
 

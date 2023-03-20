@@ -1,1 +1,1 @@
-module.exports = ('withCredentials' in new XMLHttpRequest());
+export default ('withCredentials' in new XMLHttpRequest());

@@ -1,5 +1,5 @@
-const DB = require('../../../../browser/agent/indexStorage.js');
-const indexedDB = require('../../../../support/indexedDB.js');
+import DB from '../../../../browser/agent/indexStorage.js';
+import indexedDB from '../../../../support/indexedDB.js';
 
 describe('browser/agent/indexStorage', () => {
 

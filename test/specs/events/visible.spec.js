@@ -1,6 +1,6 @@
-const visible = require('../../../events/visible.js');
-const on = require('../../../events/on.js');
-const off = require('../../../events/off.js');
+import visible from '../../../events/visible.js';
+import on from '../../../events/on.js';
+import off from '../../../events/off.js';
 
 describe('events/visible', () => {
 

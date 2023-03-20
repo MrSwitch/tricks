@@ -1,9 +1,9 @@
-const until = require('./until.js');
+import until from './until.js';
 
 const el = document.createElement('div');
 const matches = (el.matches || el.mozMatchesSelector || el.webkitMatchesSelector || el.msMatchesSelector || el.oMatchesSelector);
 
-module.exports = (elements, query) => {
+export default (elements, query) => {
 
 	let handler = query;
 

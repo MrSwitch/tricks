@@ -7,4 +7,4 @@ window.requestAnimationFrame =
 	window.msRequestAnimationFrame ||
 	(callback => setTimeout(callback, 1000 / 60));
 
-module.exports = window.requestAnimationFrame.bind(window);
+export default window.requestAnimationFrame.bind(window);

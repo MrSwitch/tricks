@@ -1,4 +1,4 @@
-const xhr = require('../../../../browser/http/xhr.js');
+import xhr from '../../../../browser/http/xhr.js';
 
 describe('http/xhr', () => {
 

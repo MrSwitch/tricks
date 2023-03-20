@@ -1,8 +1,8 @@
 // Prop
-const prefix = require('./prefix.js');
-const CSSsupports = require('./CSSsupports.js');
+import prefix from './prefix.js';
+import CSSsupports from './CSSsupports.js';
 
 const result = prefix('perspective');
 CSSsupports('transform3d', result);
 
-module.exports = result;
+export default result;

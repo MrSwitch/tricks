@@ -1,4 +1,4 @@
-const now = require('../../../time/now.js');
+import now from '../../../time/now.js';
 
 describe('time/now', () => {
 

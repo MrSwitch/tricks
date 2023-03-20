@@ -1,8 +1,8 @@
-const on = require('./on.js');
-const off = require('./off.js');
-const matches = require('../dom/matches.js');
+import on from './on.js';
+import off from './off.js';
+import matches from '../dom/matches.js';
 
-module.exports = (match, eventName, handler, root = document) => {
+export default (match, eventName, handler, root = document) => {
 
 	const eventHandler = e => {
 		let target = e.target;

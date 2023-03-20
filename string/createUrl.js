@@ -1,7 +1,7 @@
-const querystringify = require('./querystringify.js');
-const isEmpty = require('../object/isEmpty.js');
+import querystringify from './querystringify.js';
+import isEmpty from '../object/isEmpty.js';
 
-module.exports = (url, params, formatFunction) => {
+export default (url, params, formatFunction) => {
 
 	let reg;
 

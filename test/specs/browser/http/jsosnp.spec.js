@@ -1,4 +1,4 @@
-const jsonp = require('../../../../browser/http/jsonp.js');
+import jsonp from '../../../../browser/http/jsonp.js';
 
 describe('http/jsonp', () => {
 

@@ -1,4 +1,4 @@
-const promisify = require('../../../object/promisify.js');
+import promisify from '../../../object/promisify.js';
 
 describe('object/promisify', () => {
 

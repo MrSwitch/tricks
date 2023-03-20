@@ -1,7 +1,7 @@
 // Extend an object
-const extend = require('./extend.js');
+import extend from './extend.js';
 
-module.exports = (...args) => {
+export default (...args) => {
 	args.unshift({});
 	return extend(...args);
 };

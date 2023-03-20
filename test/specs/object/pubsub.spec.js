@@ -1,4 +1,4 @@
-const pubsub = require('../../../object/pubsub.js');
+import pubsub from '../../../object/pubsub.js';
 
 describe('object/pubsub', () => {
 

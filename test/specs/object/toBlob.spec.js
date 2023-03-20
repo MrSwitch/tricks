@@ -1,4 +1,4 @@
-const toBlob = require('../../../object/toBlob.js');
+import toBlob from '../../../object/toBlob.js';
 
 describe('object/toBlob', () => {
 

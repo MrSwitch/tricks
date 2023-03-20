@@ -1,6 +1,6 @@
-const createElement = require('./createElement.js');
+import createElement from './createElement.js';
 
-module.exports = (tagName, prop, parent = document.body) => {
+export default (tagName, prop, parent = document.body) => {
 	const elm = createElement(tagName, prop);
 	parent.insertBefore(elm, parent.firstChild);
 	return elm;
