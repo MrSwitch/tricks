@@ -86,7 +86,7 @@
     "jsdoc-to-markdown": "^8.0.0",
     "localhost": "^0.4.1",
     "mocha": "^10.2.0",
-    "semantic-release": "^21.0.0",
+    "semantic-release": "^22.0.0",
     "sinon": "^16.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
