@@ -77,7 +77,7 @@
     "eslint-plugin-jsdoc": "^48.0.0",
     "eslint-plugin-node": "^11.1.0",
     "expect.js": "^0.3.1",
-    "glob": "^9.3.0",
+    "glob": "^10.0.0",
     "gulp": "^5.0.0",
     "gulp-mocha-phantomjs": "^0.12.2",
     "gulp-sourcemaps": "^3.0.0",
