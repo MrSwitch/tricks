@@ -14,7 +14,7 @@ const eventEndTypes = pointerEnabled ? 'MSPointerUp pointerUp' : 'mouseup touche
 // Touch
 // @param callback function - Every touch event fired
 // @param complete function- Once all touch event ends
-export default (elements, onmove, onstart, onend) => {
+export default function touch(elements, onmove, onstart, onend) {
 
 	// Store callbacks, and previous pointer position
 	const cb = {};
@@ -110,7 +110,7 @@ export default (elements, onmove, onstart, onend) => {
 			}
 		});
 	});
-};
+}
 
 export function gesture(currEvent, prevEvent) {
 

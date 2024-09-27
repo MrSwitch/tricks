@@ -19,7 +19,7 @@ catch {
 }
 
 
-export default (elements, eventnames, callback, options = false) => {
+export default function on(elements, eventnames, callback, options = false) {
 
 	if (typeof options === 'object' && options.passive && !supportsPassive) {
 		// Override the passive mark
@@ -28,4 +28,4 @@ export default (elements, eventnames, callback, options = false) => {
 
 	eventnames = eventnames.split(SEPERATOR);
 	return each(elements, el => eventnames.forEach(eventname => el.addEventListener(eventname, callback, options)));
-};
+}

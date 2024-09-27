@@ -1,6 +1,6 @@
 import instanceOf from '../object/instanceOf.js';
 
-export default (type, data) => {
+export default function isDomInstance(type, data) {
 	const test = `HTML${(type || '').replace(
 		/^[a-z]/,
 		m => m.toUpperCase()
@@ -19,4 +19,4 @@ export default (type, data) => {
 	else {
 		return (!(instanceOf(data, Object) || instanceOf(data, Array) || instanceOf(data, String) || instanceOf(data, Number)) && data.tagName && data.tagName.toLowerCase() === type);
 	}
-};
+}
