@@ -28,10 +28,10 @@ function scanElement(el) {
 	}
 }
 
-export default el => {
+export default function isVisible(el) {
 	// Add element to list of elements to monitor
 	elements.push(el);
 
 	// Update
 	scanElement(el);
-};
+}

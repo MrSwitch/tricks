@@ -2,7 +2,7 @@ import isDom from './isDom.js';
 import instanceOf from '../object/instanceOf.js';
 import toArray from '../array/toArray.js';
 
-export default (matches, callback = () => {}) => {
+export default function each(matches, callback = () => {}) {
 
 	if (isDom(matches)) {
 		matches = [matches];
@@ -20,4 +20,4 @@ export default (matches, callback = () => {}) => {
 	}
 
 	return matches;
-};
+}

@@ -1,3 +1,10 @@
+## [2.0.1-rc.1](https://github.com/MrSwitch/tricks/compare/v2.0.0...v2.0.1-rc.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* bug in events/swipe ([8b50d2e](https://github.com/MrSwitch/tricks/commit/8b50d2ede2781396794af9c55afaed55761aebd4))
+
 # [2.0.0](https://github.com/MrSwitch/tricks/compare/v1.16.0...v2.0.0) (2023-03-20)
 
 

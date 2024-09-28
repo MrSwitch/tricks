@@ -1,22 +1,6 @@
 ## Functions
 
 <dl>
-<dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
-<dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties</p>
-</dd>
-<dt><a href="#extendWithArrayIndex">extendWithArrayIndex(base, ...args)</a> ⇒ <code>object</code></dt>
-<dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties
-With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array</p>
-</dd>
-<dt><a href="#filter">filter(data, [callbackFilter])</a> ⇒ <code>object</code></dt>
-<dd><p>Filter Object properties of falsy values, or apply a custom callback</p>
-</dd>
-<dt><a href="#isEmpty">isEmpty(obj)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determines if the value is empty, accepts object and primitive types</p>
-</dd>
-<dt><a href="#isSame">isSame(a, b)</a> ⇒ <code>boolean</code></dt>
-<dd><p>isSame compares two parameters to determine whether they have identical structures and values.</p>
-</dd>
 <dt><a href="#diff">diff(a, b)</a> ⇒ <code>Array</code></dt>
 <dd><p>Array diff
 Returns all items in the first array which are also in the second</p>
@@ -37,6 +21,22 @@ Partition an array into separate arrays</p>
 <dd><p>Unique
 Filter an Array for unique values</p>
 </dd>
+<dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
+<dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties</p>
+</dd>
+<dt><a href="#extendWithArrayIndex">extendWithArrayIndex(base, ...args)</a> ⇒ <code>object</code></dt>
+<dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties
+With Array Index will merge objects within an array, extend treats them as being different and merely pushes them on to end of array</p>
+</dd>
+<dt><a href="#filter">filter(data, [callbackFilter])</a> ⇒ <code>object</code></dt>
+<dd><p>Filter Object properties of falsy values, or apply a custom callback</p>
+</dd>
+<dt><a href="#isEmpty">isEmpty(obj)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Determines if the value is empty, accepts object and primitive types</p>
+</dd>
+<dt><a href="#isSame">isSame(a, b)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isSame compares two parameters to determine whether they have identical structures and values.</p>
+</dd>
 <dt><a href="#capitalize">capitalize(str)</a> ⇒ <code>string</code></dt>
 <dd><p>Capitalize
 Converts the first character of a sting to uppercase</p>
@@ -53,6 +53,75 @@ Wraps JSON.parse in a try/catch</p>
 <dt><a href="#callbackFilter">callbackFilter</a> : <code>function</code></dt>
 <dd></dd>
 </dl>
+
+<a name="diff"></a>
+
+## diff(a, b) ⇒ <code>Array</code>
+Array diff
+Returns all items in the first array which are also in the second
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - All items which are in both arrays  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | First array |
+| b | <code>Array</code> | Second array |
+
+<a name="find"></a>
+
+## find(arr, callback, thisArg) ⇒ <code>\*</code>
+Array find
+Returns the first non undefined response
+If the response is (Boolean) True, then the value of that array item is returned instead...
+
+**Kind**: global function  
+**Returns**: <code>\*</code> - returns the found item in the array if the callback returned true, or the response from the callback.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| arr | <code>Array</code> |  | Array or iterable object to search |
+| callback | <code>function</code> |  | callback to run tests on, return value other than undefined to stop searching |
+| thisArg | <code>object</code> | <code></code> | Instance to execute the callback on |
+
+<a name="partition"></a>
+
+## partition(a, partitionIndexer) ⇒ <code>Array</code>
+Partition
+Partition an array into separate arrays
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - An array of arrays, unflattened  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | Array to filter |
+| partitionIndexer | <code>function</code> | Partition indexer hander, returns the index of where to put the new array. |
+
+<a name="toArray"></a>
+
+## toArray(obj) ⇒ <code>Array</code>
+Converts an iterable value to an Array
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - The object as an array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>object</code> | Object to convert into an array |
+
+<a name="unique"></a>
+
+## unique(a) ⇒ <code>Array</code>
+Unique
+Filter an Array for unique values
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - A unique array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array</code> | Array to filter |
 
 <a name="extend"></a>
 
@@ -152,75 +221,6 @@ isSame({a: {b: 1}}, {a: {b: 2}});
 // returns false
 isSame({a: {b: 1}}, {a: {b: 1, c: 2}});
 ```
-<a name="diff"></a>
-
-## diff(a, b) ⇒ <code>Array</code>
-Array diff
-Returns all items in the first array which are also in the second
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - All items which are in both arrays  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| a | <code>Array</code> | First array |
-| b | <code>Array</code> | Second array |
-
-<a name="find"></a>
-
-## find(arr, callback, thisArg) ⇒ <code>\*</code>
-Array find
-Returns the first non undefined response
-If the response is (Boolean) True, then the value of that array item is returned instead...
-
-**Kind**: global function  
-**Returns**: <code>\*</code> - returns the found item in the array if the callback returned true, or the response from the callback.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| arr | <code>Array</code> |  | Array or iterable object to search |
-| callback | <code>function</code> |  | callback to run tests on, return value other than undefined to stop searching |
-| thisArg | <code>object</code> | <code></code> | Instance to execute the callback on |
-
-<a name="partition"></a>
-
-## partition(a, partitionIndexer) ⇒ <code>Array</code>
-Partition
-Partition an array into separate arrays
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - An array of arrays, unflattened  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| a | <code>Array</code> | Array to filter |
-| partitionIndexer | <code>function</code> | Partition indexer hander, returns the index of where to put the new array. |
-
-<a name="toArray"></a>
-
-## toArray(obj) ⇒ <code>Array</code>
-Converts an iterable value to an Array
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - The object as an array  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| obj | <code>object</code> | Object to convert into an array |
-
-<a name="unique"></a>
-
-## unique(a) ⇒ <code>Array</code>
-Unique
-Filter an Array for unique values
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - A unique array  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| a | <code>Array</code> | Array to filter |
-
 <a name="capitalize"></a>
 
 ## capitalize(str) ⇒ <code>string</code>
