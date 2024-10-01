@@ -1,3 +1,9 @@
+## [2.0.2-rc.1](https://github.com/MrSwitch/tricks/compare/v2.0.1...v2.0.2-rc.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* **create:** handle event listeners ([06172ee](https://github.com/MrSwitch/tricks/commit/06172ee07bea0d778a22f45940dcecbc40478626))
 
 ## [2.0.1](https://github.com/MrSwitch/tricks/compare/v2.0.0...v2.0.1) (2024-09-28)
 
