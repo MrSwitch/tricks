@@ -85,7 +85,7 @@
     "jsdoc": "^4.0.2",
     "jsdoc-to-markdown": "^9.0.0",
     "localhost": "^0.4.1",
-    "mocha": "^10.2.0",
+    "mocha": "^11.0.0",
     "semantic-release": "^22.0.0",
     "sinon": "^19.0.0",
     "vinyl-buffer": "^1.0.1",
