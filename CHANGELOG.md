@@ -1,3 +1,10 @@
+## [2.0.2-rc.2](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.1...v2.0.2-rc.2) (2024-12-10)
+
+
+### Bug Fixes
+
+* **queryparse:** use URLSearchParams, noissue ([df3b8bc](https://github.com/MrSwitch/tricks/commit/df3b8bc785356dc7216afe073e61df1baece6b94))
+
 ## [2.0.2-rc.1](https://github.com/MrSwitch/tricks/compare/v2.0.1...v2.0.2-rc.1) (2024-10-01)
 
 
