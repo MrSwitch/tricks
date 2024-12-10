@@ -13,12 +13,13 @@ describe('string/queryparse', () => {
 	it('should turn URL query into an object', () => {
 
 		// Convert there and back
+		const testUrl = 'https://example.com';
 
-		const value = queryparse('&test=1&test2=2');
+		const value = queryparse(`&test=1&test2=${encodeURIComponent(testUrl)}`);
 
 		expect(value).to.eql({
 			test: '1',
-			test2: '2'
+			test2: testUrl,
 		});
 	});
 
