@@ -1,7 +1,6 @@
 // Create a Query string
 import extract from './extract.js';
 
-const trim_left = /^[#?]/;
 const match_params = /([^&/=]+)=([^&]+)/g;
 
 /**
@@ -11,9 +10,19 @@ const match_params = /([^&/=]+)=([^&]+)/g;
  * @returns {object} - object with the key value pairs
  */
 export default function queryparse(str, formatFunction = null) {
-	str = str.replace(trim_left, '');
+
+	if (str.startsWith('#')) {
+		// Remove the hash
+		str = str.substring(1);
+	}
+
+	// If there is a custom extract function...
 	if (formatFunction) {
-		return extract(str, match_params, formatFunction || decodeURIComponent);
+		if (str.startsWith('?')) {
+			// Remove the hash
+			str = str.substring(1);
+		}
+		return extract(str, match_params, formatFunction);
 	}
 
 	// Create a test URLSearchParams object
