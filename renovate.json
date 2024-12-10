@@ -1,7 +1,8 @@
 {
   "automerge": true,
   "rangeStrategy": "replace",
+	"baseBranches": ["next"],
   "extends": [
-    "config:base"
+    "config:recommended"
   ]
 }
