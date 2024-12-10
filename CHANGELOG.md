@@ -1,3 +1,10 @@
+## [2.0.2-rc.3](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.2...v2.0.2-rc.3) (2024-12-10)
+
+
+### Bug Fixes
+
+* **queryparse:** address comments, noissue ([b3cfea5](https://github.com/MrSwitch/tricks/commit/b3cfea57c73bd5f6e0ccff936af3caaced51703c))
+
 ## [2.0.2-rc.2](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.1...v2.0.2-rc.2) (2024-12-10)
 
 
