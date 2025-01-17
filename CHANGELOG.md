@@ -1,3 +1,17 @@
+# [2.1.0](https://github.com/MrSwitch/tricks/compare/v2.0.1...v2.1.0) (2025-01-17)
+
+
+### Bug Fixes
+
+* **create:** handle event listeners ([06172ee](https://github.com/MrSwitch/tricks/commit/06172ee07bea0d778a22f45940dcecbc40478626))
+* **queryparse:** address comments, noissue ([b3cfea5](https://github.com/MrSwitch/tricks/commit/b3cfea57c73bd5f6e0ccff936af3caaced51703c))
+* **queryparse:** use URLSearchParams, noissue ([df3b8bc](https://github.com/MrSwitch/tricks/commit/df3b8bc785356dc7216afe073e61df1baece6b94))
+
+
+### Features
+
+* **new:** string/toNumber util ([71af8b1](https://github.com/MrSwitch/tricks/commit/71af8b12a55afc356d1a36a8a0f3119a67245042))
+
 ## [2.0.2-rc.3](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.2...v2.0.2-rc.3) (2024-12-10)
 
 
