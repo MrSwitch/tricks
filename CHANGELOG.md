@@ -1,3 +1,24 @@
+## [2.0.2-rc.3](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.2...v2.0.2-rc.3) (2024-12-10)
+
+
+### Bug Fixes
+
+* **queryparse:** address comments, noissue ([b3cfea5](https://github.com/MrSwitch/tricks/commit/b3cfea57c73bd5f6e0ccff936af3caaced51703c))
+
+## [2.0.2-rc.2](https://github.com/MrSwitch/tricks/compare/v2.0.2-rc.1...v2.0.2-rc.2) (2024-12-10)
+
+
+### Bug Fixes
+
+* **queryparse:** use URLSearchParams, noissue ([df3b8bc](https://github.com/MrSwitch/tricks/commit/df3b8bc785356dc7216afe073e61df1baece6b94))
+
+## [2.0.2-rc.1](https://github.com/MrSwitch/tricks/compare/v2.0.1...v2.0.2-rc.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* **create:** handle event listeners ([06172ee](https://github.com/MrSwitch/tricks/commit/06172ee07bea0d778a22f45940dcecbc40478626))
+
 ## [2.0.1](https://github.com/MrSwitch/tricks/compare/v2.0.0...v2.0.1) (2024-09-28)
 
 
@@ -11,6 +32,9 @@
 ### Bug Fixes
 
 * bug in events/swipe ([8b50d2e](https://github.com/MrSwitch/tricks/commit/8b50d2ede2781396794af9c55afaed55761aebd4))
+
+* **create:** handle event listeners ([06172ee](https://github.com/MrSwitch/tricks/commit/06172ee07bea0d778a22f45940dcecbc40478626))
+
 
 # [2.0.0](https://github.com/MrSwitch/tricks/compare/v1.16.0...v2.0.0) (2023-03-20)
 

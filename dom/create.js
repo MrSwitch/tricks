@@ -28,6 +28,9 @@ export default (node, attr = {}, children = [], append = null) => {
 					}
 				}
 			}
+			else if (typeof(attr[x]) === 'function') {
+				n.addEventListener(x, attr[x]);
+			}
 			else {
 				n.setAttribute(x, attr[x]);
 			}
