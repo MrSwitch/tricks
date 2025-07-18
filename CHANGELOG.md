@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/MrSwitch/tricks/compare/v2.1.0...v2.2.0) (2025-07-18)
+
+
+### Features
+
+* **mapCompare:** adds map/compare with new tests to isJSON ([#172](https://github.com/MrSwitch/tricks/issues/172)) ([5630c02](https://github.com/MrSwitch/tricks/commit/5630c02c03dcfba57e74fc02add2cf5ed2b334b2))
+
 # [2.1.0](https://github.com/MrSwitch/tricks/compare/v2.0.1...v2.1.0) (2025-01-17)
 
 
