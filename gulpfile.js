@@ -8,7 +8,7 @@ import buffer from 'vinyl-buffer';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import util from 'gulp-util';
-import glob from 'glob';
+import {glob} from 'glob';
 import localhost from 'localhost';
 
 const port = 8080;
@@ -22,22 +22,27 @@ gulp.task('localhost', done => {
 	util.log('Listening on port', util.colors.cyan(port));
 });
 
-gulp.task('index_tests', () => {
+gulp.task('index_tests', async () => {
 
 	const root = 'test/specs/';
 
+	util.log(`${util.colors.cyan('index_tests')}`);
+
 	// for the given files in the test directory, create an index
-	return glob('test/specs/**/*.spec.js', (err, files) => {
+	let files = await glob('test/specs/**/*.spec.js');
 
-		files = files.filter(path => path !== '!test/specs/index.js');
+	files = files.filter(path => path !== '!test/specs/index.js');
 
-		// Write line to the index file
-		const index = files.map(name => `import('${name.replace(root, './')}');`);
+	// Sort the files to ensure consistent order
+	files.sort();
 
-		index.push('');
+	// Write line to the index file
+	const index = files.map(name => `import('${name.replace(root, './')}');`);
 
-		fs.writeFileSync('test/specs/index.js', index.join('\n'));
-	});
+	index.push('');
+
+	fs.writeFileSync('test/specs/index.js', index.join('\n'));
+	util.log(`Wrote ${util.colors.cyan('test/specs/index.js')} with ${files.length} tests`);
 });
 
 gulp.task('watch', gulp.series('localhost', () => gulp.watch(scripts_to_watch, {interval: 500}, ['test'])));
@@ -64,7 +69,7 @@ gulp.task('test', gulp.series('bundle', testSpecs('test/bundle.html')));
 
 gulp.task('watch_bundle', () => gulp.watch(scripts_to_watch, {interval: 500}, ['bundle']));
 
-gulp.task('default', gulp.series('localhost', 'test', done => {
+gulp.task('default', gulp.series('localhost', 'bundle', done => {
 	util.log(`Closing localhost:${port}`);
 	server.close(done);
 }));
