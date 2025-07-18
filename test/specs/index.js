@@ -40,6 +40,7 @@ import('./object/filter.spec.js');
 import('./object/getNestedValue.spec.js');
 import('./object/hasBinary.spec.js');
 import('./object/instanceOf.spec.js');
+import('./object/isEmptyObjectLiteral.spec.js');
 import('./object/isPromise.spec.js');
 import('./object/isSame.spec.js');
 import('./object/merge.spec.js');
