@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/MrSwitch/tricks/compare/v2.2.0...v2.3.0) (2025-07-18)
+
+
+### Features
+
+* **isEmptyObjectLiteral:** new trick ([#174](https://github.com/MrSwitch/tricks/issues/174)) ([e6d353b](https://github.com/MrSwitch/tricks/commit/e6d353b56ce33a88ed9456d63f2299315aad7add))
+
 # [2.2.0](https://github.com/MrSwitch/tricks/compare/v2.1.0...v2.2.0) (2025-07-18)
 
 
