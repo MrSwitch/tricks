@@ -33,6 +33,9 @@ gulp.task('index_tests', async () => {
 
 	files = files.filter(path => path !== '!test/specs/index.js');
 
+	// Sort the files to ensure consistent order
+	files.sort();
+
 	// Write line to the index file
 	const index = files.map(name => `import('${name.replace(root, './')}');`);
 
