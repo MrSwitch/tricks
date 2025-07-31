@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/MrSwitch/tricks/compare/v2.3.0...v2.4.0) (2025-07-31)
+
+
+### Features
+
+* **loadScript:** add browser http loadScript, noissue ([#175](https://github.com/MrSwitch/tricks/issues/175)) ([e796494](https://github.com/MrSwitch/tricks/commit/e796494feddbcab38fe58f1ad50b1a680215a394))
+
 # [2.3.0](https://github.com/MrSwitch/tricks/compare/v2.2.0...v2.3.0) (2025-07-18)
 
 
