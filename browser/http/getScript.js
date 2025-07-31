@@ -1,7 +1,7 @@
 import createElement from '../../dom/createElement.js';
 import createEvent from '../../events/createEvent.js';
 
-export default (url, callback, timeout = 0) => {
+export default function getScript(url, callback, timeout = 0) {
 
 	// Inject a script tag
 	let bool = 0;
@@ -42,4 +42,4 @@ export default (url, callback, timeout = 0) => {
 	head.insertBefore(script, head.firstChild);
 
 	return script;
-};
+}
