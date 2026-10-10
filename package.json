@@ -6,7 +6,7 @@
   "type": "module",
   "main": "index.js",
   "engines": {
-    "node": ">=16"
+    "node": ">=24"
   },
   "scripts": {
     "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js ./string/**/*.js > docs/README.md",
@@ -68,9 +68,9 @@
   "devDependencies": {
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^11.0.1",
     "babelify": "^10.0.0",
     "browserify": "^17.0.1",
     "browserstack-runner": "^0.9.4",
@@ -89,7 +89,7 @@
     "jsdoc-to-markdown": "^9.1.1",
     "localhost": "^0.4.1",
     "mocha": "^11.7.1",
-    "semantic-release": "^24.2.9",
+    "semantic-release": "^25.0.9",
     "sinon": "^19.0.5",
     "typescript": "^7.0.2",
     "vinyl-buffer": "^1.0.1",
