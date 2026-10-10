@@ -1,3 +1,7 @@
+/**
+ * @param {string} [path] - Path or URL to parse
+ * @returns {Location | URL | HTMLAnchorElement} An object with URL properties
+ */
 export default path => {
 
 	// If the path is empty

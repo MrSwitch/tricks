@@ -19,6 +19,13 @@ catch {
 }
 
 
+/**
+ * @param {EventTarget | string | ArrayLike<EventTarget>} elements - Selector, target or list of targets
+ * @param {string} eventnames - Space or comma separated event names
+ * @param {(e: Event) => void} callback - Event handler
+ * @param {boolean | AddEventListenerOptions} [options] - addEventListener options
+ * @returns {void}
+ */
 export default function on(elements, eventnames, callback, options = false) {
 
 	if (typeof options === 'object' && options.passive && !supportsPassive) {

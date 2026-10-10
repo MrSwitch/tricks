@@ -4,6 +4,10 @@
 // eslint-disable-next-line node/no-missing-require
 import getScript from '../browser/http/getScript.js';
 
+/**
+ * @param {string} tracking - Google Analytics tracking id
+ * @returns {void}
+ */
 export default tracking => {
 	window._gaq = window._gaq || [];
 	_gaq.push(['_setAccount', tracking]);
