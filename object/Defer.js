@@ -7,10 +7,10 @@
 export default class Defer {
 
 	/**
-	 * @param {...(value: T) => void} args - Callbacks to queue
+	 * @param {...function(T): void} args - Callbacks to queue
 	 */
 	constructor(...args) {
-		/** @type {Array<(value: T) => void>} */
+		/** @type {Array<function(T): void>} */
 		this.items = [];
 		this.state = 'pending';
 		/** @type {T | null} */
@@ -20,7 +20,7 @@ export default class Defer {
 
 	// Mimic the Array.push function
 	/**
-	 * @param {...(value: T) => void} args - Callbacks to queue
+	 * @param {...function(T): void} args - Callbacks to queue
 	 * @returns {void}
 	 */
 	push(...args) {

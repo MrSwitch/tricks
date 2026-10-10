@@ -21,6 +21,10 @@ Partition an array into separate arrays</p>
 <dd><p>Unique
 Filter an Array for unique values</p>
 </dd>
+<dt><a href="#push">push(...args)</a> ⇒ <code>void</code></dt>
+<dd></dd>
+<dt><a href="#resolve">resolve(response)</a> ⇒ <code>void</code></dt>
+<dd></dd>
 <dt><a href="#extend">extend(base, ...args)</a> ⇒ <code>object</code></dt>
 <dd><p>Extend Object works like Object.assign(...) but recurses into the nested properties</p>
 </dd>
@@ -122,6 +126,24 @@ Filter an Array for unique values
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>Array</code> | Array to filter |
+
+<a name="push"></a>
+
+## push(...args) ⇒ <code>void</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...args | <code>function</code> | Callbacks to queue |
+
+<a name="resolve"></a>
+
+## resolve(response) ⇒ <code>void</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| response | <code>T</code> | Value passed to the queued callbacks |
 
 <a name="extend"></a>
 
