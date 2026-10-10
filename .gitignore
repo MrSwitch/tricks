@@ -1,5 +1,6 @@
 node_modules/
 npm-debug.log
+*.d.ts
 test/lib/
 test/bundle.js*
 tmp/
