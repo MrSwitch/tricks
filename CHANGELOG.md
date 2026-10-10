@@ -1,3 +1,10 @@
+# [2.5.0-rc.2](https://github.com/MrSwitch/tricks/compare/v2.5.0-rc.1...v2.5.0-rc.2) (2026-10-10)
+
+
+### Features
+
+* **types:** additional jsdoc improvements ([#189](https://github.com/MrSwitch/tricks/issues/189)) ([cbc94f4](https://github.com/MrSwitch/tricks/commit/cbc94f4fda8712722b505374c755f075068d75d6))
+
 # [2.5.0-rc.1](https://github.com/MrSwitch/tricks/compare/v2.4.0...v2.5.0-rc.1) (2026-10-10)
 
 
