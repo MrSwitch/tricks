@@ -1,3 +1,15 @@
+# [2.5.0-rc.1](https://github.com/MrSwitch/tricks/compare/v2.4.0...v2.5.0-rc.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* **cd:** add trusted publishing ([#185](https://github.com/MrSwitch/tricks/issues/185)) ([00ca86b](https://github.com/MrSwitch/tricks/commit/00ca86b1bfd6cae2c8920bdd9ab5af57bbcd3ebc))
+
+
+### Features
+
+* **types:** add type definitions ([3dccab6](https://github.com/MrSwitch/tricks/commit/3dccab650ed03aa047209089f010156caa7610c5))
+
 # [2.4.0](https://github.com/MrSwitch/tricks/compare/v2.3.0...v2.4.0) (2025-07-31)
 
 
