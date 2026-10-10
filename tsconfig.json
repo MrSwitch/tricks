@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": false,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"target": "es2020",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"lib": ["es2020", "dom"],
+		"skipLibCheck": true
+	},
+	"include": [
+		"animation/**/*.js",
+		"array/**/*.js",
+		"browser/**/*.js",
+		"dom/**/*.js",
+		"events/**/*.js",
+		"helper/**/*.js",
+		"http/**/*.js",
+		"map/**/*.js",
+		"object/**/*.js",
+		"services/**/*.js",
+		"string/**/*.js",
+		"support/**/*.js",
+		"time/**/*.js",
+		"window/**/*.js"
+	],
+	"exclude": [
+		"node_modules",
+		"test",
+		"docs"
+	]
+}

@@ -10,6 +10,8 @@
   },
   "scripts": {
     "docs": "jsdoc2md ./object/**/*.js ./array/**/*.js ./string/**/*.js > docs/README.md",
+    "types": "find . -name '*.d.ts' -not -path './node_modules/*' -delete && tsc",
+    "prepack": "npm run types",
     "lint": "eslint ./",
     "lint-diff": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "lint-diff-fix": "LIST=`git diff-index --diff-filter=d --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint --fix $LIST; fi",
@@ -23,6 +25,7 @@
   },
   "files": [
     "**/*.js",
+    "**/*.d.ts",
     "!test",
     "!docs",
     "!gulpfile.js",
@@ -88,6 +91,7 @@
     "mocha": "^11.7.1",
     "semantic-release": "^22.0.12",
     "sinon": "^19.0.5",
+    "typescript": "^7.0.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
