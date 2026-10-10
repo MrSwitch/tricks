@@ -5,6 +5,12 @@ import param from '../string/param.js';
 const documentElement = document.documentElement;
 const dimensions = [['Top', 'Height'], ['Left', 'Width']];
 
+/**
+ * @param {string} url - URL to open
+ * @param {string} [target] - Window target name
+ * @param {Record<string, any>} [options] - Window features
+ * @returns {Window | null} The opened window
+ */
 export default (url, target, options = {}) => {
 
 	// centers the popup correctly to the current display of a multi-screen display.

@@ -1,7 +1,35 @@
 // Create and Append new Dom elements
-// @param node string
-// @param attr object literal
-export default (node, attr = {}, children = [], append = null) => {
+
+/**
+ * @typedef {Array<Node | string | null | undefined>} CreateChildren
+ */
+
+/**
+ * @template {keyof HTMLElementTagNameMap} K
+ * @overload
+ * @param {K} node
+ * @param {Record<string, any>} [attr]
+ * @param {CreateChildren} [children]
+ * @param {Node | null} [append]
+ * @returns {HTMLElementTagNameMap[K]}
+ */
+/**
+ * @template {HTMLElement} [T=HTMLElement]
+ * @overload
+ * @param {string | T} node
+ * @param {Record<string, any>} [attr]
+ * @param {CreateChildren} [children]
+ * @param {Node | null} [append]
+ * @returns {T}
+ */
+/**
+ * @param {string | HTMLElement} node - Tag name or existing element
+ * @param {Record<string, any>} [attr] - Attributes, events and properties to apply
+ * @param {CreateChildren} [children] - Child nodes or text to append
+ * @param {Node | null} [append] - Parent node to append the element to
+ * @returns {HTMLElement} The created or augmented element
+ */
+export default function create(node, attr = {}, children = [], append = null) {
 
 	const n = typeof(node) === 'string' ? document.createElement(node) : node;
 
@@ -54,4 +82,4 @@ export default (node, attr = {}, children = [], append = null) => {
 	}
 
 	return n;
-};
+}

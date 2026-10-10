@@ -1,16 +1,28 @@
 // Defer
 // Creates a new Iterative object
 
+/**
+ * @template [T=any]
+ */
 export default class Defer {
 
+	/**
+	 * @param {...(value: T) => void} args - Callbacks to queue
+	 */
 	constructor(...args) {
+		/** @type {Array<(value: T) => void>} */
 		this.items = [];
 		this.state = 'pending';
+		/** @type {T | null} */
 		this.response = null;
 		this.push(...args);
 	}
 
 	// Mimic the Array.push function
+	/**
+	 * @param {...(value: T) => void} args - Callbacks to queue
+	 * @returns {void}
+	 */
 	push(...args) {
 
 		// Append items to the internal array.
@@ -34,6 +46,10 @@ export default class Defer {
 		this.items.length = value;
 	}
 
+	/**
+	 * @param {T} response - Value passed to the queued callbacks
+	 * @returns {void}
+	 */
 	resolve(response) {
 
 		// Change the instances state

@@ -1,4 +1,8 @@
 // Find position of an element
+/**
+ * @param {HTMLElement} obj - Element to measure
+ * @returns {[number, number]} The left and top offsets
+ */
 export default obj => {
 
 	let curleft = 0;

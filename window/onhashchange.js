@@ -16,6 +16,10 @@ function handler() {
 	});
 }
 
+/**
+ * @param {(hash: string) => void} [callback] - Invoked with the hash when it changes
+ * @returns {void}
+ */
 export default callback => {
 
 	if (callback) {

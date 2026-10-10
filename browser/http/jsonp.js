@@ -5,6 +5,13 @@ import getScript from './getScript.js';
 // eslint-disable-next-line unicorn/better-regex
 const MATCH_CALLBACK_PLACEHOLDER = /[=]\?(&|$)/;
 
+/**
+ * @param {string} url - URL to request, including a `=?` callback placeholder
+ * @param {(data: any) => void} callback - Invoked with the response
+ * @param {string} [callback_name] - Name for the global callback
+ * @param {number} [timeout] - Milliseconds before giving up
+ * @returns {HTMLScriptElement} The script element used to make the request
+ */
 export default (url, callback, callback_name, timeout = 60000) => {
 
 	// Change the name of the callback

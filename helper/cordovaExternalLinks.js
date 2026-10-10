@@ -1,6 +1,10 @@
 import delegate from '../events/delegate';
 import cordova from '../support/cordova';
 
+/**
+ * @param {Document | Element} [root] - Root node to delegate from
+ * @returns {void}
+ */
 export default (root = document) => {
 	if (!cordova) {
 		return false;

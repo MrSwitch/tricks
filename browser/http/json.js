@@ -2,6 +2,11 @@
 import jsonParse from '../../string/jsonParse.js';
 import tryCatch from '../../object/tryCatch.js';
 
+/**
+ * @param {string} url - URL to request
+ * @param {(data: any) => void} callback - Invoked with the parsed response
+ * @returns {void}
+ */
 export default (url, callback) => {
 
 	const x = new XMLHttpRequest();
