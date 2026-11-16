@@ -89,7 +89,7 @@
     "jsdoc-to-markdown": "^9.1.1",
     "localhost": "^0.4.1",
     "mocha": "^12.0.0",
-    "semantic-release": "^25.0.9",
+    "semantic-release": "^26.0.0",
     "sinon": "^22.0.0",
     "typescript": "^7.0.2",
     "vinyl-buffer": "^1.0.1",
